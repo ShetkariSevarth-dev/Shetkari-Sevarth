@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>कृषि विभागाच्या योजना - महाराष्ट्र शासन</title>
+  <title id="pageTitle">शेतकरी सेवार्थ | Shetkari Sevarth - कृषि विभाग महाराष्ट्र राज्य</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -34,20 +34,26 @@
 
   <!-- Top Bar / Header -->
   <header class="hero-gradient text-white shadow-md">
-    <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+    <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4">
       <div class="flex items-center gap-3 cursor-pointer" onclick="showHome()">
         <div class="bg-white/10 p-3 rounded-2xl text-3xl">🌾</div>
         <div>
-          <h1 class="text-xl md:text-2xl font-bold tracking-tight">कृषि विभागाच्या योजना</h1>
-          <p class="text-xs md:text-sm text-emerald-100 mt-0.5">महाराष्ट्र शासन डिजिटल मार्गदर्शन मंच</p>
+          <h1 id="headerTitle" class="text-xl md:text-2xl font-bold tracking-tight">शेतकरी सेवार्थ (कृषि विभाग महाराष्ट्र राज्य)</h1>
         </div>
       </div>
-      <div class="mt-4 md:mt-0 flex items-center gap-3">
-        <button id="homeBtn" onclick="showHome()" class="hidden bg-white/20 hover:bg-white/30 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition">
-          🏠 मुख्य पृष्ठ (Home)
+      
+      <!-- Controls: Language Toggle & Home Button -->
+      <div class="flex items-center flex-wrap justify-center gap-3">
+        <!-- Language Toggle Button -->
+        <button onclick="toggleLanguage()" class="bg-white/20 hover:bg-white/30 text-white font-bold px-3.5 py-2 rounded-xl text-xs transition flex items-center gap-1.5">
+          🌐 <span id="langToggleText">English करा</span>
         </button>
-        <a href="https://mahadbt.maharashtra.gov.in/Farmer/AgriLogin/AgriLogin" target="_blank" class="bg-gradient-to-r from-orange-600 to-amber-600 hover:opacity-95 text-white font-bold px-5 py-3 rounded-xl text-xs shadow-md transition inline-block">
-          🚀 "अर्ज एक - योजना अनेक" (महाडीबीटी लॉगीन)
+
+        <button id="homeBtn" onclick="showHome()" class="hidden bg-white/20 hover:bg-white/30 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition">
+          🏠 <span data-translate="homeText">मुख्य पृष्ठ (Home)</span>
+        </button>
+        <a href="https://mahadbt.maharashtra.gov.in/Farmer/AgriLogin/AgriLogin" target="_blank" class="bg-gradient-to-r from-orange-600 to-amber-600 hover:opacity-95 text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-md transition inline-block">
+          🚀 महाडीबीटी लॉगीन (MahaDBT)
         </a>
       </div>
     </div>
@@ -55,23 +61,39 @@
 
   <!-- HOME VIEW -->
   <div id="homeView" class="w-full flex-grow">
-    <!-- Welcome Notice (Centered) -->
+    <!-- Welcome Notice -->
     <section class="max-w-4xl mx-auto px-4 pt-8 pb-4 w-full text-center">
       <div class="bg-white border-l-4 border-emerald-600 rounded-2xl p-6 shadow-sm">
-        <h2 class="text-lg md:text-xl font-bold text-emerald-900 mb-2">आपले हार्दिक स्वागत आहे!</h2>
-        <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
-          कृषि विभागाच्या विविध योजनांची सविस्तर माहिती, मार्गदर्शक सूचना, शासन निर्णय, ट्रेनिंग PPT आणि अर्ज नमुने (प्रपत्रे) खालीलप्रमाणे उपलब्ध आहेत. कृपया आपल्या गरजेनुसार योजनेवर क्लिक करा.
+        <h2 id="welcomeTitle" class="text-lg md:text-xl font-bold text-emerald-900 mb-2">शेतकरी सेवार्थ पोर्टलवर आपले हार्दिक स्वागत आहे!</h2>
+        <p id="welcomeDesc" class="text-xs md:text-sm text-gray-600 leading-relaxed">
+          कृषि विभागाच्या विविध योजनांची सविस्तर माहिती, मार्गदर्शक सूचना, शासन निर्णय आणि अर्ज नमुने खालीलप्रमाणे उपलब्ध आहेत. कृपया आपल्या गरजेनुसार योजनेवर क्लिक करा किंवा खाली सर्च करा.
         </p>
       </div>
+    </section>
+
+    <!-- Fuzzy Search Bar Section -->
+    <section class="max-w-3xl mx-auto px-4 py-2 w-full">
+      <div class="bg-white p-3 rounded-2xl shadow-sm border border-emerald-100 flex items-center gap-2">
+        <span class="text-emerald-700 text-lg pl-2">🔍</span>
+        <input 
+          type="text" 
+          id="searchInput" 
+          oninput="handleSearch()" 
+          placeholder="योजनेचे नाव येथे लिहा (उदा. फळबाग, सिंचन, Munda... स्पेलिंग चुकले तरी चालेल)" 
+          class="w-full bg-transparent text-xs md:text-sm focus:outline-none text-gray-800 placeholder-gray-400 py-2"
+        >
+        <button onclick="clearSearch()" id="clearBtn" class="hidden text-gray-400 hover:text-gray-600 text-xs px-2">✕</button>
+      </div>
+      <p id="searchCount" class="text-[11px] text-gray-500 mt-1.5 text-center"></p>
     </section>
 
     <!-- Main Schemes List Section -->
     <main class="max-w-7xl mx-auto px-4 py-6 w-full">
       <div class="mb-4 text-center md:text-left">
-        <h3 class="text-base font-bold text-gray-800 border-b pb-2 inline-block md:block">
+        <h3 id="listHeading" class="text-base font-bold text-gray-800 border-b pb-2 inline-block md:block">
           📂 कृषी योजना, मार्गदर्शक सूचना व प्रपत्रे (सर्व योजनांची सूची)
         </h3>
-        <p class="text-xs text-gray-500 mt-1">खालीलपैकी ज्या योजनेची माहिती, मार्गदर्शक सूचना किंवा प्रपत्र हवे असेल त्यावर क्लिक करा:</p>
+        <p id="listSubHeading" class="text-xs text-gray-500 mt-1">खालीलपैकी ज्या योजनेची माहिती हवी असेल त्यावर क्लिक करा:</p>
       </div>
 
       <!-- Scheme Cards Grid -->
@@ -81,57 +103,31 @@
     </main>
   </div>
 
-  <!-- DETAIL VIEW (Centered Scheme Page) -->
+  <!-- DETAIL VIEW (Separate Scheme Page simulation) -->
   <div id="detailView" class="max-w-4xl mx-auto px-4 py-8 w-full flex-grow hidden">
     <button onclick="showHome()" class="mb-6 bg-emerald-100 hover:bg-emerald-200 text-emerald-900 font-bold px-4 py-2 rounded-xl text-xs transition flex items-center gap-1.5 w-max">
-      <span>←</span> मागील पृष्ठावर जा (Back to Home)
+      <span>←</span> <span data-translate="backText">मागील पृष्ठावर जा (Back to Home)</span>
     </button>
 
     <div class="bg-white rounded-3xl p-6 md:p-10 shadow-md border border-emerald-100 text-center space-y-6">
       <div class="border-b pb-4">
-        <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-3.5 py-1.5 rounded-full uppercase tracking-wider">कृषी योजना मार्गदर्शन</span>
+        <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-3.5 py-1.5 rounded-full uppercase tracking-wider">शेतकरी सेवार्थ - कृषी योजना मार्गदर्शन</span>
         <h2 id="detailTitle" class="text-xl md:text-3xl font-black text-gray-900 mt-3">योजनेचे नाव</h2>
       </div>
 
-      <div class="space-y-5 text-xs md:text-sm text-gray-700 leading-relaxed max-w-2xl mx-auto text-center">
-        <div class="bg-emerald-50/50 p-5 rounded-2xl border border-emerald-100">
+      <div class="space-y-5 text-xs md:text-sm text-gray-700 leading-relaxed max-w-3xl mx-auto text-center">
+        
+        <!-- Generic Description Box -->
+        <div id="genericDescBox" class="bg-emerald-50/50 p-5 rounded-2xl border border-emerald-100">
           <h4 class="font-bold text-emerald-900 mb-2 text-sm">📝 योजनेचा थोडक्यात परिचय व स्वरूप:</h4>
-          <p id="detailDesc">सदर योजनेअंतर्गत पात्र शेतकऱ्यांना शासन नियमानुसार थेट अनुदान, तांत्रिक मार्गदर्शन व लाभ दिला जातो. या योजनेचा उद्देश शेतकऱ्यांचे उत्पादन वाढवणे आणि त्यांना आर्थिकदृष्ट्या सक्षम करणे हा आहे[cite: 1].</p>
+          <p id="detailDesc">सदर योजनेअंतर्गत पात्र शेतकऱ्यांना शासन नियमानुसार थेट अनुदान, तांत्रिक मार्गदर्शन व लाभ दिला जातो.</p>
         </div>
 
-        <!-- Mahadbt Special Section (Hidden by default, shown for Mahadbt scheme) -->
+        <!-- Mahadbt Special Section -->
         <div id="mahadbtSpecificContent" class="hidden space-y-4 text-left bg-orange-50/50 p-5 rounded-2xl border border-orange-200">
           <p class="text-gray-700 leading-relaxed text-xs md:text-sm">
-            महाराष्ट्र डी.बी.टी. पोर्टल हे महाराष्ट्र शासनाचे शेतकऱ्यांना विविध कृषि कल्याणकारी योजना आणि अनुदानांचा लाभ मिळविण्यासाठी एकल-खिडकी डिजिटल व्यासपीठ आहे. या पोर्टलच्या माध्यमातून शेतकरी योजनांची पात्रता तपासू शकतात, ऑनलाईन अर्ज सादर करू शकतात, आवश्यक कागदपत्रे अपलोड करू शकतात तसेच पारदर्शक आणि कागदरहीत प्रक्रियेद्वारे अर्जाच्या स्थितीचा मागोवा घेऊ शकतात.
+            महाराष्ट्र डी.बी.टी. पोर्टल हे महाराष्ट्र शासनाचे शेतकऱ्यांना विविध कृषि कल्याणकारी योजना आणि अनुदानांचा लाभ मिळविण्यासाठी एकल-खिडकी डिजिटल व्यासपीठ आहे.
           </p>
-          <p class="text-gray-700 leading-relaxed text-xs md:text-sm">
-            अनेक शासकीय प्रणालींशी एकात्मिक असलेले हे व्यासपीठ लाभार्थ्यांच्या बँक खात्यांमध्ये अनुदानाची पडताळणी आणि थेट लाभ हस्तांतरण (डी.बी.टी.) सुलभ करते. मानवी हस्तक्षेप तसेच एकूण प्रक्रियेस लागणारा वेळ कमी करून हे पोर्टल कार्यक्षमता, पारदर्शकता आणि सेवांची सुलभता वाढवते. त्यामुळे राज्यभरातील कृषी योजनांचे लाभ वेळेवर वितरित होण्यास मदत होते तसेच योजनांच्या प्रभावी अंमलबजावणी आणि देखरेखीला बळ मिळते.
-          </p>
-          
-          <div class="mt-4 pt-3 border-t border-orange-200">
-            <h5 class="font-bold text-orange-950 mb-2 text-xs md:text-sm">शेतकऱ्यांकरिता योजना पुढीलप्रमाणे:</h5>
-            <ul class="list-disc pl-5 space-y-1 text-xs text-gray-700">
-              <li>भाऊसाहेब फुंडकर फळबाग लागवड योजना</li>
-              <li>बिरसा मुंडा कृषि क्रांती योजना (आदिवासी उपयोजना बाह्य)</li>
-              <li>बिरसा मुंडा कृषि क्रांती योजना (आदिवासी उपयोजना)</li>
-              <li>मुख्यमंत्री कृषि आणि अन्न प्रक्रिया योजना</li>
-              <li>मुख्यमंत्री शाश्वत कृषि सिंचन योजना</li>
-              <li>डॉ. बाबासाहेब आंबेडकर कृषि स्वावलंबन योजना</li>
-              <li>डॉ. श्यामाप्रसाद मुखर्जी जन-वन विकास योजना</li>
-              <li>गोपीनाथ मुंडे शेतकरी अपघात सुरक्षा सानुग्रह अनुदान योजना</li>
-              <li>काजू फळपीक विकास योजना (काजू कलम वाटप)</li>
-              <li>एकात्मिक फलोत्पादन विकास अभियान - केंद्र पुरस्कृत</li>
-              <li>राष्ट्रीय अन्न सुरक्षा अभियान - कापूस - केंद्र पुरस्कृत</li>
-              <li>राष्ट्रीय अन्न सुरक्षा अभियान - अन्नधान्य व तांदूळ/गहू - केंद्र पुरस्कृत</li>
-              <li>राष्ट्रीय अन्न सुरक्षा अभियान - तेलबिया आणि पाम तेल - केंद्र पुरस्कृत</li>
-              <li>राष्ट्रीय अन्न सुरक्षा अभियान - ऊस - केंद्र पुरस्कृत</li>
-              <li>प्रधानमंत्री कृषि सिंचन योजना - प्रति थेंब अधिक पीक</li>
-              <li>प्रधानमंत्री राष्ट्रीय कृषि विकास योजना - सिंचित क्षेत्र विकास</li>
-              <li>राष्ट्रीय कृषि विकास योजना - रफ्तार व ऊस तोडणी यंत्राला अनुदान</li>
-              <li>कृषि यांत्रिकीकरण उप-अभियान - केंद्र पुरस्कृत</li>
-            </ul>
-          </div>
-
           <div class="text-center pt-4">
             <a href="https://mahadbt.maharashtra.gov.in/Farmer/AgriLogin/AgriLogin" target="_blank" class="bg-gradient-to-r from-orange-600 to-amber-600 hover:opacity-95 text-white font-bold px-6 py-3 rounded-2xl text-xs shadow-md transition inline-block">
               👉 येथे क्लिक करून अर्ज करा (Apply Here)
@@ -139,149 +135,227 @@
           </div>
         </div>
 
-        <div>
-          <h4 class="font-bold text-gray-900 mb-2">📑 मार्गदर्शक सूचना व शासन निर्णय (GR):</h4>
-          <p class="text-gray-600 text-xs">शासन निर्णय, परिपत्रक व पात्रता निकष तपासण्यासाठी खालील फाईल्स डाऊनलोड करा.</p>
+        <!-- Gopinath Munde Scheme Special Custom Content -->
+        <div id="gopinathMundeContent" class="hidden space-y-6 text-left">
+          <div class="text-center">
+            <img src="https://lh3.google.com/u/0/d/17MtedLGS1vsw7f6uannBStABT4eVSOV0=s320" alt="Scheme Banner" class="mx-auto rounded-xl shadow-sm mb-4 max-w-full h-auto" />
+            <h3 class="text-lg font-bold text-emerald-900 underline">गोपीनाथ मुंडे शेतकरी अपघात सुरक्षा सानुग्रह अनुदान योजना</h3>
+          </div>
+
+          <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 text-justify space-y-4 text-xs md:text-sm">
+            <p><b>शेती व्यवसाय करताना होणारे अपघात, नैसर्गिक आपत्तिमूळे होणारे अपघात व इतर कारणामुळे होणाऱ्या अपघातांसाठी आर्थिक लाभ देण्याकरिता ही योजना आहे.</b></p>
+            <div>
+              <p class="font-bold underline">1. पात्रता / Eligibility:</p>
+              <p>राज्यातील सर्व वहितीधारक खातेदार शेतकरी व कुटुंबातील कोणताही एक सदस्य (वयोमर्यादा: १० ते ७५ वर्षे).</p>
+            </div>
+            <div>
+              <p class="font-bold underline">2. नुकसान भरपाई / Financial Assistance:</p>
+              <ul class="list-disc pl-5 space-y-1 mt-1">
+                <li>अपघाती मृत्यू: रु. २ लाख</li>
+                <li>दोन डोळे किंवा दोन हात/पाय निकामी झाल्यास: रु. २ लाख</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
-        <!-- Centered Download Buttons -->
+        <!-- Download Buttons -->
         <div class="flex flex-col sm:flex-row justify-center gap-3 pt-2">
           <a href="#" onclick="alert('मार्गदर्शक सूचना फाईल डाऊनलोड होत आहे.')" class="bg-emerald-700 hover:bg-emerald-800 text-white text-center py-3 px-5 rounded-2xl text-xs font-bold shadow-sm transition block">
-            📥 मार्गदर्शक सूचना (PDF)
-          </a>
-          <a href="#" onclick="alert('ट्रेनिंग PPT फाईल डाऊनलोड होत आहे.')" class="bg-amber-600 hover:bg-amber-700 text-white text-center py-3 px-5 rounded-2xl text-xs font-bold shadow-sm transition block">
-            🖥️ ट्रेनिंग PPT फाईल
+            📥 मार्गदर्शक सूचना (Guidelines PDF)
           </a>
           <a href="#" onclick="alert('अर्ज नमुना (प्रपत्र) डाऊनलोड होत आहे.')" class="bg-sky-700 hover:bg-sky-800 text-white text-center py-3 px-5 rounded-2xl text-xs font-bold shadow-sm transition block">
-            📋 अर्ज नमुना / प्रपत्र (Form)
+            📋 अर्ज नमुना / प्रपत्र (Application Form)
           </a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Footer with WhatsApp Complaint Section & Total Pageviews -->
+  <!-- Footer -->
   <footer class="bg-slate-900 text-slate-300 py-6 text-center text-xs mt-10">
-    <div class="max-w-4xl mx-auto px-4 space-y-4">
-      
-      <!-- WhatsApp Complaint Contact at Footer -->
-      <div class="bg-slate-800 border border-slate-700 rounded-xl p-3.5 flex flex-wrap items-center justify-center gap-3 text-xs md:text-sm">
-        <div class="flex items-center gap-2 text-slate-200 font-semibold">
-          <span>💡</span>
-          <span>बियाणे, खते, कीटकनाशके बाबत तक्रारीसाठी त्वरित संपर्क:</span>
-        </div>
-        <a href="https://wa.me/919822446655" target="_blank" class="bg-emerald-600 text-white font-bold px-3.5 py-1.5 rounded-lg shadow-xs hover:bg-emerald-700 transition flex items-center gap-1.5">
-          <span>💬</span> 9822446655 (WhatsApp)[cite: 1]
-        </a>
-      </div>
-
-      <div class="inline-block bg-slate-800 px-4 py-2 rounded-xl text-xs font-semibold border border-slate-700">
-        👁️ एकूण पेजव्ह्यूज: <span class="font-bold text-amber-400">१७,९२,६२९</span>[cite: 1]
-      </div>
-      <p class="text-slate-400">सदर माहिती आपल्या उपयुक्त वाटल्यास किंवा सूचना असल्यास संपर्क साधू शकता[cite: 1].</p>
-      <p class="text-slate-500">© २०२६ कृषि विभागाच्या योजना | सर्व हक्क सुरक्षित</p>
+    <div class="max-w-4xl mx-auto px-4 space-y-3">
+      <p>© २०२६ शेतकरी सेवार्थ | कृषि विभाग महाराष्ट्र राज्य | सर्व हक्क सुरक्षित</p>
     </div>
   </footer>
 
   <script>
-    // All Schemes Data List
-    const schemesList = [
-      "महाडीबीटी पोर्टल (अर्ज एक - योजना अनेक)",
-      "महाडीबीटी हेल्पडेस्क",
-      "महाविस्तार (MahaVISTAAR-AI APP)",
-      "नानाजी देशमुख कृषी संजीवनी प्रकल्प टप्पा - २",
-      "कृषी समृद्धी योजना (BBF, शेततळे, ड्रोन)",
-      "राष्ट्रीय नैसर्गिक शेती अभियान",
-      "मा. बाळासाहेब ठाकरे कृषी व्यवसाय व ग्रामीण परिवर्तन प्रकल्प (SMART)",
-      "सुधारीत प्रधानमंत्री पीक विमा योजना",
-      "फळपीक विमा योजना सन २०२४-२५ ते २०२५-२६",
-      "पीक स्पर्धा",
-      "राज्यातील शेतकऱ्यांचे देशाबाहेर अभ्यास दौरे",
-      "फळबाग व इतर पिके लागवड",
-      "अंदाजपत्रके व कॅल्क्युलेटर्स (Estimates & Calculators)",
-      "भाजीपाला व मसाला बियाणे उत्पादन अनुदान",
-      "रोपवाटिका स्थापन करणेसाठी अनुदान",
-      "नवीन उतीसंवर्धन प्रयोगशाळा स्थापना",
-      "निर्यातक्षम फळे व भाजीपाला ट्रेसीबीलीटीनेट नोंदणी",
-      "AIF- कृषी पायाभूत सुविधा निधी अंतर्गत वित्त पुरवठा",
-      "प्रधानमंत्री सूक्ष्म खाद्य प्रक्रिया उन्नयन योजना (PMFME)",
-      "मुख्यमंत्री कृषी व अन्न प्रक्रिया योजना",
-      "पुण्यश्लोक अहिल्यादेवी होळकर रोपवाटिका योजना",
-      "शेतीशाळा",
-      "विहीर (राकृवियो व मग्रारोहयो अंतर्गत)",
-      "डॉ. बाबासाहेब आंबेडकर कृषी स्वावलंबन योजना",
-      "बिरसा मुंडा कृषि क्रांती योजना",
-      "शेततळे व अस्तरीकरण",
-      "ठिबक व तुषार सिंचन अनुदान",
-      "ट्रॅक्टर व इतर शेती औजारे",
-      "ड्रोन व नमो ड्रोन दिदी मार्गदर्शक सूचना",
-      "पंपसंच व पाईप लाईन अनुदान",
-      "रेशीम उद्योग विकास योजना",
-      "मधुमक्षिका पालन प्रकल्प",
-      "अळिंबी उत्पादन प्रकल्प",
-      "हरितगृह व शेडनेट हाऊस",
-      "मिनी दाल मिल व राईस मिल",
-      "बीज प्रक्रिया युनिट व गोदाम बांधकाम",
-      "प्रधानमंत्री किसान सन्मान निधी व मानधन योजना",
-      "गोपीनाथ मुंडे शेतकरी अपघात सुरक्षा सानुग्रह अनुदान योजना",
-      "आत्मा अंतर्गत बचत गट नोंदणी व प्रशिक्षण",
-      "कृषि व संलग्न क्षेत्राची प्रात्यक्षिके",
-      "एकात्मिक किड / रोग व्यवस्थापन व पीक चिकित्सालय",
-      "संकलन एकत्रीकरण केंद्र व विक्री केंद्र",
-      "कोल्ड स्टोरेज, शीतगृह व शितसाखळी आधुनिकीकरण",
-      "कांदा चाळ बांधकाम (राफअ व मग्रारोहयो)",
-      "वृक्ष लागवड (वनशेती)",
-      "बियाणे खते कीटकनाशके विक्री परवाने",
-      "CROPSAP व HORTSAP पिकावरील कीड सर्वेक्षण",
-      "शेतकरी मासिक व कृषिदर्शनी २०२५",
-      "माती नमुने तपासणी व मृद आरोग्य सुपिकता",
-      "कृषी विषयक पुरस्कार",
-      "राष्ट्रीय फलोत्पादन अभियान व इतर राष्ट्रीय अभियान",
-      "सूक्ष्म सिंचन संच वितरक नोंदणी (PMKSY)",
-      "कृषी निविष्ठा विक्रेते पदविका अभ्यासक्रम (DAESI)",
-      "शेतकरी उत्पादक कंपनी (FPO) स्थापना व अर्थसहाय्य",
-      "पीक कापणी प्रयोग मार्गदर्शिका",
-      "आदर्श गाव योजना",
-      "पोकरा अंतर्गत बीजोत्पादन अनुदान",
-      "मुख्यमंत्री सौर कृषी पंप योजना",
-      "ग्राम कृषी विकास समिती स्थापना",
-      "कापूस आणि सोयाबीन उत्पादकता वाढ योजना",
-      "आदिवासी कुटुंबाच्या परसबागेत फळझाडे लागवड",
-      "महावेध प्रकल्प व हवामान अंदाज",
-      "नैसर्गिक आपत्ती मदत व किमान आधारभूत किमती (MSP)",
-      "मृद व जलसंधारण बाबत शासन निर्णय",
-      "रानभाजी महोत्सव"
+    // Current Language State ('mr' or 'en')
+    let currentLang = 'mr';
+
+    // Schemes Database with Contextual Unique Emojis and Marathi/English Names
+    const schemesData = [
+      { mr: "महाडीबीटी पोर्टल (अर्ज एक - योजना अनेक)", en: "MahaDBT Portal (Single Window Scheme)", emoji: "🚀" },
+      { mr: "महाडीबीटी हेल्पडेस्क", en: "MahaDBT Helpdesk", emoji: "☎️" },
+      { mr: "महाविस्तार (MahaVISTAAR-AI APP)", en: "MahaVISTAAR-AI App", emoji: "📱" },
+      { mr: "नानाजी देशमुख कृषी संजीवनी प्रकल्प टप्पा - २", en: "Nanaji Deshmukh Krishi Sanjivani Project Phase-2", emoji: "🌱" },
+      { mr: "कृषी समृद्धी योजना (BBF, शेततळे, ड्रोन)", en: "Krishi Samruddhi Scheme (BBF, Farm Pond, Drone)", emoji: "🚜" },
+      { mr: "राष्ट्रीय नैसर्गिक शेती अभियान", en: "National Natural Farming Mission", emoji: "🌿" },
+      { mr: "मा. बाळासाहेब ठाकरे कृषी व्यवसाय व ग्रामीण परिवर्तन प्रकल्प (SMART)", en: "Balasaheb Thackeray Agribusiness & Rural Transformation Project (SMART)", emoji: "📈" },
+      { mr: "सुधारीत प्रधानमंत्री पीक विमा योजना", en: "Revised Pradhan Mantri Fasal Bima Yojana", emoji: "🛡️" },
+      { mr: "फळपीक विमा योजना सन २०२४-२५ ते २०२५-२६", en: "Horticulture Crop Insurance Scheme 2024-26", emoji: "🍎" },
+      { mr: "पीक स्पर्धा", en: "Crop Competition", emoji: "🏆" },
+      { mr: "राज्यातील शेतकऱ्यांचे देशाबाहेर अभ्यास दौरे", en: "International Study Tours for Farmers", emoji: "✈️" },
+      { mr: "फळबाग व इतर पिके लागवड", en: "Orchard & Other Crop Cultivation", emoji: "🌳" },
+      { mr: "अंदाजपत्रके व कॅल्क्युलेटर्स (Estimates & Calculators)", en: "Estimates & Calculators", emoji: "🧮" },
+      { mr: "भाजीपाला व मसाला बियाणे उत्पादन अनुदान", en: "Vegetable & Spice Seed Production Subsidy", emoji: "🧅" },
+      { mr: "रोपवाटिका स्थापन करणेसाठी अनुदान", en: "Nursery Establishment Subsidy", emoji: "🪴" },
+      { mr: "नवीन उतीसंवर्धन प्रयोगशाळा स्थापना", en: "New Tissue Culture Laboratory Setup", emoji: "🔬" },
+      { mr: "निर्यातक्षम फळे व भाजीपाला ट्रेसीबीलीटीनेट नोंदणी", en: "TraceNet Registration for Exportable Fruits & Vegetables", emoji: "📦" },
+      { mr: "AIF- कृषी पायाभूत सुविधा निधी अंतर्गत वित्त पुरवठा", en: "Agriculture Infrastructure Fund (AIF) Financing", emoji: "💰" },
+      { mr: "प्रधानमंत्री सूक्ष्म खाद्य प्रक्रिया उन्नयन योजना (PMFME)", en: "PM Formalization of Micro Food Processing Enterprises (PMFME)", emoji: "🏭" },
+      { mr: "मुख्यमंत्री कृषी व अन्न प्रक्रिया योजना", en: "Chief Minister Agriculture & Food Processing Scheme", emoji: "🌾" },
+      { mr: "पुण्यश्लोक अहिल्यादेवी होळकर रोपवाटिका योजना", en: "Punyashlok Ahilyadevi Holkar Nursery Scheme", emoji: "🌻" },
+      { mr: "शेतीशाळा", en: "Farmers Field School (FFS)", emoji: "🏫" },
+      { mr: "विहीर (राकृवियो व मग्रारोहयो अंतर्गत)", en: "Agricultural Well Construction (RKVY & MGNREGS)", emoji: "💧" },
+      { mr: "डॉ. बाबासाहेब आंबेडकर कृषी स्वावलंबन योजना", en: "Dr. Babasaheb Ambedkar Krishi Swavalamban Yojana", emoji: "🏡" },
+      { mr: "बिरसा मुंडा कृषि क्रांती योजना", en: "Birsa Munda Krishi Kranti Yojana", emoji: "🏹" },
+      { mr: "शेततळे व अस्तरीकरण", en: "Farm Pond & Plastic Lining", emoji: "🏞️" },
+      { mr: "ठिबक व तुषार सिंचन अनुदान", en: "Drip & Sprinkler Irrigation Subsidy", emoji: "🚿" },
+      { mr: "ट्रॅक्टर व इतर शेती औजारे", en: "Tractor & Farm Implements Subsidy", emoji: "🚜" },
+      { mr: "ड्रोन व नमो ड्रोन दिदी मार्गदर्शक सूचना", en: "Drone & Namo Drone Didi Guidelines", emoji: "🛸" },
+      { mr: "पंपसंच व पाईप लाईन अनुदान", en: "Pump Set & Pipeline Subsidy", emoji: "🔌" },
+      { mr: "रेशीम उद्योग विकास योजना", en: "Sericulture Industry Development Scheme", emoji: "🐛" },
+      { mr: "मधुमक्षिका पालन प्रकल्प", en: "Beekeeping Project", emoji: "🐝" },
+      { mr: "अळिंबी उत्पादन प्रकल्प", en: "Mushroom Cultivation Project", emoji: "🍄" },
+      { mr: "हरितगृह व शेडनेट हाऊस", en: "Greenhouse & Shade Net House", emoji: "🏡" },
+      { mr: "मिनी दाल मिल व राईस मिल", en: "Mini Dal Mill & Rice Mill", emoji: "⚙️" },
+      { mr: "बीज प्रक्रिया युनिट व गोदाम बांधकाम", en: "Seed Processing Unit & Godown Construction", emoji: "🏛️" },
+      { mr: "प्रधानमंत्री किसान सन्मान निधी व मानधन योजना", en: "PM-KISAN & Samman Nidhi Scheme", emoji: "💳" },
+      { mr: "गोपीनाथ मुंडे शेतकरी अपघात सुरक्षा सानुग्रह अनुदान योजना", en: "Gopinath Munde Farmers Accident Insurance Scheme", emoji: "⛑️" },
+      { mr: "आत्मा अंतर्गत बचत गट नोंदणी व प्रशिक्षण", en: "ATMA SHG Registration & Training", emoji: "👥" },
+      { mr: "कृषि व संलग्न क्षेत्राची प्रात्यक्षिके", en: "Agricultural Demonstrations", emoji: "📊" },
+      { mr: "एकात्मिक किड / रोग व्यवस्थापन व पीक चिकित्सालय", en: "Integrated Pest/Disease Management & Plant Clinic", emoji: "🩺" },
+      { mr: "संकलन एकत्रीकरण केंद्र व विक्री केंद्र", en: "Collection & Marketing Center", emoji: "🏪" },
+      { mr: "कोल्ड स्टोरेज, शीतगृह व शितसाखळी आधुनिकीकरण", en: "Cold Storage & Cold Chain Modernization", emoji: "❄️" },
+      { mr: "कांदा चाळ बांधकाम (राफअ व मग्रारोहयो)", en: "Onion Storage Structure Construction", emoji: "🧅" },
+      { mr: "वृक्ष लागवड (वनशेती)", en: "Tree Plantation (Agroforestry)", emoji: "🌲" },
+      { mr: "बियाणे खते कीटकनाशके विक्री परवाने", en: "Seed, Fertilizer & Pesticide Licenses", emoji: "🏷️" },
+      { mr: "CROPSAP व HORTSAP पिकावरील कीड सर्वेक्षण", en: "CROPSAP & HORTSAP Pest Surveillance", emoji: "🔍" },
+      { mr: "शेतकरी मासिक व कृषिदर्शनी २०२५", en: "Farmer Magazine & Krushidarshani", emoji: "📖" },
+      { mr: "माती नमुने तपासणी व मृद आरोग्य सुपिकता", en: "Soil Testing & Soil Health Card", emoji: "🧪" },
+      { mr: "कृषी विषयक पुरस्कार", en: "Agricultural Awards", emoji: "🏅" },
+      { mr: "राष्ट्रीय फलोत्पादन अभियान व इतर राष्ट्रीय अभियान", en: "National Horticulture Mission & Other Missions", emoji: "🍈" },
+      { mr: "सूक्ष्म सिंचन संच वितरक नोंदणी (PMKSY)", en: "Micro Irrigation Dealer Registration (PMKSY)", emoji: "🚰" },
+      { mr: "कृषी निविष्ठा विक्रेते पदविका अभ्यासक्रम (DAESI)", en: "DAESI Diploma for Agricultural Input Dealers", emoji: "📜" },
+      { mr: "शेतकरी उत्पादक कंपनी (FPO) स्थापना व अर्थसहाय्य", en: "FPO Establishment & Financial Assistance", emoji: "🤝" },
+      { mr: "पीक कापणी प्रयोग मार्गदर्शिका", en: "Crop Cutting Experiment Guidelines", emoji: "📐" },
+      { mr: "आदर्श गाव योजना", en: "Adarsh Gaon Yojana", emoji: "🏘️" },
+      { mr: "पोकरा अंतर्गत बीजोत्पादन अनुदान", en: "PoCRA Seed Production Subsidy", emoji: "🌱" },
+      { mr: "मुख्यमंत्री सौर कृषी पंप योजना", en: "Chief Minister Solar Agriculture Pump Scheme", emoji: "☀️" },
+      { mr: "ग्राम कृषी विकास समिती स्थापना", en: "Gram Krishi Vikas Samiti Establishment", emoji: "🏛️" },
+      { mr: "कापूस आणि सोयाबीन उत्पादकता वाढ योजना", en: "Cotton & Soybean Productivity Enhancement Scheme", emoji: "🌿" },
+      { mr: "आदिवासी कुटुंबाच्या परसबागेत फळझाडे लागवड", en: "Tribal Backyard Fruit Orchard Plantation", emoji: "🏡" },
+      { mr: "महावेध प्रकल्प व हवामान अंदाज", en: "Mahavedh Project & Weather Forecast", emoji: "⛅" },
+      { mr: "नैसर्गिक आपत्ती मदत व किमान आधारभूत किमती (MSP)", en: "Natural Calamity Relief & MSP", emoji: "⚖️" },
+      { mr: "मृद व जलसंधारण बाबत शासन निर्णय", en: "Soil & Water Conservation GRs", emoji: "🌊" },
+      { mr: "रानभाजी महोत्सव", en: "Wild Vegetable Festival (Ranbhaji Mahotsav)", emoji: "🥗" }
     ];
 
-    function renderSchemes() {
+    // Fuzzy / Token matching search function
+    function fuzzyMatch(text, query) {
+      text = text.toLowerCase();
+      query = query.toLowerCase().trim();
+      if (!query) return true;
+      
+      const queryWords = query.split(/\s+/);
+      return queryWords.every(word => text.includes(word));
+    }
+
+    function renderSchemes(filteredList = schemesData) {
       const grid = document.getElementById('schemesGrid');
       grid.innerHTML = '';
       
-      schemesList.forEach((scheme, index) => {
+      if (filteredList.length === 0) {
+        grid.innerHTML = `<div class="col-span-full text-center py-8 text-gray-500 text-xs">कोणतीही योजना आढळली नाही. कृपया स्पेलिंग तपासा. (No matching schemes found)</div>`;
+        document.getElementById('searchCount').innerText = currentLang === 'mr' ? '० परिणाम आढळले' : '0 results found';
+        return;
+      }
+
+      document.getElementById('searchCount').innerText = currentLang === 'mr' ? 
+        `एकूण ${filteredList.length} योजना उपलब्ध आहेत` : 
+        `Total ${filteredList.length} schemes available`;
+
+      filteredList.forEach((item) => {
+        const displayName = currentLang === 'mr' ? item.mr : item.en;
         const card = document.createElement('div');
-        card.className = 'scheme-card bg-white border border-gray-200 rounded-2xl p-4 flex flex-col justify-between shadow-xs';
+        // Added text-center class for central alignment of all card contents
+        card.className = 'scheme-card bg-white border border-gray-200 rounded-2xl p-4 flex flex-col justify-between shadow-xs text-center items-center';
         card.innerHTML = `
           <div>
-            <span class="text-xl">🌱</span>
-            <h4 class="font-bold text-xs md:text-sm text-gray-900 mt-2">${scheme}</h4>
+            <span class="text-3xl">${item.emoji}</span>
+            <h4 class="font-bold text-xs md:text-sm text-gray-900 mt-2">${displayName}</h4>
           </div>
-          <button onclick="openSchemeDetail('${scheme.replace(/'/g, "\\'")}')" class="mt-4 w-full bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-semibold py-2 rounded-xl text-xs transition">
-            माहिती व प्रपत्रे पहा →
+          <button onclick="openSchemeDetail('${item.mr.replace(/'/g, "\\'")}')" class="mt-4 w-full bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-semibold py-2 rounded-xl text-xs transition">
+            ${currentLang === 'mr' ? 'माहिती व प्रपत्रे पहा →' : 'View Details & Forms →'}
           </button>
         `;
         grid.appendChild(card);
       });
     }
 
+    function handleSearch() {
+      const query = document.getElementById('searchInput').value;
+      const clearBtn = document.getElementById('clearBtn');
+      if(query.length > 0) {
+        clearBtn.classList.remove('hidden');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+
+      const filtered = schemesData.filter(item => fuzzyMatch(item.mr, query) || fuzzyMatch(item.en, query));
+      renderSchemes(filtered);
+    }
+
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('clearBtn').classList.add('hidden');
+      renderSchemes(schemesData);
+    }
+
+    // Toggle Language between Marathi and English
+    function toggleLanguage() {
+      currentLang = currentLang === 'mr' ? 'en' : 'mr';
+      document.getElementById('langToggleText').innerText = currentLang === 'mr' ? 'English करा' : 'मराठी करा';
+      
+      if (currentLang === 'en') {
+        document.getElementById('headerTitle').innerText = 'Shetkari Sevarth (Department of Agriculture Maharashtra)';
+        document.getElementById('welcomeTitle').innerText = 'Welcome to Shetkari Sevarth Portal!';
+        document.getElementById('welcomeDesc').innerText = 'Detailed information, guidelines, GRs, and application forms of various schemes are available below. Click on any scheme to explore.';
+        document.getElementById('listHeading').innerText = '📂 Agricultural Schemes, Guidelines & Forms List';
+        document.getElementById('listSubHeading').innerText = 'Click on the scheme you need information for:';
+        document.getElementById('searchInput').placeholder = 'Type scheme name here (Fuzzy search enabled)...';
+      } else {
+        document.getElementById('headerTitle').innerText = 'शेतकरी सेवार्थ (कृषि विभाग महाराष्ट्र राज्य)';
+        document.getElementById('welcomeTitle').innerText = 'शेतकरी सेवार्थ पोर्टलवर आपले हार्दिक स्वागत आहे!';
+        document.getElementById('welcomeDesc').innerText = 'कृषि विभागाच्या विविध योजनांची सविस्तर माहिती, मार्गदर्शक सूचना, शासन निर्णय आणि अर्ज नमुने खालीलप्रमाणे उपलब्ध आहेत. कृपया आपल्या गरजेनुसार योजनेवर क्लिक करा किंवा खाली सर्च करा.';
+        document.getElementById('listHeading').innerText = '📂 कृषी योजना, मार्गदर्शक सूचना व प्रपत्रे (सर्व योजनांची सूची)';
+        document.getElementById('listSubHeading').innerText = 'खालीलपैकी ज्या योजनेची माहिती हवी असेल त्यावर क्लिक करा:';
+        document.getElementById('searchInput').placeholder = 'योजनेचे नाव येथे लिहा (उदा. फळबाग, सिंचन, Munda... स्पेलिंग चुकले तरी चालेल)';
+      }
+
+      handleSearch();
+    }
+
     function openSchemeDetail(schemeName) {
+      window.location.hash = encodeURIComponent(schemeName);
+
       document.getElementById('detailTitle').innerText = schemeName;
-      document.getElementById('detailDesc').innerText = `${schemeName} या योजनेअंतर्गत पात्र लाभार्थ्यांना शासन नियमानुसार सर्वसमावेशक अनुदान, तांत्रिक मार्गदर्शन व ऑनलाईन अर्ज करण्याची सुविधा उपलब्ध करून दिली जाते[cite: 1].`;
+      document.getElementById('detailDesc').innerText = `${schemeName} या योजनेअंतर्गत पात्र लाभार्थ्यांना शासन नियमानुसार सर्वसमावेशक अनुदान, तांत्रिक मार्गदर्शन व ऑनलाईन अर्ज करण्याची सुविधा उपलब्ध करून दिली जाते.`;
       
       const mahadbtSection = document.getElementById('mahadbtSpecificContent');
-      if (schemeName.includes("महाडीबीटी पोर्टल")) {
+      const gopinathSection = document.getElementById('gopinathMundeContent');
+      const genericBox = document.getElementById('genericDescBox');
+
+      mahadbtSection.classList.add('hidden');
+      gopinathSection.classList.add('hidden');
+      genericBox.classList.remove('hidden');
+
+      if (schemeName.includes("महाडीबीटी पोर्टल") || schemeName.includes("MahaDBT")) {
         mahadbtSection.classList.remove('hidden');
-      } else {
-        mahadbtSection.classList.add('hidden');
+        genericBox.classList.add('hidden');
+      } else if (schemeName.includes("गोपीनाथ मुंडे") || schemeName.includes("Gopinath Munde")) {
+        gopinathSection.classList.add('hidden');
+        genericBox.classList.remove('hidden'); 
       }
 
       document.getElementById('homeView').classList.add('hidden');
@@ -291,13 +365,23 @@
     }
 
     function showHome() {
+      window.location.hash = '';
       document.getElementById('detailView').classList.add('hidden');
       document.getElementById('homeView').classList.remove('hidden');
       document.getElementById('homeBtn').classList.add('hidden');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    renderSchemes();
+    window.addEventListener('load', () => {
+      if (window.location.hash) {
+        const decodedName = decodeURIComponent(window.location.hash.substring(1));
+        const found = schemesData.find(s => s.mr === decodedName || s.en === decodedName);
+        if (found) {
+          openSchemeDetail(found.mr);
+        }
+      }
+      renderSchemes();
+    });
   </script>
 </body>
 </html>
