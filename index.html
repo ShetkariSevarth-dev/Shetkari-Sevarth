@@ -29,21 +29,6 @@
 </head>
 <body class="text-gray-800 min-h-screen flex flex-col justify-between">
 
-  <!-- नवीन अपडेट्स पॉप-अप मॉडेल (लहान आणि आकर्षक आकार) -->
-  <div id="updatePopup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-xs p-4">
-    <div class="relative bg-white rounded-2xl max-w-sm sm:max-w-md w-full p-3 shadow-2xl border-2 border-emerald-600 text-center">
-      <!-- कोपऱ्यातील क्लोज (X) बटन -->
-      <button onclick="closePopup()" class="absolute -top-3 -right-3 bg-red-600 hover:bg-red-700 text-white font-black w-8 h-8 rounded-full flex items-center justify-center shadow-md text-base transition cursor-pointer">
-        ✕
-      </button>
-      
-      <!-- अपडेटचा फोटो (मर्यादित आकारासह) -->
-      <div class="overflow-hidden rounded-xl bg-gray-50 flex items-center justify-center">
-        <img src="https://lh3.googleusercontent.com/d/1OTS98SXyqCD0SVz4mqOqKOW3mxyuPEyx" alt="नवीन अपडेट फोटो" class="max-w-full max-h-[55vh] object-contain rounded-lg mx-auto">
-      </div>
-    </div>
-  </div>
-
   <!-- Top Bar / Header -->
   <header class="hero-gradient text-white shadow-md">
     <div class="max-w-7xl mx-auto px-4 py-5 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4">
@@ -115,6 +100,7 @@
 
   <script>
     const schemesData = [
+      // OK योजना (सक्रिय)[cite: 3, 4]
       { mr: 'खत विक्री अर्ज प्रणाली (FFS) <span class="text-red-600 font-extrabold animate-pulse ml-1">[नवीन]</span>', en: "Framework for Fertilizer Sales (FFS)", emoji: "🧪", url: "fsas.html", status: "ok" },
       { mr: 'महिला शेतकरी प्रमाणपत्र <span class="text-red-600 font-extrabold animate-pulse ml-1">[नवीन]</span>', en: "Women Farmer Certificate", emoji: "👩‍🌾", url: "women-farmer.html", status: "ok" },
       { mr: "महाडीबीटी पोर्टल (अर्ज एक - योजना अनेक)", en: "MahaDBT Portal", emoji: "🚀", url: "mahadbt-portal.html", status: "ok" },
@@ -122,6 +108,8 @@
       { mr: "महाविस्तार (MahaVISTAAR-AI APP)", en: "MahaVISTAAR-AI App", emoji: "📱", url: "mahavistaar.html", status: "ok" },
       { mr: "प्रधानमंत्री किसान सन्मान निधी व मानधन योजना", en: "PM-KISAN Scheme", emoji: "💳", url: "pm-kisan.html", status: "ok" },
       { mr: "कृषी विषयक पुरस्कार", en: "Agricultural Awards", emoji: "🏅", url: "awards.html", status: "ok" },
+      
+      // Coming Soon योजना[cite: 3, 4]
       { mr: "नानाजी देशमुख कृषी संजीवनी प्रकल्प टप्पा - २", en: "Nanaji Deshmukh Project (PoCRA)", emoji: "🌱", url: "#", status: "coming-soon" },
       { mr: "सुधारीत प्रधानमंत्री पीक विमा योजना", en: "PM Fasal Bima Yojana", emoji: "🛡️", url: "#", status: "coming-soon" },
       { mr: "फळपीक विमा योजना सन २०२४-२५ ते २०२५-२६", en: "Horticulture Crop Insurance", emoji: "🍎", url: "#", status: "coming-soon" },
@@ -144,18 +132,6 @@
     ];
 
     let currentLang = 'mr';
-
-    function closePopup() {
-      const popup = document.getElementById('updatePopup');
-      popup.classList.add('hidden');
-    }
-
-    window.addEventListener('click', function(event) {
-      const popup = document.getElementById('updatePopup');
-      if (event.target === popup) {
-        closePopup();
-      }
-    });
 
     function fuzzyMatch(text, query) {
       text = text.toLowerCase();
