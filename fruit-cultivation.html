@@ -20,24 +20,258 @@
       background: linear-gradient(135deg, #065f46 0%, #047857 50%, #0f766e 100%);
     }
   </style>
+
+  <style id="sv-reference-design">
+    :root {
+      --sv-forest: #064e36;
+      --sv-green: #087443;
+      --sv-leaf: #23934e;
+      --sv-mint: #ecfdf5;
+      --sv-ink: #18332a;
+      --sv-border: #d7e8dc;
+      --sv-shadow: 0 12px 30px rgba(15,80,45,.08);
+    }
+    html { scroll-behavior: smooth; scroll-padding-top: 18px; }
+    body {
+      font-family: 'Noto Sans Devanagari','Nirmala UI',Arial,sans-serif !important;
+      color: var(--sv-ink);
+      background: radial-gradient(ellipse at top,#ecfdf5 0%,#f8fafc 48%,#f1f5f9 100%);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+    }
+    .hero-gradient, body > header:not(.sv-admin-header) {
+      background: linear-gradient(112deg,#064e36 0%,#087443 48%,#23934e 78%,#76b82a 100%) !important;
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(6,78,59,.18) !important;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+    }
+    body > header:not(.sv-admin-header)::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      right: -45px; top: -90px;
+      width: 260px; height: 240px;
+      border: 22px solid rgba(190,242,100,.24);
+      border-radius: 62% 38% 60% 40%;
+      transform: rotate(-24deg);
+      pointer-events: none;
+    }
+    .sv-header-layout {
+      width: min(100%, 1280px);
+      min-height: 88px;
+      margin: 0 auto;
+      padding: 18px 16px;
+      box-sizing: border-box;
+      display: grid !important;
+      grid-template-columns: minmax(0,1fr) auto minmax(0,1fr);
+      align-items: center;
+      gap: 14px;
+      text-align: center;
+    }
+    .sv-header-back, .sv-header-home {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 220px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.20);
+      color: #fff !important;
+      font-size: 12px;
+      font-weight: 750;
+      line-height: 1.35;
+      text-align: center;
+      text-decoration: none !important;
+      white-space: normal;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      transition: background .18s ease, transform .18s ease;
+    }
+    .sv-header-back { grid-column: 1; justify-self: start; }
+    .sv-header-title {
+      grid-column: 2;
+      justify-self: center;
+      min-width: 0;
+      margin: 0;
+      padding: 0;
+      color: #fff !important;
+      text-decoration: none !important;
+    }
+    .sv-header-title h1 {
+      margin: 0 !important;
+      padding: 0 !important;
+      color: #fff !important;
+      font-family: 'Noto Sans Devanagari',sans-serif !important;
+      font-size: clamp(24px,2.4vw,36px) !important;
+      line-height: 1.25 !important;
+      font-weight: 800 !important;
+      letter-spacing: -.02em;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .sv-header-actions { grid-column: 3; justify-self: end; display:flex; align-items:center; gap:8px; min-width:0; }
+    .sv-header-back:hover, .sv-header-home:hover { background: rgba(255,255,255,.30); transform: translateY(-1px); }
+    .sv-global-notices {
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0 auto 12px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #fcd34d;
+      border-radius: 0;
+      background: #fef3c7;
+      color: #78350f;
+      box-shadow: inset 0 -2px 4px rgba(120,53,15,.04);
+      position: relative;
+      z-index: 2;
+    }
+    .sv-notice-label {
+      flex: 0 0 auto;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #dc2626;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .sv-notice-window { overflow: hidden; min-width: 0; flex: 1; }
+    .sv-notice-track {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      width: max-content;
+      min-width: 100%;
+      font-size: 14px;
+      font-weight: 650;
+      line-height: 1.6;
+    }
+    .sv-notice-track .sv-notice-item { white-space: nowrap; }
+    .sv-notice-track a { color: #78350f; text-decoration: none; }
+    .sv-notice-track a:hover { text-decoration: underline; }
+    @media (prefers-reduced-motion: no-preference) {
+      .sv-notice-track.is-moving { animation: svSharedTicker 36s linear infinite; }
+      .sv-notice-window:hover .sv-notice-track { animation-play-state: paused; }
+    }
+    @keyframes svSharedTicker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    body > main {
+      width: min(calc(100% - 28px), 1100px);
+      max-width: 1100px !important;
+      margin: 18px auto 30px !important;
+      padding: 0 0 24px !important;
+      box-sizing: border-box;
+    }
+    body > main > a[href="pocra-components.html"] {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 100%;
+      margin: 0 0 14px !important;
+      padding: 8px 13px !important;
+      border-radius: 999px !important;
+      line-height: 1.4;
+      white-space: normal;
+      box-shadow: 0 2px 7px rgba(22,101,52,.08);
+    }
+    body > main > div.bg-white {
+      border: 1px solid var(--sv-border) !important;
+      border-radius: 20px !important;
+      box-shadow: var(--sv-shadow) !important;
+      padding: clamp(16px,3vw,32px) !important;
+    }
+    body > main h2, body > main h3 { text-wrap: balance; }
+    body > main a:focus-visible, body > header a:focus-visible, body > footer a:focus-visible {
+      outline: 3px solid #fbbf24;
+      outline-offset: 3px;
+    }
+    body > main table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: var(--sv-shadow);
+    }
+    body > main th { background: #dcfce7; color: #14532d; }
+    body > main th, body > main td { overflow-wrap: anywhere; }
+    .sv-site-footer {
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: auto !important;
+      padding: 24px 16px !important;
+      border-top: 4px solid #86c83f;
+      background: linear-gradient(110deg,#064e36,#087443 65%,#14532d) !important;
+      color: #e5f8eb !important;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .sv-footer-inner { width: min(100%,900px); margin: 0 auto; }
+    .sv-footer-note { color: #f0fff4 !important; font-weight: 600; margin: 0 0 6px; }
+    .sv-footer-email { margin: 4px 0; }
+    .sv-footer-email a { color: #c5f6a7 !important; overflow-wrap: anywhere; text-underline-offset: 3px; }
+    .sv-footer-copy { color: #d1e7d7 !important; margin: 8px 0 0; }
+    @media (max-width: 680px) {
+      .sv-header-layout {
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+        grid-template-rows: auto auto;
+        min-height: 80px;
+        gap: 8px;
+        padding: 10px 12px;
+      }
+      .sv-header-title { grid-column: 1 / -1; grid-row: 1; justify-self: center; }
+      .sv-header-title h1 { font-size: clamp(20px,5vw,28px) !important; white-space: normal; }
+      .sv-header-back { grid-column: 1; grid-row: 2; justify-self: start; max-width: 170px; padding: 6px 9px; font-size: 10px; }
+      .sv-header-actions { grid-column: 2; grid-row: 2; justify-self: end; flex-wrap: wrap; }
+      .sv-header-home { padding: 6px 9px; font-size: 10px; }
+      .sv-global-notices { padding: 8px 10px; gap: 8px; }
+      .sv-notice-label { font-size: 10px; padding: 4px 7px; }
+      .sv-notice-track { font-size: 12px; gap: 20px; }
+      body > main { width: calc(100% - 20px); margin: 10px auto 22px !important; }
+      body > main > div.bg-white { padding: 16px !important; border-radius: 16px !important; }
+      body > main table { display: block; overflow-x: auto; white-space: normal; }
+      .sv-site-footer { padding: 20px 14px !important; }
+      body > header:not(.sv-admin-header)::after { width: 140px; height: 135px; right: -60px; top: -55px; border-width: 14px; }
+    }
+    @media (max-width: 360px) {
+      .sv-header-back, .sv-header-home { font-size: 9px; padding: 6px 7px; }
+      .sv-global-notices { align-items: flex-start; }
+      .sv-notice-label { white-space: normal; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
 </head>
 <body class="text-gray-800 min-h-screen flex flex-col justify-between">
 
   <!-- Top Header Bar -->
   <header class="hero-gradient text-white shadow-md">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left gap-3 relative">
-      <div class="hidden sm:block w-24"></div>
-      
-      <!-- 🌱 शेतकरी सेवार्थ नाव बरोबर मध्यभागी -->
-      <a href="index.html" class="flex items-center justify-center cursor-pointer gap-2 mx-auto">
-        <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight">🌱 शेतकरी सेवार्थ</h1>
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between gap-4 sv-header-layout">
+<a href="index.html" class="sv-header-back" aria-label="मुख्य पृष्ठावर परत जा">← मागील पृष्ठावर जा</a>
+
+<a href="index.html" class="flex items-center cursor-pointer gap-2 sv-header-title">
+        <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight">शेतकरी सेवार्थ</h1>
       </a>
       
-      <div class="flex items-center justify-center sm:justify-end w-auto">
-        <a href="index.html" class="bg-white/20 hover:bg-white/30 text-white font-bold px-3 py-1.5 rounded-xl text-xs transition">🏠 मुख्य पृष्ठ</a>
+      <div class="flex items-center gap-2 sv-header-actions">
+        
       </div>
     </div>
   </header>
+
+<!-- सामायिक महत्त्वाच्या सूचना: portal-data.js मधून -->
+<div class="sv-global-notices" role="region" aria-label="महत्त्वाच्या सूचना">
+  <span class="sv-notice-label">📢 महत्त्वाच्या सूचना</span>
+  <div class="sv-notice-window"><div class="sv-notice-track" id="svGlobalNoticeTrack"><span>सूचना लोड होत आहेत...</span></div></div>
+</div>
 
   <!-- MAIN CONTAINER -->
   <main class="max-w-5xl mx-auto px-4 py-6 w-full flex-grow">
@@ -248,12 +482,32 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-slate-900 text-slate-300 py-4 text-center text-xs mt-6">
-    <div class="max-w-4xl mx-auto px-4">
-      <p>नानाजी देशमुख कृषी संजीवनी प्रकल्प: डिजिटल तंत्रज्ञानाने समृद्ध होतोय महाराष्ट्राचा शेतकरी! 🌾</p>
-      <p class="mt-1">© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p>
-    </div>
-  </footer>
+  <footer class="sv-site-footer" role="contentinfo"><div class="sv-footer-inner"><p class="sv-footer-note">सदर माहिती आपल्या उपयुक्त वाटल्यास किंवा सूचना असल्यास संपर्क साधू शकता.</p><p class="sv-footer-email">📧 ई-मेल: <a href="mailto:shetkarisevarthofficial@gmail.com">shetkarisevarthofficial@gmail.com</a></p><p class="sv-footer-copy">© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p></div></footer>
 
+
+
+  <script src="portal-data.js?v=shared"></script>
+<script>
+(function(){
+ function loadSharedNotices(){
+  var track=document.getElementById('svGlobalNoticeTrack');
+  if(!track)return;
+  var items=(window.PORTAL_DATA&&Array.isArray(window.PORTAL_DATA.announcements))?window.PORTAL_DATA.announcements:[];
+  track.innerHTML='';
+  if(!items.length){track.textContent='सध्या नवीन अपडेट उपलब्ध नाही.';return;}
+  function add(item){
+   var span=document.createElement('span');span.className='sv-notice-item';
+   var label=(item.emoji?item.emoji+' ':'')+(item.text||'');
+   if(item.url){var a=document.createElement('a');a.href=item.url;a.textContent=label;span.appendChild(a);}
+   else span.textContent=label;
+   track.appendChild(span);
+  }
+  items.forEach(add);
+  if(items.length>1){items.forEach(add);track.classList.add('is-moving');}
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadSharedNotices);
+ else loadSharedNotices();
+})();
+</script>
 </body>
 </html>

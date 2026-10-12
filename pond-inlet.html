@@ -3,297 +3,173 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="वैयक्तिक शेततळे घटकासाठी PoCRA 2.0 अंतर्गत पात्रता, तांत्रिक निकष, अनुदान आणि अर्ज प्रक्रियेची मार्गदर्शिका.">
   <title>वैयक्तिक शेततळे मार्गदर्शिका | शेतकरी सेवार्थ</title>
-  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
   <style>
-    body {
-      font-family: 'Noto Sans Devanagari', sans-serif;
-      background-color: #f8fafc;
-      text-rendering: optimizeLegibility;
-    }
-    .hero-gradient {
-      background: linear-gradient(135deg, #065f46 0%, #047857 50%, #0f766e 100%);
-    }
+    body{font-family:'Noto Sans Devanagari',sans-serif;background-color:#f8fafc;text-rendering:optimizeLegibility}
+    .hero-gradient{background:linear-gradient(135deg,#065f46 0%,#047857 50%,#0f766e 100%)}
+    .content-panel{background:rgba(255,255,255,.94);border:1px solid #d7e8dc;border-radius:24px;box-shadow:0 12px 30px rgba(15,80,45,.08)}
+    .section-card{border-radius:18px;box-shadow:0 5px 15px rgba(22,101,52,.06)}
+    .table-wrap{width:100%;overflow-x:auto;border:1px solid #d1e5d6;border-radius:14px;background:#fff;-webkit-overflow-scrolling:touch}
+    .financial-table{min-width:760px;width:100%;border-collapse:separate;border-spacing:0;font-size:13px}
+    .financial-table th{background:#166534;color:#fff;font-weight:800;text-align:center}
+    .financial-table th,.financial-table td{padding:12px;border-right:1px solid #dce9df;border-bottom:1px solid #dce9df;vertical-align:top}
+    .financial-table tr:last-child td{border-bottom:0}.financial-table th:last-child,.financial-table td:last-child{border-right:0}
+    .financial-table tbody tr:nth-child(even){background:#f4fbf5}
+    .section-heading{font-size:clamp(1rem,2vw,1.15rem);font-weight:800;line-height:1.5}
+    .content-panel p,.content-panel li{line-height:1.85}
+    .back-link{display:inline-flex;align-items:center;gap:6px;background:#dcfce7;color:#14532d;border:1px solid #bbf7d0;border-radius:999px;padding:8px 13px;font-size:12px;font-weight:800;text-decoration:none;transition:.2s}
+    .back-link:hover{background:#bbf7d0;transform:translateY(-1px)}
+    .action-link{display:inline-flex;justify-content:center;align-items:center;gap:8px;text-align:center;border-radius:999px;padding:11px 18px;font-weight:800;box-shadow:0 5px 14px rgba(22,101,52,.12);transition:transform .2s,filter .2s}
+    .action-link:hover{transform:translateY(-2px);filter:brightness(1.04)}
+    @media(max-width:640px){.content-panel{padding:16px!important;border-radius:18px}.section-card{padding:16px!important}.financial-table{font-size:12px}.action-link{width:100%}}
+    /* Shared शेतकरी सेवार्थ header/footer styling */
+.sv-site-footer{background:#0f172a;color:#cbd5e1;text-align:center;padding:24px 16px;margin-top:40px;font-size:13px;line-height:1.8;width:100%;box-sizing:border-box}
+.sv-footer-inner{max-width:900px;margin:0 auto}
+.sv-footer-note{color:#f1f5f9;font-size:14px;margin:0 0 6px}
+.sv-footer-email{margin:4px 0}
+.sv-footer-email a{color:#6ee7b7;text-decoration:underline;text-underline-offset:3px;font-weight:700;overflow-wrap:anywhere}
+.sv-footer-copy{color:#94a3b8;margin:8px 0 0}
+@media(min-width:768px){body>header:not(.sv-admin-header)>div.max-w-7xl{position:relative;justify-content:flex-end!important;text-align:center!important;min-height:52px}body>header:not(.sv-admin-header)>div.max-w-7xl>a:first-child,body>header:not(.sv-admin-header)>div.max-w-7xl>div:first-child:has(>h1#headerTitle){position:absolute;left:50%;transform:translateX(-50%);top:50%;translate:0 -50%;white-space:nowrap}body>header:not(.sv-admin-header)>div.max-w-7xl>div:has(>h1#headerTitle){left:50%}}
+@media(max-width:767px){body>header:not(.sv-admin-header)>div.max-w-7xl{gap:12px!important}body>header:not(.sv-admin-header)>div.max-w-7xl h1{ text-align:center!important }}
+
+/* Shared visual polish — original page content and links are preserved */
+:root{--sv-green:#166534;--sv-green-dark:#064e3b;--sv-mint:#ecfdf5;--sv-ink:#18332a;--sv-border:#d7e8dc;--sv-shadow:0 12px 30px rgba(15,80,45,.08)}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body:not(.sv-admin-body){color:var(--sv-ink);background:radial-gradient(ellipse at top,#ecfdf5 0%,#f8fafc 48%,#f1f5f9 100%);line-height:1.75;-webkit-font-smoothing:antialiased}
+body{font-family:'Noto Sans Devanagari','Nirmala UI',Arial,sans-serif}
+body:not(.sv-admin-body)>header{box-shadow:0 5px 18px rgba(6,78,59,.16);position:relative}
+body:not(.sv-admin-body)>header h1{letter-spacing:.01em;text-wrap:balance}
+body:not(.sv-admin-body) main{width:min(100% - 28px,1100px);margin:30px auto 42px;padding-left:0;padding-right:0}
+body:not(.sv-admin-body) main>h1,body:not(.sv-admin-body) main>h2,body:not(.sv-admin-body) main .page-title{color:var(--sv-green-dark);line-height:1.35;text-wrap:balance}
+body:not(.sv-admin-body) main>h1{font-size:clamp(1.55rem,3.4vw,2.25rem);font-weight:800;margin:0 0 18px}
+body:not(.sv-admin-body) main>h2{font-size:clamp(1.2rem,2.6vw,1.65rem);font-weight:750;margin:24px 0 12px}
+body:not(.sv-admin-body) main .card,body:not(.sv-admin-body) main .bg-white,body:not(.sv-admin-body) main article,body:not(.sv-admin-body) main section.info-card{border-radius:18px;box-shadow:var(--sv-shadow)}
+body:not(.sv-admin-body) main .card{border:1px solid var(--sv-border);padding:clamp(16px,3vw,26px);transition:transform .2s ease,box-shadow .2s ease}
+body:not(.sv-admin-body) main .card:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(15,80,45,.12)}
+body:not(.sv-admin-body) main a.btn,body:not(.sv-admin-body) main a.button,body:not(.sv-admin-body) main button,body:not(.sv-admin-body) a.btn{border-radius:999px;font-weight:700;transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
+body:not(.sv-admin-body) main a.btn:hover,body:not(.sv-admin-body) main a.button:hover,body:not(.sv-admin-body) main button:hover,body:not(.sv-admin-body) a.btn:hover{transform:translateY(-1px);filter:brightness(1.04);box-shadow:0 7px 16px rgba(22,101,52,.17)}
+body:not(.sv-admin-body) a:focus-visible,body:not(.sv-admin-body) button:focus-visible{outline:3px solid #fbbf24;outline-offset:3px}
+body:not(.sv-admin-body) main p{max-width:78ch}
+body:not(.sv-admin-body) main ul,body:not(.sv-admin-body) main ol{padding-inline-start:1.5rem}
+body:not(.sv-admin-body) main li{margin-block:.25rem}
+body:not(.sv-admin-body) main img{max-width:100%;height:auto;border-radius:14px}
+body:not(.sv-admin-body) main table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:12px;background:white;box-shadow:var(--sv-shadow)}
+body:not(.sv-admin-body) main th{background:#dcfce7;color:#14532d;text-align:left}
+body:not(.sv-admin-body) main th,body:not(.sv-admin-body) main td{padding:11px 13px;border-bottom:1px solid #e5eee7}
+.sv-site-footer{border-top:4px solid #10b981;background:linear-gradient(135deg,#052e2b,#0f172a)!important;padding:30px 16px!important;margin-top:auto!important}
+.sv-footer-inner{max-width:900px;margin:0 auto}
+.sv-footer-note{font-weight:600}
+.sv-footer-email a{display:inline-block;padding:2px 5px;border-radius:6px}
+@media(max-width:767px){body:not(.sv-admin-body)>header{padding-top:18px;padding-bottom:18px}body:not(.sv-admin-body)>header h1{font-size:clamp(1.25rem,5vw,1.75rem)}body:not(.sv-admin-body) main{width:calc(100% - 24px);margin:20px auto 30px}body:not(.sv-admin-body) main .card{padding:16px}body:not(.sv-admin-body) main table{display:block;overflow-x:auto;white-space:normal}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}body:not(.sv-admin-body) *{transition:none!important;animation:none!important}}
+
+
+/* Fresh green nature redesign inspired by the approved concept */
+:root{--sv-forest:#075b3b;--sv-green:#13834b;--sv-leaf:#45b96b;--sv-mint:#d9fbe5;--sv-pale:#f2fcf4;--sv-gold:#f4b942;--sv-ink:#163b2a;--sv-border:#d2efda}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans Devanagari',sans-serif!important;background:radial-gradient(ellipse at 7% 8%,rgba(167,243,208,.52),transparent 28%),radial-gradient(ellipse at 94% 22%,rgba(190,242,100,.28),transparent 25%),linear-gradient(145deg,#f4fff6 0%,#effaf0 52%,#fffdf2 100%)!important;color:var(--sv-ink)}
+body:before{content:"";position:fixed;z-index:-1;pointer-events:none;inset:0;background:radial-gradient(circle at 2% 92%,rgba(34,197,94,.10) 0 70px,transparent 72px),radial-gradient(circle at 98% 5%,rgba(132,204,22,.12) 0 100px,transparent 102px)}
+header.hero-gradient,body>header:not(.sv-admin-header){background:linear-gradient(112deg,#064e36 0%,#087443 48%,#23934e 78%,#76b82a 100%)!important;color:#fff;box-shadow:0 8px 24px rgba(6,78,59,.18)!important;position:relative;isolation:isolate;overflow:hidden}
+header.hero-gradient:after,body>header:not(.sv-admin-header):after{content:"";position:absolute;z-index:-1;right:-45px;top:-90px;width:260px;height:240px;border:22px solid rgba(190,242,100,.24);border-radius:62% 38% 60% 40%;transform:rotate(-24deg);pointer-events:none}
+header.hero-gradient:before{content:"";position:absolute;left:-65px;bottom:-120px;width:220px;height:180px;border-radius:55% 45% 40% 60%;background:rgba(167,243,208,.12);transform:rotate(25deg);pointer-events:none}
+main{position:relative}
+#schemesGrid>*,.grid>*,main .rounded-xl,main .rounded-2xl,main .rounded-lg{border-color:var(--sv-border)!important}
+#schemesGrid>*,.scheme-card{background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(236,253,240,.92))!important;border:1px solid var(--sv-border)!important;border-radius:18px!important;box-shadow:0 5px 15px rgba(22,101,52,.08)!important;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+#schemesGrid>*:hover,.scheme-card:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(22,101,52,.14)!important;border-color:#86d6a0!important}
+button,.btn{border-radius:999px!important;transition:filter .18s ease,transform .18s ease}
+button:hover,.btn:hover{filter:brightness(1.04);transform:translateY(-1px)}
+input,select,textarea{border-radius:12px!important}
+.sv-site-footer{background:linear-gradient(110deg,#064e36,#087443 65%,#14532d)!important;color:#e5f8eb!important;border-top:4px solid #86c83f;position:relative;overflow:hidden}
+.sv-footer-note{color:#f0fff4!important}.sv-footer-email a{color:#c5f6a7!important}.sv-footer-copy{color:#d1e7d7!important}
+/* Gentle organic abstract accents */
+main:before{content:"";position:absolute;top:12px;right:-22px;width:110px;height:145px;border-radius:80% 10% 80% 10%;background:linear-gradient(145deg,rgba(74,222,128,.10),rgba(132,204,22,.05));transform:rotate(22deg);pointer-events:none;z-index:-1}
+@media(max-width:640px){header.hero-gradient:after,body>header:not(.sv-admin-header):after{width:140px;height:135px;right:-60px;top:-55px;border-width:14px}main:before{width:60px;height:90px;right:-8px}#schemesGrid>*{border-radius:15px!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+/* Matched header/footer height adjustment */
+@media (min-width:768px){body:not(.sv-admin-body)>header:not(.sv-admin-header){height:120px;min-height:120px;box-sizing:border-box;display:flex;align-items:center}body:not(.sv-admin-body)>header:not(.sv-admin-header)>div.max-w-7xl{width:100%;box-sizing:border-box}body:not(.sv-admin-body)>.sv-site-footer{height:120px;min-height:120px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;padding:12px 16px!important;margin-top:auto!important}}
+@media (max-width:767px){body:not(.sv-admin-body)>header:not(.sv-admin-header){min-height:120px;box-sizing:border-box}body:not(.sv-admin-body)>.sv-site-footer{min-height:120px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;padding:16px!important}}
+
+/* Layout refinements: reduce unused space and keep controls proportionate */
+body:not(.sv-admin-body)>main{margin-top:16px!important;margin-bottom:24px!important;padding-top:12px!important;padding-bottom:20px!important}
+body:not(.sv-admin-body)>main>a[href="index.html"]{display:inline-flex!important;align-items:center;justify-content:center;gap:6px;max-width:100%;padding:8px 13px!important;margin:0 0 14px!important;font-size:12px!important;line-height:1.35!important;white-space:normal;border-radius:999px!important;box-shadow:0 2px 7px rgba(22,101,52,.08)}
+body:not(.sv-admin-body)>main>div:first-child{margin-top:0!important}
+.sv-global-notices{width:min(100% - 28px,1100px);margin:12px auto 0;box-sizing:border-box;display:flex;align-items:center;gap:12px;padding:9px 13px;border:1px solid #b7ebc8;border-radius:14px;background:linear-gradient(100deg,#fff7d6,#f0fdf4 55%,#e2fbe9);color:#14532d;box-shadow:0 4px 12px rgba(22,101,52,.07);position:relative;z-index:1}
+.sv-notice-label{flex:0 0 auto;background:#dc2626;color:#fff;border-radius:999px;padding:5px 10px;font-size:12px;font-weight:800;white-space:nowrap}
+.sv-notice-window{overflow:hidden;min-width:0;flex:1}
+.sv-notice-track{display:flex;align-items:center;gap:34px;width:max-content;min-width:100%;font-size:13px;font-weight:650;line-height:1.6}
+.sv-notice-track a{color:#166534;text-decoration:underline;text-underline-offset:2px}
+.sv-notice-track .sv-notice-item{white-space:nowrap}
+@media(max-width:640px){.sv-global-notices{width:calc(100% - 20px);gap:8px;padding:8px 9px;margin-top:9px}.sv-notice-label{font-size:10px;padding:5px 7px}.sv-notice-track{font-size:11px;gap:22px}body:not(.sv-admin-body)>main{margin-top:10px!important;padding-top:8px!important}body:not(.sv-admin-body)>main>a[href="index.html"]{font-size:11px!important;padding:7px 10px!important}}
+@media(prefers-reduced-motion:no-preference){.sv-notice-track.is-moving{animation:svNoticeScroll 32s linear infinite}.sv-notice-track:hover{animation-play-state:paused}}
+@keyframes svNoticeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+
+    .sv-header-layout{position:relative;min-height:52px}
+    .sv-header-back{flex:1 1 0;white-space:nowrap}
+    .sv-header-title{flex:0 0 auto;text-decoration:none;color:#fff}
+    .sv-header-actions{flex:1 1 0}
+    @media(min-width:768px){.sv-header-layout{justify-content:space-between!important}.sv-header-title{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap}.sv-header-back,.sv-header-actions{max-width:220px}}
+    @media(max-width:540px){.sv-header-layout{flex-wrap:wrap;justify-content:center!important}.sv-header-back{order:2;flex:1;text-align:left}.sv-header-title{order:1;width:100%}.sv-header-actions{order:3;flex:1}.sv-header-title h1{font-size:1.25rem}}
   </style>
 </head>
-<body class="text-gray-800 min-h-screen flex flex-col justify-between">
-
-  <!-- Top Header Bar -->
+<body class="text-gray-800 min-h-screen flex flex-col">
   <header class="hero-gradient text-white shadow-md">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left gap-3 relative">
-      <div class="hidden sm:block w-24"></div>
-      
-      <!-- 🌱 शेतकरी सेवार्थ नाव बरोबर मध्यभागी -->
-      <a href="index.html" class="flex items-center justify-center cursor-pointer gap-2 mx-auto">
-        <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight">🌱 शेतकरी सेवार्थ</h1>
-      </a>
-      
-      <div class="flex items-center justify-center sm:justify-end w-auto">
-        <a href="index.html" class="bg-white/20 hover:bg-white/30 text-white font-bold px-3 py-1.5 rounded-xl text-xs transition">🏠 मुख्य पृष्ठ</a>
-      </div>
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-4 sv-header-layout">
+      <a href="pocra-components.html" class="text-white/90 hover:text-white text-xs sm:text-sm font-bold sv-header-back" aria-label="मागील पृष्ठावर जा">← मागील पृष्ठ</a>
+      <a href="index.html" class="flex items-center justify-center gap-2 mx-auto sv-header-title" aria-label="शेतकरी सेवार्थ मुख्य पृष्ठ"><h1 class="text-xl sm:text-2xl font-extrabold tracking-tight">🌱 शेतकरी सेवार्थ</h1></a>
+      <div class="flex items-center justify-end sv-header-actions"><a href="index.html" class="bg-white/20 hover:bg-white/30 text-white font-bold px-3 py-2 rounded-full text-xs transition">🏠 मुख्य पृष्ठ</a></div>
     </div>
   </header>
 
-  <!-- MAIN CONTAINER -->
-  <main class="max-w-5xl mx-auto px-4 py-6 w-full flex-grow">
-    <a href="pocra-components.html" class="mb-4 bg-emerald-100 hover:bg-emerald-200 text-emerald-900 font-bold px-3 py-1.5 rounded-xl text-xs transition inline-flex items-center gap-1">
-      ← 👈 मागील घटकांच्या सूचीवर जा
-    </a>
+  <!-- सामायिक महत्त्वाच्या सूचना: portal-data.js मधून -->
+  <div class="sv-global-notices" role="region" aria-label="महत्त्वाच्या सूचना">
+    <span class="sv-notice-label">📢 महत्त्वाच्या सूचना</span>
+    <div class="sv-notice-window"><div class="sv-notice-track" id="svGlobalNoticeTrack"><span>सूचना लोड होत आहेत...</span></div></div>
+  </div>
 
-    <div class="bg-white rounded-3xl p-6 md:p-10 shadow-md border border-emerald-100 space-y-6">
-      
-      <!-- Title Header -->
-      <div class="text-center border-b pb-4 flex flex-col items-center">
-        <span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-100 border border-emerald-400 px-3.5 py-1 rounded-full uppercase tracking-wider mb-2">
-          💧 जलसंधारण व सिंचन
-        </span>
-        <h2 class="text-xl md:text-2xl font-black text-emerald-900 text-center">
-          वैयक्तिक शेततळे: सविस्तर मार्गदर्शिका व आर्थिक मापदंड
-        </h2>
-        <p class="text-xs text-gray-600 mt-1 text-center">
-          नानाजी देशमुख कृषी संजीवनी प्रकल्प टप्पा-२ (PoCRA 2.0)
-        </p>
-      </div>
-
-      <!-- Introduction Section -->
-      <div class="bg-emerald-50/70 p-5 rounded-2xl border border-emerald-200 space-y-3 text-xs md:text-sm text-gray-700 leading-relaxed text-justify">
-        <h3 class="font-bold text-emerald-950 text-sm border-b border-emerald-200 pb-1">🌿 प्रस्तावना व उद्दिष्टे</h3>
-        <p>हवामान बदलामुळे राज्याच्या शेतीवर विपरीत परिणाम होत असून पावसाचे असमान वितरण व अनिश्चित खंड यामुळे सिंचनाअभावी पिकांचे नुकसान होते. त्यावर उपाय म्हणून अतिरिक्त पाणी शेततळ्यात साठवून संरक्षित सिंचनाची सुविधा निर्माण करणे आणि शेतकऱ्यांचे उत्पादन वाढवणे हा या घटकाचा प्रमुख उद्देश आहे.</p>
-      </div>
-
-      <!-- Eligibility Section -->
-      <div class="bg-amber-50/70 p-5 rounded-2xl border border-amber-200 space-y-3 text-xs md:text-sm text-gray-700 leading-relaxed text-justify">
-        <h3 class="font-bold text-amber-950 text-sm border-b border-amber-200 pb-1">✅ लाभार्थी पात्रता निकष</h3>
-        <ul class="list-disc pl-5 space-y-1.5">
-          <li>प्रकल्पांतर्गत ५ हेक्टरपर्यंत जमीन धारणा असलेले शेतकरी पात्र राहतील.</li>
-          <li>शेतकऱ्याकडे स्वतःच्या नावावर किमान <b>०.४० हेक्टर</b> क्षेत्र असावे.</li>
-          <li>यापूर्वी "मागेल त्याला शेततळे", सामूहिक शेततळे अथवा इतर कुठल्याही शासकीय योजनेतून शेततळ्याकरिता अनुदानाचा लाभ घेतलेला नसावा.</li>
-        </ul>
-      </div>
-
-      <!-- Technical Criteria for Site Selection -->
-      <div class="bg-emerald-50/70 p-5 rounded-2xl border border-emerald-200 space-y-3 text-xs md:text-sm text-gray-700 leading-relaxed text-justify">
-        <h3 class="font-bold text-emerald-950 text-sm border-b border-emerald-200 pb-1">📐 शेततळ्यांच्या जागा निवडीसाठी तांत्रिक निकष</h3>
-        <ul class="list-disc pl-5 space-y-1.5">
-          <li>ज्या जमिनीतून पाणी पाझरण्याचे प्रमाण कमी आहे आणि चिकण मातीचे प्रमाण जास्त आहे अशी काळी जमीन शेततळ्यासाठी निवडावी.</li>
-          <li>वालुकामय सच्छिद्र खडक असलेली जागा शेततळ्याकरिता निवडू नये.</li>
-          <li>जमिनीचा उतार सर्वसाधारण ३ टक्क्यांच्या आत आहे अशा ठिकाणी शेततळे घेण्यात यावे.</li>
-          <li>नाला किंवा ओहोळाच्या प्रवाहात शेततळे घेण्यात येऊ नये.</li>
-          <li>इनलेट/आऊटलेटसह शेततळ्यासाठी पाणलोट क्षेत्रातून येणारे पाणी शेततळ्याच्या साठवणूक क्षमतेपेक्षा जास्त असणे बंधनकारक राहील.</li>
-        </ul>
-      </div>
-
-      <!-- Quick Action Links -->
-      <div class="bg-emerald-50 p-5 rounded-2xl border border-emerald-200 space-y-3">
-        <h3 class="font-bold text-emerald-950 text-sm border-b border-emerald-200 pb-1 text-center">🔗 आवश्यक लिंक्स व अर्ज सुविधा</h3>
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-3 text-xs font-bold pt-1 pb-1 flex-wrap">
-          <a href="https://dbt.mahapocra.gov.in" target="_blank" class="bg-gradient-to-r from-orange-600 to-amber-600 hover:opacity-95 text-white font-bold px-4 py-2.5 rounded-xl shadow-md transition inline-flex items-center gap-1.5">
-            <span>🚀 अर्ज करण्यासाठी येथे क्लिक करा</span>
-            <span>→</span>
-          </a>
-          <a href="https://drive.google.com/file/d/1n7MI91Qq95mGET7uMfo9C_qXItmimeIW/view?usp=drive_link" target="_blank" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-4 py-2.5 rounded-xl shadow-md transition inline-flex items-center gap-1.5">
-            <span>📄 मार्गदर्शक सूचना (PDF पहा)</span>
-            <span>→</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Subsidy Details Section -->
-      <div class="bg-blue-50/70 p-5 rounded-2xl border border-blue-200 space-y-3 text-xs md:text-sm text-gray-700 leading-relaxed">
-        <h3 class="font-bold text-blue-950 text-sm border-b border-blue-200 pb-1">💰 अर्थसहाय्य व अनुदान निकष</h3>
-        <ul class="list-disc pl-5 space-y-1.5">
-          <li>विविध आकारमानाच्या शेततळ्यासाठी <b>कमाल रक्कम रुपये ७५,०००/-</b> च्या मर्यादेत अनुदान देय राहील.</li>
-          <li>लाभार्थीस इनलेट आऊटलेटसह किंवा इनलेट आऊटलेट विरहित शेततळ्याचे अनुदान एकाच टप्प्यात अदा केले जाईल.</li>
-          <li>मंजूर आकारमानापेक्षा जास्त आकारमानाचे शेततळे घेतल्यास जास्तीचा खर्च शेतकऱ्याने स्वखर्चाने करावा लागेल.</li>
-        </ul>
-      </div>
-
-      <!-- Financial Table 1: Inlet Outlet Sah -->
-      <div class="space-y-4 text-xs md:text-sm text-gray-700">
-        <h3 class="font-bold text-red-600 text-sm border-b pb-1">📊 अ. इनलेट आऊटलेट सह शेततळे - आकारमान व अनुदानाचा तपशील</h3>
-        <div class="overflow-x-auto">
-          <table class="w-full border-collapse border border-gray-300 text-xs text-left">
-            <thead>
-              <tr class="bg-emerald-800 text-white text-center">
-                <th class="border border-gray-300 p-2">शेततळ्याचे आकारमान (मीटर)</th>
-                <th class="border border-gray-300 p-2">खोदकामाचे परिमाण (घ.मी.) [बाजू उतार १:१]</th>
-                <th class="border border-gray-300 p-2">देय अनुदान (रु.)</th>
-                <th class="border border-gray-300 p-2">खोदकामाचे परिमाण (घ.मी.) [बाजू उतार १:१.५ काळी माती]</th>
-                <th class="border border-gray-300 p-2">देय अनुदान (रु.)</th>
-              </tr>
-            </thead>
-            <tbody class="bg-white text-center">
-              <tr>
-                <td class="border border-gray-300 p-2">१५ x १५ x ३</td>
-                <td class="border border-gray-300 p-2">४४१</td>
-                <td class="border border-gray-300 p-2">२३८८१</td>
-                <td class="border border-gray-300 p-2">३५१</td>
-                <td class="border border-gray-300 p-2">१९६९३</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 p-2">२० x १५ x ३</td>
-                <td class="border border-gray-300 p-2">६२१</td>
-                <td class="border border-gray-300 p-2">३२०३४</td>
-                <td class="border border-gray-300 p-2">५०८.५०</td>
-                <td class="border border-gray-300 p-2">२६७९९</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-300 p-2">२० x २० x ३</td>
-                <td class="border border-gray-300 p-2">८७६</td>
-                <td class="border border-gray-300 p-2">४३६७८</td>
-                <td class="border border-gray-300 p-2">७४१</td>
-                <td class="border border-gray-300 p-2">३७३९५</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 p-2">२५ x २० x ३</td>
-                <td class="border border-gray-300 p-2">११३१</td>
-                <td class="border border-gray-300 p-2">५५३२१</td>
-                <td class="border border-gray-300 p-2">९७३.५०</td>
-                <td class="border border-gray-300 p-2">४७९९१</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-300 p-2">२५ x २५ x ३</td>
-                <td class="border border-gray-300 p-2">१४६१</td>
-                <td class="border border-gray-300 p-2">७०४५५</td>
-                <td class="border border-gray-300 p-2">१२८१</td>
-                <td class="border border-gray-300 p-2">६२०७८</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 p-2">३० x २४ x ३</td>
-                <td class="border border-gray-300 p-2">१७९१</td>
-                <td class="border border-gray-300 p-2">७५०००</td>
-                <td class="border border-gray-300 p-2">१५८८.५०</td>
-                <td class="border border-gray-300 p-2">७५०००</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-300 p-2">३० x ३० x ३</td>
-                <td class="border border-gray-300 p-2">२१९६</td>
-                <td class="border border-gray-300 p-2">७५०००</td>
-                <td class="border border-gray-300 p-2">१९७१</td>
-                <td class="border border-gray-300 p-2">७५०००</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 p-2">३८ x ३८ x ३</td>
-                <td class="border border-gray-300 p-2">२८९२</td>
-                <td class="border border-gray-300 p-2">७५०००</td>
-                <td class="border border-gray-300 p-2">२६३१</td>
-                <td class="border border-gray-300 p-2">७५०००</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Financial Table 2: Inlet Outlet Virahit -->
-      <div class="space-y-4 text-xs md:text-sm text-gray-700 pt-4">
-        <h3 class="font-bold text-red-600 text-sm border-b pb-1">📊 ब. इनलेट आऊटलेट विरहित शेततळे - आकारमान व अनुदानाचा तपशील</h3>
-        <div class="overflow-x-auto">
-          <table class="w-full border-collapse border border-gray-300 text-xs text-left">
-            <thead>
-              <tr class="bg-emerald-800 text-white text-center">
-                <th class="border border-gray-300 p-2">शेततळ्याचे आकारमान (मीटर)</th>
-                <th class="border border-gray-300 p-2">खोदकामाचे परिमाण (घ.मी.) [बाजू उतार १:१]</th>
-                <th class="border border-gray-300 p-2">देय अनुदान (रु.)</th>
-                <th class="border border-gray-300 p-2">खोदकामाचे परिमाण (घ.मी.) [बाजू उतार १:१.५ काळी माती]</th>
-                <th class="border border-gray-300 p-2">देय अनुदान (रु.)</th>
-              </tr>
-            </thead>
-            <tbody class="bg-white text-center">
-              <tr>
-                <td class="border border-gray-300 p-2">१५ x १५ x ३</td>
-                <td class="border border-gray-300 p-2">४४१</td>
-                <td class="border border-gray-300 p-2">१८६२१</td>
-                <td class="border border-gray-300 p-2">३५१</td>
-                <td class="border border-gray-300 p-2">१४४३३</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 p-2">२० x १५ x ३</td>
-                <td class="border border-gray-300 p-2">६२१</td>
-                <td class="border border-gray-300 p-2">२६७७४</td>
-                <td class="border border-gray-300 p-2">५०८.५०</td>
-                <td class="border border-gray-300 p-2">२१५३९</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-300 p-2">२० x २० x ३</td>
-                <td class="border border-gray-300 p-2">८७६</td>
-                <td class="border border-gray-300 p-2">३८४१७</td>
-                <td class="border border-gray-300 p-2">७४१</td>
-                <td class="border border-gray-300 p-2">३२१३५</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 p-2">२५ x २० x ३</td>
-                <td class="border border-gray-300 p-2">११३१</td>
-                <td class="border border-gray-300 p-2">५००६१</td>
-                <td class="border border-gray-300 p-2">९७३.५०</td>
-                <td class="border border-gray-300 p-2">४२७३१</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-300 p-2">२५ x २५ x ३</td>
-                <td class="border border-gray-300 p-2">१४६१</td>
-                <td class="border border-gray-300 p-2">६५१९४</td>
-                <td class="border border-gray-300 p-2">१२८१</td>
-                <td class="border border-gray-300 p-2">५६८१८</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 p-2">३० x २४ x ३</td>
-                <td class="border border-gray-300 p-2">१७९१</td>
-                <td class="border border-gray-300 p-2">७५०००</td>
-                <td class="border border-gray-300 p-2">१५८८.५०</td>
-                <td class="border border-gray-300 p-2">७०९०४</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-300 p-2">३० x ३० x ३</td>
-                <td class="border border-gray-300 p-2">२१९६</td>
-                <td class="border border-gray-300 p-2">७५०००</td>
-                <td class="border border-gray-300 p-2">१९७१</td>
-                <td class="border border-gray-300 p-2">७५०००</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 p-2">३८ x ३८ x ३</td>
-                <td class="border border-gray-300 p-2">२८९२</td>
-                <td class="border border-gray-300 p-2">७५०००</td>
-                <td class="border border-gray-300 p-2">२६३१</td>
-                <td class="border border-gray-300 p-2">७५०००</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Implementation Procedure Section -->
-      <div class="bg-emerald-50/70 p-5 rounded-2xl border border-emerald-200 space-y-3 text-xs md:text-sm text-gray-700 leading-relaxed text-justify">
-        <h3 class="font-bold text-emerald-950 text-sm border-b border-emerald-200 pb-1">⚙️ अंमलबजावणीतील विविध स्तरावरील जबाबदाऱ्या</h3>
-        <ul class="list-disc pl-5 space-y-2">
-          <li><b>लाभार्थी शेतकरी:</b> डीबीटी पोर्टलवर अर्ज करणे, पूर्वसंमती मिळाल्यानंतर ३ महिन्यात शेततळ्याचे काम पूर्ण करणे, काम पूर्ण झाल्यावर काम पूर्णत्वाचा दाखला व कागदपत्रे ऑनलाईन अपलोड करणे.</li>
-          <li><b>ग्राम कृषी विकास समिती (GKVS):</b> अर्जांची छाननी करून प्राधान्यक्रमानुसार लाभार्थी निवड करणे.</li>
-          <li><b>समूह सहाय्यक:</b> अर्ज भरून घेणे, कागदपत्रांची छाननी करणे आणि समितीसमोर मंजुरीसाठी सादर करणे.</li>
-          <li><b>सहायक कृषी अधिकारी (AAO):</b> प्रत्यक्ष स्थळ पाहणी करणे, तांत्रिकदृष्ट्या जागा योग्य असल्याची खात्री करून सविस्तर अंदाजपत्रक तयार करणे आणि पूर्वसंमतीसाठी शिफारस करणे.</li>
-          <li><b>उप कृषी अधिकारी (Sub-AO):</b> काम पूर्ण झाल्यावर मोजमाप घेणे, मोका तपासणी करणे आणि अहवाल अपलोड करणे.</li>
-          <li><b>तालुका कृषी अधिकारी (TAO):</b> कागदपत्रांची तपासणी करून पात्र लाभार्थ्यास ऑनलाईन पूर्वसंमती (तांत्रिक मान्यता) देणे.</li>
-          <li><b>उपविभागीय कृषी अधिकारी (SDAO):</b> लेखापरीक्षणानंतर अंतिम अनुदान मंजुरी देणे.</li>
-        </ul>
-      </div>
-
-      <!-- Support Footer Note (Increased size & prominence) -->
-      <div class="pt-3 text-center text-sm font-semibold text-emerald-950 border-t">
-        📞 अधिक माहितीसाठी आपल्या गावातील <b>सहायक कृषी अधिकारी (AAO)</b> किंवा तालुका कृषी अधिकारी कार्यालयाशी संपर्क साधावा.
-      </div>
-
-    </div>
+  <main class="max-w-6xl mx-auto px-4 py-6 w-full flex-grow">
+    <a href="pocra-components.html" class="back-link mb-4">← 👈 मागील घटकांच्या सूचीवर जा</a>
+    <article class="content-panel p-5 md:p-9 space-y-6"><div class="text-center border-b border-emerald-100 pb-5">
+<span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-100 border border-emerald-300 px-4 py-1.5 rounded-full mb-3">💧 जलसंधारण व सिंचन</span>
+<h2 class="text-xl md:text-3xl font-black text-emerald-950 leading-relaxed">वैयक्तिक शेततळे: सविस्तर मार्गदर्शिका व आर्थिक मापदंड</h2>
+<p class="text-sm text-gray-600 mt-2">नानाजी देशमुख कृषी संजीवनी प्रकल्प टप्पा-२ (PoCRA 2.0)</p></div>
+<section class="section-card bg-emerald-50/80 p-5 md:p-6 border border-emerald-200 space-y-3 text-sm text-gray-700 text-justify"><h3 class="section-heading text-emerald-950 border-b border-emerald-200 pb-2">🌿 प्रस्तावना व उद्दिष्टे</h3><p>हवामान बदलामुळे राज्याच्या शेतीवर विपरीत परिणाम होत असून पावसाचे असमान वितरण व अनिश्चित खंड यामुळे सिंचनाअभावी पिकांचे नुकसान होते. त्यावर उपाय म्हणून अतिरिक्त पाणी शेततळ्यात साठवून संरक्षित सिंचनाची सुविधा निर्माण करणे आणि शेतकऱ्यांचे उत्पादन वाढवणे हा या घटकाचा प्रमुख उद्देश आहे.</p></section>
+<section class="section-card bg-amber-50/80 p-5 md:p-6 border border-amber-200 space-y-3 text-sm text-gray-700"><h3 class="section-heading text-amber-950 border-b border-amber-200 pb-2">✅ लाभार्थी पात्रता निकष</h3><ul class="list-disc pl-5 space-y-2"><li>प्रकल्पांतर्गत ५ हेक्टरपर्यंत जमीन धारणा असलेले शेतकरी पात्र राहतील.</li><li>शेतकऱ्याकडे स्वतःच्या नावावर किमान <b>०.४० हेक्टर</b> क्षेत्र असावे.</li><li>यापूर्वी “मागेल त्याला शेततळे”, सामूहिक शेततळे अथवा इतर कुठल्याही शासकीय योजनेतून शेततळ्याकरिता अनुदानाचा लाभ घेतलेला नसावा.</li></ul></section>
+<section class="section-card bg-emerald-50/80 p-5 md:p-6 border border-emerald-200 space-y-3 text-sm text-gray-700"><h3 class="section-heading text-emerald-950 border-b border-emerald-200 pb-2">📐 शेततळ्यांच्या जागा निवडीसाठी तांत्रिक निकष</h3><ul class="list-disc pl-5 space-y-2"><li>ज्या जमिनीतून पाणी पाझरण्याचे प्रमाण कमी आहे आणि चिकण मातीचे प्रमाण जास्त आहे अशी काळी जमीन शेततळ्यासाठी निवडावी.</li><li>वालुकामय सच्छिद्र खडक असलेली जागा शेततळ्याकरिता निवडू नये.</li><li>जमिनीचा उतार सर्वसाधारण ३ टक्क्यांच्या आत आहे अशा ठिकाणी शेततळे घेण्यात यावे.</li><li>नाला किंवा ओहोळाच्या प्रवाहात शेततळे घेण्यात येऊ नये.</li><li>इनलेट/आऊटलेटसह शेततळ्यासाठी पाणलोट क्षेत्रातून येणारे पाणी शेततळ्याच्या साठवणूक क्षमतेपेक्षा जास्त असणे बंधनकारक राहील.</li></ul></section>
+<section class="section-card bg-emerald-50 p-5 md:p-6 border border-emerald-200 space-y-4"><h3 class="section-heading text-emerald-950 border-b border-emerald-200 pb-2 text-center">🔗 आवश्यक लिंक्स व अर्ज सुविधा</h3><div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3 flex-wrap text-sm"><a href="https://dbt.mahapocra.gov.in" target="_blank" rel="noopener noreferrer" class="action-link bg-gradient-to-r from-orange-600 to-amber-600 text-white"><span>🚀 अर्ज करण्यासाठी येथे क्लिक करा</span><span>→</span></a><a href="https://drive.google.com/file/d/1n7MI91Qq95mGET7uMfo9C_qXItmimeIW/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="action-link bg-emerald-700 hover:bg-emerald-800 text-white"><span>📄 मार्गदर्शक सूचना (PDF पहा)</span><span>→</span></a></div></section>
+<section class="section-card bg-blue-50/80 p-5 md:p-6 border border-blue-200 space-y-3 text-sm text-gray-700"><h3 class="section-heading text-blue-950 border-b border-blue-200 pb-2">💰 अर्थसहाय्य व अनुदान निकष</h3><ul class="list-disc pl-5 space-y-2"><li>विविध आकारमानाच्या शेततळ्यासाठी <b>कमाल रुपये ७५,०००/-</b> च्या मर्यादेत अनुदान देय राहील.</li><li>लाभार्थीस इनलेट आऊटलेटसह किंवा इनलेट आऊटलेट विरहित शेततळ्याचे अनुदान एकाच टप्प्यात अदा केले जाईल.</li><li>मंजूर आकारमानापेक्षा जास्त आकारमानाचे शेततळे घेतल्यास जास्तीचा खर्च शेतकऱ्याने स्वखर्चाने करावा लागेल.</li></ul></section>
+<section class="space-y-4 text-sm text-gray-700"><h3 class="section-heading text-red-700 border-b pb-2">📊 अ. इनलेट आऊटलेट सह शेततळे — आकारमान व अनुदानाचा तपशील</h3><div class="overflow-x-auto responsive-table-wrap"><table class="w-full border-collapse border border-gray-300 text-sm"><thead><tr class="bg-emerald-800 text-white text-center"><th class="border border-gray-300 p-3">शेततळ्याचे आकारमान (मीटर)</th><th class="border border-gray-300 p-3">खोदकामाचे परिमाण (घ.मी.) [बाजू उतार १:१]</th><th class="border border-gray-300 p-3">देय अनुदान (रु.)</th><th class="border border-gray-300 p-3">खोदकामाचे परिमाण (घ.मी.) [बाजू उतार १:१.५ काळी माती]</th><th class="border border-gray-300 p-3">देय अनुदान (रु.)</th></tr></thead><tbody class="bg-white text-center"><tr class=""><td class="border border-gray-300 p-3">१५ x १५ x ३</td><td class="border border-gray-300 p-3">४४१</td><td class="border border-gray-300 p-3">२३८८१</td><td class="border border-gray-300 p-3">३५१</td><td class="border border-gray-300 p-3">१९६९३</td></tr><tr class="bg-gray-50"><td class="border border-gray-300 p-3">२० x १५ x ३</td><td class="border border-gray-300 p-3">६२१</td><td class="border border-gray-300 p-3">३२०३४</td><td class="border border-gray-300 p-3">५०८.५०</td><td class="border border-gray-300 p-3">२६७९९</td></tr><tr class=""><td class="border border-gray-300 p-3">२० x २० x ३</td><td class="border border-gray-300 p-3">८७६</td><td class="border border-gray-300 p-3">४३६७८</td><td class="border border-gray-300 p-3">७४१</td><td class="border border-gray-300 p-3">३७३९५</td></tr><tr class="bg-gray-50"><td class="border border-gray-300 p-3">२५ x २० x ३</td><td class="border border-gray-300 p-3">११३१</td><td class="border border-gray-300 p-3">५५३२१</td><td class="border border-gray-300 p-3">९७३.५०</td><td class="border border-gray-300 p-3">४७९९१</td></tr><tr class=""><td class="border border-gray-300 p-3">२५ x २५ x ३</td><td class="border border-gray-300 p-3">१४६१</td><td class="border border-gray-300 p-3">७०४५५</td><td class="border border-gray-300 p-3">१२८१</td><td class="border border-gray-300 p-3">६२०७८</td></tr><tr class="bg-gray-50"><td class="border border-gray-300 p-3">३० x २४ x ३</td><td class="border border-gray-300 p-3">१७९१</td><td class="border border-gray-300 p-3">७५०००</td><td class="border border-gray-300 p-3">१५८८.५०</td><td class="border border-gray-300 p-3">७५०००</td></tr><tr class=""><td class="border border-gray-300 p-3">३० x ३० x ३</td><td class="border border-gray-300 p-3">२१९६</td><td class="border border-gray-300 p-3">७५०००</td><td class="border border-gray-300 p-3">१९७१</td><td class="border border-gray-300 p-3">७५०००</td></tr><tr class="bg-gray-50"><td class="border border-gray-300 p-3">३८ x ३८ x ३</td><td class="border border-gray-300 p-3">२८९२</td><td class="border border-gray-300 p-3">७५०००</td><td class="border border-gray-300 p-3">२६३१</td><td class="border border-gray-300 p-3">७५०००</td></tr></tbody></table></div></section><section class="space-y-4 text-sm text-gray-700 pt-3"><h3 class="section-heading text-red-700 border-b pb-2">📊 ब. इनलेट आऊटलेट विरहित शेततळे — आकारमान व अनुदानाचा तपशील</h3><div class="overflow-x-auto responsive-table-wrap"><table class="w-full border-collapse border border-gray-300 text-sm"><thead><tr class="bg-emerald-800 text-white text-center"><th class="border border-gray-300 p-3">शेततळ्याचे आकारमान (मीटर)</th><th class="border border-gray-300 p-3">खोदकामाचे परिमाण (घ.मी.) [बाजू उतार १:१]</th><th class="border border-gray-300 p-3">देय अनुदान (रु.)</th><th class="border border-gray-300 p-3">खोदकामाचे परिमाण (घ.मी.) [बाजू उतार १:१.५ काळी माती]</th><th class="border border-gray-300 p-3">देय अनुदान (रु.)</th></tr></thead><tbody class="bg-white text-center"><tr class=""><td class="border border-gray-300 p-3">१५ x १५ x ३</td><td class="border border-gray-300 p-3">४४१</td><td class="border border-gray-300 p-3">१८६२१</td><td class="border border-gray-300 p-3">३५१</td><td class="border border-gray-300 p-3">१४४३३</td></tr><tr class="bg-gray-50"><td class="border border-gray-300 p-3">२० x १५ x ३</td><td class="border border-gray-300 p-3">६२१</td><td class="border border-gray-300 p-3">२६७७४</td><td class="border border-gray-300 p-3">५०८.५०</td><td class="border border-gray-300 p-3">२१५३९</td></tr><tr class=""><td class="border border-gray-300 p-3">२० x २० x ३</td><td class="border border-gray-300 p-3">८७६</td><td class="border border-gray-300 p-3">३८४१७</td><td class="border border-gray-300 p-3">७४१</td><td class="border border-gray-300 p-3">३२१३५</td></tr><tr class="bg-gray-50"><td class="border border-gray-300 p-3">२५ x २० x ३</td><td class="border border-gray-300 p-3">११३१</td><td class="border border-gray-300 p-3">५००६१</td><td class="border border-gray-300 p-3">९७३.५०</td><td class="border border-gray-300 p-3">४२७३१</td></tr><tr class=""><td class="border border-gray-300 p-3">२५ x २५ x ३</td><td class="border border-gray-300 p-3">१४६१</td><td class="border border-gray-300 p-3">६५१९४</td><td class="border border-gray-300 p-3">१२८१</td><td class="border border-gray-300 p-3">५६८१८</td></tr><tr class="bg-gray-50"><td class="border border-gray-300 p-3">३० x २४ x ३</td><td class="border border-gray-300 p-3">१७९१</td><td class="border border-gray-300 p-3">७५०००</td><td class="border border-gray-300 p-3">१५८८.५०</td><td class="border border-gray-300 p-3">७०९०४</td></tr><tr class=""><td class="border border-gray-300 p-3">३० x ३० x ३</td><td class="border border-gray-300 p-3">२१९६</td><td class="border border-gray-300 p-3">७५०००</td><td class="border border-gray-300 p-3">१९७१</td><td class="border border-gray-300 p-3">७५०००</td></tr><tr class="bg-gray-50"><td class="border border-gray-300 p-3">३८ x ३८ x ३</td><td class="border border-gray-300 p-3">२८९२</td><td class="border border-gray-300 p-3">७५०००</td><td class="border border-gray-300 p-3">२६३१</td><td class="border border-gray-300 p-3">७५०००</td></tr></tbody></table></div></section><section class="section-card bg-emerald-50/80 p-5 md:p-6 border border-emerald-200 space-y-3 text-sm text-gray-700"><h3 class="section-heading text-emerald-950 border-b border-emerald-200 pb-2">⚙️ अंमलबजावणीतील विविध स्तरावरील जबाबदाऱ्या</h3><ul class="list-disc pl-5 space-y-2"><li><b>लाभार्थी शेतकरी:</b> डीबीटी पोर्टलवर अर्ज करणे, पूर्वसंमती मिळाल्यानंतर ३ महिन्यात शेततळ्याचे काम पूर्ण करणे, काम पूर्ण झाल्यावर काम पूर्णत्वाचा दाखला व कागदपत्रे ऑनलाईन अपलोड करणे.</li><li><b>ग्राम कृषी विकास समिती (GKVS):</b> अर्जांची छाननी करून प्राधान्यक्रमानुसार लाभार्थी निवड करणे.</li><li><b>समूह सहाय्यक:</b> अर्ज भरून घेणे, कागदपत्रांची छाननी करणे आणि समितीसमोर मंजुरीसाठी सादर करणे.</li><li><b>सहायक कृषी अधिकारी (AAO):</b> प्रत्यक्ष स्थळ पाहणी करणे, तांत्रिकदृष्ट्या जागा योग्य असल्याची खात्री करून सविस्तर अंदाजपत्रक तयार करणे आणि पूर्वसंमतीसाठी शिफारस करणे.</li><li><b>उप कृषी अधिकारी (Sub-AO):</b> काम पूर्ण झाल्यावर मोजमाप घेणे, मोका तपासणी करणे आणि अहवाल अपलोड करणे.</li><li><b>तालुका कृषी अधिकारी (TAO):</b> कागदपत्रांची तपासणी करून पात्र लाभार्थ्यास ऑनलाईन पूर्वसंमती (तांत्रिक मान्यता) देणे.</li><li><b>उपविभागीय कृषी अधिकारी (SDAO):</b> लेखापरीक्षणानंतर अंतिम अनुदान मंजुरी देणे.</li></ul></section><div class="pt-4 text-center text-sm font-bold text-emerald-950 border-t border-emerald-200">📞 अधिक माहितीसाठी आपल्या गावातील <b>सहायक कृषी अधिकारी (AAO)</b> किंवा तालुका कृषी अधिकारी कार्यालयाशी संपर्क साधावा.</div></article>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-slate-900 text-slate-300 py-4 text-center text-xs mt-6">
-    <div class="max-w-4xl mx-auto px-4">
-      <p>नानाजी देशमुख कृषी संजीवनी प्रकल्प: डिजिटल तंत्रज्ञानाने समृद्ध होतोय महाराष्ट्राचा शेतकरी! 🌾</p>
-      <p class="mt-1">© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p>
-    </div>
-  </footer>
+  <footer class="sv-site-footer" role="contentinfo"><div class="sv-footer-inner"><p class="sv-footer-note">सदर माहिती आपल्या उपयुक्त वाटल्यास किंवा सूचना असल्यास संपर्क साधू शकता.</p><p class="sv-footer-email">📧 ई-मेल: <a href="mailto:shetkarisevarthofficial@gmail.com">shetkarisevarthofficial@gmail.com</a></p><p class="sv-footer-copy">© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p></div></footer>
 
+  <script src="portal-data.js?v=shared"></script>
+  <script>
+  (function(){
+    function loadSharedNotices(){
+      var track=document.getElementById('svGlobalNoticeTrack');
+      if(!track)return;
+      var items=(window.PORTAL_DATA&&Array.isArray(window.PORTAL_DATA.announcements))?window.PORTAL_DATA.announcements:[];
+      track.innerHTML='';
+      if(!items.length){track.textContent='सध्या नवीन अपडेट उपलब्ध नाही.';return;}
+      function add(item){
+        var span=document.createElement('span');span.className='sv-notice-item';
+        var label=(item.emoji?item.emoji+' ':'')+(item.text||'');
+        if(item.url){var a=document.createElement('a');a.href=item.url;a.textContent=label;span.appendChild(a);}
+        else span.textContent=label;
+        track.appendChild(span);
+      }
+      items.forEach(add);
+      if(items.length>1){items.forEach(add);track.classList.add('is-moving');}
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadSharedNotices);else loadSharedNotices();
+  })();
+  </script>
 </body>
 </html>

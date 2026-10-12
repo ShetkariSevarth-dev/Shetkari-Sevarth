@@ -3,188 +3,207 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="पाणी उपसा साधने, पंप संच व पाईप यांसाठी PoCRA 2.0 अंतर्गत पात्रता, अनुदान, आर्थिक मापदंड आणि अर्ज प्रक्रियेची मार्गदर्शिका.">
   <title>पाणी उपसा साधने (पंप संच व पाईप) मार्गदर्शिका | शेतकरी सेवार्थ</title>
-  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
   <style>
-    body {
-      font-family: 'Noto Sans Devanagari', sans-serif;
-      background-color: #f8fafc;
-      text-rendering: optimizeLegibility;
-    }
-    .hero-gradient {
-      background: linear-gradient(135deg, #065f46 0%, #047857 50%, #0f766e 100%);
-    }
+    body{font-family:'Noto Sans Devanagari',sans-serif;background-color:#f8fafc;text-rendering:optimizeLegibility}
+    .hero-gradient{background:linear-gradient(135deg,#065f46 0%,#047857 50%,#0f766e 100%)}
+    .content-panel{background:rgba(255,255,255,.94);border:1px solid #d7e8dc;border-radius:24px;box-shadow:0 12px 30px rgba(15,80,45,.08)}
+    .section-card{border-radius:18px;box-shadow:0 5px 15px rgba(22,101,52,.06)}
+    .table-wrap{width:100%;overflow-x:auto;border:1px solid #d1e5d6;border-radius:14px;background:#fff;-webkit-overflow-scrolling:touch}
+    .financial-table{min-width:760px;width:100%;border-collapse:separate;border-spacing:0;font-size:13px}
+    .financial-table th{background:#166534;color:#fff;font-weight:800;text-align:center}
+    .financial-table th,.financial-table td{padding:12px;border-right:1px solid #dce9df;border-bottom:1px solid #dce9df;vertical-align:top}
+    .financial-table tr:last-child td{border-bottom:0}.financial-table th:last-child,.financial-table td:last-child{border-right:0}
+    .financial-table tbody tr:nth-child(even){background:#f4fbf5}
+    .section-heading{font-size:clamp(1rem,2vw,1.15rem);font-weight:800;line-height:1.5}
+    .content-panel p,.content-panel li{line-height:1.85}
+    .back-link{display:inline-flex;align-items:center;gap:6px;background:#dcfce7;color:#14532d;border:1px solid #bbf7d0;border-radius:999px;padding:8px 13px;font-size:12px;font-weight:800;text-decoration:none;transition:.2s}
+    .back-link:hover{background:#bbf7d0;transform:translateY(-1px)}
+    .action-link{display:inline-flex;justify-content:center;align-items:center;gap:8px;text-align:center;border-radius:999px;padding:11px 18px;font-weight:800;box-shadow:0 5px 14px rgba(22,101,52,.12);transition:transform .2s,filter .2s}
+    .action-link:hover{transform:translateY(-2px);filter:brightness(1.04)}
+    @media(max-width:640px){.content-panel{padding:16px!important;border-radius:18px}.section-card{padding:16px!important}.financial-table{font-size:12px}.action-link{width:100%}}
+    /* Shared शेतकरी सेवार्थ header/footer styling */
+.sv-site-footer{background:#0f172a;color:#cbd5e1;text-align:center;padding:24px 16px;margin-top:40px;font-size:13px;line-height:1.8;width:100%;box-sizing:border-box}
+.sv-footer-inner{max-width:900px;margin:0 auto}
+.sv-footer-note{color:#f1f5f9;font-size:14px;margin:0 0 6px}
+.sv-footer-email{margin:4px 0}
+.sv-footer-email a{color:#6ee7b7;text-decoration:underline;text-underline-offset:3px;font-weight:700;overflow-wrap:anywhere}
+.sv-footer-copy{color:#94a3b8;margin:8px 0 0}
+@media(min-width:768px){body>header:not(.sv-admin-header)>div.max-w-7xl{position:relative;justify-content:flex-end!important;text-align:center!important;min-height:52px}body>header:not(.sv-admin-header)>div.max-w-7xl>a:first-child,body>header:not(.sv-admin-header)>div.max-w-7xl>div:first-child:has(>h1#headerTitle){position:absolute;left:50%;transform:translateX(-50%);top:50%;translate:0 -50%;white-space:nowrap}body>header:not(.sv-admin-header)>div.max-w-7xl>div:has(>h1#headerTitle){left:50%}}
+@media(max-width:767px){body>header:not(.sv-admin-header)>div.max-w-7xl{gap:12px!important}body>header:not(.sv-admin-header)>div.max-w-7xl h1{ text-align:center!important }}
+
+/* Shared visual polish — original page content and links are preserved */
+:root{--sv-green:#166534;--sv-green-dark:#064e3b;--sv-mint:#ecfdf5;--sv-ink:#18332a;--sv-border:#d7e8dc;--sv-shadow:0 12px 30px rgba(15,80,45,.08)}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body:not(.sv-admin-body){color:var(--sv-ink);background:radial-gradient(ellipse at top,#ecfdf5 0%,#f8fafc 48%,#f1f5f9 100%);line-height:1.75;-webkit-font-smoothing:antialiased}
+body{font-family:'Noto Sans Devanagari','Nirmala UI',Arial,sans-serif}
+body:not(.sv-admin-body)>header{box-shadow:0 5px 18px rgba(6,78,59,.16);position:relative}
+body:not(.sv-admin-body)>header h1{letter-spacing:.01em;text-wrap:balance}
+body:not(.sv-admin-body) main{width:min(100% - 28px,1100px);margin:30px auto 42px;padding-left:0;padding-right:0}
+body:not(.sv-admin-body) main>h1,body:not(.sv-admin-body) main>h2,body:not(.sv-admin-body) main .page-title{color:var(--sv-green-dark);line-height:1.35;text-wrap:balance}
+body:not(.sv-admin-body) main>h1{font-size:clamp(1.55rem,3.4vw,2.25rem);font-weight:800;margin:0 0 18px}
+body:not(.sv-admin-body) main>h2{font-size:clamp(1.2rem,2.6vw,1.65rem);font-weight:750;margin:24px 0 12px}
+body:not(.sv-admin-body) main .card,body:not(.sv-admin-body) main .bg-white,body:not(.sv-admin-body) main article,body:not(.sv-admin-body) main section.info-card{border-radius:18px;box-shadow:var(--sv-shadow)}
+body:not(.sv-admin-body) main .card{border:1px solid var(--sv-border);padding:clamp(16px,3vw,26px);transition:transform .2s ease,box-shadow .2s ease}
+body:not(.sv-admin-body) main .card:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(15,80,45,.12)}
+body:not(.sv-admin-body) main a.btn,body:not(.sv-admin-body) main a.button,body:not(.sv-admin-body) main button,body:not(.sv-admin-body) a.btn{border-radius:999px;font-weight:700;transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
+body:not(.sv-admin-body) main a.btn:hover,body:not(.sv-admin-body) main a.button:hover,body:not(.sv-admin-body) main button:hover,body:not(.sv-admin-body) a.btn:hover{transform:translateY(-1px);filter:brightness(1.04);box-shadow:0 7px 16px rgba(22,101,52,.17)}
+body:not(.sv-admin-body) a:focus-visible,body:not(.sv-admin-body) button:focus-visible{outline:3px solid #fbbf24;outline-offset:3px}
+body:not(.sv-admin-body) main p{max-width:78ch}
+body:not(.sv-admin-body) main ul,body:not(.sv-admin-body) main ol{padding-inline-start:1.5rem}
+body:not(.sv-admin-body) main li{margin-block:.25rem}
+body:not(.sv-admin-body) main img{max-width:100%;height:auto;border-radius:14px}
+body:not(.sv-admin-body) main table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:12px;background:white;box-shadow:var(--sv-shadow)}
+body:not(.sv-admin-body) main th{background:#dcfce7;color:#14532d;text-align:left}
+body:not(.sv-admin-body) main th,body:not(.sv-admin-body) main td{padding:11px 13px;border-bottom:1px solid #e5eee7}
+.sv-site-footer{border-top:4px solid #10b981;background:linear-gradient(135deg,#052e2b,#0f172a)!important;padding:30px 16px!important;margin-top:auto!important}
+.sv-footer-inner{max-width:900px;margin:0 auto}
+.sv-footer-note{font-weight:600}
+.sv-footer-email a{display:inline-block;padding:2px 5px;border-radius:6px}
+@media(max-width:767px){body:not(.sv-admin-body)>header{padding-top:18px;padding-bottom:18px}body:not(.sv-admin-body)>header h1{font-size:clamp(1.25rem,5vw,1.75rem)}body:not(.sv-admin-body) main{width:calc(100% - 24px);margin:20px auto 30px}body:not(.sv-admin-body) main .card{padding:16px}body:not(.sv-admin-body) main table{display:block;overflow-x:auto;white-space:normal}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}body:not(.sv-admin-body) *{transition:none!important;animation:none!important}}
+
+
+/* Fresh green nature redesign inspired by the approved concept */
+:root{--sv-forest:#075b3b;--sv-green:#13834b;--sv-leaf:#45b96b;--sv-mint:#d9fbe5;--sv-pale:#f2fcf4;--sv-gold:#f4b942;--sv-ink:#163b2a;--sv-border:#d2efda}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans Devanagari',sans-serif!important;background:radial-gradient(ellipse at 7% 8%,rgba(167,243,208,.52),transparent 28%),radial-gradient(ellipse at 94% 22%,rgba(190,242,100,.28),transparent 25%),linear-gradient(145deg,#f4fff6 0%,#effaf0 52%,#fffdf2 100%)!important;color:var(--sv-ink)}
+body:before{content:"";position:fixed;z-index:-1;pointer-events:none;inset:0;background:radial-gradient(circle at 2% 92%,rgba(34,197,94,.10) 0 70px,transparent 72px),radial-gradient(circle at 98% 5%,rgba(132,204,22,.12) 0 100px,transparent 102px)}
+header.hero-gradient,body>header:not(.sv-admin-header){background:linear-gradient(112deg,#064e36 0%,#087443 48%,#23934e 78%,#76b82a 100%)!important;color:#fff;box-shadow:0 8px 24px rgba(6,78,59,.18)!important;position:relative;isolation:isolate;overflow:hidden}
+header.hero-gradient:after,body>header:not(.sv-admin-header):after{content:"";position:absolute;z-index:-1;right:-45px;top:-90px;width:260px;height:240px;border:22px solid rgba(190,242,100,.24);border-radius:62% 38% 60% 40%;transform:rotate(-24deg);pointer-events:none}
+header.hero-gradient:before{content:"";position:absolute;left:-65px;bottom:-120px;width:220px;height:180px;border-radius:55% 45% 40% 60%;background:rgba(167,243,208,.12);transform:rotate(25deg);pointer-events:none}
+main{position:relative}
+#schemesGrid>*,.grid>*,main .rounded-xl,main .rounded-2xl,main .rounded-lg{border-color:var(--sv-border)!important}
+#schemesGrid>*,.scheme-card{background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(236,253,240,.92))!important;border:1px solid var(--sv-border)!important;border-radius:18px!important;box-shadow:0 5px 15px rgba(22,101,52,.08)!important;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+#schemesGrid>*:hover,.scheme-card:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(22,101,52,.14)!important;border-color:#86d6a0!important}
+button,.btn{border-radius:999px!important;transition:filter .18s ease,transform .18s ease}
+button:hover,.btn:hover{filter:brightness(1.04);transform:translateY(-1px)}
+input,select,textarea{border-radius:12px!important}
+.sv-site-footer{background:linear-gradient(110deg,#064e36,#087443 65%,#14532d)!important;color:#e5f8eb!important;border-top:4px solid #86c83f;position:relative;overflow:hidden}
+.sv-footer-note{color:#f0fff4!important}.sv-footer-email a{color:#c5f6a7!important}.sv-footer-copy{color:#d1e7d7!important}
+/* Gentle organic abstract accents */
+main:before{content:"";position:absolute;top:12px;right:-22px;width:110px;height:145px;border-radius:80% 10% 80% 10%;background:linear-gradient(145deg,rgba(74,222,128,.10),rgba(132,204,22,.05));transform:rotate(22deg);pointer-events:none;z-index:-1}
+@media(max-width:640px){header.hero-gradient:after,body>header:not(.sv-admin-header):after{width:140px;height:135px;right:-60px;top:-55px;border-width:14px}main:before{width:60px;height:90px;right:-8px}#schemesGrid>*{border-radius:15px!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+/* Matched header/footer height adjustment */
+@media (min-width:768px){body:not(.sv-admin-body)>header:not(.sv-admin-header){height:120px;min-height:120px;box-sizing:border-box;display:flex;align-items:center}body:not(.sv-admin-body)>header:not(.sv-admin-header)>div.max-w-7xl{width:100%;box-sizing:border-box}body:not(.sv-admin-body)>.sv-site-footer{height:120px;min-height:120px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;padding:12px 16px!important;margin-top:auto!important}}
+@media (max-width:767px){body:not(.sv-admin-body)>header:not(.sv-admin-header){min-height:120px;box-sizing:border-box}body:not(.sv-admin-body)>.sv-site-footer{min-height:120px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;padding:16px!important}}
+
+/* Layout refinements: reduce unused space and keep controls proportionate */
+body:not(.sv-admin-body)>main{margin-top:16px!important;margin-bottom:24px!important;padding-top:12px!important;padding-bottom:20px!important}
+body:not(.sv-admin-body)>main>a[href="index.html"]{display:inline-flex!important;align-items:center;justify-content:center;gap:6px;max-width:100%;padding:8px 13px!important;margin:0 0 14px!important;font-size:12px!important;line-height:1.35!important;white-space:normal;border-radius:999px!important;box-shadow:0 2px 7px rgba(22,101,52,.08)}
+body:not(.sv-admin-body)>main>div:first-child{margin-top:0!important}
+.sv-global-notices{width:min(100% - 28px,1100px);margin:12px auto 0;box-sizing:border-box;display:flex;align-items:center;gap:12px;padding:9px 13px;border:1px solid #b7ebc8;border-radius:14px;background:linear-gradient(100deg,#fff7d6,#f0fdf4 55%,#e2fbe9);color:#14532d;box-shadow:0 4px 12px rgba(22,101,52,.07);position:relative;z-index:1}
+.sv-notice-label{flex:0 0 auto;background:#dc2626;color:#fff;border-radius:999px;padding:5px 10px;font-size:12px;font-weight:800;white-space:nowrap}
+.sv-notice-window{overflow:hidden;min-width:0;flex:1}
+.sv-notice-track{display:flex;align-items:center;gap:34px;width:max-content;min-width:100%;font-size:13px;font-weight:650;line-height:1.6}
+.sv-notice-track a{color:#166534;text-decoration:underline;text-underline-offset:2px}
+.sv-notice-track .sv-notice-item{white-space:nowrap}
+@media(max-width:640px){.sv-global-notices{width:calc(100% - 20px);gap:8px;padding:8px 9px;margin-top:9px}.sv-notice-label{font-size:10px;padding:5px 7px}.sv-notice-track{font-size:11px;gap:22px}body:not(.sv-admin-body)>main{margin-top:10px!important;padding-top:8px!important}body:not(.sv-admin-body)>main>a[href="index.html"]{font-size:11px!important;padding:7px 10px!important}}
+@media(prefers-reduced-motion:no-preference){.sv-notice-track.is-moving{animation:svNoticeScroll 32s linear infinite}.sv-notice-track:hover{animation-play-state:paused}}
+@keyframes svNoticeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+
+    .sv-header-layout{position:relative;min-height:52px}
+    .sv-header-back{flex:1 1 0;white-space:nowrap}
+    .sv-header-title{flex:0 0 auto;text-decoration:none;color:#fff}
+    .sv-header-actions{flex:1 1 0}
+    @media(min-width:768px){.sv-header-layout{justify-content:space-between!important}.sv-header-title{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap}.sv-header-back,.sv-header-actions{max-width:220px}}
+    @media(max-width:540px){.sv-header-layout{flex-wrap:wrap;justify-content:center!important}.sv-header-back{order:2;flex:1;text-align:left}.sv-header-title{order:1;width:100%}.sv-header-actions{order:3;flex:1}.sv-header-title h1{font-size:1.25rem}}
   </style>
 </head>
-<body class="text-gray-800 min-h-screen flex flex-col justify-between">
-
-  <!-- Top Header Bar -->
+<body class="text-gray-800 min-h-screen flex flex-col">
   <header class="hero-gradient text-white shadow-md">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left gap-3 relative">
-      <div class="hidden sm:block w-24"></div>
-      
-      <!-- 🌱 शेतकरी सेवार्थ नाव बरोबर मध्यभागी -->
-      <a href="index.html" class="flex items-center justify-center cursor-pointer gap-2 mx-auto">
-        <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight">🌱 शेतकरी सेवार्थ</h1>
-      </a>
-      
-      <div class="flex items-center justify-center sm:justify-end w-auto">
-        <a href="index.html" class="bg-white/20 hover:bg-white/30 text-white font-bold px-3 py-1.5 rounded-xl text-xs transition">🏠 मुख्य पृष्ठ</a>
-      </div>
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-4 sv-header-layout">
+      <a href="pocra-components.html" class="text-white/90 hover:text-white text-xs sm:text-sm font-bold sv-header-back" aria-label="मागील पृष्ठावर जा">← मागील पृष्ठ</a>
+      <a href="index.html" class="flex items-center justify-center gap-2 mx-auto sv-header-title" aria-label="शेतकरी सेवार्थ मुख्य पृष्ठ"><h1 class="text-xl sm:text-2xl font-extrabold tracking-tight">🌱 शेतकरी सेवार्थ</h1></a>
+      <div class="flex items-center justify-end sv-header-actions"><a href="index.html" class="bg-white/20 hover:bg-white/30 text-white font-bold px-3 py-2 rounded-full text-xs transition">🏠 मुख्य पृष्ठ</a></div>
     </div>
   </header>
 
-  <!-- MAIN CONTAINER -->
-  <main class="max-w-5xl mx-auto px-4 py-6 w-full flex-grow">
-    <a href="pocra-components.html" class="mb-4 bg-emerald-100 hover:bg-emerald-200 text-emerald-900 font-bold px-3 py-1.5 rounded-xl text-xs transition inline-flex items-center gap-1">
-      ← 👈 मागील घटकांच्या सूचीवर जा
-    </a>
+  <!-- सामायिक महत्त्वाच्या सूचना: portal-data.js मधून -->
+  <div class="sv-global-notices" role="region" aria-label="महत्त्वाच्या सूचना">
+    <span class="sv-notice-label">📢 महत्त्वाच्या सूचना</span>
+    <div class="sv-notice-window"><div class="sv-notice-track" id="svGlobalNoticeTrack"><span>सूचना लोड होत आहेत...</span></div></div>
+  </div>
 
-    <div class="bg-white rounded-3xl p-6 md:p-10 shadow-md border border-emerald-100 space-y-6">
-      
-      <!-- Title Header -->
-      <div class="text-center border-b pb-4 flex flex-col items-center">
-        <span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-100 border border-emerald-400 px-3.5 py-1 rounded-full uppercase tracking-wider mb-2">
-          ⚡ सिंचन सुविधा व अवजारे
-        </span>
-        <h2 class="text-xl md:text-2xl font-black text-emerald-900 text-center">
-          पाणी उपसा साधने (पंप संच व पाईप): मार्गदर्शिका व आर्थिक मापदंड
-        </h2>
-        <p class="text-xs text-gray-600 mt-1 text-center">
-          नानाजी देशमुख कृषी संजीवनी प्रकल्प टप्पा-२ (PoCRA 2.0)
-        </p>
+  <main class="max-w-6xl mx-auto px-4 py-6 w-full flex-grow">
+    <a href="pocra-components.html" class="back-link mb-4">← 👈 मागील घटकांच्या सूचीवर जा</a>
+    <article class="content-panel p-5 md:p-9 space-y-6">
+      <div class="text-center border-b border-emerald-100 pb-5">
+        <span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-100 border border-emerald-300 px-4 py-1.5 rounded-full mb-3">⚡ सिंचन सुविधा व अवजारे</span>
+        <h2 class="text-xl md:text-3xl font-black text-emerald-950 leading-relaxed">पाणी उपसा साधने (पंप संच व पाईप): मार्गदर्शिका व आर्थिक मापदंड</h2>
+        <p class="text-sm text-gray-600 mt-2">नानाजी देशमुख कृषी संजीवनी प्रकल्प टप्पा-२ (PoCRA 2.0)</p>
       </div>
-
-      <!-- Introduction Section -->
-      <div class="bg-emerald-50/70 p-5 rounded-2xl border border-emerald-200 space-y-3 text-xs md:text-sm text-gray-700 leading-relaxed text-justify">
-        <h3 class="font-bold text-emerald-950 text-sm border-b border-emerald-200 pb-1">🌿 प्रस्तावना व उद्दिष्टे</h3>
+    
+      <section class="section-card bg-emerald-50/80 p-5 md:p-6 border border-emerald-200 space-y-3 text-sm text-gray-700 text-justify">
+        <h3 class="section-heading text-emerald-950 border-b border-emerald-200 pb-2">🌿 प्रस्तावना व उद्दिष्टे</h3>
         <p>मराठवाडा व विदर्भातील शेतकऱ्यांना दुष्काळ आणि भूगर्भातील पाणीसाठ्यावर होणाऱ्या विपरीत परिणामांमुळे पिकांच्या उत्पादकतेत घट सहन करावी लागते. अशा प्रतिकूल परिस्थितीत शेतकऱ्यांना पिकांना संरक्षित सिंचन उपलब्ध करून देण्यासाठी नानाजी देशमुख कृषी संजीवनी प्रकल्पांतर्गत पंप संच व पाईप हे वैयक्तिक लाभाचे घटक राबविण्यात येत आहेत.</p>
-      </div>
-
-      <!-- Eligibility Section -->
-      <div class="bg-amber-50/70 p-5 rounded-2xl border border-amber-200 space-y-3 text-xs md:text-sm text-gray-700 leading-relaxed text-justify">
-        <h3 class="font-bold text-amber-950 text-sm border-b border-amber-200 pb-1">✅ लाभार्थी पात्रता निकष व अटी</h3>
-        <ul class="list-disc pl-5 space-y-1.5">
-          <li>प्रकल्पांतर्गत सदर घटकासाठी **फक्त अनुसूचित जाती व अनुसूचित जमातीमधील**, ५ हेक्टरपर्यंत जमीन धारणा असलेले शेतकरी पात्र असतील.</li>
+      </section>
+    
+      <section class="section-card bg-amber-50/80 p-5 md:p-6 border border-amber-200 space-y-3 text-sm text-gray-700">
+        <h3 class="section-heading text-amber-950 border-b border-amber-200 pb-2">✅ लाभार्थी पात्रता निकष व अटी</h3>
+        <ul class="list-disc pl-5 space-y-2">
+          <li>प्रकल्पांतर्गत सदर घटकासाठी <b>फक्त अनुसूचित जाती व अनुसूचित जमातीमधील</b>, ५ हेक्टरपर्यंत जमीन धारणा असलेले शेतकरी पात्र असतील.</li>
           <li>सदर घटकाचा लाभ कुटुंबातील एकाच व्यक्तीला घेता येईल.</li>
           <li>ज्या शेतकऱ्याकडे सिंचनासाठी पाणी उपलब्ध आहे, परंतु पाणी उपसा साधनाअभावी पीक उत्पादनात घट येते, अशा शेतकऱ्यांना लाभ देण्यात येईल.</li>
           <li>पाणी उपसा साधने उपलब्ध असलेले तसेच या घटकाचा इतर कोणत्याही योजनेतून लाभ घेतलेल्या शेतकऱ्यांना लाभ देय राहणार नाही.</li>
         </ul>
-      </div>
-
-      <!-- Quick Action Links -->
-      <div class="bg-emerald-50 p-5 rounded-2xl border border-emerald-200 space-y-3">
-        <h3 class="font-bold text-emerald-950 text-sm border-b border-emerald-200 pb-1 text-center">🔗 आवश्यक लिंक्स व अर्ज सुविधा</h3>
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-3 text-xs font-bold pt-1 pb-1 flex-wrap">
-          <a href="https://dbt.mahapocra.gov.in" target="_blank" class="bg-gradient-to-r from-orange-600 to-amber-600 hover:opacity-95 text-white font-bold px-4 py-2.5 rounded-xl shadow-md transition inline-flex items-center gap-1.5">
-            <span>🚀 अर्ज करण्यासाठी येथे क्लिक करा</span>
-            <span>→</span>
-          </a>
-          <a href="https://drive.google.com/file/d/1hNFrdO4S3SDm5RJ7YzhkUEcLUTxKM4Gy/view?usp=drive_link" target="_blank" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-4 py-2.5 rounded-xl shadow-md transition inline-flex items-center gap-1.5">
-            <span>📄 मार्गदर्शक सूचना (PDF पहा)</span>
-            <span>→</span>
-          </a>
+      </section>
+    
+      <section class="section-card bg-emerald-50 p-5 md:p-6 border border-emerald-200 space-y-4">
+        <h3 class="section-heading text-emerald-950 border-b border-emerald-200 pb-2 text-center">🔗 आवश्यक लिंक्स व अर्ज सुविधा</h3>
+        <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3 flex-wrap text-sm">
+          <a href="https://dbt.mahapocra.gov.in" target="_blank" rel="noopener noreferrer" class="action-link bg-gradient-to-r from-orange-600 to-amber-600 text-white"><span>🚀 अर्ज करण्यासाठी येथे क्लिक करा</span><span>→</span></a>
+          <a href="https://drive.google.com/file/d/1hNFrdO4S3SDm5RJ7YzhkUEcLUTxKM4Gy/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="action-link bg-emerald-700 hover:bg-emerald-800 text-white"><span>📄 मार्गदर्शक सूचना (PDF पहा)</span><span>→</span></a>
         </div>
-      </div>
-
-      <!-- Subsidy Details Section -->
-      <div class="bg-blue-50/70 p-5 rounded-2xl border border-blue-200 space-y-3 text-xs md:text-sm text-gray-700 leading-relaxed">
-        <h3 class="font-bold text-blue-950 text-sm border-b border-blue-200 pb-1">💰 अर्थसहाय्य व अनुदान नियम</h3>
-        <ul class="list-disc pl-5 space-y-1.5">
+      </section>
+    
+      <section class="section-card bg-blue-50/80 p-5 md:p-6 border border-blue-200 space-y-3 text-sm text-gray-700">
+        <h3 class="section-heading text-blue-950 border-b border-blue-200 pb-2">💰 अर्थसहाय्य व अनुदान नियम</h3>
+        <ul class="list-disc pl-5 space-y-2">
           <li><b>विद्युत पंप (१० एच.पी. पर्यंत) / डिझेल इंजिन (१० एच.पी. पर्यंत):</b> किमतीच्या ९० टक्के किंवा उच्चतम रु. ४०,०००/- प्रती पंपसंच यापैकी जे कमी असेल ते.</li>
           <li><b>पाईप (एच.डी.पी.ई. / पी.व्ही.सी. / एच.डी.पी.ई. लॅमीनेटेड):</b> प्रचलित आर्थिक मापदंडाच्या किंवा प्रत्यक्ष होणाऱ्या खर्चाच्या १००% किंवा रु. ३०,०००/- यापैकी जे कमी असेल ते.</li>
           <li>लाभार्थ्यास पंप संच व पाईप या दोन्ही घटकाचा लाभ घेण्याची मुभा राहील.</li>
         </ul>
-      </div>
-
-      <!-- Financial Table Section -->
-      <div class="space-y-4 text-xs md:text-sm text-gray-700">
-        <h3 class="font-bold text-red-600 text-sm border-b pb-1">📊 पाणी उपसा साधने व पाईप आर्थिक मापदंड (तक्ता)</h3>
-        <div class="overflow-x-auto">
-          <table class="w-full border-collapse border border-gray-300 text-xs text-left">
-            <thead>
-              <tr class="bg-emerald-800 text-white text-center">
-                <th class="border border-gray-300 p-2">अ.क्र.</th>
-                <th class="border border-gray-300 p-2">घटक / प्रकार</th>
-                <th class="border border-gray-300 p-2">अनुज्ञेय अनुदान / आर्थिक मापदंड</th>
-              </tr>
-            </thead>
-            <tbody class="bg-white text-center">
-              <tr>
-                <td class="border border-gray-300 p-2">अ-१</td>
-                <td class="border border-gray-300 p-2 text-left">विद्युत पंप (१० एच.पी. पर्यंत)</td>
-                <td class="border border-gray-300 p-2 text-left">किमतीच्या ९०% किंवा उच्चतम रु. ४०,०००/- प्रती पंपसंच (जे कमी असेल ते)</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 p-2">अ-२</td>
-                <td class="border border-gray-300 p-2 text-left">डिझेल इंजिन (१० एच.पी. पर्यंत)</td>
-                <td class="border border-gray-300 p-2 text-left">किमतीच्या ९०% किंवा उच्चतम रु. ४०,०००/- प्रती पंपसंच (जे कमी असेल ते)</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-300 p-2">ब-१</td>
-                <td class="border border-gray-300 p-2 text-left">एच.डी.पी.ई. पाईप</td>
-                <td class="border border-gray-300 p-2 text-left">प्रचलित मापदंड रु. १००/- प्रती मीटर (कमाल रु. ३०,०००/- मर्यादेत)</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 p-2">ब-२</td>
-                <td class="border border-gray-300 p-2 text-left">पी.व्ही.सी. पाईप</td>
-                <td class="border border-gray-300 p-2 text-left">प्रचलित मापदंड रु. ७०/- प्रती मीटर (कमाल रु. ३०,०००/- मर्यादेत)</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-300 p-2">ब-३</td>
-                <td class="border border-gray-300 p-2 text-left">एच.डी.पी.ई. लॅमीनेटेड पाईप</td>
-                <td class="border border-gray-300 p-2 text-left">प्रचलित मापदंड रु. ४०/- प्रती मीटर (कमाल रु. ३०,०००/- मर्यादेत)</td>
-              </tr>
+      </section>
+    
+      <section class="space-y-4 text-sm text-gray-700">
+        <h3 class="section-heading text-emerald-900 border-b border-emerald-200 pb-2">📊 पाणी उपसा साधने व पाईप आर्थिक मापदंड</h3>
+        <p class="text-xs text-gray-500">तक्त्यातील संपूर्ण माहिती पाहण्यासाठी मोबाईलवर तक्ता आडव्या दिशेने स्क्रोल करा.</p>
+        <div class="table-wrap" role="region" aria-label="पाणी उपसा साधने व पाईप आर्थिक मापदंड तक्ता" tabindex="0">
+          <table class="financial-table"><thead><tr><th>अ.क्र.</th><th>घटक / प्रकार</th><th>अनुज्ञेय अनुदान / आर्थिक मापदंड</th></tr></thead>
+            <tbody>
+              <tr><td class="text-center">अ-१</td><td>विद्युत पंप (१० एच.पी. पर्यंत)</td><td>किमतीच्या ९०% किंवा उच्चतम रु. ४०,०००/- प्रती पंपसंच (जे कमी असेल ते)</td></tr>
+              <tr><td class="text-center">अ-२</td><td>डिझेल इंजिन (१० एच.पी. पर्यंत)</td><td>किमतीच्या ९०% किंवा उच्चतम रु. ४०,०००/- प्रती पंपसंच (जे कमी असेल ते)</td></tr>
+              <tr><td class="text-center">ब-१</td><td>एच.डी.पी.ई. पाईप</td><td>प्रचलित मापदंड रु. १००/- प्रती मीटर (कमाल रु. ३०,०००/- मर्यादेत)</td></tr>
+              <tr><td class="text-center">ब-२</td><td>पी.व्ही.सी. पाईप</td><td>प्रचलित मापदंड रु. ७०/- प्रती मीटर (कमाल रु. ३०,०००/- मर्यादेत)</td></tr>
+              <tr><td class="text-center">ब-३</td><td>एच.डी.पी.ई. लॅमीनेटेड पाईप</td><td>प्रचलित मापदंड रु. ४०/- प्रती मीटर (कमाल रु. ३०,०००/- मर्यादेत)</td></tr>
             </tbody>
           </table>
         </div>
-      </div>
-
-      <!-- General Instructions Section (सर्वसाधारण सूचना - शब्दशः) -->
-      <div class="bg-emerald-50/70 p-5 rounded-2xl border border-emerald-200 space-y-3 text-xs md:text-sm text-gray-700 leading-relaxed">
-        <h3 class="font-bold text-emerald-950 text-sm border-b border-emerald-200 pb-1">📋 सर्वसाधारण सूचना</h3>
-        <ol class="list-decimal pl-5 space-y-2">
+      </section>
+    
+      <section class="section-card bg-emerald-50/80 p-5 md:p-6 border border-emerald-200 space-y-3 text-sm text-gray-700">
+        <h3 class="section-heading text-emerald-950 border-b border-emerald-200 pb-2">📋 सर्वसाधारण सूचना</h3>
+        <ol class="list-decimal pl-5 space-y-3">
           <li>लाभार्थ्यास पंप संच व पाईप या दोन्ही घटकाचा लाभ घेण्याची मुभा राहील.</li>
           <li>लाभार्थ्यास सदर घटकांतर्गत खालीलप्रमाणे नमूद तिन्ही प्रकारच्या पाईप पैकी कोणत्याही एका प्रकारचा पाईप घेता येईल: I) पीव्हीसी पाईप II) एचडीपीई पाईप III) एचडीपीई लॅमीनेटेड पाईप.
-            <div class="overflow-x-auto mt-2">
-              <table class="w-full border-collapse border border-gray-300 text-xs text-left bg-white">
-                <thead>
-                  <tr class="bg-emerald-700 text-white text-center">
-                    <th class="border border-gray-300 p-1.5">अ.क्र.</th>
-                    <th class="border border-gray-300 p-1.5">पाईप प्रकार</th>
-                    <th class="border border-gray-300 p-1.5">प्रचलित आर्थिक मापदंड</th>
-                  </tr>
-                </thead>
-                <tbody class="text-center">
-                  <tr>
-                    <td class="border border-gray-300 p-1.5">१.</td>
-                    <td class="border border-gray-300 p-1.5 text-left">एच.डी.पी.ई.</td>
-                    <td class="border border-gray-300 p-1.5">१०० रु. प्रती मीटर</td>
-                  </tr>
-                  <tr class="bg-gray-50">
-                    <td class="border border-gray-300 p-1.5">२.</td>
-                    <td class="border border-gray-300 p-1.5 text-left">पी.व्ही.सी.</td>
-                    <td class="border border-gray-300 p-1.5">७० रु. प्रती मीटर</td>
-                  </tr>
-                  <tr>
-                    <td class="border border-gray-300 p-1.5">३.</td>
-                    <td class="border border-gray-300 p-1.5 text-left">एच.डी.पी.ई. लॅमीनेटेड</td>
-                    <td class="border border-gray-300 p-1.5">४० रु. प्रती मीटर</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <div class="table-wrap mt-3" role="region" aria-label="पाईप प्रकार व आर्थिक मापदंड" tabindex="0"><table class="financial-table" style="min-width:520px"><thead><tr><th>अ.क्र.</th><th>पाईप प्रकार</th><th>प्रचलित आर्थिक मापदंड</th></tr></thead><tbody>
+              <tr><td class="text-center">१.</td><td>एच.डी.पी.ई.</td><td class="text-center">१०० रु. प्रती मीटर</td></tr><tr><td class="text-center">२.</td><td>पी.व्ही.सी.</td><td class="text-center">७० रु. प्रती मीटर</td></tr><tr><td class="text-center">३.</td><td>एच.डी.पी.ई. लॅमीनेटेड</td><td class="text-center">४० रु. प्रती मीटर</td></tr>
+            </tbody></table></div>
           </li>
           <li>शेतकऱ्यांना त्यांच्या पसंतीनुसार ६३ एम एम, ७५ एम एम, ९० एम एम व्यासाचे पाईप घेता येतील.</li>
           <li>सिंचनासाठी आय.एस.आय. मानांकित पाईपची लाभार्थ्यांनी त्यांच्या पसंतीनुसार खरेदी करावी.</li>
           <li>पाईप खरेदी केल्यानंतर लाभार्थीने प्रत्येक पाईपवर शेतकऱ्याचे नाव, प्रकल्पाचे नाव व वर्ष टाकणे (EMBOSING) बंधनकारक आहे.</li>
           <li>शेतक-यांना त्यांचे पसंतीनुसार मोनोब्लॉक इलेक्ट्रीक पंपसंच अथवा ओपनवेल सबमर्सिबल ईलेक्ट्रीक पंपसंच खरेदी करता येईल. १० एच पी पर्यंत क्षमतेच्या मोनोब्लॉक / ओपनवेल सबमर्सिबल ईलेक्ट्रीक पंपसंचाकरिता अर्थसहाय्य देय राहील, याची नोंद घ्यावी.
-            <ul class="list-disc pl-5 space-y-1 mt-1 text-left">
+            <ul class="list-disc pl-5 space-y-2 mt-2">
               <li><b>I.</b> मोनोब्लॉक इलेक्ट्रिक पंप संचसाठी आय.एस.आय. (ISI) मानांकित पंप व कपॅसिटर, मेन स्विच, उत्तम दर्जाचे पाईप, उत्तम दर्जाचे होज निपल (क्लिप सह), फूट व्हॉल्व, केबल, कंट्रोल पॅनल बॉक्स, अर्थिंगसाठी आवश्यक साहित्य या बाबी आवश्यक आहेत.</li>
               <li><b>II.</b> ओपनवेल सबमर्सिबल ईलेक्ट्रीक पंप संचसाठी आय.एस.आय. (ISI) मानांकित पंप, स्टार्टर, कपॅसिटर, मेन स्विच, उत्तम दर्जाचे होज पाईप, उत्तम दर्जाचे Bend, उत्तम दर्जाचे होज निपल (क्लिप सह), केबल, कंट्रोल पॅनल बॉक्स, वायर रोप, अर्थिंगसाठी आवश्यक साहित्य या बाबी आवश्यक आहेत.</li>
               <li><b>III.</b> डिझेल इंजिन या बाबीसाठी बि.आय.एस. (BIS) मानांकित पंप, उत्तम दर्जाचे पाईप, उत्तम दर्जाचे फूट व्हॉल्व, उत्तम दर्जाचे Bend, उत्तम दर्जाचे निपल क्लिप्स या बाबी आवश्यक आहेत.</li>
@@ -195,16 +214,14 @@
           <li>सदर मार्गदर्शक सूचनांमधील घटकाचा लाभ जास्तीत जास्त गरजू शेतकऱ्यांपर्यंत पोहोचविण्यासाठी घटकाची अंमलबजावणी काटेकोरपणे करण्यात यावी.</li>
           <li>मार्गदर्शक सूचनांचे उल्लंघन झाल्याचे आढळून आल्यास संबंधित अधिकाऱ्यावर जबाबदारी निश्चित करून प्रशासकीय कारवाई करण्यात येईल.</li>
         </ol>
-      </div>
-
-      <!-- Undertaking / Declaration Section (हमीपत्र) -->
-      <div class="bg-amber-50/50 p-5 rounded-2xl border border-amber-200 space-y-4 text-xs md:text-sm text-gray-700 leading-relaxed">
-        <h3 class="font-bold text-amber-950 text-sm border-b border-amber-200 pb-1">📜 ऑनलाईन अर्ज करताना द्यावयाचे हमीपत्र (प्रतिज्ञापत्र)</h3>
-        
+      </section>
+    
+      <section class="section-card bg-amber-50/70 p-5 md:p-6 border border-amber-200 space-y-5 text-sm text-gray-700">
+        <h3 class="section-heading text-amber-950 border-b border-amber-200 pb-2">📜 ऑनलाईन अर्ज करताना द्यावयाचे हमीपत्र (प्रतिज्ञापत्र)</h3>
         <div>
-          <p class="font-semibold text-gray-900 mb-1">अ) पंप संच हमीपत्र</p>
-          <p class="font-semibold text-gray-800 mb-1">तुम्ही सत्यप्रतिज्ञेवर प्रमाणित करता / करता की,</p>
-          <ul class="list-decimal pl-5 space-y-1">
+          <p class="font-bold text-gray-900 mb-2">अ) पंप संच हमीपत्र</p>
+          <p class="font-semibold text-gray-800 mb-2">तुम्ही सत्यप्रतिज्ञेवर प्रमाणित करता / करता की,</p>
+          <ol class="list-decimal pl-5 space-y-2">
             <li>पंप संच या घटकाचा लाभ कुटुंबातील एकाच व्यक्तीला घेता येईल, याची तुम्हाला जाणीव आहे.</li>
             <li>सदर घटकाचा लाभ तुम्ही किंवा तुमच्या कुटुंबातील इतर सदस्यांनी यापूर्वी कोणत्याही शासकीय योजनेतून घेतलेला नाही.</li>
             <li>सदर योजने अंतर्गतची कामे मार्गदर्शक सूचनेतील तांत्रिक निकषांनुसार पूर्ण करण्याची जबाबदारी आपकी/तुमची राहील.</li>
@@ -213,13 +230,12 @@
             <li>प्रकल्पांतर्गत लाभ घेण्यासाठी तुमच्याकडून फसवणूक किंवा खोटी माहिती, कागदपत्रे दिली गेली असे आढळून आल्यास प्रकल्प व्यवस्थापन कक्षास अनुदान थांबवण्याचा किंवा वसूल करण्याचा पूर्ण अधिकार असेल.</li>
             <li>तुम्ही प्रकल्पाच्या अधिकारी/प्रतिनिधींना सदर घटकाशी संबंधित प्रकल्प स्थळ, साहित्य किंवा नोंदी तपासण्यासाठी परवानगी शकाल आणि पूर्ण सहकार्य कराल.</li>
             <li>तुम्ही प्रकल्पांतर्गत लाभ घेतलेल्या घटकाचे प्रकल्पाच्या मार्गदर्शक सूचनेनुसार निर्धारित कालावधीपर्यंत देखभाल व जतन करणार असल्याची हमी देत आहात.</li>
-          </ul>
+          </ol>
         </div>
-
-        <div class="border-t pt-3">
-          <p class="font-semibold text-gray-900 mb-1">ब) पाईप हमीपत्र</p>
-          <p class="font-semibold text-gray-800 mb-1">तुम्ही सत्यप्रतिज्ञेवर प्रमाणित करता / करता की,</p>
-          <ul class="list-decimal pl-5 space-y-1">
+        <div class="border-t border-amber-200 pt-4">
+          <p class="font-bold text-gray-900 mb-2">ब) पाईप हमीपत्र</p>
+          <p class="font-semibold text-gray-800 mb-2">तुम्ही सत्यप्रतिज्ञेवर प्रमाणित करता / करता की,</p>
+          <ol class="list-decimal pl-5 space-y-2">
             <li>पाईप या घटकाचा लाभ कुटुंबातील एकाच व्यक्तीला घेता येईल, याची तुम्हाला जाणीव आहे.</li>
             <li>सदर घटकाचा लाभ तुम्ही किंवा तुमच्या कुटुंबातील इतर सदस्यांनी यापूर्वी कोणत्याही शासकीय योजनेतून घेतलेला नाही.</li>
             <li>सदर योजने अंतर्गतची कामे मार्गदर्शक सूचनेतील तांत्रिक निकषांनुसार पूर्ण करण्याची जबाबदारी आपकी/तुमची राहील.</li>
@@ -228,14 +244,13 @@
             <li>प्रकल्पांतर्गत लाभ घेण्यासाठी तुमच्याकडून फसवणूक किंवा खोटी माहिती, कागदपत्रे दिली गेली असे आढळून आल्यास प्रकल्प व्यवस्थापन कक्षास अनुदान थांबवण्याचा किंवा वसूल करण्याचा पूर्ण अधिकार असेल.</li>
             <li>तुम्ही प्रकल्पाच्या अधिकारी/प्रतिनिधींना सदर घटकाशी संबंधित प्रकल्प स्थळ, साहित्य किंवा नोंदी तपासण्यासाठी परवानगी शकाल आणि पूर्ण सहकार्य कराल.</li>
             <li>तुम्ही प्रकल्पांतर्गत लाभ घेतलेल्या घटकाचे प्रकल्पाच्या मार्गदर्शक सूचनेनुसार निर्धारित कालावधीपर्यंत देखभाल व जतन करणार असल्याची हमी देत आहात.</li>
-          </ul>
+          </ol>
         </div>
-      </div>
-
-      <!-- Implementation Procedure Section -->
-      <div class="bg-emerald-50/70 p-5 rounded-2xl border border-emerald-200 space-y-3 text-xs md:text-sm text-gray-700 leading-relaxed text-justify">
-        <h3 class="font-bold text-emerald-950 text-sm border-b border-emerald-200 pb-1">⚙️ अंमलबजावणी कार्यपद्धती व विविध स्तरावरील जबाबदाऱ्या</h3>
-        <ul class="list-disc pl-5 space-y-2">
+      </section>
+    
+      <section class="section-card bg-emerald-50/80 p-5 md:p-6 border border-emerald-200 space-y-3 text-sm text-gray-700 text-justify">
+        <h3 class="section-heading text-emerald-950 border-b border-emerald-200 pb-2">⚙️ अंमलबजावणी कार्यपद्धती व विविध स्तरावरील जबाबदाऱ्या</h3>
+        <ul class="list-disc pl-5 space-y-3">
           <li><b>लाभार्थी शेतकरी:</b> प्रकल्पाच्या संकेतस्थळावर ऑनलाईन नोंदणी करून अर्ज व आवश्यक कागदपत्रे अपलोड करणे. पूर्वसंमती मिळाल्यानंतर खुल्या बाजारातून अधिकृत विक्रेत्यांकडून घटकांची खरेदी करणे, पाईपवर नाव इम्बोस करणे आणि काम पूर्ण झाल्यावर ऑनलाईन देयके व कागदपत्रे अपलोड करून अनुदान मागणी करणे.</li>
           <li><b>ग्राम कृषी विकास समिती (GKVS):</b> अनुसूचित जाती व जमातीमधील शेतकऱ्यांमध्ये प्रचार-प्रसिद्धी करणे, कागदपत्रांची छाननी करणे आणि इतर योजनेतून लाभ घेतला नसल्याची खात्री करून लाभार्थी निवड करणे.</li>
           <li><b>समूह सहाय्यक:</b> शेतकऱ्यांना ऑनलाईन नोंदणी व अर्ज करण्यास मार्गदर्शन करणे, कागदपत्रांची छाननी करून ग्राम कृषी विकास समितीसमोर सादर करणे.</li>
@@ -243,23 +258,35 @@
           <li><b>तालुका कृषी अधिकारी (TAO):</b> कागदपत्रांची तपासणी करून पात्र लाभार्थ्यास ऑनलाईन पूर्वसंमती प्रदान करणे.</li>
           <li><b>उपविभागीय कृषी अधिकारी (SDAO):</b> अनुदान प्रस्तावाची संपूर्ण छाननी करून अनुदान अदायगीस अंतिम मान्यता देणे.</li>
         </ul>
-      </div>
-
-      <!-- Support Footer Note (Increased size & prominence) -->
-      <div class="pt-3 text-center text-sm font-semibold text-emerald-950 border-t">
-        📞 अधिक माहितीसाठी आपल्या गावातील <b>सहायक कृषी अधिकारी (AAO)</b> किंवा तालुका कृषी अधिकारी कार्यालयाशी संपर्क साधावा.
-      </div>
-
-    </div>
+      </section>
+    
+      <div class="pt-4 text-center text-sm md:text-base font-bold text-emerald-950 border-t border-emerald-100">📞 अधिक माहितीसाठी आपल्या गावातील <b>सहायक कृषी अधिकारी (AAO)</b> किंवा तालुका कृषी अधिकारी कार्यालयाशी संपर्क साधावा.</div>
+    </article>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-slate-900 text-slate-300 py-4 text-center text-xs mt-6">
-    <div class="max-w-4xl mx-auto px-4">
-      <p>नानाजी देशमुख कृषी संजीवनी प्रकल्प: डिजिटल तंत्रज्ञानाने समृद्ध होतोय महाराष्ट्राचा शेतकरी! 🌾</p>
-      <p class="mt-1">© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p>
-    </div>
-  </footer>
+  <footer class="sv-site-footer" role="contentinfo"><div class="sv-footer-inner"><p class="sv-footer-note">सदर माहिती आपल्या उपयुक्त वाटल्यास किंवा सूचना असल्यास संपर्क साधू शकता.</p><p class="sv-footer-email">📧 ई-मेल: <a href="mailto:shetkarisevarthofficial@gmail.com">shetkarisevarthofficial@gmail.com</a></p><p class="sv-footer-copy">© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p></div></footer>
 
+  <script src="portal-data.js?v=shared"></script>
+  <script>
+  (function(){
+    function loadSharedNotices(){
+      var track=document.getElementById('svGlobalNoticeTrack');
+      if(!track)return;
+      var items=(window.PORTAL_DATA&&Array.isArray(window.PORTAL_DATA.announcements))?window.PORTAL_DATA.announcements:[];
+      track.innerHTML='';
+      if(!items.length){track.textContent='सध्या नवीन अपडेट उपलब्ध नाही.';return;}
+      function add(item){
+        var span=document.createElement('span');span.className='sv-notice-item';
+        var label=(item.emoji?item.emoji+' ':'')+(item.text||'');
+        if(item.url){var a=document.createElement('a');a.href=item.url;a.textContent=label;span.appendChild(a);}
+        else span.textContent=label;
+        track.appendChild(span);
+      }
+      items.forEach(add);
+      if(items.length>1){items.forEach(add);track.classList.add('is-moving');}
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadSharedNotices);else loadSharedNotices();
+  })();
+  </script>
 </body>
 </html>
