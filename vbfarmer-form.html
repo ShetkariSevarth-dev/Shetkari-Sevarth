@@ -129,17 +129,17 @@
           <div class="grid sm:grid-cols-2 gap-x-4">
             <div class="sv-field">
               <label for="farmerName">1. शेतक-याचे नाव</label>
-              <input id="farmerName" name="farmerName" type="text" autocomplete="name" required>
+              <input id="farmerName" name="farmerName" type="text" autocomplete="name" required[cite: 1]>
               <div class="err" data-for="farmerName"></div>
             </div>
             <div class="sv-field">
               <label for="village">2. गाव</label>
-              <input id="village" name="village" type="text" required>
+              <input id="village" name="village" type="text" required[cite: 1]>
               <div class="err" data-for="village"></div>
             </div>
             <div class="sv-field">
               <label for="jobCard">3. जॉब कार्ड क्रमांक</label>
-              <input id="jobCard" name="jobCard" type="text" autocapitalize="characters" required>
+              <input id="jobCard" name="jobCard" type="text" autocapitalize="characters" required[cite: 1]>
               <div class="err" data-for="jobCard"></div>
             </div>
           </div>
@@ -150,27 +150,27 @@
           <div class="grid sm:grid-cols-2 gap-x-4">
             <div class="sv-field">
               <label for="gatNo">4. लागडीचा गट क्र</label>
-              <input id="gatNo" name="gatNo" type="text" required>
+              <input id="gatNo" name="gatNo" type="text" required[cite: 1]>
               <div class="err" data-for="gatNo"></div>
             </div>
             <div class="sv-field">
               <label for="cultivationArea">5. लागवड करावयाच्‍या गटाचे क्षेत्र (हे.)</label>
-              <input id="cultivationArea" name="cultivationArea" type="text" inputmode="decimal" required>
+              <input id="cultivationArea" name="cultivationArea" type="text" inputmode="decimal" required[cite: 1]>
               <div class="err" data-for="cultivationArea"></div>
             </div>
             <div class="sv-field">
               <label for="totalLand8A">6. ८ अ प्रमाणे एकुण जमीन (हे.)</label>
-              <input id="totalLand8A" name="totalLand8A" type="text" inputmode="decimal" required>
+              <input id="totalLand8A" name="totalLand8A" type="text" inputmode="decimal" required[cite: 1]>
               <div class="err" data-for="totalLand8A"></div>
             </div>
             <div class="sv-field">
               <label for="proposedArea">7. लागवड करायचे क्षेत्र (हे.)</label>
-              <input id="proposedArea" name="proposedArea" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]*\.?[0-9]{0,2}" data-number required>
+              <input id="proposedArea" name="proposedArea" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]*\.?[0-9]{0,2}" data-number required[cite: 1]>
               <div class="err" data-for="proposedArea"></div>
             </div>
             <div class="sv-field">
               <label for="fruitName">8. फळझाड नाव</label>
-              <select id="fruitName" name="fruitName" required>
+              <select id="fruitName" name="fruitName" required[cite: 1]>
               <option value="">निवडा</option>
               <option value="आंबा">आंबा</option>
               <option value="संत्रा">संत्रा</option>
@@ -181,7 +181,7 @@
             </div>
             <div class="sv-field">
               <label for="category">9. शेतकरी प्रवर्ग</label>
-              <select id="category" name="category" required>
+              <select id="category" name="category" required[cite: 1]>
                 <option value="">निवडा</option>
                 <option value="अनुसूचित जाती">अनुसूचित जाती</option>
                 <option value="अनुसूचित जमाती">अनुसूचित जमाती</option>
@@ -197,27 +197,27 @@
           <div class="grid sm:grid-cols-2 gap-x-4">
             <div class="sv-field">
               <label for="A_A_O_HQ">10. सहायक कृषी अधिकारी मुख्यालय</label>
-              <input id="A_A_O_HQ" name="A_A_O_HQ" type="text">
+              <input id="A_A_O_HQ" name="A_A_O_HQ" type="text"[cite: 1]>
             </div>
             <div class="sv-field">
               <label for="Supervisor_HQ">11. कृषी पर्यवेक्षक मुख्‍यालय</label>
-              <input id="Supervisor_HQ" name="Supervisor_HQ" type="text">
+              <input id="Supervisor_HQ" name="Supervisor_HQ" type="text"[cite: 1]>
             </div>
             <div class="sv-field">
               <label for="CircleOfficer">12. मंडळ कृषी अधिकारी</label>
-              <input id="CircleOfficer" name="CircleOfficer" type="text">
+              <input id="CircleOfficer" name="CircleOfficer" type="text"[cite: 1]>
             </div>
             <div class="sv-field">
               <label for="Taluka">13. तालुका</label>
-              <input id="Taluka" name="Taluka" type="text">
+              <input id="Taluka" name="Taluka" type="text"[cite: 1]>
             </div>
             <div class="sv-field">
               <label for="SubDivision">14. उपविभाग</label>
-              <input id="SubDivision" name="SubDivision" type="text">
+              <input id="SubDivision" name="SubDivision" type="text"[cite: 1]>
             </div>
             <div class="sv-field">
               <label for="District">15. जिल्‍हा</label>
-              <input id="District" name="District" type="text">
+              <input id="District" name="District" type="text"[cite: 1]>
             </div>
           </div>
         </fieldset>
@@ -228,12 +228,12 @@
 
       <!-- फॉर्म भरल्यानंतर सुरक्षित डाऊनलोड बॉक्स -->
       <div id="estimatePreviewBox" style="display:none; margin-top:10px; background:#f0fff4; padding:25px; border-radius:18px; border:2px solid #047857; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
-        <h3 style="font-size:20px; font-weight:bold; color:#064e3b; margin-bottom:10px;">📄 अंदाजपत्रक तयार झाले आहे!</h3>
-        <p style="font-size:14px; color:#1e293b; margin-bottom:15px;">खालील बटणावर क्लिक करून तयार झालेले अंतिम अंदाजपत्रक थेट एक्सेल (Excel) फाईल स्वरूपात डाऊनलोड करू शकता.</p>
+        <h3 style="font-size:20px; font-weight:bold; color:#064e3b; margin-bottom:10px;">📄 सर्व ११ शिट्ससह अंदाजपत्रक तयार झाले आहे!</h3>
+        <p style="font-size:14px; color:#1e293b; margin-bottom:15px;">खालील बटणावर क्लिक करून सर्व पानांची मिळून संपूर्ण एक्सेल फाईल डाऊनलोड करू शकता.</p>
         
         <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
           <a id="downloadExcelBtn" href="#" target="_blank" style="display:inline-block; background:#047857; color:#fff; text-decoration:none; padding:12px 24px; border-radius:999px; font-weight:bold; font-size:15px; box-shadow:0 4px 10px rgba(4,120,87,0.3);">
-            📥 पूर्ण एक्सेल फाईल डाऊनलोड करा
+            📥 सर्व ११ शिट्सची एक्सेल फाईल डाऊनलोड करा
           </a>
         </div>
 
@@ -281,7 +281,7 @@
 </script>
 
 <script>
-  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwZXp4-ezby2LErJUzjHl7Y8uJ-QhH-Z49ZXFqkv-eh8yWMjL9C4_LVfjnBAOH7IYkk/exec";
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxi4hTJN_x1RY0MnEauls5koVZhvu98w_x7QdAutbz9yltDnccGrwuPvkfn1miKJLyY/exec";
 
   const form = document.getElementById("f");
   const statusBox = document.getElementById("status");
@@ -358,26 +358,28 @@
     sendBtn.disabled = true;
     sendBtn.textContent = "अंदाजपत्रक तयार होत आहे...";
     try {
-      // mode: "no-cors" मुळे कोणताही CORS एरर येणार नाही
-      await fetch(WEB_APP_URL, { method: "POST", mode: "no-cors", body: data });
+      const response = await fetch(WEB_APP_URL, { method: "POST", body: data });
+      const result = await response.json();
       
-      show("ok", "✅ शेतकर्याचे अंदाजपत्रक यशस्वीपणे तयार झाले आहे!");
-      form.style.display = "none";
-      
-      const previewBox = document.getElementById("estimatePreviewBox");
-      if(previewBox) {
-        previewBox.style.display = "block";
+      if (result.status === "success") {
+        show("ok", "✅ शेतकर्याचे अंदाजपत्रक यशस्वीपणे तयार झाले आहे!");
+        form.style.display = "none";
         
-        // अचूक GID सह थेट एक्सेल डाऊनलोड लिंक
-        const downloadBtn = document.getElementById("downloadExcelBtn");
-        downloadBtn.href = "https://docs.google.com/spreadsheets/d/1yHo_8WkzV6qEXMlA8M30i8olbfYQHKq9BsQDFKW-H40/export?format=xlsx&gid=1559594413";
-        
-        // डाऊनलोड बटणावर क्लिक केल्यावर ५ सेकंदात पेज रीसेट होईल
-        downloadBtn.onclick = function() {
-          setTimeout(function() {
-            location.reload();
-          }, 5000);
-        };
+        const previewBox = document.getElementById("estimatePreviewBox");
+        if(previewBox) {
+          previewBox.style.display = "block";
+          const downloadBtn = document.getElementById("downloadExcelBtn");
+          downloadBtn.href = result.downloadUrl;
+          
+          // डाऊनलोड बटणावर क्लिक केल्यावर ५ सेकंदात पेज रीसेट होईल
+          downloadBtn.onclick = function() {
+            setTimeout(function() {
+              location.reload();
+            }, 5000);
+          };
+        }
+      } else {
+        show("bad", "तांत्रिक अडचण आली: " + result.message);
       }
       
       window.scrollTo({ top: 0, behavior: "smooth" });
