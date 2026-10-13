@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="mr">
 <head>
+  <meta name="description" content="शेतकरी सेवार्थ — महाराष्ट्रातील शेतकऱ्यांसाठी कृषी योजना, मार्गदर्शक सूचना, अर्ज दुवे आणि उपयुक्त माहिती.">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="pageTitle">शेतकरी सेवार्थ | Shetkari Sevarth</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="portal-data.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,8 +16,16 @@
   <style>
     body {
       font-family: 'Noto Sans Devanagari', sans-serif;
-      background-color: #f8fafc;
+      background: radial-gradient(ellipse at top, #ecfdf5 0%, #f8fafc 48%, #f1f5f9 100%);
     }
+    .ticker-window { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; }
+    .ticker-track { display: flex; width: max-content; align-items: center; animation: ticker-scroll 34s linear infinite; }
+    .ticker-window:hover .ticker-track, .ticker-window:focus-within .ticker-track { animation-play-state: paused; }
+    .ticker-group { display: flex; align-items: center; gap: 2rem; padding-right: 2rem; white-space: nowrap; }
+    .ticker-link { color: #78350f; text-decoration: none; }
+    .ticker-link:hover { color: #1d4ed8; text-decoration: underline; }
+    @keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
     .hero-gradient {
       background: linear-gradient(135deg, #065f46 0%, #047857 50%, #0f766e 100%);
     }
@@ -25,7 +36,105 @@
       transform: translateY(-3px);
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
     }
-  </style>
+  
+/* Shared शेतकरी सेवार्थ header/footer styling */
+.sv-site-footer{background:#0f172a;color:#cbd5e1;text-align:center;padding:24px 16px;margin-top:40px;font-size:13px;line-height:1.8;width:100%;box-sizing:border-box}
+.sv-footer-inner{max-width:900px;margin:0 auto}
+.sv-footer-note{color:#f1f5f9;font-size:14px;margin:0 0 6px}
+.sv-footer-email{margin:4px 0}
+.sv-footer-email a{color:#6ee7b7;text-decoration:underline;text-underline-offset:3px;font-weight:700;overflow-wrap:anywhere}
+.sv-footer-copy{color:#94a3b8;margin:8px 0 0}
+@media(min-width:768px){body>header:not(.sv-admin-header)>div.max-w-7xl{position:relative;justify-content:flex-end!important;text-align:center!important;min-height:52px}body>header:not(.sv-admin-header)>div.max-w-7xl>a:first-child,body>header:not(.sv-admin-header)>div.max-w-7xl>div:first-child:has(>h1#headerTitle){position:absolute;left:50%;transform:translateX(-50%);top:50%;translate:0 -50%;white-space:nowrap}body>header:not(.sv-admin-header)>div.max-w-7xl>div:has(>h1#headerTitle){left:50%}}
+@media(max-width:767px){body>header:not(.sv-admin-header)>div.max-w-7xl{gap:12px!important}body>header:not(.sv-admin-header)>div.max-w-7xl h1{ text-align:center!important }}
+
+/* Shared visual polish — original page content and links are preserved */
+:root{--sv-green:#166534;--sv-green-dark:#064e3b;--sv-mint:#ecfdf5;--sv-ink:#18332a;--sv-border:#d7e8dc;--sv-shadow:0 12px 30px rgba(15,80,45,.08)}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body:not(.sv-admin-body){color:var(--sv-ink);background:radial-gradient(ellipse at top,#ecfdf5 0%,#f8fafc 48%,#f1f5f9 100%);line-height:1.75;-webkit-font-smoothing:antialiased}
+body{font-family:'Noto Sans Devanagari','Nirmala UI',Arial,sans-serif}
+body:not(.sv-admin-body)>header{box-shadow:0 5px 18px rgba(6,78,59,.16);position:relative}
+body:not(.sv-admin-body)>header h1{letter-spacing:.01em;text-wrap:balance}
+body:not(.sv-admin-body) main{width:min(100% - 28px,1100px);margin:30px auto 42px;padding-left:0;padding-right:0}
+body:not(.sv-admin-body) main>h1,body:not(.sv-admin-body) main>h2,body:not(.sv-admin-body) main .page-title{color:var(--sv-green-dark);line-height:1.35;text-wrap:balance}
+body:not(.sv-admin-body) main>h1{font-size:clamp(1.55rem,3.4vw,2.25rem);font-weight:800;margin:0 0 18px}
+body:not(.sv-admin-body) main>h2{font-size:clamp(1.2rem,2.6vw,1.65rem);font-weight:750;margin:24px 0 12px}
+body:not(.sv-admin-body) main .card,body:not(.sv-admin-body) main .bg-white,body:not(.sv-admin-body) main article,body:not(.sv-admin-body) main section.info-card{border-radius:18px;box-shadow:var(--sv-shadow)}
+body:not(.sv-admin-body) main .card{border:1px solid var(--sv-border);padding:clamp(16px,3vw,26px);transition:transform .2s ease,box-shadow .2s ease}
+body:not(.sv-admin-body) main .card:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(15,80,45,.12)}
+body:not(.sv-admin-body) main a.btn,body:not(.sv-admin-body) main a.button,body:not(.sv-admin-body) main button,body:not(.sv-admin-body) a.btn{border-radius:999px;font-weight:700;transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
+body:not(.sv-admin-body) main a.btn:hover,body:not(.sv-admin-body) main a.button:hover,body:not(.sv-admin-body) main button:hover,body:not(.sv-admin-body) a.btn:hover{transform:translateY(-1px);filter:brightness(1.04);box-shadow:0 7px 16px rgba(22,101,52,.17)}
+body:not(.sv-admin-body) a:focus-visible,body:not(.sv-admin-body) button:focus-visible{outline:3px solid #fbbf24;outline-offset:3px}
+body:not(.sv-admin-body) main p{max-width:78ch}
+body:not(.sv-admin-body) main ul,body:not(.sv-admin-body) main ol{padding-inline-start:1.5rem}
+body:not(.sv-admin-body) main li{margin-block:.25rem}
+body:not(.sv-admin-body) main img{max-width:100%;height:auto;border-radius:14px}
+body:not(.sv-admin-body) main table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:12px;background:white;box-shadow:var(--sv-shadow)}
+body:not(.sv-admin-body) main th{background:#dcfce7;color:#14532d;text-align:left}
+body:not(.sv-admin-body) main th,body:not(.sv-admin-body) main td{padding:11px 13px;border-bottom:1px solid #e5eee7}
+.sv-site-footer{border-top:4px solid #10b981;background:linear-gradient(135deg,#052e2b,#0f172a)!important;padding:30px 16px!important;margin-top:auto!important}
+.sv-footer-inner{max-width:900px;margin:0 auto}
+.sv-footer-note{font-weight:600}
+.sv-footer-email a{display:inline-block;padding:2px 5px;border-radius:6px}
+@media(max-width:767px){body:not(.sv-admin-body)>header{padding-top:18px;padding-bottom:18px}body:not(.sv-admin-body)>header h1{font-size:clamp(1.25rem,5vw,1.75rem)}body:not(.sv-admin-body) main{width:calc(100% - 24px);margin:20px auto 30px}body:not(.sv-admin-body) main .card{padding:16px}body:not(.sv-admin-body) main table{display:block;overflow-x:auto;white-space:normal}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}body:not(.sv-admin-body) *{transition:none!important;animation:none!important}}
+
+</style>
+<style>
+/* Fresh green nature redesign inspired by the approved concept */
+:root{--sv-forest:#075b3b;--sv-green:#13834b;--sv-leaf:#45b96b;--sv-mint:#d9fbe5;--sv-pale:#f2fcf4;--sv-gold:#f4b942;--sv-ink:#163b2a;--sv-border:#d2efda}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans Devanagari',sans-serif!important;background:radial-gradient(ellipse at 7% 8%,rgba(167,243,208,.52),transparent 28%),radial-gradient(ellipse at 94% 22%,rgba(190,242,100,.28),transparent 25%),linear-gradient(145deg,#f4fff6 0%,#effaf0 52%,#fffdf2 100%)!important;color:var(--sv-ink)}
+body:before{content:"";position:fixed;z-index:-1;pointer-events:none;inset:0;background:radial-gradient(circle at 2% 92%,rgba(34,197,94,.10) 0 70px,transparent 72px),radial-gradient(circle at 98% 5%,rgba(132,204,22,.12) 0 100px,transparent 102px)}
+header.hero-gradient,body>header:not(.sv-admin-header){background:linear-gradient(112deg,#064e36 0%,#087443 48%,#23934e 78%,#76b82a 100%)!important;color:#fff;box-shadow:0 8px 24px rgba(6,78,59,.18)!important;position:relative;isolation:isolate;overflow:hidden}
+header.hero-gradient:after,body>header:not(.sv-admin-header):after{content:"";position:absolute;z-index:-1;right:-45px;top:-90px;width:260px;height:240px;border:22px solid rgba(190,242,100,.24);border-radius:62% 38% 60% 40%;transform:rotate(-24deg);pointer-events:none}
+header.hero-gradient:before{content:"";position:absolute;left:-65px;bottom:-120px;width:220px;height:180px;border-radius:55% 45% 40% 60%;background:rgba(167,243,208,.12);transform:rotate(25deg);pointer-events:none}
+main{position:relative}
+#schemesGrid>*,.grid>*,main .rounded-xl,main .rounded-2xl,main .rounded-lg{border-color:var(--sv-border)!important}
+#schemesGrid>*,.scheme-card{background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(236,253,240,.92))!important;border:1px solid var(--sv-border)!important;border-radius:18px!important;box-shadow:0 5px 15px rgba(22,101,52,.08)!important;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+#schemesGrid>*:hover,.scheme-card:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(22,101,52,.14)!important;border-color:#86d6a0!important}
+button,.btn{border-radius:999px!important;transition:filter .18s ease,transform .18s ease}
+button:hover,.btn:hover{filter:brightness(1.04);transform:translateY(-1px)}
+input,select,textarea{border-radius:12px!important}
+.sv-site-footer{background:linear-gradient(110deg,#064e36,#087443 65%,#14532d)!important;color:#e5f8eb!important;border-top:4px solid #86c83f;position:relative;overflow:hidden}
+.sv-footer-note{color:#f0fff4!important}.sv-footer-email a{color:#c5f6a7!important}.sv-footer-copy{color:#d1e7d7!important}
+/* Gentle organic abstract accents */
+main:before{content:"";position:absolute;top:12px;right:-22px;width:110px;height:145px;border-radius:80% 10% 80% 10%;background:linear-gradient(145deg,rgba(74,222,128,.10),rgba(132,204,22,.05));transform:rotate(22deg);pointer-events:none;z-index:-1}
+@media(max-width:640px){header.hero-gradient:after,body>header:not(.sv-admin-header):after{width:140px;height:135px;right:-60px;top:-55px;border-width:14px}main:before{width:60px;height:90px;right:-8px}#schemesGrid>*{border-radius:15px!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+/* Matched header/footer height adjustment */
+@media (min-width:768px){body:not(.sv-admin-body)>header:not(.sv-admin-header){height:120px;min-height:120px;box-sizing:border-box;display:flex;align-items:center}body:not(.sv-admin-body)>header:not(.sv-admin-header)>div.max-w-7xl{width:100%;box-sizing:border-box}body:not(.sv-admin-body)>.sv-site-footer{height:120px;min-height:120px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;padding:12px 16px!important;margin-top:auto!important}}
+@media (max-width:767px){body:not(.sv-admin-body)>header:not(.sv-admin-header){min-height:120px;box-sizing:border-box}body:not(.sv-admin-body)>.sv-site-footer{min-height:120px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;padding:16px!important}}
+</style>
+<style>
+
+/* Layout refinements: reduce unused space and keep controls proportionate */
+body:not(.sv-admin-body)>main{margin-top:16px!important;margin-bottom:24px!important;padding-top:12px!important;padding-bottom:20px!important}
+body:not(.sv-admin-body)>main>a[href="index.html"]{display:inline-flex!important;align-items:center;justify-content:center;gap:6px;max-width:100%;padding:8px 13px!important;margin:0 0 14px!important;font-size:12px!important;line-height:1.35!important;white-space:normal;border-radius:999px!important;box-shadow:0 2px 7px rgba(22,101,52,.08)}
+body:not(.sv-admin-body)>main>div:first-child{margin-top:0!important}
+.sv-global-notices{width:min(100% - 28px,1100px);margin:12px auto 0;box-sizing:border-box;display:flex;align-items:center;gap:12px;padding:9px 13px;border:1px solid #b7ebc8;border-radius:14px;background:linear-gradient(100deg,#fff7d6,#f0fdf4 55%,#e2fbe9);color:#14532d;box-shadow:0 4px 12px rgba(22,101,52,.07);position:relative;z-index:1}
+.sv-notice-label{flex:0 0 auto;background:#dc2626;color:#fff;border-radius:999px;padding:5px 10px;font-size:12px;font-weight:800;white-space:nowrap}
+.sv-notice-window{overflow:hidden;min-width:0;flex:1}
+.sv-notice-track{display:flex;align-items:center;gap:34px;width:max-content;min-width:100%;font-size:13px;font-weight:650;line-height:1.6}
+.sv-notice-track a{color:#166534;text-decoration:underline;text-underline-offset:2px}
+.sv-notice-track .sv-notice-item{white-space:nowrap}
+@media(max-width:640px){.sv-global-notices{width:calc(100% - 20px);gap:8px;padding:8px 9px;margin-top:9px}.sv-notice-label{font-size:10px;padding:5px 7px}.sv-notice-track{font-size:11px;gap:22px}body:not(.sv-admin-body)>main{margin-top:10px!important;padding-top:8px!important}body:not(.sv-admin-body)>main>a[href="index.html"]{font-size:11px!important;padding:7px 10px!important}}
+@media(prefers-reduced-motion:no-preference){.sv-notice-track.is-moving{animation:svNoticeScroll 32s linear infinite}.sv-notice-track:hover{animation-play-state:paused}}
+@keyframes svNoticeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+body:not(.sv-admin-body)>main{margin-top:14px!important;padding-top:12px!important}
+</style>
+<style>
+/* Header controls: left-side back/home tab, compact header, usable page width */
+header{position:relative}
+header .sv-header-inner, header .header-inner, header .container{position:relative}
+header a[href="index.html"]{position:absolute!important;left:clamp(12px,3vw,42px)!important;top:50%!important;transform:translateY(-50%)!important;z-index:5!important;margin:0!important;padding:8px 12px!important;font-size:12px!important;line-height:1.25!important;border-radius:999px!important;max-width:220px;white-space:normal;text-align:center}
+header h1, header .site-title{margin-left:auto!important;margin-right:auto!important;text-align:center!important}
+@media(max-width:680px){
+ header a[href="index.html"]{left:8px!important;top:auto!important;bottom:10px!important;transform:none!important;padding:6px 8px!important;font-size:10px!important;max-width:145px}
+ header h1,header .site-title{max-width:70%;font-size:clamp(19px,5vw,27px)!important}
+}
+</style>
 </head>
 <body class="text-gray-800 min-h-screen flex flex-col justify-between">
 
@@ -67,12 +176,9 @@
       <span class="bg-red-600 text-white text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-full uppercase tracking-wider animate-pulse whitespace-nowrap">
         नवीन अपडेट
       </span>
-      <marquee behavior="scroll" direction="left" scrollamount="5" class="text-xs sm:text-sm font-medium" onmouseover="this.stop();" onmouseout="this.start();">
-        🌾 <a href="mahadbt-portal.html" class="hover:text-blue-800 hover:underline font-semibold">रबी बियाणे साठी अर्ज चालू आहेत, अर्ज करण्यासाठी येथे क्लिक करा.</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
-        👩‍🌾 <a href="women-farmer.html" class="hover:text-blue-800 hover:underline font-semibold">आता शेती नसली तरीही मिळणार महिला शेतकरी प्रमाणपत्र अधिक माहिती साठी आणि अर्ज करण्यासाठी येथे क्लिक करा.</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
-        🧪 <a href="fsas.html" class="hover:text-blue-800 hover:underline font-semibold">२५ सप्टेंबरपासून संपूर्ण राज्यात खत विक्री साठी Framework for Fertilizer Sales (FFS) सुरु होणार.</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-        💧 <a href="jaltara.html" class="hover:text-blue-800 hover:underline font-semibold">जलतारा योजना - भूजल पातळी वाढविण्याची प्रभावी प्रणाली मार्गदर्शिका उपलब्ध.</a>
-      </marquee>
+      <div id="updatesTicker" class="ticker-window text-xs sm:text-sm font-medium" aria-label="नवीन अपडेट्स">
+        <span>अपडेट्स लोड होत आहेत...</span>
+      </div>
     </div>
   </div>
 
@@ -92,19 +198,14 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-slate-900 text-slate-300 py-6 text-center text-xs mt-10">
-    <div class="max-w-4xl mx-auto px-4 space-y-2">
-      <p class="text-slate-400">सदर माहिती आपल्या उपयुक्त वाटल्यास किंवा सूचना असल्यास संपर्क साधू शकता.</p>
-      <p>© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p>
-    </div>
-  </footer>
+  <footer class="sv-site-footer" role="contentinfo"><div class="sv-footer-inner"><p class="sv-footer-note">सदर माहिती आपल्या उपयुक्त वाटल्यास किंवा सूचना असल्यास संपर्क साधू शकता.</p><p class="sv-footer-email">📧 ई-मेल: <a href="mailto:shetkarisevarthofficial@gmail.com">shetkarisevarthofficial@gmail.com</a></p><p class="sv-footer-copy">© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p></div></footer>
 
   <script>
-    const schemesData = [
+    let schemesData = [
       // नवीन योजना सुरुवातीला जोडली आहे
-      { mr: 'CBDC - पोक्रा योजनेत ठिबक व तुषार सिंचन खरेदीपूर्वी अनुदान मिळणार <span class="text-red-600 font-extrabold animate-pulse ml-1">[नवीन]</span>', en: "CBDC - Advance Subsidy for Drip & Sprinkler in PoCRA", emoji: "📱", url: "cbdc.html", status: "ok" },
-      { mr: 'खत विक्री अर्ज प्रणाली (FFS) <span class="text-red-600 font-extrabold animate-pulse ml-1">[नवीन]</span>', en: "Framework for Fertilizer Sales (FFS)", emoji: "🧪", url: "fsas.html", status: "ok" },
-      { mr: 'महिला शेतकरी प्रमाणपत्र <span class="text-red-600 font-extrabold animate-pulse ml-1">[नवीन]</span>', en: "Women Farmer Certificate", emoji: "👩‍🌾", url: "women-farmer.html", status: "ok" },
+      { mr: 'CBDC - पोक्रा योजनेत ठिबक व तुषार सिंचन खरेदीपूर्वी अनुदान मिळणार [नवीन]', en: "CBDC - Advance Subsidy for Drip & Sprinkler in PoCRA", emoji: "📱", url: "cbdc.html", status: "ok" },
+      { mr: 'खत विक्री अर्ज प्रणाली (FFS) [नवीन]', en: "Framework for Fertilizer Sales (FFS)", emoji: "🧪", url: "fsas.html", status: "ok" },
+      { mr: 'महिला शेतकरी प्रमाणपत्र [नवीन]', en: "Women Farmer Certificate", emoji: "👩‍🌾", url: "women-farmer.html", status: "ok" },
       { mr: 'जलतारा योजना (भूजल पुनर्भरण)', en: "Jaltara Scheme", emoji: "💧", url: "jaltara.html", status: "ok" },
       { mr: 'अंदाजपत्रक पहा', en: "View Estimates", emoji: "📊", url: "estimates.html", status: "ok" },
       { mr: "महाडीबीटी पोर्टल (अर्ज एक - योजना अनेक)", en: "MahaDBT Portal", emoji: "🚀", url: "mahadbt-portal.html", status: "ok" },
@@ -115,8 +216,8 @@
       
       // इतर सर्व जुन्या योजना जशाच्या तशा ठेवल्या आहेत[cite: 5]
       { mr: "नानाजी देशमुख कृषी संजीवनी प्रकल्प टप्पा - २", en: "Nanaji Deshmukh Project (PoCRA)", emoji: "🌱", url: "pocra-components.html", status: "ok" },
-      { mr: "सुधारीत प्रधानमंत्री पीक विमा योजना", en: "PM Fasal Bima Yojana", emoji: "🛡️", url: "crop-insurance", status: "ok" },
-      { mr: "फळपीक विमा योजना सन २०२४-२५ ते २०२५-२६", en: "Horticulture Crop Insurance", emoji: "🍎", url: "wbcis", status: "ok" },
+      { mr: "सुधारीत प्रधानमंत्री पीक विमा योजना", en: "PM Fasal Bima Yojana", emoji: "🛡️", url: "crop-insurance.html", status: "ok" },
+      { mr: "फळपीक विमा योजना सन २०२४-२५ ते २०२५-२६", en: "Horticulture Crop Insurance", emoji: "🍎", url: "wbcis.html", status: "ok" },
       { mr: "पीक स्पर्धा", en: "Crop Competition", emoji: "🏆", url: "#", status: "coming-soon" },
       { mr: "फळबाग व इतर पिके लागवड", en: "Orchard Cultivation", emoji: "🌳", url: "#", status: "coming-soon" },
       { mr: "प्रधानमंत्री सूक्ष्म खाद्य प्रक्रिया उन्नयन योजना (PMFME)", en: "PMFME Scheme", emoji: "🏭", url: "#", status: "coming-soon" },
@@ -135,7 +236,55 @@
       { mr: "मुख्यमंत्री सौर कृषी पंप योजना", en: "Solar Agriculture Pump", emoji: "☀️", url: "#", status: "coming-soon" }
     ];
 
+    // Admin मधून व्यवस्थापित सर्व योजना क्रमाने दाखवा; जुना portal-data.js असल्यास नवीन योजना जोडण्याची जुनी पद्धत कायम.
+    const adminSchemes = (window.PORTAL_DATA && Array.isArray(window.PORTAL_DATA.schemes)) ? window.PORTAL_DATA.schemes : [];
+    if (window.PORTAL_DATA && window.PORTAL_DATA.manageAllSchemes === true) {
+      schemesData = adminSchemes.filter(item => item && item.mr && item.url).map(item => ({
+        mr: item.mr, en: item.en || item.mr, emoji: item.emoji || '🌾', url: item.url,
+        status: item.status === 'coming-soon' ? 'coming-soon' : 'ok', isNew: !!item.isNew
+      }));
+    } else {
+      adminSchemes.forEach((item) => {
+        if (item && item.mr && item.url) {
+          schemesData.push({ mr: item.mr, en: item.en || item.mr, emoji: item.emoji || '🌾', url: item.url, status: item.status === 'coming-soon' ? 'coming-soon' : 'ok', isNew: !!item.isNew });
+        }
+      });
+    }
+
+    function escapeHTML(value) {
+      return String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    }
+
     let currentLang = 'mr';
+
+    // अपडेट्स portal-data.js मधून येतात; बदलण्यासाठी admin.html वापरा.
+    function renderAnnouncements() {
+      const ticker = document.getElementById('updatesTicker');
+      const items = (window.PORTAL_DATA && Array.isArray(window.PORTAL_DATA.announcements)) ? window.PORTAL_DATA.announcements : [];
+      ticker.innerHTML = '';
+      if (!items.length) { ticker.textContent = 'सध्या नवीन अपडेट उपलब्ध नाही.'; return; }
+      const track = document.createElement('div');
+      track.className = 'ticker-track';
+      for (let copy = 0; copy < 2; copy++) {
+        const group = document.createElement('div');
+        group.className = 'ticker-group';
+        group.setAttribute('aria-hidden', copy ? 'true' : 'false');
+        items.forEach((item) => {
+          const a = document.createElement('a');
+          a.className = 'ticker-link font-semibold';
+          a.href = item.url || '#';
+          a.textContent = `${item.emoji || '📢'} ${item.text || ''}`;
+          if (copy) a.tabIndex = -1;
+          group.appendChild(a);
+          const sep = document.createElement('span');
+          sep.textContent = '✦';
+          sep.className = 'text-amber-600';
+          group.appendChild(sep);
+        });
+        track.appendChild(group);
+      }
+      ticker.appendChild(track);
+    }
 
     function fuzzyMatch(text, query) {
       text = text.toLowerCase();
@@ -165,7 +314,7 @@
         if (isComingSoon) {
           buttonHTML = `<span class="mt-4 w-full bg-amber-50 text-amber-700 font-medium py-2 rounded-xl text-xs inline-block cursor-not-allowed">⏳ लवकरच येत आहे (Coming Soon)</span>`;
         } else {
-          buttonHTML = `<a href="${item.url}" class="mt-4 w-full bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-semibold py-2 rounded-xl text-xs transition inline-block">
+          buttonHTML = `<a href="${escapeHTML(item.url)}" class="mt-4 w-full bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-semibold py-2 rounded-xl text-xs transition inline-block">
             ${currentLang === 'mr' ? 'माहिती व प्रपत्रे पहा →' : 'View Details & Forms →'}
           </a>`;
         }
@@ -173,7 +322,8 @@
         card.innerHTML = `
           <div>
             <span class="text-3xl">${item.emoji}</span>
-            <h4 class="font-bold text-xs md:text-sm text-gray-900 mt-2">${displayName}</h4>
+            <h4 class="font-bold text-xs md:text-sm text-gray-900 mt-2">${escapeHTML(displayName)}</h4>
+            ${(item.isNew || String(item.mr).includes('[नवीन]')) ? '<span class="inline-block mt-2 bg-red-100 text-red-700 border border-red-200 rounded-full px-2 py-0.5 text-[10px] font-extrabold">NEW · नवीन</span>' : ''}
           </div>
           ${buttonHTML}
         `;
@@ -221,6 +371,7 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       renderSchemes();
+      renderAnnouncements();
     });
   </script>
 </body>
