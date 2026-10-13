@@ -159,12 +159,32 @@
               <div class="err" data-for="proposedArea"></div>
             </div>
             <div class="sv-field">
-              <label for="fruitName">8. बांबू लागवड प्रकार</label>
+              <label for="fruitName">8. फळपिकाचे नाव</label>
               <select id="fruitName" name="fruitName" required>
                 <option value="">निवडा</option>
+                <option value="आंबा कलमे १० x १०">आंबा कलमे १० x १०</option>
+                <option value="आंबा कलमे ५ x ५">आंबा कलमे ५ x ५</option>
+                <option value="आवळा कलमे ६ x ६">आवळा कलमे ६ x ६</option>
+                <option value="आवळा कलमे ७ x ७">आवळा कलमे ७ x ७</option>
+                <option value="आवळा कलमे ८ x ८">आवळा कलमे ८ x ८</option>
+                <option value="कागदी लिंबू कलमे ६ x ६">कागदी लिंबू कलमे ६ x ६</option>
+                <option value="कागदी लिंबू रोपे ६ x ६">कागदी लिंबू रोपे ६ x ६</option>
+                <option value="केळी २ वर्ष (टिश्यू कल्चर)">केळी २ वर्ष (टिश्यू कल्चर)</option>
+                <option value="केळी ३ वर्ष (मुनवे)">केळी ३ वर्ष (मुनवे)</option>
+                <option value="चिकू कलमे १० x १०">चिकू कलमे १० x १०</option>
+                <option value="डाळींब कलमे ४.५ x ३">डाळींब कलमे ४.५ x ३</option>
+                <option value="ड्रॅगनफ्रुट ३.५ x ३.०">ड्रॅगनफ्रुट ३.५ x ३.०</option>
+                <option value="द्राक्ष ३ x १.५">द्राक्ष ३ x १.५</option>
+                <option value="पेरू कलमे ३ x २">पेरू कलमे ३ x २</option>
+                <option value="पेरू कलमे ६ x ६">पेरू कलमे ६ x ६</option>
                 <option value="बांबू ३ x ३">बांबू ३ x ३</option>
                 <option value="बांबू ४ x ४">बांबू ४ x ४</option>
                 <option value="बांबू ५ x ५">बांबू ५ x ५</option>
+                <option value="मोसंबी कलमे ६ x ६">मोसंबी कलमे ६ x ६</option>
+                <option value="संत्रा कलमे ५.४० x ५.४०">संत्रा कलमे ५.४० x ५.४०</option>
+                <option value="संत्रा कलमे ६ x ३">संत्रा कलमे ६ x ३</option>
+                <option value="संत्रा कलमे ६ x ६">संत्रा कलमे ६ x ६</option>
+                <option value="सिताफळ कलमे ५ x ५">सिताफळ कलमे ५ x ५</option>
               </select>
               <div class="err" data-for="fruitName"></div>
             </div>
@@ -221,7 +241,7 @@
         <p style="font-size:14px; color:#1e293b; margin-bottom:15px;">खालील बटणावर क्लिक करून सर्व पानांची मिळून संपूर्ण एक्सेल फाईल डाऊनलोड करू शकता.</p>
 
         <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-          <a id="downloadExcelBtn" href="#" target="_blank" download="Bamboo_Estimate.xlsx" style="display:inline-block; background:#047857; color:#fff; text-decoration:none; padding:12px 24px; border-radius:999px; font-weight:bold; font-size:15px; box-shadow:0 4px 10px rgba(4,120,87,0.3);">
+          <a id="downloadExcelBtn" href="#" download="Bamboo_Estimate.xlsx" style="display:inline-block; background:#047857; color:#fff; text-decoration:none; padding:12px 24px; border-radius:999px; font-weight:bold; font-size:15px; box-shadow:0 4px 10px rgba(4,120,87,0.3);">
             📥 सर्व ११ शिट्सची एक्सेल फाईल डाऊनलोड करा
           </a>
         </div>
@@ -274,7 +294,7 @@
 
 <!-- फॉर्म स्क्रिप्ट -->
 <script>
-  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwPFW-dMOIW0cnmP4tAeVjh84TwBVFegwpSOPWdAnTaeZhyutX3eS65IBGQe6Bwma9P/exec";
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz-2HXvpeshxYTnPyUJvsP2ocKWZ7rOrdCUFPOVlQUpCMfFnjAgWjjTqHzt2OF14CDf/exec";
 
   const form = document.getElementById("f");
   const statusBox = document.getElementById("status");
@@ -352,7 +372,14 @@
     sendBtn.textContent = "अंदाजपत्रक तयार होत आहे...";
     try {
       const response = await fetch(WEB_APP_URL, { method: "POST", body: data });
-      const result = await response.json();
+      const rawText = await response.text();
+      let result;
+      try {
+        result = JSON.parse(rawText);
+      } catch (parseErr) {
+        console.error("Script response (JSON नाही):", rawText);
+        throw new Error("Script ने JSON ऐवजी वेगळं उत्तर दिलं: " + rawText.replace(/<[^>]*>/g, " ").trim().slice(0, 200));
+      }
 
       if (result.status === "success") {
         show("ok", "✅ शेतकर्याचे अंदाजपत्रक यशस्वीपणे तयार झाले आहे!");
@@ -363,6 +390,22 @@
           previewBox.style.display = "block";
           const downloadBtn = document.getElementById("downloadExcelBtn");
           
+          if (result.fileBase64) {
+            // थेट फाईल (Blob) डाऊनलोड - Sheets उघडणार नाही
+            const bin = atob(result.fileBase64);
+            const bytes = new Uint8Array(bin.length);
+            for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+            const blob = new Blob([bytes], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+            const blobUrl = URL.createObjectURL(blob);
+            downloadBtn.href = blobUrl;
+            downloadBtn.setAttribute("download", result.fileName || "Bamboo_Estimate.xlsx");
+            downloadBtn.onclick = function() {
+              setTimeout(function() { URL.revokeObjectURL(blobUrl); location.reload(); }, 8000);
+            };
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            return;
+          }
+
           let baseDownloadUrl = result.downloadUrl || "https://docs.google.com/spreadsheets/d/10iW2UWD3Mvu_b9YHXyfv0p7mewDF7sQRE_GY8rJaZeU/export?format=xlsx";
           if (!baseDownloadUrl.includes("exportFormat=xlsx")) {
             baseDownloadUrl = baseDownloadUrl.replace("format=xlsx", "exportFormat=xlsx");
@@ -382,7 +425,8 @@
 
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
-      show("bad", "काहीतरी त्रुटी आली आहे. कृपया पुन्हा प्रयत्न करा.");
+      console.error(err);
+      show("bad", "काहीतरी त्रुटी आली आहे. कृपया पुन्हा प्रयत्न करा. (" + (err && err.message ? err.message : err) + ")");
     } finally {
       sendBtn.disabled = false;
       sendBtn.textContent = "अंदाजपत्रक तयार करा";
