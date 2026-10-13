@@ -246,7 +246,7 @@
 
 <script>
   // Google Apps Script web app URL इथे टाका (Deploy → Web app → URL)
-  const WEB_APP_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzoJMBG060qPX4tmUFfGJibbFqmzuFRorUI4hSz42KYQQq_BwZMWoqWhakj5WtxtQ4Q/exec";
 
   const form = document.getElementById("f");
   const statusBox = document.getElementById("status");
@@ -318,7 +318,7 @@
     statusBox.className = "";
     if (!validate()) { show("bad", "लाल रंगातील चुका दुरुस्त करा."); return; }
 
-    if (WEB_APP_URL === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL") {
+    if (WEB_APP_URL === "https://script.google.com/macros/s/AKfycbzoJMBG060qPX4tmUFfGJibbFqmzuFRorUI4hSz42KYQQq_BwZMWoqWhakj5WtxtQ4Q/exec") {
       show("bad", "फाईलमध्ये WEB_APP_URL अजून टाकलेली नाही.");
       return;
     }
