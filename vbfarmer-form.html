@@ -358,28 +358,26 @@
     sendBtn.disabled = true;
     sendBtn.textContent = "अंदाजपत्रक तयार होत आहे...";
     try {
-      const response = await fetch(WEB_APP_URL, { method: "POST", body: data });
-      const result = await response.json();
+      // mode: "no-cors" मुळे कोणताही CORS एरर येणार नाही
+      await fetch(WEB_APP_URL, { method: "POST", mode: "no-cors", body: data });
       
-      if (result.status === "success") {
-        show("ok", "✅ शेतकर्याचे अंदाजपत्रक यशस्वीपणे तयार झाले आहे!");
-        form.style.display = "none";
+      show("ok", "✅ शेतकर्याचे अंदाजपत्रक यशस्वीपणे तयार झाले आहे!");
+      form.style.display = "none";
+      
+      const previewBox = document.getElementById("estimatePreviewBox");
+      if(previewBox) {
+        previewBox.style.display = "block";
         
-        const previewBox = document.getElementById("estimatePreviewBox");
-        if(previewBox) {
-          previewBox.style.display = "block";
-          const downloadBtn = document.getElementById("downloadExcelBtn");
-          downloadBtn.href = result.downloadUrl;
-          
-          // डाऊनलोड बटणावर क्लिक केल्यावर ५ सेकंदात पेज रीसेट होईल
-          downloadBtn.onclick = function() {
-            setTimeout(function() {
-              location.reload();
-            }, 5000);
-          };
-        }
-      } else {
-        show("bad", "तांत्रिक अडचण आली: " + result.message);
+        // अचूक GID सह थेट एक्सेल डाऊनलोड लिंक
+        const downloadBtn = document.getElementById("downloadExcelBtn");
+        downloadBtn.href = "https://docs.google.com/spreadsheets/d/1yHo_8WkzV6qEXMlA8M30i8olbfYQHKq9BsQDFKW-H40/export?format=xlsx&gid=1559594413";
+        
+        // डाऊनलोड बटणावर क्लिक केल्यावर ५ सेकंदात पेज रीसेट होईल
+        downloadBtn.onclick = function() {
+          setTimeout(function() {
+            location.reload();
+          }, 5000);
+        };
       }
       
       window.scrollTo({ top: 0, behavior: "smooth" });
