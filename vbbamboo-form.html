@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>बांबू लागवड अंदाजपत्रक बनवा | शेतकरी सेवार्थ</title>
+<title>फळबाग लागवड अंदाजपत्रक बनवा | शेतकरी सेवार्थ</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -117,8 +117,8 @@
     <div class="bg-white rounded-3xl p-5 md:p-8 shadow-md border border-emerald-100">
 
       <div class="text-center border-b pb-4 mb-5">
-        <span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-100 border border-emerald-400 px-3.5 py-1 rounded-full mb-2">🎋 बांबू लागवड योजना</span>
-        <h2 class="text-lg md:text-2xl font-black text-emerald-900">बांबू अंदाजपत्रक बनवा</h2>
+        <span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-100 border border-emerald-400 px-3.5 py-1 rounded-full mb-2">🌳 फळबाग लागवड योजना</span>
+        <h2 class="text-lg md:text-2xl font-black text-emerald-900">फळबाग अंदाजपत्रक बनवा</h2>
         <p class="text-xs text-gray-600 mt-1">विकसित भारत - रोजगार आणि आजीविका हमी मिशन (ग्रामीण) अंतर्गत</p>
       </div>
 
@@ -129,17 +129,17 @@
           <div class="grid sm:grid-cols-2 gap-x-4">
             <div class="sv-field">
               <label for="farmerName">1. शेतक-याचे नाव</label>
-              <input id="farmerName" name="farmerName" type="text" autocomplete="name" required[cite: 1]>
+              <input id="farmerName" name="farmerName" type="text" autocomplete="name" required>
               <div class="err" data-for="farmerName"></div>
             </div>
             <div class="sv-field">
               <label for="village">2. गाव</label>
-              <input id="village" name="village" type="text" required[cite: 1]>
+              <input id="village" name="village" type="text" required>
               <div class="err" data-for="village"></div>
             </div>
             <div class="sv-field">
               <label for="jobCard">3. जॉब कार्ड क्रमांक</label>
-              <input id="jobCard" name="jobCard" type="text" autocapitalize="characters" required[cite: 1]>
+              <input id="jobCard" name="jobCard" type="text" autocapitalize="characters" required>
               <div class="err" data-for="jobCard"></div>
             </div>
           </div>
@@ -150,37 +150,54 @@
           <div class="grid sm:grid-cols-2 gap-x-4">
             <div class="sv-field">
               <label for="gatNo">4. लागडीचा गट क्र</label>
-              <input id="gatNo" name="gatNo" type="text" required[cite: 1]>
+              <input id="gatNo" name="gatNo" type="text" required>
               <div class="err" data-for="gatNo"></div>
             </div>
             <div class="sv-field">
               <label for="cultivationArea">5. लागवड करावयाच्‍या गटाचे क्षेत्र (हे.)</label>
-              <input id="cultivationArea" name="cultivationArea" type="text" inputmode="decimal" required[cite: 1]>
+              <input id="cultivationArea" name="cultivationArea" type="text" inputmode="decimal" required>
               <div class="err" data-for="cultivationArea"></div>
             </div>
             <div class="sv-field">
               <label for="totalLand8A">6. ८ अ प्रमाणे एकुण जमीन (हे.)</label>
-              <input id="totalLand8A" name="totalLand8A" type="text" inputmode="decimal" required[cite: 1]>
+              <input id="totalLand8A" name="totalLand8A" type="text" inputmode="decimal" required>
               <div class="err" data-for="totalLand8A"></div>
             </div>
             <div class="sv-field">
               <label for="proposedArea">7. लागवड करायचे क्षेत्र (हे.)</label>
-              <input id="proposedArea" name="proposedArea" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]*\.?[0-9]{0,2}" data-number required[cite: 1]>
+              <input id="proposedArea" name="proposedArea" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]*\.?[0-9]{0,2}" data-number required>
               <div class="err" data-for="proposedArea"></div>
             </div>
             <div class="sv-field">
-              <label for="fruitName">8. बांबू लागवड प्रकार</label>
-              <select id="fruitName" name="fruitName" required[cite: 1]>
-              <option value="">निवडा</option>
-              <option value="बांबू ३ x ३">बांबू ३ x ३</option>
-              <option value="बांबू ४ x ४">बांबू ४ x ४</option>
-              <option value="बांबू ५ x ५">बांबू ५ x ५</option>
+              <label for="fruitName">8. फळझाड नाव</label>
+              <select id="fruitName" name="fruitName" required>
+                <option value="">निवडा</option>
+                <option value="आंबा कलमे १० x १०">आंबा कलमे १० x १०</option>
+                <option value="आंबा कलमे ५ x ५">आंबा कलमे ५ x ५</option>
+                <option value="आवळा कलमे ६ x ६">आवळा कलमे ६ x ६</option>
+                <option value="आवळा कलमे ७ x ७">आवळा कलमे ७ x ७</option>
+                <option value="आवळा कलमे ८ x ८">आवळा कलमे ८ x ८</option>
+                <option value="कागदी लिंबू कलमे ६ x ६">कागदी लिंबू कलमे ६ x ६</option>
+                <option value="कागदी लिंबू रोपे ६ x ६">कागदी लिंबू रोपे ६ x ६</option>
+                <option value="केळी २ वर्ष (टिश्यू कल्चर)">केळी २ वर्ष (टिश्यू कल्चर)</option>
+                <option value="केळी ३ वर्ष (मुनवे)">केळी ३ वर्ष (मुनवे)</option>
+                <option value="चिकू कलमे १० x १०">चिकू कलमे १० x १०</option>
+                <option value="डाळींब कलमे ४.५ x ३">डाळींब कलमे ४.५ x ३</option>
+                <option value="ड्रॅगनफ्रुट ३.५ x ३.०">ड्रॅगनफ्रुट ३.५ x ३.०</option>
+                <option value="द्राक्ष ३ x १.५">द्राक्ष ३ x १.५</option>
+                <option value="पेरू कलमे ३ x २">पेरू कलमे ३ x २</option>
+                <option value="पेरू कलमे ६ x ६">पेरू कलमे ६ x ६</option>
+                <option value="मोसंबी कलमे ६ x ६">मोसंबी कलमे ६ x ६</option>
+                <option value="संत्रा कलमे ५.४० x ५.४०">संत्रा कलमे ५.४० x ५.४०</option>
+                <option value="संत्रा कलमे ६ x ३">संत्रा कलमे ६ x ३</option>
+                <option value="संत्रा कलमे ६ x ६">संत्रा कलमे ६ x ६</option>
+                <option value="सिताफळ कलमे ५ x ५">सिताफळ कलमे ५ x ५</option>
               </select>
               <div class="err" data-for="fruitName"></div>
             </div>
             <div class="sv-field">
               <label for="category">9. शेतकरी प्रवर्ग</label>
-              <select id="category" name="category" required[cite: 1]>
+              <select id="category" name="category" required>
                 <option value="">निवडा</option>
                 <option value="अनुसूचित जाती">अनुसूचित जाती</option>
                 <option value="अनुसूचित जमाती">अनुसूचित जमाती</option>
@@ -196,27 +213,27 @@
           <div class="grid sm:grid-cols-2 gap-x-4">
             <div class="sv-field">
               <label for="A_A_O_HQ">10. सहायक कृषी अधिकारी मुख्यालय</label>
-              <input id="A_A_O_HQ" name="A_A_O_HQ" type="text"[cite: 1]>
+              <input id="A_A_O_HQ" name="A_A_O_HQ" type="text">
             </div>
             <div class="sv-field">
               <label for="Supervisor_HQ">11. कृषी पर्यवेक्षक मुख्‍यालय</label>
-              <input id="Supervisor_HQ" name="Supervisor_HQ" type="text"[cite: 1]>
+              <input id="Supervisor_HQ" name="Supervisor_HQ" type="text">
             </div>
             <div class="sv-field">
               <label for="CircleOfficer">12. मंडळ कृषी अधिकारी</label>
-              <input id="CircleOfficer" name="CircleOfficer" type="text"[cite: 1]>
+              <input id="CircleOfficer" name="CircleOfficer" type="text">
             </div>
             <div class="sv-field">
               <label for="Taluka">13. तालुका</label>
-              <input id="Taluka" name="Taluka" type="text"[cite: 1]>
+              <input id="Taluka" name="Taluka" type="text">
             </div>
             <div class="sv-field">
               <label for="SubDivision">14. उपविभाग</label>
-              <input id="SubDivision" name="SubDivision" type="text"[cite: 1]>
+              <input id="SubDivision" name="SubDivision" type="text">
             </div>
             <div class="sv-field">
               <label for="District">15. जिल्‍हा</label>
-              <input id="District" name="District" type="text"[cite: 1]>
+              <input id="District" name="District" type="text">
             </div>
           </div>
         </fieldset>
@@ -227,12 +244,12 @@
 
       <!-- फॉर्म भरल्यानंतर सुरक्षित डाऊनलोड बॉक्स -->
       <div id="estimatePreviewBox" style="display:none; margin-top:10px; background:#f0fff4; padding:25px; border-radius:18px; border:2px solid #047857; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
-        <h3 style="font-size:20px; font-weight:bold; color:#064e3b; margin-bottom:10px;">📄 सर्व ११ शिट्ससह अंदाजपत्रक तयार झाले आहे!</h3>
-        <p style="font-size:14px; color:#1e293b; margin-bottom:15px;">खालील बटणावर क्लिक करून सर्व पानांची मिळून संपूर्ण एक्सेल फाईल डाऊनलोड करू शकता.</p>
-        
+        <h3 style="font-size:20px; font-weight:bold; color:#064e3b; margin-bottom:10px;">📄 अंदाजपत्रक तयार झाले आहे!</h3>
+        <p style="font-size:14px; color:#1e293b; margin-bottom:15px;">खालील बटणावर क्लिक करून तयार झालेले अंतिम अंदाजपत्रक थेट एक्सेल (Excel) फाईल स्वरूपात डाऊनलोड करू शकता.</p>
+
         <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
           <a id="downloadExcelBtn" href="#" target="_blank" style="display:inline-block; background:#047857; color:#fff; text-decoration:none; padding:12px 24px; border-radius:999px; font-weight:bold; font-size:15px; box-shadow:0 4px 10px rgba(4,120,87,0.3);">
-            📥 सर्व ११ शिट्सची एक्सेल फाईल डाऊनलोड करा
+            📥 पूर्ण एक्सेल फाईल डाऊनलोड करा
           </a>
         </div>
 
@@ -244,7 +261,7 @@
             👉 <a href="https://drive.google.com/file/d/17WSKgCIoTTlcJlkkNAi9YxUw9xWb5TFA/view?usp=drive_link" target="_blank" style="color:#2563eb; text-decoration:underline; font-weight:bold;">येथे क्लिक करून कोकिळा फॉन्ट डाऊनलोड करा</a>
           </p>
         </div>
-        
+
         <div style="margin-top:18px;">
           <button onclick="location.reload()" style="background:none; border:none; color:#047857; text-decoration:underline; cursor:pointer; font-size:14px; font-weight:bold;">➕ नवीन अर्ज भरा</button>
         </div>
@@ -255,7 +272,34 @@
 
   <footer class="sv-site-footer" role="contentinfo"><div class="sv-footer-inner"><p class="sv-footer-note">सदर माहिती आपल्या उपयुक्त वाटल्यास किंवा सूचना असल्यास संपर्क साधू शकता.</p><p class="sv-footer-email">📧 ई-मेल: <a href="mailto:shetkarisevarthofficial@gmail.com">shetkarisevarthofficial@gmail.com</a></p><p class="sv-footer-copy">© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p></div></footer>
 
+<!-- सूचना डेटा फाईल -->
 <script src="portal-data.js?v=shared"></script>
+
+<!-- सूचना पट्टी ऑटो अपडेट -->
+<script>
+(function(){
+ function loadSharedNotices(){
+  var track=document.getElementById('svGlobalNoticeTrack');
+  if(!track)return;
+  var items=(window.PORTAL_DATA&&Array.isArray(window.PORTAL_DATA.announcements))?window.PORTAL_DATA.announcements:[];
+  track.innerHTML='';
+  if(!items.length){track.textContent='सध्या नवीन अपडेट उपलब्ध नाही.';return;}
+  function add(item){
+   var span=document.createElement('span');span.className='sv-notice-item';
+   var label=(item.emoji?item.emoji+' ':'')+(item.text||'');
+   if(item.url){var a=document.createElement('a');a.href=item.url;a.textContent=label;span.appendChild(a);}
+   else span.textContent=label;
+   track.appendChild(span);
+  }
+  items.forEach(add);
+  if(items.length>1){items.forEach(add);track.classList.add('is-moving');}
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadSharedNotices);
+ else loadSharedNotices();
+})();
+</script>
+
+<!-- फॉर्म स्क्रिप्ट -->
 <script>
   const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwPFW-dMOIW0cnmP4tAeVjh84TwBVFegwpSOPWdAnTaeZhyutX3eS65IBGQe6Bwma9P/exec";
 
@@ -264,9 +308,9 @@
   const sendBtn = document.getElementById("send");
 
   const NUMERIC = ["cultivationArea", "totalLand8A", "proposedArea"];
-  const MR = "०१२३४५६७८९";
+  const MR_DIGITS = "०१२३४५६७८९";
   function toEnglishDigits(s) {
-    return String(s).replace(/[०-९]/g, d => MR.indexOf(d)).replace(/,/g, ".").trim();
+    return String(s).replace(/[०-९]/g, d => MR_DIGITS.indexOf(d)).replace(/,/g, ".").trim();
   }
   const val = id => toEnglishDigits(document.getElementById(id).value);
 
@@ -334,34 +378,37 @@
     sendBtn.disabled = true;
     sendBtn.textContent = "अंदाजपत्रक तयार होत आहे...";
     try {
-      const response = await fetch(WEB_APP_URL, { method: "POST", body: data });
-      const result = await response.json();
-      
-      if (result.status === "success") {
-        show("ok", "✅ शेतकर्याचे अंदाजपत्रक यशस्वीपणे तयार झाले आहे!");
-        form.style.display = "none";
-        
-        const previewBox = document.getElementById("estimatePreviewBox");
-        if(previewBox) {
-          previewBox.style.display = "block";
-          const downloadBtn = document.getElementById("downloadExcelBtn");
-          downloadBtn.href = result.downloadUrl;
-          
-          // डाऊनलोड बटणावर क्लिक केल्यावर ५ सेकंदात पेज रीसेट होईल
-          downloadBtn.onclick = function() {
-            setTimeout(function() {
-              location.reload();
-            }, 5000);
-          };
-        }
-      } else {
-        show("bad", "तांत्रिक अडचण आली: " + result.message);
+      await fetch(WEB_APP_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data)
+      });
+
+      // no-cors मुळे response वाचता येत नाही, म्हणून यशस्वी सबमिट नंतर सुरक्षित डाऊनलोड लिंक सेट करतो
+      sendBtn.style.display = 'none';
+      statusBox.style.display = 'none';
+      form.style.display = "none";
+
+      const previewBox = document.getElementById("estimatePreviewBox");
+      if (previewBox) {
+        previewBox.style.display = "block";
+        const downloadBtn = document.getElementById("downloadExcelBtn");
+
+        // चौथ्या सुरक्षित फाईलची थेट डाऊनलोड लिंक
+        downloadBtn.href = "https://docs.google.com/spreadsheets/d/10iW2UWD3Mvu_b9YHXyfv0p7mewDF7sQRE_GY8rJaZeU/export?format=xlsx";
+
+        // डाऊनलोड बटणावर क्लिक केल्यावर ५ सेकंदात पेज रीसेट होईल
+        downloadBtn.onclick = function() {
+          setTimeout(function() {
+            location.reload();
+          }, 5000);
+        };
       }
-      
+
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
       show("bad", "काहीतरी त्रुटी आली आहे. कृपया पुन्हा प्रयत्न करा.");
-    } finally {
       sendBtn.disabled = false;
       sendBtn.textContent = "अंदाजपत्रक तयार करा";
     }
