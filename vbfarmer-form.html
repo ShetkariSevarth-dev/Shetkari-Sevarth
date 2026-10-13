@@ -90,6 +90,16 @@
 </head>
 <body class="text-gray-800 min-h-screen flex flex-col justify-between">
 
+  <!-- पोर्टलवरून आल्याची सुरक्षा तपासणी -->
+  <script>
+    (function() {
+      var ref = document.referrer;
+      if (!ref || (!ref.includes("estimates.html") && !ref.includes("index.html") && !ref.includes("shetkarisevarth"))) {
+        window.location.href = "estimates.html";
+      }
+    })();
+  </script>
+
   <header class="hero-gradient">
     <div class="max-w-7xl mx-auto px-4 py-5 flex items-center justify-center" style="min-height:88px">
       <a href="index.html" class="sv-header-title flex items-center"><h1>शेतकरी सेवार्थ</h1></a>
@@ -162,26 +172,9 @@
               <label for="fruitName">8. फळझाड नाव</label>
               <select id="fruitName" name="fruitName" required>
               <option value="">निवडा</option>
-              <option value="आंबा कलमे १० x १०">आंबा कलमे १० x १०</option>
-              <option value="आंबा कलमे ५ x ५">आंबा कलमे ५ x ५</option>
-              <option value="आवळा कलमे ६ x ६">आवळा कलमे ६ x ६</option>
-              <option value="आवळा कलमे ७ x ७">आवळा कलमे ७ x ७</option>
-              <option value="आवळा कलमे ८ x ८">आवळा कलमे ८ x ८</option>
-              <option value="कागदी लिंबू कलमे ६ x ६">कागदी लिंबू कलमे ६ x ६</option>
-              <option value="कागदी लिंबू रोपे ६ x ६">कागदी लिंबू रोपे ६ x ६</option>
-              <option value="केळी २ वर्ष (टिश्यू कल्चर)">केळी २ वर्ष (टिश्यू कल्चर)</option>
-              <option value="केळी ३ वर्ष (मुनवे)">केळी ३ वर्ष (मुनवे)</option>
-              <option value="चिकू कलमे १० x १०">चिकू कलमे १० x १०</option>
-              <option value="डाळींब कलमे ४.५ x ३">डाळींब कलमे ४.५ x ३</option>
-              <option value="ड्रॅगनफ्रुट ३.५ x ३.०">ड्रॅगनफ्रुट ३.५ x ३.०</option>
-              <option value="द्राक्ष ३ x १.५">द्राक्ष ३ x १.५</option>
-              <option value="पेरू कलमे ३ x २">पेरू कलमे ३ x २</option>
-              <option value="पेरू कलमे ६ x ६">पेरू कलमे ६ x ६</option>
-              <option value="मोसंबी कलमे ६ x ६">मोसंबी कलमे ६ x ६</option>
-              <option value="संत्रा कलमे ५.४० x ५.४०">संत्रा कलमे ५.४० x ५.४०</option>
-              <option value="संत्रा कलमे ६ x ३">संत्रा कलमे ६ x ३</option>
-              <option value="संत्रा कलमे ६ x ६">संत्रा कलमे ६ x ६</option>
-              <option value="सिताफळ कलमे ५ x ५">सिताफळ कलमे ५ x ५</option>
+              <option value="बांबू ३ x ३">बांबू ३ x ३</option>
+              <option value="बांबू ४ x ४">बांबू ४ x ४</option>
+              <option value="बांबू ५ x ५">बांबू ५ x ५</option>
               </select>
               <div class="err" data-for="fruitName"></div>
             </div>
@@ -262,18 +255,17 @@
 </script>
 
 <script>
-  // Google Apps Script web app URL इथे टाका (Deploy → Web app → URL)
   const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzoJMBG060qPX4tmUFfGJibbFqmzuFRorUI4hSz42KYQQq_BwZMWoqWhakj5WtxtQ4Q/exec";
 
   const form = document.getElementById("f");
   const statusBox = document.getElementById("status");
   const sendBtn = document.getElementById("send");
 
-  // क्षेत्राचे अंक: मराठी -> इंग्रजी (Sheet मध्ये हिशोब बरोबर यावा म्हणून)
   const NUMERIC = ["cultivationArea", "totalLand8A", "proposedArea"];
-  const MR = "०१२३४५६७८९";
+  const MR = "०१dueDate२३४५६७८९"; // wait, keeping standard MR numbers string:
+  const MR_DIGITS = "०१२३४५६७८९";
   function toEnglishDigits(s) {
-    return String(s).replace(/[०-९]/g, d => MR.indexOf(d)).replace(/,/g, ".").trim();
+    return String(s).replace(/[०-९]/g, d => MR_DIGITS.indexOf(d)).replace(/,/g, ".").trim();
   }
   const val = id => toEnglishDigits(document.getElementById(id).value);
 
@@ -334,11 +326,6 @@
     e.preventDefault();
     statusBox.className = "";
     if (!validate()) { show("bad", "लाल रंगातील चुका दुरुस्त करा."); return; }
-
-    if (WEB_APP_URL === "https://script.google.com/macros/s/AKfycbzoJMBG060qPX4tmUFfGJibbFqmzuFRorUI4hSz42KYQQq_BwZMWoqWhakj5WtxtQ4Q/exec") {
-      show("bad", "फाईलमध्ये WEB_APP_URL अजून टाकलेली नाही.");
-      return;
-    }
 
     const data = new FormData(form);
     NUMERIC.forEach(k => data.set(k, Number(toEnglishDigits(data.get(k)))));

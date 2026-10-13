@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>फळबाग लागवड अंदाजपत्रक बनवा | शेतकरी सेवार्थ</title>
+<title>बांबू लागवड अंदाजपत्रक बनवा | शेतकरी सेवार्थ</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -90,6 +90,17 @@
 </head>
 <body class="text-gray-800 min-h-screen flex flex-col justify-between">
 
+  <!-- पोर्टलवरून न आल्यास थेट मुख्य पानावर पाठवण्यासाठी सुरक्षा स्क्रिप्ट -->
+  <script>
+    (function() {
+      var ref = document.referrer;
+      // जर थेट लिंक उघडली तर अंदाजपत्रक यादीकडे (estimates.html) रीडायरेक्ट करा
+      if (!ref || (!ref.includes("estimates.html") && !ref.includes("index.html") && !ref.includes("shetkarisevarth"))) {
+        window.location.href = "estimates.html";
+      }
+    })();
+  </script>
+
   <header class="hero-gradient">
     <div class="max-w-7xl mx-auto px-4 py-5 flex items-center justify-center" style="min-height:88px">
       <a href="index.html" class="sv-header-title flex items-center"><h1>शेतकरी सेवार्थ</h1></a>
@@ -107,8 +118,8 @@
     <div class="bg-white rounded-3xl p-5 md:p-8 shadow-md border border-emerald-100">
 
       <div class="text-center border-b pb-4 mb-5">
-        <span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-100 border border-emerald-400 px-3.5 py-1 rounded-full mb-2">🌳 फळबाग लागवड योजना</span>
-        <h2 class="text-lg md:text-2xl font-black text-emerald-900">अंदाजपत्रक बनवा</h2>
+        <span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-100 border border-emerald-400 px-3.5 py-1 rounded-full mb-2">🎋 बांबू लागवड योजना</span>
+        <h2 class="text-lg md:text-2xl font-black text-emerald-900">बांबू अंदाजपत्रक बनवा</h2>
         <p class="text-xs text-gray-600 mt-1">विकसित भारत - रोजगार आणि आजीविका हमी मिशन (ग्रामीण) अंतर्गत</p>
       </div>
 
@@ -159,7 +170,7 @@
               <div class="err" data-for="proposedArea"></div>
             </div>
             <div class="sv-field">
-              <label for="fruitName">8. फळझाड नाव</label>
+              <label for="fruitName">8. बांबू लागवड प्रकार</label>
               <select id="fruitName" name="fruitName" required>
               <option value="">निवडा</option>
               <option value="बांबू ३ x ३">बांबू ३ x ३</option>
@@ -222,37 +233,13 @@
 
 <script src="portal-data.js?v=shared"></script>
 <script>
-(function(){
- function loadSharedNotices(){
-  var track=document.getElementById('svGlobalNoticeTrack');
-  if(!track)return;
-  var items=(window.PORTAL_DATA&&Array.isArray(window.PORTAL_DATA.announcements))?window.PORTAL_DATA.announcements:[];
-  track.innerHTML='';
-  if(!items.length){track.textContent='सध्या नवीन अपडेट उपलब्ध नाही.';return;}
-  function add(item){
-   var span=document.createElement('span');span.className='sv-notice-item';
-   var label=(item.emoji?item.emoji+' ':'')+(item.text||'');
-   if(item.url){var a=document.createElement('a');a.href=item.url;a.textContent=label;span.appendChild(a);}
-   else span.textContent=label;
-   track.appendChild(span);
-  }
-  items.forEach(add);
-  if(items.length>1){items.forEach(add);track.classList.add('is-moving');}
- }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadSharedNotices);
- else loadSharedNotices();
-})();
-</script>
-
-<script>
-  // Google Apps Script web app URL इथे टाका (Deploy → Web app → URL)
+  // Google Apps Script web app URL
   const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzoJMBG060qPX4tmUFfGJibbFqmzuFRorUI4hSz42KYQQq_BwZMWoqWhakj5WtxtQ4Q/exec";
 
   const form = document.getElementById("f");
   const statusBox = document.getElementById("status");
   const sendBtn = document.getElementById("send");
 
-  // क्षेत्राचे अंक: मराठी -> इंग्रजी (Sheet मध्ये हिशोब बरोबर यावा म्हणून)
   const NUMERIC = ["cultivationArea", "totalLand8A", "proposedArea"];
   const MR = "०१२३४५६७८९";
   function toEnglishDigits(s) {
@@ -317,11 +304,6 @@
     e.preventDefault();
     statusBox.className = "";
     if (!validate()) { show("bad", "लाल रंगातील चुका दुरुस्त करा."); return; }
-
-    if (WEB_APP_URL === "https://script.google.com/macros/s/AKfycbzoJMBG060qPX4tmUFfGJibbFqmzuFRorUI4hSz42KYQQq_BwZMWoqWhakj5WtxtQ4Q/exec") {
-      show("bad", "फाईलमध्ये WEB_APP_URL अजून टाकलेली नाही.");
-      return;
-    }
 
     const data = new FormData(form);
     NUMERIC.forEach(k => data.set(k, Number(toEnglishDigits(data.get(k)))));
