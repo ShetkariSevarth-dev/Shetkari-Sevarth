@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>फळबाग लागवड अंदाजपत्रक बनवा | शेतकरी सेवार्थ</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--sv-forest:#075b3b;--sv-green:#13834b;--sv-ink:#163b2a;--sv-border:#d2efda}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Noto Sans Devanagari','Nirmala UI',Arial,sans-serif;
+    font-size:14px;line-height:1.65;color:var(--sv-ink);
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    background:
+      radial-gradient(ellipse at 7% 8%,rgba(167,243,208,.52),transparent 28%),
+      radial-gradient(ellipse at 94% 22%,rgba(190,242,100,.28),transparent 25%),
+      linear-gradient(145deg,#f4fff6 0%,#effaf0 52%,#fffdf2 100%);
+  }
+  body:before{content:"";position:fixed;z-index:-1;pointer-events:none;inset:0;
+    background:radial-gradient(circle at 2% 92%,rgba(34,197,94,.10) 0 70px,transparent 72px),
+               radial-gradient(circle at 98% 5%,rgba(132,204,22,.12) 0 100px,transparent 102px)}
+
+  /* Header */
+  .hero-gradient{
+    background:linear-gradient(112deg,#064e36 0%,#087443 48%,#23934e 78%,#76b82a 100%);
+    color:#fff;box-shadow:0 8px 24px rgba(6,78,59,.18);
+    position:relative;isolation:isolate;overflow:hidden;
+  }
+  .hero-gradient:after{content:"";position:absolute;z-index:-1;right:-45px;top:-90px;width:260px;height:240px;
+    border:22px solid rgba(190,242,100,.24);border-radius:62% 38% 60% 40%;transform:rotate(-24deg);pointer-events:none}
+  .hero-gradient:before{content:"";position:absolute;z-index:-1;left:-65px;bottom:-120px;width:220px;height:180px;
+    border-radius:55% 45% 40% 60%;background:rgba(167,243,208,.12);transform:rotate(25deg);pointer-events:none}
+  .sv-header-title h1{font-size:24px;font-weight:800;letter-spacing:-.02em;line-height:1.25;color:#fff;margin:0}
+  @media(min-width:640px){.sv-header-title h1{font-size:30px}}
+  @media(min-width:768px){.sv-header-title h1{font-size:36px}}
+
+  /* Notices bar */
+  .sv-global-notices{display:flex;align-items:center;gap:12px;width:100%;box-sizing:border-box;margin:0 auto 12px;
+    padding:10px 16px;background:#fef3c7;border-bottom:1px solid #fcd34d;color:#78350f}
+  .sv-notice-label{flex:0 0 auto;background:#dc2626;color:#fff;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:800;white-space:nowrap}
+  .sv-notice-window{overflow:hidden;min-width:0;flex:1}
+  .sv-notice-track{display:flex;align-items:center;gap:32px;width:max-content;min-width:100%;font-size:14px;font-weight:650;line-height:1.6}
+  .sv-notice-item{white-space:nowrap}
+  .sv-global-notices a{color:#78350f;text-decoration:none}
+  .sv-global-notices a:hover{text-decoration:underline}
+  @media(max-width:640px){.sv-global-notices{padding:8px 10px}.sv-notice-track{font-size:12px;gap:20px}.sv-notice-label{font-size:10px;padding:4px 7px}}
+  @media(prefers-reduced-motion:no-preference){
+    .sv-notice-track.is-moving{animation:svTicker 36s linear infinite}
+    .sv-notice-window:hover .sv-notice-track{animation-play-state:paused}
+  }
+  @keyframes svTicker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* Form */
+  .sv-section{background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(236,253,240,.92));
+    border:1px solid var(--sv-border);border-radius:18px;box-shadow:0 5px 15px rgba(22,101,52,.08);
+    padding:18px 16px 6px;margin:0 0 16px;min-width:0}
+  .sv-section legend{font-weight:800;font-size:15px;color:#064e3b;padding:0 8px;margin-left:-8px}
+  .sv-field{margin-bottom:14px}
+  .sv-field label{display:block;font-weight:700;font-size:13px;color:#14532d;margin-bottom:4px}
+  .sv-field input,.sv-field select{
+    width:100%;min-height:46px;padding:9px 12px;font:inherit;font-size:16px;color:var(--sv-ink);
+    background:#fff;border:1.5px solid #bfe6cc;border-radius:12px}
+  .sv-field input:focus,.sv-field select:focus{outline:3px solid #fbbf24;outline-offset:1px;border-color:#13834b}
+  .sv-field [aria-invalid="true"]{border-color:#dc2626}
+  .err{color:#b91c1c;font-size:12px;font-weight:600;margin-top:3px}
+  #send{width:100%;min-height:52px;border:0;border-radius:999px;background:#047857;color:#fff;
+    font:inherit;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(4,120,87,.25);
+    transition:filter .18s ease,transform .18s ease}
+  #send:hover{filter:brightness(1.06);transform:translateY(-1px)}
+  #send:focus-visible{outline:3px solid #fbbf24;outline-offset:3px}
+  #send:disabled{background:#7aa896;cursor:wait;transform:none}
+  #status{display:none;margin-top:12px;padding:11px 14px;border-radius:12px;font-weight:700;font-size:14px}
+  #status.ok{display:block;background:#dcfce7;color:#14532d;border:1px solid #86d6a0}
+  #status.bad{display:block;background:#fee2e2;color:#991b1b;border:1px solid #fca5a5}
+
+  /* Footer */
+  .sv-site-footer{background:linear-gradient(110deg,#064e36,#087443 65%,#14532d);color:#e5f8eb;text-align:center;
+    border-top:4px solid #86c83f;padding:24px 16px;font-size:13px;line-height:1.8}
+  .sv-footer-inner{max-width:900px;margin:0 auto}
+  .sv-footer-note{color:#f0fff4;font-size:14px;font-weight:600;margin:0 0 6px}
+  .sv-footer-email{margin:4px 0}
+  .sv-footer-email a{color:#c5f6a7;text-decoration:underline;text-underline-offset:3px;font-weight:700;overflow-wrap:anywhere}
+  .sv-footer-copy{color:#d1e7d7;margin:8px 0 0}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body class="text-gray-800 min-h-screen flex flex-col justify-between">
+
+  <header class="hero-gradient">
+    <div class="max-w-7xl mx-auto px-4 py-5 flex items-center justify-center" style="min-height:88px">
+      <a href="index.html" class="sv-header-title flex items-center"><h1>शेतकरी सेवार्थ</h1></a>
+    </div>
+  </header>
+
+  <div class="sv-global-notices" role="region" aria-label="महत्त्वाच्या सूचना">
+    <span class="sv-notice-label">📢 महत्त्वाच्या सूचना</span>
+    <div class="sv-notice-window"><div class="sv-notice-track" id="svGlobalNoticeTrack"><span>सूचना लोड होत आहेत...</span></div></div>
+  </div>
+
+  <main class="max-w-4xl mx-auto px-4 py-4 w-full flex-grow">
+    <a href="estimates.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-white border border-emerald-200 px-3 py-2 rounded-full shadow-sm mb-3">← अंदाजपत्रक यादीकडे</a>
+
+    <div class="bg-white rounded-3xl p-5 md:p-8 shadow-md border border-emerald-100">
+
+      <div class="text-center border-b pb-4 mb-5">
+        <span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-100 border border-emerald-400 px-3.5 py-1 rounded-full mb-2">🌳 फळबाग लागवड योजना</span>
+        <h2 class="text-lg md:text-2xl font-black text-emerald-900">अंदाजपत्रक बनवा</h2>
+        <p class="text-xs text-gray-600 mt-1">विकसित भारत - रोजगार आणि आजीविका हमी मिशन (ग्रामीण) अंतर्गत</p>
+      </div>
+
+      <form id="f" novalidate>
+
+        <fieldset class="sv-section">
+          <legend>शेतकऱ्याची माहिती</legend>
+          <div class="grid sm:grid-cols-2 gap-x-4">
+            <div class="sv-field">
+              <label for="farmerName">1. शेतक-याचे नाव</label>
+              <input id="farmerName" name="farmerName" type="text" autocomplete="name" required>
+              <div class="err" data-for="farmerName"></div>
+            </div>
+            <div class="sv-field">
+              <label for="village">2. गाव</label>
+              <input id="village" name="village" type="text" required>
+              <div class="err" data-for="village"></div>
+            </div>
+            <div class="sv-field">
+              <label for="jobCard">3. जॉब कार्ड क्रमांक</label>
+              <input id="jobCard" name="jobCard" type="text" autocapitalize="characters" required>
+              <div class="err" data-for="jobCard"></div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="sv-section">
+          <legend>जमीन व लागवड</legend>
+          <div class="grid sm:grid-cols-2 gap-x-4">
+            <div class="sv-field">
+              <label for="gatNo">4. लागडीचा गट क्र</label>
+              <input id="gatNo" name="gatNo" type="text" required>
+              <div class="err" data-for="gatNo"></div>
+            </div>
+            <div class="sv-field">
+              <label for="cultivationArea">5. लागवड करावयाच्‍या गटाचे क्षेत्र (हे.)</label>
+              <input id="cultivationArea" name="cultivationArea" type="text" inputmode="decimal" required>
+              <div class="err" data-for="cultivationArea"></div>
+            </div>
+            <div class="sv-field">
+              <label for="totalLand8A">6. ८ अ प्रमाणे एकुण जमीन (हे.)</label>
+              <input id="totalLand8A" name="totalLand8A" type="text" inputmode="decimal" required>
+              <div class="err" data-for="totalLand8A"></div>
+            </div>
+            <div class="sv-field">
+              <label for="proposedArea">7. लागवड करायचे क्षेत्र (हे.)</label>
+              <input id="proposedArea" name="proposedArea" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]*\.?[0-9]{0,2}" data-number required>
+              <div class="err" data-for="proposedArea"></div>
+            </div>
+            <div class="sv-field">
+              <label for="fruitName">8. फळझाड नाव</label>
+              <select id="fruitName" name="fruitName" required>
+              <option value="">निवडा</option>
+              <option value="बांबू ३ x ३">बांबू ३ x ३</option>
+              <option value="बांबू ४ x ४">बांबू ४ x ४</option>
+              <option value="बांबू ५ x ५">बांबू ५ x ५</option>
+              </select>
+              <div class="err" data-for="fruitName"></div>
+            </div>
+            <div class="sv-field">
+              <label for="category">9. शेतकरी प्रवर्ग</label>
+              <select id="category" name="category" required>
+                <option value="">निवडा</option>
+                <option value="अनुसूचित जाती">अनुसूचित जाती</option>
+                <option value="अनुसूचित जमाती">अनुसूचित जमाती</option>
+                <option value="इतर">इतर</option>
+              </select>
+              <div class="err" data-for="category"></div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="sv-section">
+          <legend>कृषी कार्यालयाची माहिती (ऐच्छिक)</legend>
+          <div class="grid sm:grid-cols-2 gap-x-4">
+            <div class="sv-field">
+              <label for="A_A_O_HQ">10. सहायक कृषी अधिकारी मुख्यालय</label>
+              <input id="A_A_O_HQ" name="A_A_O_HQ" type="text">
+            </div>
+            <div class="sv-field">
+              <label for="Supervisor_HQ">11. कृषी पर्यवेक्षक मुख्‍यालय</label>
+              <input id="Supervisor_HQ" name="Supervisor_HQ" type="text">
+            </div>
+            <div class="sv-field">
+              <label for="CircleOfficer">12. मंडळ कृषी अधिकारी</label>
+              <input id="CircleOfficer" name="CircleOfficer" type="text">
+            </div>
+            <div class="sv-field">
+              <label for="Taluka">13. तालुका</label>
+              <input id="Taluka" name="Taluka" type="text">
+            </div>
+            <div class="sv-field">
+              <label for="SubDivision">14. उपविभाग</label>
+              <input id="SubDivision" name="SubDivision" type="text">
+            </div>
+            <div class="sv-field">
+              <label for="District">15. जिल्‍हा</label>
+              <input id="District" name="District" type="text">
+            </div>
+          </div>
+        </fieldset>
+
+        <button type="submit" id="send">अंदाजपत्रक तयार करा</button>
+        <div id="status" role="status" aria-live="polite"></div>
+      </form>
+
+    </div>
+  </main>
+
+  <footer class="sv-site-footer" role="contentinfo"><div class="sv-footer-inner"><p class="sv-footer-note">सदर माहिती आपल्या उपयुक्त वाटल्यास किंवा सूचना असल्यास संपर्क साधू शकता.</p><p class="sv-footer-email">📧 ई-मेल: <a href="mailto:shetkarisevarthofficial@gmail.com">shetkarisevarthofficial@gmail.com</a></p><p class="sv-footer-copy">© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p></div></footer>
+
+<script src="portal-data.js?v=shared"></script>
+<script>
+(function(){
+ function loadSharedNotices(){
+  var track=document.getElementById('svGlobalNoticeTrack');
+  if(!track)return;
+  var items=(window.PORTAL_DATA&&Array.isArray(window.PORTAL_DATA.announcements))?window.PORTAL_DATA.announcements:[];
+  track.innerHTML='';
+  if(!items.length){track.textContent='सध्या नवीन अपडेट उपलब्ध नाही.';return;}
+  function add(item){
+   var span=document.createElement('span');span.className='sv-notice-item';
+   var label=(item.emoji?item.emoji+' ':'')+(item.text||'');
+   if(item.url){var a=document.createElement('a');a.href=item.url;a.textContent=label;span.appendChild(a);}
+   else span.textContent=label;
+   track.appendChild(span);
+  }
+  items.forEach(add);
+  if(items.length>1){items.forEach(add);track.classList.add('is-moving');}
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadSharedNotices);
+ else loadSharedNotices();
+})();
+</script>
+
+<script>
+  // Google Apps Script web app URL इथे टाका (Deploy → Web app → URL)
+  const WEB_APP_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
+
+  const form = document.getElementById("f");
+  const statusBox = document.getElementById("status");
+  const sendBtn = document.getElementById("send");
+
+  // क्षेत्राचे अंक: मराठी -> इंग्रजी (Sheet मध्ये हिशोब बरोबर यावा म्हणून)
+  const NUMERIC = ["cultivationArea", "totalLand8A", "proposedArea"];
+  const MR = "०१२३४५६७८९";
+  function toEnglishDigits(s) {
+    return String(s).replace(/[०-९]/g, d => MR.indexOf(d)).replace(/,/g, ".").trim();
+  }
+  const val = id => toEnglishDigits(document.getElementById(id).value);
+
+  function cleanNumber(v) {
+    v = toEnglishDigits(v).replace(/[^0-9.]/g, "");
+    const i = v.indexOf(".");
+    if (i !== -1) v = v.slice(0, i + 1) + v.slice(i + 1).replace(/\./g, "");
+    return v.replace(/^(\d*\.\d{0,2}).*$/, "$1");
+  }
+  document.querySelectorAll("[data-number]").forEach(el => {
+    el.addEventListener("input", () => {
+      const c = cleanNumber(el.value);
+      if (c !== el.value) el.value = c;
+    });
+    el.addEventListener("blur", () => {
+      let c = el.value;
+      if (c.startsWith(".")) c = "0" + c;
+      if (c.endsWith(".")) c = c.slice(0, -1);
+      el.value = c;
+    });
+  });
+
+  function setError(id, msg) {
+    const el = document.getElementById(id);
+    const box = document.querySelector('.err[data-for="' + id + '"]');
+    if (msg) { el.setAttribute("aria-invalid", "true"); box.textContent = msg; }
+    else { el.removeAttribute("aria-invalid"); box.textContent = ""; }
+  }
+
+  function validate() {
+    let firstBad = null;
+    const fail = (id, msg) => { setError(id, msg); if (!firstBad) firstBad = id; };
+
+    form.querySelectorAll("input[required], select[required]").forEach(el => {
+      setError(el.id, "");
+      if (!el.value.trim()) fail(el.id, "ही माहिती भरा.");
+    });
+
+    NUMERIC.forEach(id => {
+      const v = val(id);
+      if (v && (isNaN(Number(v)) || Number(v) <= 0)) fail(id, "फक्त अंक टाका, उदा. १.२");
+    });
+    if (val("proposedArea") && !/^\d+(\.\d{1,2})?$/.test(val("proposedArea"))) fail("proposedArea", "फक्त अंक टाका, उदा. १ किंवा १.५");
+
+    const area = Number(val("cultivationArea"));
+    const plant = Number(val("proposedArea"));
+    const land = Number(val("totalLand8A"));
+    if (!isNaN(plant) && !isNaN(land) && plant > land) fail("proposedArea", "लागवड क्षेत्र एकूण जमिनीपेक्षा जास्त असू शकत नाही.");
+    if (!isNaN(plant) && !isNaN(area) && plant > area) fail("proposedArea", "लागवड क्षेत्र गटाच्या क्षेत्रापेक्षा जास्त असू शकत नाही.");
+
+    if (firstBad) document.getElementById(firstBad).focus();
+    return !firstBad;
+  }
+
+  function show(type, text) { statusBox.className = type; statusBox.textContent = text; }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    statusBox.className = "";
+    if (!validate()) { show("bad", "लाल रंगातील चुका दुरुस्त करा."); return; }
+
+    if (WEB_APP_URL === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL") {
+      show("bad", "फाईलमध्ये WEB_APP_URL अजून टाकलेली नाही.");
+      return;
+    }
+
+    const data = new FormData(form);
+    NUMERIC.forEach(k => data.set(k, Number(toEnglishDigits(data.get(k)))));
+
+    sendBtn.disabled = true;
+    sendBtn.textContent = "अंदाजपत्रक तयार होत आहे...";
+    try {
+      await fetch(WEB_APP_URL, { method: "POST", mode: "no-cors", body: data });
+      show("ok", "✅ शेतकर्याचे अंदाजपत्रक यशस्वीपणे तयार झाले आहे!");
+      form.reset();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err) {
+      show("bad", "काहीतरी त्रुटी आली आहे. कृपया पुन्हा प्रयत्न करा.");
+    } finally {
+      sendBtn.disabled = false;
+      sendBtn.textContent = "अंदाजपत्रक तयार करा";
+    }
+  });
+</script>
+</body>
+</html>
