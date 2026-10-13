@@ -90,7 +90,7 @@
 </head>
 <body class="text-gray-800 min-h-screen flex flex-col justify-between">
 
-  <!-- पोर्टलवरून न आल्यास थेट मुख्य पानावर पाठवण्यासाठी सुरक्षा स्क्रिप्ट -->
+  <!-- सुरक्षा स्क्रिप्ट -->
   <script>
     (function() {
       var ref = document.referrer;
@@ -129,17 +129,17 @@
           <div class="grid sm:grid-cols-2 gap-x-4">
             <div class="sv-field">
               <label for="farmerName">1. शेतक-याचे नाव</label>
-              <input id="farmerName" name="farmerName" type="text" autocomplete="name" required[cite: 3]>
+              <input id="farmerName" name="farmerName" type="text" autocomplete="name" required>
               <div class="err" data-for="farmerName"></div>
             </div>
             <div class="sv-field">
               <label for="village">2. गाव</label>
-              <input id="village" name="village" type="text" required[cite: 3]>
+              <input id="village" name="village" type="text" required>
               <div class="err" data-for="village"></div>
             </div>
             <div class="sv-field">
               <label for="jobCard">3. जॉब कार्ड क्रमांक</label>
-              <input id="jobCard" name="jobCard" type="text" autocapitalize="characters" required[cite: 3]>
+              <input id="jobCard" name="jobCard" type="text" autocapitalize="characters" required>
               <div class="err" data-for="jobCard"></div>
             </div>
           </div>
@@ -150,27 +150,27 @@
           <div class="grid sm:grid-cols-2 gap-x-4">
             <div class="sv-field">
               <label for="gatNo">4. लागडीचा गट क्र</label>
-              <input id="gatNo" name="gatNo" type="text" required[cite: 3]>
+              <input id="gatNo" name="gatNo" type="text" required>
               <div class="err" data-for="gatNo"></div>
             </div>
             <div class="sv-field">
               <label for="cultivationArea">5. लागवड करावयाच्‍या गटाचे क्षेत्र (हे.)</label>
-              <input id="cultivationArea" name="cultivationArea" type="text" inputmode="decimal" required[cite: 3]>
+              <input id="cultivationArea" name="cultivationArea" type="text" inputmode="decimal" required>
               <div class="err" data-for="cultivationArea"></div>
             </div>
             <div class="sv-field">
               <label for="totalLand8A">6. ८ अ प्रमाणे एकुण जमीन (हे.)</label>
-              <input id="totalLand8A" name="totalLand8A" type="text" inputmode="decimal" required[cite: 3]>
+              <input id="totalLand8A" name="totalLand8A" type="text" inputmode="decimal" required>
               <div class="err" data-for="totalLand8A"></div>
             </div>
             <div class="sv-field">
               <label for="proposedArea">7. लागवड करायचे क्षेत्र (हे.)</label>
-              <input id="proposedArea" name="proposedArea" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]*\.?[0-9]{0,2}" data-number required[cite: 3]>
+              <input id="proposedArea" name="proposedArea" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]*\.?[0-9]{0,2}" data-number required>
               <div class="err" data-for="proposedArea"></div>
             </div>
             <div class="sv-field">
               <label for="fruitName">8. बांबू लागवड प्रकार</label>
-              <select id="fruitName" name="fruitName" required[cite: 3]>
+              <select id="fruitName" name="fruitName" required>
               <option value="">निवडा</option>
               <option value="बांबू ३ x ३">बांबू ३ x ३</option>
               <option value="बांबू ४ x ४">बांबू ४ x ४</option>
@@ -180,7 +180,7 @@
             </div>
             <div class="sv-field">
               <label for="category">9. शेतकरी प्रवर्ग</label>
-              <select id="category" name="category" required[cite: 3]>
+              <select id="category" name="category" required>
                 <option value="">निवडा</option>
                 <option value="अनुसूचित जाती">अनुसूचित जाती</option>
                 <option value="अनुसूचित जमाती">अनुसूचित जमाती</option>
@@ -196,27 +196,27 @@
           <div class="grid sm:grid-cols-2 gap-x-4">
             <div class="sv-field">
               <label for="A_A_O_HQ">10. सहायक कृषी अधिकारी मुख्यालय</label>
-              <input id="A_A_O_HQ" name="A_A_O_HQ" type="text"[cite: 3]>
+              <input id="A_A_O_HQ" name="A_A_O_HQ" type="text">
             </div>
             <div class="sv-field">
               <label for="Supervisor_HQ">11. कृषी पर्यवेक्षक मुख्‍यालय</label>
-              <input id="Supervisor_HQ" name="Supervisor_HQ" type="text"[cite: 3]>
+              <input id="Supervisor_HQ" name="Supervisor_HQ" type="text">
             </div>
             <div class="sv-field">
               <label for="CircleOfficer">12. मंडळ कृषी अधिकारी</label>
-              <input id="CircleOfficer" name="CircleOfficer" type="text"[cite: 3]>
+              <input id="CircleOfficer" name="CircleOfficer" type="text">
             </div>
             <div class="sv-field">
               <label for="Taluka">13. तालुका</label>
-              <input id="Taluka" name="Taluka" type="text"[cite: 3]>
+              <input id="Taluka" name="Taluka" type="text">
             </div>
             <div class="sv-field">
               <label for="SubDivision">14. उपविभाग</label>
-              <input id="SubDivision" name="SubDivision" type="text"[cite: 3]>
+              <input id="SubDivision" name="SubDivision" type="text">
             </div>
             <div class="sv-field">
               <label for="District">15. जिल्‍हा</label>
-              <input id="District" name="District" type="text"[cite: 3]>
+              <input id="District" name="District" type="text">
             </div>
           </div>
         </fieldset>
@@ -225,22 +225,22 @@
         <div id="status" role="status" aria-live="polite"></div>
       </form>
 
-      <!-- फॉर्म भरल्यानंतर एक्सेल डाऊनलोड बॉक्स आणि फॉन्ट सूचना -->
+      <!-- फॉर्म भरल्यानंतर सुरक्षित डाऊनलोड बॉक्स -->
       <div id="estimatePreviewBox" style="display:none; margin-top:10px; background:#f0fff4; padding:25px; border-radius:18px; border:2px solid #047857; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
         <h3 style="font-size:20px; font-weight:bold; color:#064e3b; margin-bottom:10px;">📄 अंदाजपत्रक तयार झाले आहे!</h3>
         <p style="font-size:14px; color:#1e293b; margin-bottom:15px;">खालील बटणावर क्लिक करून तयार झालेले अंतिम अंदाजपत्रक थेट एक्सेल (Excel) फाईल स्वरूपात डाऊनलोड करू शकता.</p>
         
         <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-          <a id="downloadExcelBtn" href="https://docs.google.com/spreadsheets/d/1yHo_8WkzV6qEXMlA8M30i8olbfYQHKq9BsQDFKW-H40/export?format=xlsx&gid=1559594413" target="_blank" style="display:inline-block; background:#047857; color:#fff; text-decoration:none; padding:12px 24px; border-radius:999px; font-weight:bold; font-size:15px; box-shadow:0 4px 10px rgba(4,120,87,0.3);">
+          <a id="downloadExcelBtn" href="#" target="_blank" style="display:inline-block; background:#047857; color:#fff; text-decoration:none; padding:12px 24px; border-radius:999px; font-weight:bold; font-size:15px; box-shadow:0 4px 10px rgba(4,120,87,0.3);">
             📥 पूर्ण एक्सेल फाईल डाऊनलोड करा
           </a>
         </div>
 
-        <!-- फॉन्ट संदर्भात महत्त्वाची सूचना आणि डाऊनलोड लिंक -->
+        <!-- फॉन्ट सूचना -->
         <div style="margin-top:20px; padding:12px; background:#fffbeb; border:1.5px dashed #f59e0b; border-radius:12px; font-size:13px; color:#92400e; text-align:left;">
           <p style="margin:0 0 6px; font-weight:bold;">⚠️ महत्त्वाची सूचना (फॉन्टबाबत):</p>
           <p style="margin:0; line-height:1.5;">
-            हे अंदाजपत्रक <b>'कोकिळा' (Kokila)</b> फॉन्टमध्ये डिझाइन केलेले आहे. जर आपल्या कॉम्प्युटर किंवा मोबाईलमध्ये हा फॉन्ट नसेल, तर डिझाइन किंवा अक्षरे थोडी बदलू शकतात. योग्य दिसावे यासाठी आपण खालील लिंकवरून फॉन्ट डाऊनलोड करून इन्स्टॉल करू शकता:<br>
+            हे अंदाजपत्रक <b>'कोकिळा' (Kokila)</b> फॉन्टमध्ये डिझाइन केलेले आहे. योग्य दिसावे यासाठी आपण खालील लिंकवरून फॉन्ट डाऊनलोड करू शकता:<br>
             👉 <a href="https://drive.google.com/file/d/17WSKgCIoTTlcJlkkNAi9YxUw9xWb5TFA/view?usp=drive_link" target="_blank" style="color:#2563eb; text-decoration:underline; font-weight:bold;">येथे क्लिक करून कोकिळा फॉन्ट डाऊनलोड करा</a>
           </p>
         </div>
@@ -257,7 +257,7 @@
 
 <script src="portal-data.js?v=shared"></script>
 <script>
-  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzoJMBG060qPX4tmUFfGJibbFqmzuFRorUI4hSz42KYQQq_BwZMWoqWhakj5WtxtQ4Q/exec";
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwZXp4-ezby2LErJUzjHl7Y8uJ-QhH-Z49ZXFqkv-eh8yWMjL9C4_LVfjnBAOH7IYkk/exec";
 
   const form = document.getElementById("f");
   const statusBox = document.getElementById("status");
@@ -334,13 +334,28 @@
     sendBtn.disabled = true;
     sendBtn.textContent = "अंदाजपत्रक तयार होत आहे...";
     try {
-      await fetch(WEB_APP_URL, { method: "POST", mode: "no-cors", body: data });
-      show("ok", "✅ शेतकर्याचे अंदाजपत्रक यशस्वीपणे तयार झाले आहे!");
-      form.style.display = "none";
+      const response = await fetch(WEB_APP_URL, { method: "POST", body: data });
+      const result = await response.json();
       
-      const previewBox = document.getElementById("estimatePreviewBox");
-      if(previewBox) {
-        previewBox.style.display = "block";
+      if (result.status === "success") {
+        show("ok", "✅ शेतकर्याचे अंदाजपत्रक यशस्वीपणे तयार झाले आहे!");
+        form.style.display = "none";
+        
+        const previewBox = document.getElementById("estimatePreviewBox");
+        if(previewBox) {
+          previewBox.style.display = "block";
+          const downloadBtn = document.getElementById("downloadExcelBtn");
+          downloadBtn.href = result.downloadUrl;
+          
+          // डाऊनलोड बटणावर क्लिक केल्यावर ५ सेकंदात पेज रीसेट होईल
+          downloadBtn.onclick = function() {
+            setTimeout(function() {
+              location.reload();
+            }, 5000);
+          };
+        }
+      } else {
+        show("bad", "तांत्रिक अडचण आली: " + result.message);
       }
       
       window.scrollTo({ top: 0, behavior: "smooth" });
