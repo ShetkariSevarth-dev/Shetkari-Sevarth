@@ -227,12 +227,12 @@
 
       <!-- फॉर्म भरल्यानंतर सुरक्षित डाऊनलोड बॉक्स -->
       <div id="estimatePreviewBox" style="display:none; margin-top:10px; background:#f0fff4; padding:25px; border-radius:18px; border:2px solid #047857; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
-        <h3 style="font-size:20px; font-weight:bold; color:#064e3b; margin-bottom:10px;">📄 अंदाजपत्रक तयार झाले आहे!</h3>
-        <p style="font-size:14px; color:#1e293b; margin-bottom:15px;">खालील बटणावर क्लिक करून तयार झालेले अंतिम अंदाजपत्रक थेट एक्सेल (Excel) फाईल स्वरूपात डाऊनलोड करू शकता.</p>
+        <h3 style="font-size:20px; font-weight:bold; color:#064e3b; margin-bottom:10px;">📄 सर्व ११ शिट्ससह अंदाजपत्रक तयार झाले आहे!</h3>
+        <p style="font-size:14px; color:#1e293b; margin-bottom:15px;">खालील बटणावर क्लिक करून सर्व पानांची मिळून संपूर्ण एक्सेल फाईल डाऊनलोड करू शकता.</p>
         
         <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
           <a id="downloadExcelBtn" href="#" target="_blank" style="display:inline-block; background:#047857; color:#fff; text-decoration:none; padding:12px 24px; border-radius:999px; font-weight:bold; font-size:15px; box-shadow:0 4px 10px rgba(4,120,87,0.3);">
-            📥 पूर्ण एक्सेल फाईल डाऊनलोड करा
+            📥 सर्व ११ शिट्सची एक्सेल फाईल डाऊनलोड करा
           </a>
         </div>
 
@@ -257,7 +257,7 @@
 
 <script src="portal-data.js?v=shared"></script>
 <script>
-  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwZXp4-ezby2LErJUzjHl7Y8uJ-QhH-Z49ZXFqkv-eh8yWMjL9C4_LVfjnBAOH7IYkk/exec";
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbx9aT67rEYKAzC9giDRsPcwLdh9KHc6-uWJk040mG0Bqs1BDqy86Flp7zZUcDFM8lV6/exec";
 
   const form = document.getElementById("f");
   const statusBox = document.getElementById("status");
@@ -334,26 +334,28 @@
     sendBtn.disabled = true;
     sendBtn.textContent = "अंदाजपत्रक तयार होत आहे...";
     try {
-      // mode: "no-cors" वापरल्यामुळे CORS एरर येणार नाही
-      await fetch(WEB_APP_URL, { method: "POST", mode: "no-cors", body: data });
+      const response = await fetch(WEB_APP_URL, { method: "POST", body: data });
+      const result = await response.json();
       
-      show("ok", "✅ शेतकर्याचे अंदाजपत्रक यशस्वीपणे तयार झाले आहे!");
-      form.style.display = "none";
-      
-      const previewBox = document.getElementById("estimatePreviewBox");
-      if(previewBox) {
-        previewBox.style.display = "block";
+      if (result.status === "success") {
+        show("ok", "✅ शेतकर्याचे अंदाजपत्रक यशस्वीपणे तयार झाले आहे!");
+        form.style.display = "none";
         
-        // अचूक GID सह थेट एक्सेल डाऊनलोड फिक्स लिंक
-        const downloadBtn = document.getElementById("downloadExcelBtn");
-        downloadBtn.href = "https://docs.google.com/spreadsheets/d/1yHo_8WkzV6qEXMlA8M30i8olbfYQHKq9BsQDFKW-H40/export?format=xlsx&gid=1559594413";
-        
-        // डाऊनलोड बटणावर क्लिक केल्यावर ५ सेकंदात पेज रीसेट होईल
-        downloadBtn.onclick = function() {
-          setTimeout(function() {
-            location.reload();
-          }, 5000);
-        };
+        const previewBox = document.getElementById("estimatePreviewBox");
+        if(previewBox) {
+          previewBox.style.display = "block";
+          const downloadBtn = document.getElementById("downloadExcelBtn");
+          downloadBtn.href = result.downloadUrl; // सर्व ११ शिट्सची सुरक्षित लिंक
+          
+          // डाऊनलोड बटणावर क्लिक केल्यावर ५ सेकंदात पेज रीसेट होईल
+          downloadBtn.onclick = function() {
+            setTimeout(function() {
+              location.reload();
+            }, 5000);
+          };
+        }
+      } else {
+        show("bad", "तांत्रिक अडचण आली: " + result.message);
       }
       
       window.scrollTo({ top: 0, behavior: "smooth" });
