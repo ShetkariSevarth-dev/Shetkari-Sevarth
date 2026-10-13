@@ -90,7 +90,7 @@
 </head>
 <body class="text-gray-800 min-h-screen flex flex-col justify-between">
 
-  <!-- पोर्टलवरून न आल्यास थेट मुख्य पानावर पाठवण्यासाठी सुरक्षा स्क्रिप्ट -->
+  <!-- portalvarun n alyas thet mukhya panar pathavnyasathi suraksha script[cite: 3] -->
   <script>
     (function() {
       var ref = document.referrer;
@@ -225,13 +225,13 @@
         <div id="status" role="status" aria-live="polite"></div>
       </form>
 
-      <!-- फॉर्म भरल्यानंतर अंदाजपत्रक डाऊनलोड करण्यासाठी दिसेणारा बॉक्स -->
+      <!-- Form bharlynantar estimate download karnyasathi disenara box -->
       <div id="estimatePreviewBox" style="display:none; margin-top:10px; background:#f0fff4; padding:25px; border-radius:18px; border:2px solid #047857; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
         <h3 style="font-size:20px; font-weight:bold; color:#064e3b; margin-bottom:10px;">📄 अंदाजपत्रक तयार झाले आहे!</h3>
         <p style="font-size:14px; color:#1e293b; margin-bottom:20px;">खालील बटणावर क्लिक करून तयार झालेले अंतिम अंदाजपत्रक थेट PDF स्वरूपात डाऊनलोड किंवा प्रिन्ट करू शकता.</p>
         
         <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-          <a id="downloadPdfBtn" href="#" target="_blank" style="display:inline-block; background:#047857; color:#fff; text-decoration:none; padding:12px 24px; border-radius:999px; font-weight:bold; font-size:15px; box-shadow:0 4px 10px rgba(4,120,87,0.3);">
+          <a id="downloadPdfBtn" href="https://docs.google.com/spreadsheets/d/1yHo_8WkzV6qEXMlA8M30i8olbfYQHKq9BsQDFKW-H40/export?format=pdf&size=A4&portrait=true&fitw=true&gid=323068408" target="_blank" style="display:inline-block; background:#047857; color:#fff; text-decoration:none; padding:12px 24px; border-radius:999px; font-weight:bold; font-size:15px; box-shadow:0 4px 10px rgba(4,120,87,0.3);">
             📥 PDF डाऊनलोड करा
           </a>
         </div>
@@ -332,11 +332,6 @@
       const previewBox = document.getElementById("estimatePreviewBox");
       if(previewBox) {
         previewBox.style.display = "block";
-        document.getElementById("downloadPdfBtn").onclick = function(ev) {
-          ev.preventDefault();
-          // अंतिम गुगल शीट आयडी आणि gid नुसार थेट PDF डाऊनलोड लिंक
-          window.open("https://docs.google.com/spreadsheets/d/1yHo_8WkzV6qEXMlA8M30i8olbfYQHKq9BsQDFKW-H40/export?format=pdf&size=A4&portrait=true&fitw=true&gid=323068408", "_blank");
-        };
       }
       
       window.scrollTo({ top: 0, behavior: "smooth" });
