@@ -171,11 +171,27 @@
             <div class="sv-field">
               <label for="fruitName">8. फळझाड नाव</label>
               <select id="fruitName" name="fruitName" required>
-              <option value="">निवडा</option>
-              <option value="आंबा">आंबा</option>
-              <option value="संत्रा">संत्रा</option>
-              <option value="मोसंबी">मोसंबी</option>
-              <option value="काजू">काजू</option>
+                <option value="">निवडा</option>
+                <option value="आंबा कलमे १० x १०">आंबा कलमे १० x १०</option>
+                <option value="आंबा कलमे ५ x ५">आंबा कलमे ५ x ५</option>
+                <option value="आवळा कलमे ६ x ६">आवळा कलमे ६ x ६</option>
+                <option value="आवळा कलमे ७ x ७">आवळा कलमे ७ x ७</option>
+                <option value="आवळा कलमे ८ x ८">आवळा कलमे ८ x ८</option>
+                <option value="कागदी लिंबू कलमे ६ x ६">कागदी लिंबू कलमे ६ x ६</option>
+                <option value="कागदी लिंबू रोपे ६ x ६">कागदी लिंबू रोपे ६ x ६</option>
+                <option value="केळी २ वर्ष (टिश्यू कल्चर)">केळी २ वर्ष (टिश्यू कल्चर)</option>
+                <option value="केळी ३ वर्ष (मुनवे)">केळी ३ वर्ष (मुनवे)</option>
+                <option value="चिकू कलमे १० x १०">चिकू कलमे १० x १०</option>
+                <option value="डाळींब कलमे ४.५ x ३">डाळींब कलमे ४.५ x ३</option>
+                <option value="ड्रॅगनफ्रुट ३.५ x ३.०">ड्रॅगनफ्रुट ३.५ x ३.०</option>
+                <option value="द्राक्ष ३ x १.५">द्राक्ष ३ x १.५</option>
+                <option value="पेरू कलमे ३ x २">पेरू कलमे ३ x २</option>
+                <option value="पेरू कलमे ६ x ६">पेरू कलमे ६ x ६</option>
+                <option value="मोसंबी कलमे ६ x ६">मोसंबी कलमे ६ x ६</option>
+                <option value="संत्रा कलमे ५.४० x ५.४०">संत्रा कलमे ५.४० x ५.४०</option>
+                <option value="संत्रा कलमे ६ x ३">संत्रा कलमे ६ x ३</option>
+                <option value="संत्रा कलमे ६ x ६">संत्रा कलमे ६ x ६</option>
+                <option value="सिताफळ कलमे ५ x ५">सिताफळ कलमे ५ x ५</option>
               </select>
               <div class="err" data-for="fruitName"></div>
             </div>
@@ -230,7 +246,7 @@
       <div id="estimatePreviewBox" style="display:none; margin-top:10px; background:#f0fff4; padding:25px; border-radius:18px; border:2px solid #047857; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
         <h3 style="font-size:20px; font-weight:bold; color:#064e3b; margin-bottom:10px;">📄 अंदाजपत्रक तयार झाले आहे!</h3>
         <p style="font-size:14px; color:#1e293b; margin-bottom:15px;">खालील बटणावर क्लिक करून तयार झालेले अंतिम अंदाजपत्रक थेट एक्सेल (Excel) फाईल स्वरूपात डाऊनलोड करू शकता.</p>
-        
+
         <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
           <a id="downloadExcelBtn" href="#" target="_blank" style="display:inline-block; background:#047857; color:#fff; text-decoration:none; padding:12px 24px; border-radius:999px; font-weight:bold; font-size:15px; box-shadow:0 4px 10px rgba(4,120,87,0.3);">
             📥 पूर्ण एक्सेल फाईल डाऊनलोड करा
@@ -245,7 +261,7 @@
             👉 <a href="https://drive.google.com/file/d/17WSKgCIoTTlcJlkkNAi9YxUw9xWb5TFA/view?usp=drive_link" target="_blank" style="color:#2563eb; text-decoration:underline; font-weight:bold;">येथे क्लिक करून कोकिळा फॉन्ट डाऊनलोड करा</a>
           </p>
         </div>
-        
+
         <div style="margin-top:18px;">
           <button onclick="location.reload()" style="background:none; border:none; color:#047857; text-decoration:underline; cursor:pointer; font-size:14px; font-weight:bold;">➕ नवीन अर्ज भरा</button>
         </div>
@@ -256,7 +272,10 @@
 
   <footer class="sv-site-footer" role="contentinfo"><div class="sv-footer-inner"><p class="sv-footer-note">सदर माहिती आपल्या उपयुक्त वाटल्यास किंवा सूचना असल्यास संपर्क साधू शकता.</p><p class="sv-footer-email">📧 ई-मेल: <a href="mailto:shetkarisevarthofficial@gmail.com">shetkarisevarthofficial@gmail.com</a></p><p class="sv-footer-copy">© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p></div></footer>
 
+<!-- सूचना डेटा फाईल -->
 <script src="portal-data.js?v=shared"></script>
+
+<!-- सूचना पट्टी ऑटो अपडेट -->
 <script>
 (function(){
  function loadSharedNotices(){
@@ -280,8 +299,8 @@
 })();
 </script>
 
+<!-- फॉर्म स्क्रिप्ट -->
 <script>
-  // Apan dilleli navin Web App URL ithe set keli ahe
   const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwPFW-dMOIW0cnmP4tAeVjh84TwBVFegwpSOPWdAnTaeZhyutX3eS65IBGQe6Bwma9P/exec";
 
   const form = document.getElementById("f");
@@ -359,34 +378,34 @@
     sendBtn.disabled = true;
     sendBtn.textContent = "अंदाजपत्रक तयार होत आहे...";
     try {
-      const response = await fetch(WEB_APP_URL, {
+      await fetch(WEB_APP_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(data)
       });
-      
-      // no-cors mule response json direct vachta yet nahi, mhanun yashasvi submit nantar safe download link set karto
-      document.getElementById('send').style.display = 'none';
-      document.getElementById('status').style.display = 'none';
+
+      // no-cors मुळे response वाचता येत नाही, म्हणून यशस्वी सबमिट नंतर सुरक्षित डाऊनलोड लिंक सेट करतो
+      sendBtn.style.display = 'none';
+      statusBox.style.display = 'none';
       form.style.display = "none";
-      
+
       const previewBox = document.getElementById("estimatePreviewBox");
-      if(previewBox) {
+      if (previewBox) {
         previewBox.style.display = "block";
         const downloadBtn = document.getElementById("downloadExcelBtn");
-        
-        // Chauthya safe filechi direct download link
+
+        // चौथ्या सुरक्षित फाईलची थेट डाऊनलोड लिंक
         downloadBtn.href = "https://docs.google.com/spreadsheets/d/10iW2UWD3Mvu_b9YHXyfv0p7mewDF7sQRE_GY8rJaZeU/export?format=xlsx";
-        
-        // Download button click kelyawar 5 secondat page reload/reset hoil
+
+        // डाऊनलोड बटणावर क्लिक केल्यावर ५ सेकंदात पेज रीसेट होईल
         downloadBtn.onclick = function() {
           setTimeout(function() {
             location.reload();
           }, 5000);
         };
       }
-      
+
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
       show("bad", "काहीतरी त्रुटी आली आहे. कृपया पुन्हा प्रयत्न करा.");
