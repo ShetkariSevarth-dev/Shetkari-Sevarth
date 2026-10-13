@@ -248,7 +248,7 @@
         <p style="font-size:14px; color:#1e293b; margin-bottom:15px;">खालील बटणावर क्लिक करून तयार झालेले अंतिम अंदाजपत्रक थेट एक्सेल (Excel) फाईल स्वरूपात डाऊनलोड करू शकता.</p>
 
         <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-          <a id="downloadExcelBtn" href="#" target="_blank" style="display:inline-block; background:#047857; color:#fff; text-decoration:none; padding:12px 24px; border-radius:999px; font-weight:bold; font-size:15px; box-shadow:0 4px 10px rgba(4,120,87,0.3);">
+          <a id="downloadExcelBtn" href="#" target="_blank" download="Falbag_Estimate.xlsx" style="display:inline-block; background:#047857; color:#fff; text-decoration:none; padding:12px 24px; border-radius:999px; font-weight:bold; font-size:15px; box-shadow:0 4px 10px rgba(4,120,87,0.3);">
             📥 पूर्ण एक्सेल फाईल डाऊनलोड करा
           </a>
         </div>
@@ -385,7 +385,6 @@
         body: new URLSearchParams(data)
       });
 
-      // no-cors मुळे response वाचता येत नाही, म्हणून यशस्वी सबमिट नंतर सुरक्षित डाऊनलोड लिंक सेट करतो
       sendBtn.style.display = 'none';
       statusBox.style.display = 'none';
       form.style.display = "none";
@@ -395,8 +394,9 @@
         previewBox.style.display = "block";
         const downloadBtn = document.getElementById("downloadExcelBtn");
 
-        // चौथ्या सुरक्षित फाईलची थेट डाऊनलोड लिंक
-        downloadBtn.href = "https://docs.google.com/spreadsheets/d/10iW2UWD3Mvu_b9YHXyfv0p7mewDF7sQRE_GY8rJaZeU/export?format=xlsx";
+        // मोबाईलवर थेट डाऊनलोड फोर्स करण्यासाठी exportFormat आणि download attribute जोडले आहेत
+        downloadBtn.href = "https://docs.google.com/spreadsheets/d/10iW2UWD3Mvu_b9YHXyfv0p7mewDF7sQRE_GY8rJaZeU/export?exportFormat=xlsx";
+        downloadBtn.setAttribute("download", "Falbag_Estimate.xlsx");
 
         // डाऊनलोड बटणावर क्लिक केल्यावर ५ सेकंदात पेज रीसेट होईल
         downloadBtn.onclick = function() {
