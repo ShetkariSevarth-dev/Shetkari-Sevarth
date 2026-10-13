@@ -225,6 +225,22 @@
         <div id="status" role="status" aria-live="polite"></div>
       </form>
 
+      <!-- फॉर्म भरल्यानंतर अंदाजपत्रक डाऊनलोड करण्यासाठी दिसेणारा बॉक्स -->
+      <div id="estimatePreviewBox" style="display:none; margin-top:10px; background:#f0fff4; padding:25px; border-radius:18px; border:2px solid #047857; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+        <h3 style="font-size:20px; font-weight:bold; color:#064e3b; margin-bottom:10px;">📄 अंदाजपत्रक तयार झाले आहे!</h3>
+        <p style="font-size:14px; color:#1e293b; margin-bottom:20px;">खालील बटणावर क्लिक करून तयार झालेले अंतिम अंदाजपत्रक थेट PDF स्वरूपात डाऊनलोड किंवा प्रिन्ट करू शकता.</p>
+        
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a id="downloadPdfBtn" href="#" target="_blank" style="display:inline-block; background:#047857; color:#fff; text-decoration:none; padding:12px 24px; border-radius:999px; font-weight:bold; font-size:15px; box-shadow:0 4px 10px rgba(4,120,87,0.3);">
+            📥 PDF डाऊनलोड करा
+          </a>
+        </div>
+        
+        <div style="margin-top:18px;">
+          <button onclick="location.reload()" style="background:none; border:none; color:#047857; text-decoration:underline; cursor:pointer; font-size:14px; font-weight:bold;">➕ नवीन अर्ज भरा</button>
+        </div>
+      </div>
+
     </div>
   </main>
 
@@ -262,7 +278,6 @@
   const sendBtn = document.getElementById("send");
 
   const NUMERIC = ["cultivationArea", "totalLand8A", "proposedArea"];
-  const MR = "०१dueDate२३४५६७८९"; // wait, keeping standard MR numbers string:
   const MR_DIGITS = "०१२३४५६७८९";
   function toEnglishDigits(s) {
     return String(s).replace(/[०-९]/g, d => MR_DIGITS.indexOf(d)).replace(/,/g, ".").trim();
@@ -331,11 +346,28 @@
     NUMERIC.forEach(k => data.set(k, Number(toEnglishDigits(data.get(k)))));
 
     sendBtn.disabled = true;
-    sendBtn.textContent = "अंदाजपत्रक तयार होत आहे...";
+    sendBtn.textContent = "अंदाजपत्रक तयार होत आहे, कृपया थांबा...";
+    
     try {
+      // डेटा गुगल शीटवर पाठवणे
       await fetch(WEB_APP_URL, { method: "POST", mode: "no-cors", body: data });
+      
+      // यशस्वी मेसेज व फॉर्म लपवून डाऊनलोड बॉक्स दाखवणे
       show("ok", "✅ शेतकर्याचे अंदाजपत्रक यशस्वीपणे तयार झाले आहे!");
-      form.reset();
+      form.style.display = "none";
+      
+      const previewBox = document.getElementById("estimatePreviewBox");
+      if(previewBox) {
+        previewBox.style.display = "block";
+        // थेट अंतिम फाईलच्या (Estimate Sheet) PDF एक्सपोर्ट लिंक जोडणे
+        document.getElementById("downloadPdfBtn.href") = "#";
+        document.getElementById("downloadPdfBtn").onclick = function(ev) {
+          ev.preventDefault();
+          // अंतिम गुगल शीट आयडी: 1yHo_8WkzV6qEXMlA8M30i8olbfYQHKq9BsQDFKW-H40, GID: 323068408
+          window.open("https://docs.google.com/spreadsheets/d/1yHo_8WkzV6qEXMlA8M30i8olbfYQHKq9BsQDFKW-H40/export?format=pdf&size=A4&portrait=true&fitw=true&gid=323068408", "_blank");
+        };
+      }
+      
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
       show("bad", "काहीतरी त्रुटी आली आहे. कृपया पुन्हा प्रयत्न करा.");

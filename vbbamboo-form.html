@@ -94,7 +94,6 @@
   <script>
     (function() {
       var ref = document.referrer;
-      // जर थेट लिंक उघडली तर अंदाजपत्रक यादीकडे (estimates.html) रीडायरेक्ट करा
       if (!ref || (!ref.includes("estimates.html") && !ref.includes("index.html") && !ref.includes("shetkarisevarth"))) {
         window.location.href = "estimates.html";
       }
@@ -130,17 +129,17 @@
           <div class="grid sm:grid-cols-2 gap-x-4">
             <div class="sv-field">
               <label for="farmerName">1. शेतक-याचे नाव</label>
-              <input id="farmerName" name="farmerName" type="text" autocomplete="name" required>
+              <input id="farmerName" name="farmerName" type="text" autocomplete="name" required[cite: 3]>
               <div class="err" data-for="farmerName"></div>
             </div>
             <div class="sv-field">
               <label for="village">2. गाव</label>
-              <input id="village" name="village" type="text" required>
+              <input id="village" name="village" type="text" required[cite: 3]>
               <div class="err" data-for="village"></div>
             </div>
             <div class="sv-field">
               <label for="jobCard">3. जॉब कार्ड क्रमांक</label>
-              <input id="jobCard" name="jobCard" type="text" autocapitalize="characters" required>
+              <input id="jobCard" name="jobCard" type="text" autocapitalize="characters" required[cite: 3]>
               <div class="err" data-for="jobCard"></div>
             </div>
           </div>
@@ -151,27 +150,27 @@
           <div class="grid sm:grid-cols-2 gap-x-4">
             <div class="sv-field">
               <label for="gatNo">4. लागडीचा गट क्र</label>
-              <input id="gatNo" name="gatNo" type="text" required>
+              <input id="gatNo" name="gatNo" type="text" required[cite: 3]>
               <div class="err" data-for="gatNo"></div>
             </div>
             <div class="sv-field">
               <label for="cultivationArea">5. लागवड करावयाच्‍या गटाचे क्षेत्र (हे.)</label>
-              <input id="cultivationArea" name="cultivationArea" type="text" inputmode="decimal" required>
+              <input id="cultivationArea" name="cultivationArea" type="text" inputmode="decimal" required[cite: 3]>
               <div class="err" data-for="cultivationArea"></div>
             </div>
             <div class="sv-field">
               <label for="totalLand8A">6. ८ अ प्रमाणे एकुण जमीन (हे.)</label>
-              <input id="totalLand8A" name="totalLand8A" type="text" inputmode="decimal" required>
+              <input id="totalLand8A" name="totalLand8A" type="text" inputmode="decimal" required[cite: 3]>
               <div class="err" data-for="totalLand8A"></div>
             </div>
             <div class="sv-field">
               <label for="proposedArea">7. लागवड करायचे क्षेत्र (हे.)</label>
-              <input id="proposedArea" name="proposedArea" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]*\.?[0-9]{0,2}" data-number required>
+              <input id="proposedArea" name="proposedArea" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]*\.?[0-9]{0,2}" data-number required[cite: 3]>
               <div class="err" data-for="proposedArea"></div>
             </div>
             <div class="sv-field">
               <label for="fruitName">8. बांबू लागवड प्रकार</label>
-              <select id="fruitName" name="fruitName" required>
+              <select id="fruitName" name="fruitName" required[cite: 3]>
               <option value="">निवडा</option>
               <option value="बांबू ३ x ३">बांबू ३ x ३</option>
               <option value="बांबू ४ x ४">बांबू ४ x ४</option>
@@ -181,7 +180,7 @@
             </div>
             <div class="sv-field">
               <label for="category">9. शेतकरी प्रवर्ग</label>
-              <select id="category" name="category" required>
+              <select id="category" name="category" required[cite: 3]>
                 <option value="">निवडा</option>
                 <option value="अनुसूचित जाती">अनुसूचित जाती</option>
                 <option value="अनुसूचित जमाती">अनुसूचित जमाती</option>
@@ -197,27 +196,27 @@
           <div class="grid sm:grid-cols-2 gap-x-4">
             <div class="sv-field">
               <label for="A_A_O_HQ">10. सहायक कृषी अधिकारी मुख्यालय</label>
-              <input id="A_A_O_HQ" name="A_A_O_HQ" type="text">
+              <input id="A_A_O_HQ" name="A_A_O_HQ" type="text"[cite: 3]>
             </div>
             <div class="sv-field">
               <label for="Supervisor_HQ">11. कृषी पर्यवेक्षक मुख्‍यालय</label>
-              <input id="Supervisor_HQ" name="Supervisor_HQ" type="text">
+              <input id="Supervisor_HQ" name="Supervisor_HQ" type="text"[cite: 3]>
             </div>
             <div class="sv-field">
               <label for="CircleOfficer">12. मंडळ कृषी अधिकारी</label>
-              <input id="CircleOfficer" name="CircleOfficer" type="text">
+              <input id="CircleOfficer" name="CircleOfficer" type="text"[cite: 3]>
             </div>
             <div class="sv-field">
               <label for="Taluka">13. तालुका</label>
-              <input id="Taluka" name="Taluka" type="text">
+              <input id="Taluka" name="Taluka" type="text"[cite: 3]>
             </div>
             <div class="sv-field">
               <label for="SubDivision">14. उपविभाग</label>
-              <input id="SubDivision" name="SubDivision" type="text">
+              <input id="SubDivision" name="SubDivision" type="text"[cite: 3]>
             </div>
             <div class="sv-field">
               <label for="District">15. जिल्‍हा</label>
-              <input id="District" name="District" type="text">
+              <input id="District" name="District" type="text"[cite: 3]>
             </div>
           </div>
         </fieldset>
@@ -226,6 +225,22 @@
         <div id="status" role="status" aria-live="polite"></div>
       </form>
 
+      <!-- फॉर्म भरल्यानंतर अंदाजपत्रक डाऊनलोड करण्यासाठी दिसेणारा बॉक्स -->
+      <div id="estimatePreviewBox" style="display:none; margin-top:10px; background:#f0fff4; padding:25px; border-radius:18px; border:2px solid #047857; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+        <h3 style="font-size:20px; font-weight:bold; color:#064e3b; margin-bottom:10px;">📄 अंदाजपत्रक तयार झाले आहे!</h3>
+        <p style="font-size:14px; color:#1e293b; margin-bottom:20px;">खालील बटणावर क्लिक करून तयार झालेले अंतिम अंदाजपत्रक थेट PDF स्वरूपात डाऊनलोड किंवा प्रिन्ट करू शकता.</p>
+        
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a id="downloadPdfBtn" href="#" target="_blank" style="display:inline-block; background:#047857; color:#fff; text-decoration:none; padding:12px 24px; border-radius:999px; font-weight:bold; font-size:15px; box-shadow:0 4px 10px rgba(4,120,87,0.3);">
+            📥 PDF डाऊनलोड करा
+          </a>
+        </div>
+        
+        <div style="margin-top:18px;">
+          <button onclick="location.reload()" style="background:none; border:none; color:#047857; text-decoration:underline; cursor:pointer; font-size:14px; font-weight:bold;">➕ नवीन अर्ज भरा</button>
+        </div>
+      </div>
+
     </div>
   </main>
 
@@ -233,7 +248,6 @@
 
 <script src="portal-data.js?v=shared"></script>
 <script>
-  // Google Apps Script web app URL
   const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzoJMBG060qPX4tmUFfGJibbFqmzuFRorUI4hSz42KYQQq_BwZMWoqWhakj5WtxtQ4Q/exec";
 
   const form = document.getElementById("f");
@@ -313,7 +327,18 @@
     try {
       await fetch(WEB_APP_URL, { method: "POST", mode: "no-cors", body: data });
       show("ok", "✅ शेतकर्याचे अंदाजपत्रक यशस्वीपणे तयार झाले आहे!");
-      form.reset();
+      form.style.display = "none";
+      
+      const previewBox = document.getElementById("estimatePreviewBox");
+      if(previewBox) {
+        previewBox.style.display = "block";
+        document.getElementById("downloadPdfBtn").onclick = function(ev) {
+          ev.preventDefault();
+          // अंतिम गुगल शीट आयडी आणि gid नुसार थेट PDF डाऊनलोड लिंक
+          window.open("https://docs.google.com/spreadsheets/d/1yHo_8WkzV6qEXMlA8M30i8olbfYQHKq9BsQDFKW-H40/export?format=pdf&size=A4&portrait=true&fitw=true&gid=323068408", "_blank");
+        };
+      }
+      
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
       show("bad", "काहीतरी त्रुटी आली आहे. कृपया पुन्हा प्रयत्न करा.");
