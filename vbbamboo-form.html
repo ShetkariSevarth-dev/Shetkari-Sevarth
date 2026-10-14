@@ -2,12 +2,68 @@
 <html lang="mr">
 <head>
 <meta charset="UTF-8">
+<!-- ===== प्रवेश नियंत्रण: फक्त शेतकरी सेवार्थ पोर्टलवरून उघडते ===== -->
+<script>
+(function () {
+  var PORTAL_HOST = "shetkarisevarth.info";
+  var PORTAL_URL  = "http://shetkarisevarth.info/estimates.html";
+  var allowed = false;
+
+  try { if (sessionStorage.getItem("sv_portal_ok") === "1") allowed = true; } catch (e) {}
+
+  if (!allowed) {
+    try {
+      if (document.referrer) {
+        var h = new URL(document.referrer).hostname.toLowerCase();
+        if (h === PORTAL_HOST || h === "www." + PORTAL_HOST) allowed = true;
+      }
+    } catch (e) {}
+    if (allowed) { try { sessionStorage.setItem("sv_portal_ok", "1"); } catch (e) {} }
+  }
+
+  if (!allowed) {
+    document.open();
+    document.write(
+      '<!DOCTYPE html><html lang="mr"><head><meta charset="UTF-8">' +
+      '<meta name="viewport" content="width=device-width, initial-scale=1.0">' +
+      '<title>प्रवेश बंद | शेतकरी सेवार्थ</title></head>' +
+      '<body style="margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f4fff6;font-family:\'Noto Sans Devanagari\',\'Nirmala UI\',Arial,sans-serif;">' +
+      '<div style="max-width:420px;margin:20px;padding:28px 24px;background:#fff;border:2px solid #d2efda;border-radius:18px;text-align:center;box-shadow:0 8px 24px rgba(6,78,59,.12);">' +
+      '<div style="font-size:44px;">🔒</div>' +
+      '<h2 style="color:#064e3b;margin:10px 0 8px;font-size:20px;">हे पेज थेट उघडता येत नाही</h2>' +
+      '<p style="color:#163b2a;font-size:14px;line-height:1.7;margin:0 0 18px;">अंदाजपत्रक बनवण्यासाठी कृपया <b>शेतकरी सेवार्थ</b> पोर्टलच्या अंदाजपत्रक पेजवरून या.</p>' +
+      '<a href="' + PORTAL_URL + '" style="display:inline-block;background:#047857;color:#fff;text-decoration:none;padding:11px 24px;border-radius:999px;font-weight:bold;font-size:14px;">पोर्टलवर जा</a>' +
+      '<p style="color:#6b7280;font-size:12px;margin-top:14px;">काही सेकंदात तुम्हाला आपोआप पोर्टलवर नेले जाईल…</p>' +
+      '</div>' +
+      '<script>setTimeout(function(){location.replace("' + PORTAL_URL + '");},4000);<\/script>' +
+      '</body></html>'
+    );
+    document.close();
+  }
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>बांबू लागवड अंदाजपत्रक बनवा | शेतकरी सेवार्थ</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* ===== गोलाकार उलट टाइमर ===== */
+  #svTimerOverlay{display:none;position:fixed;inset:0;z-index:99999;align-items:center;justify-content:center;
+    background:rgba(6,78,59,.80);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+  #svTimerOverlay.show{display:flex}
+  .sv-timer-box{text-align:center;color:#fff;padding:20px}
+  .sv-timer-circle{position:relative;width:150px;height:150px;margin:0 auto 18px}
+  .sv-ring{position:absolute;inset:0;width:100%;height:100%;animation:svSpin 1.1s linear infinite}
+  .sv-ring-bg{fill:none;stroke:rgba(255,255,255,.22);stroke-width:8}
+  .sv-ring-arc{fill:none;stroke:#bef264;stroke-width:8;stroke-linecap:round;stroke-dasharray:90 237}
+  #svTimerNum{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-size:54px;font-weight:800;line-height:1}
+  #svTimerMsg{font-size:16px;font-weight:600;margin:0;padding:0 10px}
+  @keyframes svSpin{to{transform:rotate(360deg)}}
+</style>
 <style>
   :root{--sv-forest:#075b3b;--sv-green:#13834b;--sv-ink:#163b2a;--sv-border:#d2efda}
   html{scroll-behavior:smooth}
@@ -241,8 +297,8 @@
         <p style="font-size:14px; color:#1e293b; margin-bottom:15px;">खालील बटणावर क्लिक करून सर्व पानांची मिळून संपूर्ण एक्सेल फाईल डाऊनलोड करू शकता.</p>
 
         <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-          <a id="downloadExcelBtn" href="#" download="Bamboo_Estimate.xlsx" style="display:inline-block; background:#047857; color:#fff; text-decoration:none; padding:12px 24px; border-radius:999px; font-weight:bold; font-size:15px; box-shadow:0 4px 10px rgba(4,120,87,0.3);">
-            📥 सर्व ११ शिट्सची एक्सेल फाईल डाऊनलोड करा
+          <a id="downloadExcelBtn" href="#" download="Estimate.pdf" style="display:inline-block; background:#047857; color:#fff; text-decoration:none; padding:12px 24px; border-radius:999px; font-weight:bold; font-size:15px; box-shadow:0 4px 10px rgba(4,120,87,0.3);">
+            📥 सर्व शिट्सची PDF फाईल डाऊनलोड करा
           </a>
         </div>
 
@@ -266,6 +322,18 @@
   <footer class="sv-site-footer" role="contentinfo"><div class="sv-footer-inner"><p class="sv-footer-note">सदर माहिती आपल्या उपयुक्त वाटल्यास किंवा सूचना असल्यास संपर्क साधू शकता.</p><p class="sv-footer-email">📧 ई-मेल: <a href="mailto:shetkarisevarthofficial@gmail.com">shetkarisevarthofficial@gmail.com</a></p><p class="sv-footer-copy">© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p></div></footer>
 
 <!-- सूचना डेटा फाईल -->
+<div id="svTimerOverlay" aria-live="polite">
+  <div class="sv-timer-box">
+    <div class="sv-timer-circle">
+      <svg class="sv-ring" viewBox="0 0 120 120">
+        <circle class="sv-ring-bg" cx="60" cy="60" r="52"></circle>
+        <circle class="sv-ring-arc" cx="60" cy="60" r="52"></circle>
+      </svg>
+      <div id="svTimerNum">१०</div>
+    </div>
+    <p id="svTimerMsg">कृपया थांबा, अंदाजपत्रक तयार होत आहे…</p>
+  </div>
+</div>
 <script src="portal-data.js?v=shared"></script>
 
 <!-- सूचना पट्टी ऑटो अपडेट -->
@@ -292,9 +360,44 @@
 })();
 </script>
 
+<script>
+  // ===== १० सेकंदांचा उलट टाइमर =====
+  const SV_TIMER_SECONDS = 10;
+  let svTimerInterval = null;
+  function svMr(n) { return String(n).replace(/[0-9]/g, function (d) { return "०१२३४५६७८९"[d]; }); }
+
+  function svStartTimer(sec) {
+    const ov = document.getElementById("svTimerOverlay");
+    const num = document.getElementById("svTimerNum");
+    const msg = document.getElementById("svTimerMsg");
+    let left = sec;
+    num.textContent = svMr(left);
+    msg.textContent = "कृपया थांबा, अंदाजपत्रक तयार होत आहे…";
+    ov.classList.add("show");
+    clearInterval(svTimerInterval);
+    return new Promise(function (resolve) {
+      svTimerInterval = setInterval(function () {
+        left--;
+        if (left <= 0) {
+          num.textContent = svMr(0);
+          msg.textContent = "थोडा वेळ लागत आहे, कृपया पेज बंद करू नका…";
+          clearInterval(svTimerInterval);
+          resolve();
+        } else {
+          num.textContent = svMr(left);
+        }
+      }, 1000);
+    });
+  }
+  function svStopTimer() {
+    clearInterval(svTimerInterval);
+    document.getElementById("svTimerOverlay").classList.remove("show");
+  }
+</script>
+
 <!-- फॉर्म स्क्रिप्ट -->
 <script>
-  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz-2HXvpeshxYTnPyUJvsP2ocKWZ7rOrdCUFPOVlQUpCMfFnjAgWjjTqHzt2OF14CDf/exec";
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwxG0T5sqAMWCI42wBTqwRVtxrsCwwnx34wThkxWmXfe6rI9OgvQgzNtow39_RVoA38UQ/exec";
 
   const form = document.getElementById("f");
   const statusBox = document.getElementById("status");
@@ -370,6 +473,7 @@
 
     sendBtn.disabled = true;
     sendBtn.textContent = "अंदाजपत्रक तयार होत आहे...";
+    const timerDone = svStartTimer(SV_TIMER_SECONDS);
     try {
       const response = await fetch(WEB_APP_URL, { method: "POST", body: data });
       const rawText = await response.text();
@@ -381,6 +485,8 @@
         throw new Error("Script ने JSON ऐवजी वेगळं उत्तर दिलं: " + rawText.replace(/<[^>]*>/g, " ").trim().slice(0, 200));
       }
 
+      if (result.status === "success") await timerDone;   // किमान १० सेकंद टाइमर दाखवा
+
       if (result.status === "success") {
         show("ok", "✅ शेतकर्याचे अंदाजपत्रक यशस्वीपणे तयार झाले आहे!");
         form.style.display = "none";
@@ -390,15 +496,46 @@
           previewBox.style.display = "block";
           const downloadBtn = document.getElementById("downloadExcelBtn");
           
+          if (result.parts && result.parts.length) {
+            // portrait + landscape भाग एकाच PDF मध्ये जोडा
+            const toBytes = (b64) => {
+              const bin = atob(b64);
+              const arr = new Uint8Array(bin.length);
+              for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+              return arr;
+            };
+            let finalBytes;
+            if (window.PDFLib && result.parts.length > 1) {
+              const merged = await PDFLib.PDFDocument.create();
+              for (const part of result.parts) {
+                const src = await PDFLib.PDFDocument.load(toBytes(part));
+                const pages = await merged.copyPages(src, src.getPageIndices());
+                pages.forEach(function (pg) { merged.addPage(pg); });
+              }
+              finalBytes = await merged.save();
+            } else {
+              finalBytes = toBytes(result.parts[0]);
+            }
+            const pdfBlob = new Blob([finalBytes], { type: "application/pdf" });
+            const pdfUrl = URL.createObjectURL(pdfBlob);
+            downloadBtn.href = pdfUrl;
+            downloadBtn.setAttribute("download", result.fileName || "Estimate.pdf");
+            downloadBtn.onclick = function() {
+              setTimeout(function() { URL.revokeObjectURL(pdfUrl); location.reload(); }, 8000);
+            };
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            return;
+          }
+
           if (result.fileBase64) {
             // थेट फाईल (Blob) डाऊनलोड - Sheets उघडणार नाही
             const bin = atob(result.fileBase64);
             const bytes = new Uint8Array(bin.length);
             for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
-            const blob = new Blob([bytes], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+            const blob = new Blob([bytes], { type: result.mimeType || "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
             const blobUrl = URL.createObjectURL(blob);
             downloadBtn.href = blobUrl;
-            downloadBtn.setAttribute("download", result.fileName || "Bamboo_Estimate.xlsx");
+            downloadBtn.setAttribute("download", result.fileName || "Estimate.pdf");
             downloadBtn.onclick = function() {
               setTimeout(function() { URL.revokeObjectURL(blobUrl); location.reload(); }, 8000);
             };
@@ -428,6 +565,7 @@
       console.error(err);
       show("bad", "काहीतरी त्रुटी आली आहे. कृपया पुन्हा प्रयत्न करा. (" + (err && err.message ? err.message : err) + ")");
     } finally {
+      svStopTimer();
       sendBtn.disabled = false;
       sendBtn.textContent = "अंदाजपत्रक तयार करा";
     }
