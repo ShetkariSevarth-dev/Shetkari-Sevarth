@@ -6,7 +6,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="pageTitle">शेतकरी सेवार्थ | Shetkari Sevarth</title>
+  /* मोबाईलवर वेबसाईटचे नाव व्यवस्थित एका ओळीत आणि मध्यभागी ठेवण्यासाठी */
+header .sv-header-title h1, 
+header .sv-header-title #headerTitle {
+  font-size: clamp(20px, 4vw, 28px) !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+}
+
+/* मोबाईल स्क्रीनसाठी स्पेशल अलाइनमेंट */
+@media(max-width: 680px) {
+  header .sv-header-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 12px !important;
+  }
   
+  header .sv-header-title h1 {
+    font-size: 22px !important;
+    white-space: nowrap !important;
+  }
+}
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="portal-data.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
