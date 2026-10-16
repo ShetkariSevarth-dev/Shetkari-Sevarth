@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<!-- ===== प्रवेश नियंत्रण: फक्त शेतकरी सेवार्थ पोर्टलवरून उघडते ===== -->
+<script>
+(function () {
+  // true = फक्त शेतकरी सेवार्थ पोर्टलवरून चालेल. चाचणीसाठी तात्पुरते false करता येते.
+  var ENABLE_GATE = true;
+  var ALLOWED_HOSTS = ["shetkarisevarth.info", "www.shetkarisevarth.info"];
+  var PORTAL_URL  = "http://shetkarisevarth.info/estimates.html";
+
+  function hostOf(u) { try { return new URL(u).hostname.toLowerCase().replace(/\.$/, ""); } catch (e) { return ""; } }
+  function hostOk(h) { return ALLOWED_HOSTS.indexOf(h) !== -1; }
+
+  var allowed = !ENABLE_GATE;
+
+  if (ENABLE_GATE) {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+
+    if (framed) {
+      // दुसऱ्या कुठल्याही साईटने iframe मध्ये घातले तर बंद: सर्व वरचे (ancestor) पेज पोर्टलचेच हवेत
+      var ao = window.location.ancestorOrigins;
+      if (ao && ao.length) {
+        allowed = true;
+        for (var i = 0; i < ao.length; i++) { if (!hostOk(hostOf(ao[i]))) allowed = false; }
+      } else {
+        allowed = hostOk(hostOf(document.referrer));   // Firefox: ancestorOrigins नाही
+      }
+    } else {
+      // थेट उघडले: पेज पोर्टलवरच असेल, किंवा पोर्टलच्या पेजवरून लिंक दाबून आले असेल
+      if (hostOk(location.hostname.toLowerCase())) allowed = true;
+      if (!allowed && hostOk(hostOf(document.referrer))) allowed = true;
+      try {
+        if (!allowed && sessionStorage.getItem("sv_portal_ok") === "1") allowed = true;   // रीलोड/परत जाणे
+        if (allowed) sessionStorage.setItem("sv_portal_ok", "1");
+      } catch (e) {}
+    }
+  }
+  window.__svAllowed = allowed;
+
+  if (!allowed) {
+    document.open();
+    document.write(
+      '<!DOCTYPE html><html lang="mr"><head><meta charset="UTF-8">' +
+      '<meta name="viewport" content="width=device-width, initial-scale=1.0">' +
+      '<title>प्रवेश बंद | शेतकरी सेवार्थ</title></head>' +
+      '<body style="margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f4fff6;font-family:\'Noto Sans Devanagari\',\'Nirmala UI\',Arial,sans-serif;">' +
+      '<div style="max-width:420px;margin:20px;padding:28px 24px;background:#fff;border:2px solid #d2efda;border-radius:18px;text-align:center;box-shadow:0 8px 24px rgba(6,78,59,.12);">' +
+      '<div style="font-size:44px;">🔒</div>' +
+      '<h2 style="color:#064e3b;margin:10px 0 8px;font-size:20px;">हे पेज थेट उघडता येत नाही</h2>' +
+      '<p style="color:#163b2a;font-size:14px;line-height:1.7;margin:0 0 18px;">अंदाजपत्रक बनवण्यासाठी कृपया <b>शेतकरी सेवार्थ</b> पोर्टलच्या अंदाजपत्रक पेजवरून या.</p>' +
+      '<a href="' + PORTAL_URL + '" style="display:inline-block;background:#047857;color:#fff;text-decoration:none;padding:11px 24px;border-radius:999px;font-weight:bold;font-size:14px;">पोर्टलवर जा</a>' +
+      '<p style="color:#6b7280;font-size:12px;margin-top:14px;">काही सेकंदात तुम्हाला आपोआप पोर्टलवर नेले जाईल…</p>' +
+      '</div>' +
+      '<script>setTimeout(function(){location.replace("' + PORTAL_URL + '");},4000);<\/script>' +
+      '</body></html>'
+    );
+    document.close();
+  }
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>जलतारा अंदाजपत्रक बनवा | शेतकरी सेवार्थ</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* ===== गोलाकार उलट टाइमर ===== */
+  #svTimerOverlay{display:none;position:fixed;inset:0;z-index:99999;align-items:center;justify-content:center;
+    background:rgba(6,78,59,.80);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+  #svTimerOverlay.show{display:flex}
+  .sv-timer-box{text-align:center;color:#fff;padding:20px}
+  .sv-timer-circle{position:relative;width:150px;height:150px;margin:0 auto 18px}
+  .sv-ring{position:absolute;inset:0;width:100%;height:100%;animation:svSpin 1.1s linear infinite}
+  .sv-ring-bg{fill:none;stroke:rgba(255,255,255,.22);stroke-width:8}
+  .sv-ring-arc{fill:none;stroke:#bef264;stroke-width:8;stroke-linecap:round;stroke-dasharray:90 237}
+  #svTimerNum{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-size:54px;font-weight:800;line-height:1}
+  #svTimerMsg{font-size:16px;font-weight:600;margin:0;padding:0 10px}
+  @keyframes svSpin{to{transform:rotate(360deg)}}
+</style>
+<style>
+  :root{--sv-forest:#075b3b;--sv-green:#13834b;--sv-ink:#163b2a;--sv-border:#d2efda}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Noto Sans Devanagari','Nirmala UI',Arial,sans-serif;
+    font-size:14px;line-height:1.65;color:var(--sv-ink);
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    background:
+      radial-gradient(ellipse at 7% 8%,rgba(167,243,208,.52),transparent 28%),
+      radial-gradient(ellipse at 94% 22%,rgba(190,242,100,.28),transparent 25%),
+      linear-gradient(145deg,#f4fff6 0%,#effaf0 52%,#fffdf2 100%);
+  }
+  body:before{content:"";position:fixed;z-index:-1;pointer-events:none;inset:0;
+    background:radial-gradient(circle at 2% 92%,rgba(34,197,94,.10) 0 70px,transparent 72px),
+               radial-gradient(circle at 98% 5%,rgba(132,204,22,.12) 0 100px,transparent 102px)}
+
+  /* Header */
+  .hero-gradient{
+    background:linear-gradient(112deg,#064e36 0%,#087443 48%,#23934e 78%,#76b82a 100%);
+    color:#fff;box-shadow:0 8px 24px rgba(6,78,59,.18);
+    position:relative;isolation:isolate;overflow:hidden;
+  }
+  .hero-gradient:after{content:"";position:absolute;z-index:-1;right:-45px;top:-90px;width:260px;height:240px;
+    border:22px solid rgba(190,242,100,.24);border-radius:62% 38% 60% 40%;transform:rotate(-24deg);pointer-events:none}
+  .hero-gradient:before{content:"";position:absolute;z-index:-1;left:-65px;bottom:-120px;width:220px;height:180px;
+    border-radius:55% 45% 40% 60%;background:rgba(167,243,208,.12);transform:rotate(25deg);pointer-events:none}
+  .sv-header-title h1{font-size:24px;font-weight:800;letter-spacing:-.02em;line-height:1.25;color:#fff;margin:0}
+  @media(min-width:640px){.sv-header-title h1{font-size:30px}}
+  @media(min-width:768px){.sv-header-title h1{font-size:36px}}
+
+  /* Notices bar */
+  .sv-global-notices{display:flex;align-items:center;gap:12px;width:100%;box-sizing:border-box;margin:0 auto 12px;
+    padding:10px 16px;background:#fef3c7;border-bottom:1px solid #fcd34d;color:#78350f}
+  .sv-notice-label{flex:0 0 auto;background:#dc2626;color:#fff;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:800;white-space:nowrap}
+  .sv-notice-window{overflow:hidden;min-width:0;flex:1}
+  .sv-notice-track{display:flex;align-items:center;gap:32px;width:max-content;min-width:100%;font-size:14px;font-weight:650;line-height:1.6}
+  .sv-notice-item{white-space:nowrap}
+  .sv-global-notices a{color:#78350f;text-decoration:none}
+  .sv-global-notices a:hover{text-decoration:underline}
+  @media(max-width:640px){.sv-global-notices{padding:8px 10px}.sv-notice-track{font-size:12px;gap:20px}.sv-notice-label{font-size:10px;padding:4px 7px}}
+  @media(prefers-reduced-motion:no-preference){
+    .sv-notice-track.is-moving{animation:svTicker 36s linear infinite}
+    .sv-notice-window:hover .sv-notice-track{animation-play-state:paused}
+  }
+  @keyframes svTicker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* Form */
+  .sv-section{background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(236,253,240,.92));
+    border:1px solid var(--sv-border);border-radius:18px;box-shadow:0 5px 15px rgba(22,101,52,.08);
+    padding:18px 16px 6px;margin:0 0 16px;min-width:0}
+  .sv-section legend{font-weight:800;font-size:15px;color:#064e3b;padding:0 8px;margin-left:-8px}
+  .sv-field{margin-bottom:14px}
+  .sv-field label{display:block;font-weight:700;font-size:13px;color:#14532d;margin-bottom:4px}
+  .sv-field input,.sv-field select{
+    width:100%;min-height:46px;padding:9px 12px;font:inherit;font-size:16px;color:var(--sv-ink);
+    background:#fff;border:1.5px solid #bfe6cc;border-radius:12px}
+  .sv-field input:focus,.sv-field select:focus{outline:3px solid #fbbf24;outline-offset:1px;border-color:#13834b}
+  .sv-field [aria-invalid="true"]{border-color:#dc2626}
+  .err{color:#b91c1c;font-size:12px;font-weight:600;margin-top:3px}
+  #send{width:100%;min-height:52px;border:0;border-radius:999px;background:#047857;color:#fff;
+    font:inherit;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(4,120,87,.25);
+    transition:filter .18s ease,transform .18s ease}
+  #send:hover{filter:brightness(1.06);transform:translateY(-1px)}
+  #send:focus-visible{outline:3px solid #fbbf24;outline-offset:3px}
+  #send:disabled{background:#7aa896;cursor:wait;transform:none}
+  #status{display:none;margin-top:12px;padding:11px 14px;border-radius:12px;font-weight:700;font-size:14px}
+  #status.ok{display:block;background:#dcfce7;color:#14532d;border:1px solid #86d6a0}
+  #status.bad{display:block;background:#fee2e2;color:#991b1b;border:1px solid #fca5a5}
+
+  /* Footer */
+  .sv-site-footer{background:linear-gradient(110deg,#064e36,#087443 65%,#14532d);color:#e5f8eb;text-align:center;
+    border-top:4px solid #86c83f;padding:24px 16px;font-size:13px;line-height:1.8}
+  .sv-footer-inner{max-width:900px;margin:0 auto}
+  .sv-footer-note{color:#f0fff4;font-size:14px;font-weight:600;margin:0 0 6px}
+  .sv-footer-email{margin:4px 0}
+  .sv-footer-email a{color:#c5f6a7;text-decoration:underline;text-underline-offset:3px;font-weight:700;overflow-wrap:anywhere}
+  .sv-footer-copy{color:#d1e7d7;margin:8px 0 0}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body class="text-gray-800 min-h-screen flex flex-col justify-between">
+
+  <header class="hero-gradient">
+    <div class="max-w-7xl mx-auto px-4 py-5 flex items-center justify-center" style="min-height:88px">
+      <a href="index.html" class="sv-header-title flex items-center"><h1>शेतकरी सेवार्थ</h1></a>
+    </div>
+  </header>
+
+  <div class="sv-global-notices" role="region" aria-label="महत्त्वाच्या सूचना">
+    <span class="sv-notice-label">📢 महत्त्वाच्या सूचना</span>
+    <div class="sv-notice-window"><div class="sv-notice-track" id="svGlobalNoticeTrack"><span>सूचना लोड होत आहेत...</span></div></div>
+  </div>
+
+  <main class="max-w-4xl mx-auto px-4 py-4 w-full flex-grow">
+    <a href="estimates.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-white border border-emerald-200 px-3 py-2 rounded-full shadow-sm mb-3">← अंदाजपत्रक यादीकडे</a>
+
+    <div class="bg-white rounded-3xl p-5 md:p-8 shadow-md border border-emerald-100">
+
+      <div class="text-center border-b pb-4 mb-5">
+        <span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-100 border border-emerald-400 px-3.5 py-1 rounded-full mb-2">💧 जलतारा योजना</span>
+        <h2 class="text-lg md:text-2xl font-black text-emerald-900">जलतारा अंदाजपत्रक बनवा</h2>
+        <p class="text-xs text-gray-600 mt-1">भूजल पुनर्भरण (जलतारा) – खालील माहिती भरा, अंदाजपत्रक तयार होईल</p>
+      </div>
+
+      <form id="f" novalidate>
+        <input type="hidden" name="formType" value="jalatara">
+
+        <fieldset class="sv-section">
+          <legend>अंदाजपत्रकाचा प्रकार</legend>
+          <div class="sv-field">
+            <label for="estimateType">1. आपल्याला कोणत्या प्रकारचे अंदाजपत्रक पाहिजे</label>
+            <select id="estimateType" name="estimateType" required>
+              <option value="">निवडा</option>
+            </select>
+            <div class="err" data-for="estimateType"></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="sv-section">
+          <legend>शेतकऱ्याची माहिती</legend>
+          <div class="grid sm:grid-cols-2 gap-x-4">
+            <div class="sv-field">
+              <label for="farmerName">2. शेतकऱ्याचे नांव</label>
+              <input id="farmerName" name="farmerName" type="text" autocomplete="name" required>
+              <div class="err" data-for="farmerName"></div>
+            </div>
+            <div class="sv-field">
+              <label for="village">3. गांव</label>
+              <input id="village" name="village" type="text" required>
+              <div class="err" data-for="village"></div>
+            </div>
+            <div class="sv-field">
+              <label for="taluka">4. तालुका</label>
+              <input id="taluka" name="taluka" type="text" required>
+              <div class="err" data-for="taluka"></div>
+            </div>
+            <div class="sv-field">
+              <label for="district">5. जिल्हा</label>
+              <input id="district" name="district" type="text" required>
+              <div class="err" data-for="district"></div>
+            </div>
+            <div class="sv-field">
+              <label for="beneficiaryCategory">6. लाभार्थी जात प्रवर्ग</label>
+              <select id="beneficiaryCategory" name="beneficiaryCategory" required>
+                <option value="">निवडा</option>
+                <option value="अनुसूचित जाती">अनुसूचित जाती</option>
+                <option value="अनुसूचित जमाती">अनुसूचित जमाती</option>
+                <option value="इतर">इतर</option>
+              </select>
+              <div class="err" data-for="beneficiaryCategory"></div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="sv-section">
+          <legend>जमीन, जलतारा व जॉबकार्ड</legend>
+          <div class="grid sm:grid-cols-2 gap-x-4">
+            <div class="sv-field">
+              <label for="surveyNo">7. सर्वे क्रमांक / भूमापन क्रमांक / खासरा नंबर</label>
+              <input id="surveyNo" name="surveyNo" type="text" required>
+              <div class="err" data-for="surveyNo"></div>
+            </div>
+            <div class="sv-field">
+              <label for="surveyArea">8. दिलेल्या सर्वे क्रमांकाचे क्षेत्र (हेक्टरमध्ये)</label>
+              <input id="surveyArea" name="surveyArea" type="text" inputmode="decimal" autocomplete="off" data-number required>
+              <div class="err" data-for="surveyArea"></div>
+            </div>
+            <div class="sv-field">
+              <label for="total8A">9. ८-अ प्रमाणे एकूण क्षेत्र (हेक्टरमध्ये)</label>
+              <input id="total8A" name="total8A" type="text" inputmode="decimal" autocomplete="off" data-number required>
+              <div class="err" data-for="total8A"></div>
+            </div>
+            <div class="sv-field">
+              <label for="jalataraCount">10. जलतारा किती तयार करायचे (संख्या)</label>
+              <select id="jalataraCount" name="jalataraCount" required>
+                <option value="">निवडा</option>
+                <option value="1">१</option>
+                <option value="2">२</option>
+                <option value="3">३</option>
+                <option value="4">४</option>
+                <option value="5">५</option>
+              </select>
+              <div class="err" data-for="jalataraCount"></div>
+            </div>
+            <div class="sv-field">
+              <label for="jobCard">11. जॉबकार्ड क्र.</label>
+              <input id="jobCard" name="jobCard" type="text" autocapitalize="characters" required>
+              <div class="err" data-for="jobCard"></div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="sv-section">
+          <legend>कृषी कार्यालयाची माहिती (ऐच्छिक)</legend>
+          <div class="grid sm:grid-cols-2 gap-x-4">
+            <div class="sv-field">
+              <label for="A_A_O_HQ">12. सहायक कृषी अधिकारी मुख्यालय</label>
+              <input id="A_A_O_HQ" name="A_A_O_HQ" type="text">
+            </div>
+            <div class="sv-field">
+              <label for="SubAgriOfficer_HQ">13. उप कृषी अधिकारी मुख्यालय</label>
+              <input id="SubAgriOfficer_HQ" name="SubAgriOfficer_HQ" type="text">
+            </div>
+            <div class="sv-field">
+              <label for="CircleOfficer_HQ">14. मंडळ कृषि अधिकारी मुख्यालय</label>
+              <input id="CircleOfficer_HQ" name="CircleOfficer_HQ" type="text">
+            </div>
+          </div>
+        </fieldset>
+
+        <button type="submit" id="send">अंदाजपत्रक तयार करा</button>
+        <div id="status" role="status" aria-live="polite"></div>
+      </form>
+
+      <!-- फॉर्म भरल्यानंतर सुरक्षित डाऊनलोड बॉक्स -->
+      <div id="estimatePreviewBox" style="display:none; margin-top:10px; background:#f0fff4; padding:25px; border-radius:18px; border:2px solid #047857; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+        <h3 style="font-size:20px; font-weight:bold; color:#064e3b; margin-bottom:10px;">📄 जलतारा अंदाजपत्रक तयार झाले आहे!</h3>
+        <p style="font-size:14px; color:#1e293b; margin-bottom:15px;">खालील बटणावर क्लिक करून सर्व पानांची मिळून संपूर्ण PDF फाईल डाऊनलोड करू शकता.</p>
+
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a id="downloadExcelBtn" href="#" download="Jalatara_Estimate.pdf" style="display:inline-block; background:#047857; color:#fff; text-decoration:none; padding:12px 24px; border-radius:999px; font-weight:bold; font-size:15px; box-shadow:0 4px 10px rgba(4,120,87,0.3);">
+            📥 अंदाजपत्रकाची PDF फाईल डाऊनलोड करा
+          </a>
+        </div>
+        <p style="margin-top:12px; font-size:13px;">डाऊनलोड सुरू न झाल्यास: <a id="openPdfLink" href="#" target="_blank" rel="noopener" style="color:#2563eb; text-decoration:underline; font-weight:bold;">PDF येथे उघडा</a></p>
+
+        <div style="margin-top:18px;">
+          <button onclick="location.reload()" style="background:none; border:none; color:#047857; text-decoration:underline; cursor:pointer; font-size:14px; font-weight:bold;">➕ नवीन अर्ज भरा</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="sv-site-footer" role="contentinfo"><div class="sv-footer-inner"><p class="sv-footer-note">सदर माहिती आपल्या उपयुक्त वाटल्यास किंवा सूचना असल्यास संपर्क साधू शकता.</p><p class="sv-footer-email">📧 ई-मेल: <a href="mailto:shetkarisevarthofficial@gmail.com">shetkarisevarthofficial@gmail.com</a></p><p class="sv-footer-copy">© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p></div></footer>
+
+<!-- सूचना डेटा फाईल -->
+<div id="svTimerOverlay" aria-live="polite">
+  <div class="sv-timer-box">
+    <div class="sv-timer-circle">
+      <svg class="sv-ring" viewBox="0 0 120 120">
+        <circle class="sv-ring-bg" cx="60" cy="60" r="52"></circle>
+        <circle class="sv-ring-arc" cx="60" cy="60" r="52"></circle>
+      </svg>
+      <div id="svTimerNum">१०</div>
+    </div>
+    <p id="svTimerMsg">कृपया थांबा, अंदाजपत्रक तयार होत आहे…</p>
+  </div>
+</div>
+<script src="portal-data.js?v=shared"></script>
+
+<!-- सूचना पट्टी ऑटो अपडेट -->
+<script>
+(function(){
+ function loadSharedNotices(){
+  var track=document.getElementById('svGlobalNoticeTrack');
+  if(!track)return;
+  var items=(window.PORTAL_DATA&&Array.isArray(window.PORTAL_DATA.announcements))?window.PORTAL_DATA.announcements:[];
+  track.innerHTML='';
+  if(!items.length){track.textContent='सध्या नवीन अपडेट उपलब्ध नाही.';return;}
+  function add(item){
+   var span=document.createElement('span');span.className='sv-notice-item';
+   var label=(item.emoji?item.emoji+' ':'')+(item.text||'');
+   if(item.url){var a=document.createElement('a');a.href=item.url;a.textContent=label;span.appendChild(a);}
+   else span.textContent=label;
+   track.appendChild(span);
+  }
+  items.forEach(add);
+  if(items.length>1){items.forEach(add);track.classList.add('is-moving');}
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadSharedNotices);
+ else loadSharedNotices();
+})();
+</script>
+
+<script>
+  // ===== १० सेकंदांचा उलट टाइमर =====
+  const SV_TIMER_SECONDS = 10;
+  let svTimerInterval = null;
+  function svMr(n) { return String(n).replace(/[0-9]/g, function (d) { return "०१२३४५६७८९"[d]; }); }
+
+  function svStartTimer(sec) {
+    const ov = document.getElementById("svTimerOverlay");
+    const num = document.getElementById("svTimerNum");
+    const msg = document.getElementById("svTimerMsg");
+    let left = sec;
+    num.textContent = svMr(left);
+    msg.textContent = "कृपया थांबा, अंदाजपत्रक तयार होत आहे…";
+    ov.classList.add("show");
+    clearInterval(svTimerInterval);
+    return new Promise(function (resolve) {
+      svTimerInterval = setInterval(function () {
+        left--;
+        if (left <= 0) {
+          num.textContent = svMr(0);
+          msg.textContent = "थोडा वेळ लागत आहे, कृपया पेज बंद करू नका…";
+          clearInterval(svTimerInterval);
+          resolve();
+        } else {
+          num.textContent = svMr(left);
+        }
+      }, 1000);
+    });
+  }
+  function svStopTimer() {
+    clearInterval(svTimerInterval);
+    document.getElementById("svTimerOverlay").classList.remove("show");
+  }
+</script>
+
+<!-- फॉर्म स्क्रिप्ट -->
+<script>
+  // ===== सेटिंग्ज =====
+  // जलतारा अंदाजपत्रक तयार करणाऱ्या Google Apps Script ची Web App URL येथे टाका.
+  // (बांबूची URL येथे वापरू नका. ती रिकामी असल्यास फॉर्म सबमिट होणार नाही.)
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycby12wEXtV4NEwDR5psIUDqDCmQULYSxswl6AnqdJNRM_-F_HhWCBGVTFwSJuhcZPiDF/exec";
+
+  // "कोणत्या प्रकारचे अंदाजपत्रक" ड्रॉपडाऊनमधील पर्याय – गरजेनुसार येथे बदला/वाढवा.
+  const ESTIMATE_TYPES = [
+    { label: "१. सपाट भूभाग असलेल्या भागासाठी", value: "Plain Area Estimate" },
+    { label: "२. पर्वतीय भूभाग असलेल्या भागासाठी (जसे की धारणी, चिखलदरा तालुके)", value: "Hilly Area Estimate" }
+  ];
+
+  /* Apps Script ला जाणारी फील्ड्सची नावे:
+     formType, estimateType ("Plain Area Estimate" / "Hilly Area Estimate"), farmerName, village, taluka, district,
+     beneficiaryCategory, surveyNo, surveyArea, total8A, jalataraCount, jobCard,
+     A_A_O_HQ, SubAgriOfficer_HQ, CircleOfficer_HQ */
+
+  const form = document.getElementById("f");
+  const statusBox = document.getElementById("status");
+  const sendBtn = document.getElementById("send");
+
+  const NUMERIC = ["surveyArea", "total8A", "jalataraCount"];
+  (function () {
+    const sel = document.getElementById("estimateType");
+    ESTIMATE_TYPES.forEach(t => { const o = document.createElement("option"); o.value = t.value; o.textContent = t.label; sel.appendChild(o); });
+  })();
+  const MR = "०१२३४५६७८९";
+  function toEnglishDigits(s) {
+    return String(s).replace(/[०-९]/g, d => MR.indexOf(d)).replace(/,/g, ".").trim();
+  }
+  const val = id => toEnglishDigits(document.getElementById(id).value);
+
+  function cleanNumber(v) {
+    v = toEnglishDigits(v).replace(/[^0-9.]/g, "");
+    const i = v.indexOf(".");
+    if (i !== -1) v = v.slice(0, i + 1) + v.slice(i + 1).replace(/\./g, "");
+    return v.replace(/^(\d*\.\d{0,4}).*$/, "$1");
+  }
+  document.querySelectorAll("[data-number]").forEach(el => {
+    el.addEventListener("input", () => {
+      const c = cleanNumber(el.value);
+      if (c !== el.value) el.value = c;
+    });
+    el.addEventListener("blur", () => {
+      let c = el.value;
+      if (c.startsWith(".")) c = "0" + c;
+      if (c.endsWith(".")) c = c.slice(0, -1);
+      el.value = c;
+    });
+  });
+
+  function setError(id, msg) {
+    const el = document.getElementById(id);
+    const box = document.querySelector('.err[data-for="' + id + '"]');
+    if (msg) { el.setAttribute("aria-invalid", "true"); box.textContent = msg; }
+    else { el.removeAttribute("aria-invalid"); box.textContent = ""; }
+  }
+
+  function validate() {
+    let firstBad = null;
+    const fail = (id, msg) => { setError(id, msg); if (!firstBad) firstBad = id; };
+
+    form.querySelectorAll("input[required], select[required]").forEach(el => {
+      setError(el.id, "");
+      if (!el.value.trim()) fail(el.id, "ही माहिती भरा.");
+    });
+
+    ["surveyArea", "total8A"].forEach(id => {
+      const v = val(id);
+      if (v && (isNaN(Number(v)) || Number(v) <= 0)) fail(id, "फक्त अंक टाका, उदा. ०.४०");
+    });
+    const sa = Number(val("surveyArea")), ta = Number(val("total8A"));
+    if (val("surveyArea") && val("total8A") && !isNaN(sa) && !isNaN(ta) && sa > ta) fail("surveyArea", "सर्वे क्रमांकाचे क्षेत्र ८-अ च्या एकूण क्षेत्रापेक्षा जास्त असू शकत नाही.");
+
+    if (firstBad) document.getElementById(firstBad).focus();
+    return !firstBad;
+  }
+
+  function show(type, text) { statusBox.className = type; statusBox.textContent = text; }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!window.__svAllowed) { return; }
+    statusBox.className = "";
+    if (!validate()) { show("bad", "लाल रंगातील चुका दुरुस्त करा."); return; }
+    if (!WEB_APP_URL) { show("bad", "अंदाजपत्रक सेवा अजून जोडलेली नाही. (WEB_APP_URL रिकामी आहे)"); return; }
+
+    const data = new FormData(form);
+    NUMERIC.forEach(k => data.set(k, Number(toEnglishDigits(data.get(k)))));
+
+    sendBtn.disabled = true;
+    sendBtn.textContent = "अंदाजपत्रक तयार होत आहे...";
+    const timerDone = svStartTimer(SV_TIMER_SECONDS);
+    try {
+      const response = await fetch(WEB_APP_URL, { method: "POST", body: data });
+      const rawText = await response.text();
+      let result;
+      try {
+        result = JSON.parse(rawText);
+      } catch (parseErr) {
+        console.error("Script response (JSON नाही):", rawText);
+        throw new Error("Script ने JSON ऐवजी वेगळं उत्तर दिलं: " + rawText.replace(/<[^>]*>/g, " ").trim().slice(0, 200));
+      }
+
+      if (result.status === "success") await timerDone;   // किमान १० सेकंद टाइमर दाखवा
+
+      if (result.status === "success") {
+        // आधी PDF तयार करा; फाईल मिळाली तरच फॉर्म लपवून डाऊनलोड बॉक्स दाखवा
+        const toBytes = (b64) => {
+          const bin = atob(b64);
+          const arr = new Uint8Array(bin.length);
+          for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+          return arr;
+        };
+        let finalBytes;
+        if (result.parts && result.parts.length) {
+          if (window.PDFLib && result.parts.length > 1) {
+            const merged = await PDFLib.PDFDocument.create();
+            for (const part of result.parts) {
+              const src = await PDFLib.PDFDocument.load(toBytes(part));
+              const pages = await merged.copyPages(src, src.getPageIndices());
+              pages.forEach(function (pg) { merged.addPage(pg); });
+            }
+            finalBytes = await merged.save();
+          } else {
+            finalBytes = toBytes(result.parts[0]);
+          }
+        } else if (result.fileBase64) {
+          finalBytes = toBytes(result.fileBase64);
+        } else {
+          throw new Error("सर्व्हरकडून अंदाजपत्रकाची फाईल मिळाली नाही. (Apps Script चे नवीन version deploy केले का ते तपासा)");
+        }
+
+        const fileName = result.fileName || "Estimate.pdf";
+        const blobUrl = URL.createObjectURL(new Blob([finalBytes], { type: "application/pdf" }));
+
+        const downloadBtn = document.getElementById("downloadExcelBtn");
+        const openLink = document.getElementById("openPdfLink");
+        downloadBtn.href = blobUrl;
+        downloadBtn.setAttribute("download", fileName);
+        openLink.href = blobUrl;
+
+        // काही मोबाईल ब्राउझर/ॲप-मधील ब्राउझर (WhatsApp, Facebook) मध्ये "download" चालत नाही — तेथे नवीन टॅबमध्ये उघडा
+        const noDownload = !("download" in document.createElement("a")) || /FBAN|FBAV|Instagram|WhatsApp|Line\/|; wv\)/i.test(navigator.userAgent);
+        downloadBtn.onclick = function (ev) {
+          if (noDownload) { ev.preventDefault(); window.open(blobUrl, "_blank"); }
+        };
+
+        show("ok", "✅ शेतकर्याचे अंदाजपत्रक यशस्वीपणे तयार झाले आहे!");
+        form.style.display = "none";
+        document.getElementById("estimatePreviewBox").style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      } else {
+        show("bad", "तांत्रिक अडचण आली: " + result.message);
+      }
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err) {
+      console.error(err);
+      show("bad", "काहीतरी त्रुटी आली आहे. कृपया पुन्हा प्रयत्न करा. (" + (err && err.message ? err.message : err) + ")");
+    } finally {
+      svStopTimer();
+      sendBtn.disabled = false;
+      sendBtn.textContent = "अंदाजपत्रक तयार करा";
+    }
+  });
+</script>
+</body>
+</html>

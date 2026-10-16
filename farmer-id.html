@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="mr" data-card-theme="green">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+/* डोमेन लॉक: हे पेज फक्त तुमच्या वेबसाईटवरच चालेल. डोमेन वेगळे असल्यास ALLOWED_HOSTS मध्ये बदला. */
+(function(){
+  var ALLOWED_HOSTS=['shetkarisevarth.info','www.shetkarisevarth.info','localhost','127.0.0.1']; /* चाचणी झाल्यावर localhost, 127.0.0.1 काढून टाका */
+  var PORTAL='https://shetkarisevarth.info';
+  if(ALLOWED_HOSTS.indexOf(location.hostname)===-1){
+    window.__blocked=true;
+    try{window.stop()}catch(e){}
+    document.documentElement.innerHTML='<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>शेतकरी सेवार्थ</title></head><body style="margin:0;font-family:sans-serif;text-align:center;padding:56px 16px;background:#f0fdf4;color:#064e35"><div style="font-size:48px">🌱</div><h2>शेतकरी सेवार्थ</h2><p>हे साधन फक्त आमच्या वेबसाईटवर वापरता येते.</p><p><a href="'+PORTAL+'" style="display:inline-block;background:#087443;color:#fff;padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:700">'+PORTAL.replace('https://','')+' वर जा</a></p></body>';
+  }
+})();
+</script>
+<meta name="description" content="शेतकरी सेवार्थ – डिजिटल शेतकरी ओळखपत्र तयार करा आणि प्रिंट / PDF करा.">
+<meta name="theme-color" content="#064e35">
+<title>Green Nature | शेतकरी सेवार्थ</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌱%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{--green:#087443;--dark:#064e35;--ink:#17251d;
+--c-dark:#064e35;--c-main:#087443;--c-border:#047857;--c-light:#d1fae5;--c-lighter:#f0fdf4;--c-rgb:8 116 67;--c-photo-r:7px;--c-head-r:5px;--card-font-scale:1;--gov-font-scale:1;--land-heading-font:10px;--fit:1}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Noto Sans Devanagari',sans-serif;color:var(--ink);background:radial-gradient(ellipse at top,#d1fae5,#f0fdf4 55%,#f1f5f9);min-height:100vh}
+header{background:linear-gradient(120deg,#064e35,#087443,#047857);color:#fff;padding:16px 20px;box-shadow:0 4px 16px #052e1630}
+.head{max-width:1180px;margin:auto;display:flex;align-items:center;gap:14px}
+.logo{width:50px;height:50px;background:#fff;border-radius:12px;padding:4px}
+.brand{font-size:22px;font-weight:800;margin:0}.subbrand{font-size:12px;opacity:.88}
+main{max-width:1180px;margin:20px auto;padding:0 16px 16px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(440px,460px);gap:24px;align-items:start}
+.panel{background:#fff;border:1px solid #d1fae5;border-radius:20px;box-shadow:0 10px 32px #08744318;overflow:hidden}
+.panel-head{padding:16px 20px;background:linear-gradient(90deg,#d1fae5,#fff);border-bottom:1px solid #d1fae5}
+.formbody{padding:20px}
+.section-title{font-size:13px;font-weight:800;color:var(--dark);margin:10px 0;display:flex;align-items:center;gap:8px}
+.section-title:before{content:'';width:4px;height:16px;border-radius:4px;background:var(--green)}
+label{display:block;font-size:11px;font-weight:700;margin:0 0 4px;color:#334155}
+input,select,textarea{font:inherit;font-size:12px;width:100%;padding:8px 10px;border:1px solid #04785755;border-radius:8px;background:#fff;color:#1f2937;outline:none}
+input:focus,select:focus,textarea:focus{border-color:#047857;box-shadow:0 0 0 3px #04785724}
+input[type=checkbox]{width:auto;accent-color:#047857}
+.chk{display:flex;align-items:center;gap:6px;font-weight:600;margin-top:5px}
+.hint{font-size:11px;color:#64748b;line-height:1.5}
+.err{font-size:11px;color:#b91c1c;margin:3px 0 0}
+.warn{font-size:11px;color:#92400e;background:#fef3c7;border:1px solid #fcd34d;border-radius:8px;padding:6px 8px}
+.langbar{display:flex;gap:8px;align-items:center}.langbar label{margin:0}
+.land-row{background:#d1fae5!important;border-color:#04785755!important}
+
+html[data-card-theme="blue"]{--c-dark:#0c4a6e;--c-main:#0369a1;--c-border:#0284c7;--c-light:#bae6fd;--c-lighter:#f0f9ff;--c-rgb:3 105 161;--c-photo-r:16px;--c-head-r:14px}
+html[data-card-theme="saffron"]{--c-dark:#7c2d12;--c-main:#c2410c;--c-border:#ea580c;--c-light:#fed7aa;--c-lighter:#fff7ed;--c-rgb:194 65 12;--c-photo-r:2px;--c-head-r:0px}
+html[data-card-theme="purple"]{--c-dark:#4c1d95;--c-main:#6d28d9;--c-border:#7c3aed;--c-light:#ddd6fe;--c-lighter:#f5f3ff;--c-rgb:109 40 217;--c-photo-r:10px;--c-head-r:8px}
+.themebar{width:100%;max-width:420px;margin:0 auto 10px;display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:11px;font-weight:800;color:#334155}
+.theme-btn{display:flex;align-items:center;gap:5px;border:2px solid #e2e8f0;background:#fff;border-radius:999px;padding:3px 10px 3px 4px;font:inherit;font-size:11px;font-weight:700;cursor:pointer;color:#334155}
+.theme-btn i{width:16px;height:16px;border-radius:50%;background:var(--sw);display:block}
+.theme-btn[aria-pressed=true]{border-color:var(--sw);box-shadow:0 0 0 2px color-mix(in srgb,var(--sw) 25%,transparent)}
+
+/* Settings */
+.settings{width:100%;max-width:420px;margin:0 auto 12px;border:1px solid #bbf7d0;border-radius:12px;background:#f0fdf4;padding:8px 12px}
+.settings summary{cursor:pointer;font-size:12px;font-weight:800;color:#065f46}
+.setrow{display:flex;align-items:center;justify-content:space-between;gap:8px;color:#065f46;font-size:11px;margin:8px 0 0}
+.setrow input[type=range]{width:140px;padding:0;border:0;box-shadow:none;accent-color:#047857}
+.setrow output{min-width:40px;text-align:right;font-weight:800}
+.settings button{margin-top:8px;background:#334155;color:#fff;border:0;border-radius:7px;padding:4px 10px;font-weight:700;font-size:11px;cursor:pointer}
+
+/* ID card */
+.idcard{width:420px;height:255px;zoom:var(--fit);border-radius:12px;border:2px solid var(--c-border);padding:9px 11px;box-shadow:0 6px 20px rgb(var(--c-rgb) / .21);position:relative;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;background:linear-gradient(135deg,var(--c-lighter),#fff 48%,var(--c-light));margin:0 auto 14px;flex-shrink:0}
+.idcard>*{position:relative;z-index:1}
+.idcard>.deco{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.deco .d{display:none}
+html[data-card-theme="green"] .deco .d-green,html[data-card-theme="blue"] .deco .d-blue,html[data-card-theme="saffron"] .deco .d-saffron,html[data-card-theme="purple"] .deco .d-purple{display:inline}
+.deco .f1{fill:rgb(var(--c-rgb) / .10)}.deco .f2{fill:rgb(var(--c-rgb) / .06)}.deco .f3{fill:rgb(var(--c-rgb) / .20)}
+.deco .s1{fill:none;stroke:rgb(var(--c-rgb) / .16)}
+.cardhead{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--c-border);padding:0 3px 5px;background:linear-gradient(90deg,var(--c-light),var(--c-lighter));border-radius:var(--c-head-r)}
+.cardhead img{object-fit:contain;flex-shrink:0;filter:drop-shadow(0 1px 1px #064e3b20)}
+.cardtitle{text-align:center;font-weight:900;color:var(--c-dark);line-height:1.25;flex:1;padding:0 4px;font-size:calc(11px * var(--gov-font-scale))}
+.details{display:flex;gap:7px;align-items:center;margin:3px 0}
+.photo{width:67px;height:82px;border:2px solid var(--c-main);border-radius:var(--c-photo-r);object-fit:cover;background:#fff;flex-shrink:0}
+.detailtext{font-size:calc(9px * var(--card-font-scale));line-height:1.55;flex:1;min-width:0}
+.detailrow{display:flex;gap:3px}
+.detailrow .key{width:calc(47px * var(--card-font-scale));color:var(--c-dark);font-weight:800;flex-shrink:0}
+.detailrow .val{font-weight:700;overflow-wrap:anywhere}
+.farmerid{background:linear-gradient(90deg,var(--c-dark),var(--c-main));color:#fff;text-align:center;border-radius:4px;padding:3px;font-weight:900;font-size:calc(11px * var(--card-font-scale))}
+.address{font-size:calc(8.5px * var(--card-font-scale));line-height:1.25;font-weight:600;overflow-wrap:anywhere}
+.land-heading{text-align:center;font-weight:900;color:var(--c-dark);font-size:var(--land-heading-font);line-height:1.15;padding:2px 0 3px;border-bottom:1px solid var(--c-light);margin-bottom:2px}
+.landwrap{border:1px solid var(--c-border);border-radius:5px;overflow:hidden;max-height:78px;overflow-y:auto;background:#fff}
+.landtable{width:100%;border-collapse:collapse;font-size:calc(7px * var(--card-font-scale));table-layout:fixed}
+.landtable th{background:var(--c-dark);color:#fff;padding:2px 1px;text-align:center}
+.landtable td{padding:2px 1px;border-bottom:1px solid var(--c-light);overflow-wrap:anywhere;text-align:center;vertical-align:middle}
+.backbottom{display:flex;align-items:center;justify-content:center;gap:14px;font-size:calc(7.5px * var(--card-font-scale));font-weight:900;color:var(--c-dark);border-top:2px solid var(--c-border);padding-top:4px;background:linear-gradient(90deg,var(--c-lighter),var(--c-light),var(--c-lighter));border-radius:0 0 4px 4px;min-height:18px}
+.backbottom #websiteText{white-space:nowrap}
+.qrcode{width:108px;height:108px;background:#fff;padding:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.qrcode img,.qrcode canvas{width:100px!important;height:100px!important;max-width:100px;max-height:100px;image-rendering:pixelated}
+
+footer{max-width:1180px;margin:0 auto 28px;padding:0 16px}
+footer p{font-size:11px;color:#64748b;line-height:1.6;margin:0;text-align:center}
+
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}
+  input,select,textarea{font-size:16px} /* iOS zoom टाळण्यासाठी */
+}
+@media print{
+  @page{size:A4 portrait;margin:10mm}
+  body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  header,footer,.form-panel,.preview-panel>.panel-head,.no-print{display:none!important}
+  main{margin:0;padding:0;max-width:none}
+  .layout{display:block}
+  .panel{border:0;box-shadow:none}
+  .preview-panel>div{padding:0!important}
+  .idcard{zoom:1!important;margin:0 auto 8mm!important;box-shadow:none!important;break-inside:avoid;page-break-inside:avoid}
+}
+</style></head>
+<body>
+<header><div class="head"><div class="logo flex items-center justify-center text-2xl" aria-hidden="true">🌱</div><div><h1 class="brand">शेतकरी सेवार्थ</h1><div class="subbrand">🌿 Green Nature • <span data-i18n="subtitle">डिजिटल शेतकरी ओळखपत्र प्रणाली</span></div></div></div></header>
+<noscript><p style="padding:16px;text-align:center">हे साधन वापरण्यासाठी JavaScript चालू असणे आवश्यक आहे.</p></noscript>
+
+<main><div class="layout">
+
+<!-- ===== FORM ===== -->
+<section class="panel form-panel">
+<div class="panel-head"><h2 class="font-bold text-emerald-900" data-i18n="formHeading">📝 शेतकऱ्याची माहिती व जमिनीचे गट भरा</h2><p class="text-xs text-gray-500" data-i18n="formSub">एकापेक्षा जास्त जमीन नोंदी जोडू शकता.</p></div>
+<form id="farmerForm" class="formbody space-y-3" autocomplete="off" onsubmit="return false">
+
+<div class="langbar"><label for="languageSelect" data-i18n="langLabel">कार्डची भाषा</label><select id="languageSelect" style="width:150px"><option value="mr">मराठी</option><option value="en">English</option></select></div>
+
+<div class="section-title" data-i18n="personal">वैयक्तिक माहिती</div>
+<div class="grid grid-cols-2 gap-3">
+  <div class="col-span-2"><label for="fName" data-i18n="name">शेतकऱ्याचे पूर्ण नाव</label><input id="fName" maxlength="60"></div>
+  <div><label for="fGender" data-i18n="gender">लिंग</label><select id="fGender"><option value="" data-i18n="select">— निवडा —</option><option value="Male" data-i18n="male">पुरुष</option><option value="Female" data-i18n="female">महिला</option><option value="Other" data-i18n="other">इतर</option></select></div>
+  <div><label for="fDob" data-i18n="dob">जन्मतारीख</label><input id="fDob" type="date"></div>
+  <div><label for="fCaste" data-i18n="caste">जात प्रवर्ग</label><input id="fCaste" list="casteList" maxlength="40"><datalist id="casteList"></datalist></div>
+  <div><label for="fMobile" data-i18n="mobile">मोबाईल नंबर</label><input id="fMobile" type="tel" inputmode="numeric" maxlength="10"><p class="err" id="mobileErr" hidden></p></div>
+  <div class="col-span-2"><label for="fAadhaar" data-i18n="aadhaar">आधार नंबर</label><input id="fAadhaar" inputmode="numeric" maxlength="14" placeholder="0000 0000 0000"><label class="chk"><input type="checkbox" id="showAadhaar" checked><span data-i18n="showFullAadhaar">कार्डवर पूर्ण आधार नंबर दाखवा (बंद केल्यास फक्त शेवटचे ४ अंक दिसतील)</span></label><p class="err" id="aadhaarErr" hidden></p></div>
+  <div class="col-span-2"><label for="fId" data-i18n="farmerId">शेतकरी ID</label><input id="fId" inputmode="numeric" maxlength="14" placeholder="000 00 00 00 00"><p class="err" id="fIdErr" hidden></p></div>
+  <div class="col-span-2"><label for="fPhoto" data-i18n="photo">शेतकऱ्याचा फोटो</label><input type="file" id="fPhoto" accept="image/*" class="text-xs p-1 border rounded-lg bg-gray-50"></div>
+  <div class="col-span-2"><label for="fAddress" data-i18n="address">मुख्य पत्ता</label><textarea id="fAddress" rows="2" maxlength="200"></textarea></div>
+</div>
+
+<div class="section-title" data-i18n="land">जमीन तपशील</div>
+<div class="flex justify-between items-center"><span class="text-xs font-bold text-gray-700" data-i18n="landSub">शेत जमिनीच्या नोंदी</span><button type="button" id="addLandBtn" class="bg-emerald-700 text-white px-2 py-1 rounded text-xs font-bold" data-i18n="addLand">+ नवीन जमीन जोडा</button></div>
+<div id="landRowsContainer" class="space-y-2"></div>
+<p class="warn" id="landWarn" hidden></p>
+
+<p class="hint" data-i18n="qrNote"></p>
+<div class="pt-2 flex gap-2 no-print">
+  <button type="button" id="updateBtn" class="flex-1 bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-xs" data-i18n="update">✓ कार्ड अपडेट करा</button>
+  <button type="button" class="printBtn bg-slate-800 text-white font-bold px-4 py-2.5 rounded-xl text-xs" data-i18n="print">🖨️ प्रिंट / PDF</button>
+</div>
+</form>
+</section>
+
+<!-- ===== PREVIEW ===== -->
+<section class="panel preview-panel">
+<div class="panel-head flex justify-between items-center"><h2 class="font-bold text-emerald-900" data-i18n="preview">📇 डिजिटल कार्ड प्रीव्ह्यू</h2><span class="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full" data-i18n="badge">एकाच पेजवर प्रिंट</span></div>
+<div class="p-3 flex flex-col items-center">
+
+<div class="themebar no-print" role="group" aria-label="Card theme"><span data-i18n="themeLabel">🎨 कार्ड थीम</span>
+<button type="button" class="theme-btn" data-theme="green" style="--sw:#087443"><i></i><span data-i18n="thGreen">हिरवी</span></button>
+<button type="button" class="theme-btn" data-theme="blue" style="--sw:#0369a1"><i></i><span data-i18n="thBlue">निळी</span></button>
+<button type="button" class="theme-btn" data-theme="saffron" style="--sw:#c2410c"><i></i><span data-i18n="thSaffron">केशरी</span></button>
+<button type="button" class="theme-btn" data-theme="purple" style="--sw:#6d28d9"><i></i><span data-i18n="thPurple">जांभळी</span></button>
+</div>
+
+<details class="settings no-print">
+<summary data-i18n="settings">⚙️ कार्ड सेटिंग्ज (अक्षर / लोगो आकार)</summary>
+<label class="setrow"><span data-i18n="sFont">🔤 कार्डवरील अक्षरे</span><input type="range" data-set="card" min="0.75" max="1.5" step="0.05"><output data-out="card"></output></label>
+<label class="setrow"><span data-i18n="sGov">🏛️ शासकीय हेडिंग</span><input type="range" data-set="gov" min="0.8" max="1.8" step="0.1"><output data-out="gov"></output></label>
+<label class="setrow"><span data-i18n="sLandHead">🌾 जमीन तपशील शीर्षक</span><input type="range" data-set="landHead" min="8" max="14" step="1"><output data-out="landHead"></output></label>
+<label class="setrow"><span data-i18n="sAgri">🌱 AgriStack लोगो</span><input type="range" data-set="agri" min="20" max="60" step="2"><output data-out="agri"></output></label>
+<label class="setrow"><span data-i18n="sGovLogo">🏛️ राजचिन्ह</span><input type="range" data-set="govLogo" min="18" max="52" step="2"><output data-out="govLogo"></output></label>
+<button type="button" id="resetSettings" data-i18n="reset">रीसेट</button>
+</details>
+
+<!-- Front -->
+<div class="idcard">
+  <div class="cardhead">
+    <img id="agriLogoFront" src="https://lh3.googleusercontent.com/d/1Pk5lHrR_F2ccgSiZCIpSGhkaLaOm3RbT" alt="AgriStack" onerror="this.style.visibility='hidden'">
+    <div class="cardtitle" data-i18n="front">भारत सरकार</div>
+    <img id="govLogoFront" src="https://lh3.googleusercontent.com/d/1T-YHhGPSIPMy1UkEvhjQD-C2qZM-JGCJ" alt="भारत राजचिन्ह" onerror="this.style.visibility='hidden'">
+  </div>
+  <div class="details">
+    <img id="cardPhoto" class="photo" alt="Photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 100'%3E%3Crect width='80' height='100' fill='%23ecfdf5'/%3E%3Ccircle cx='40' cy='36' r='16' fill='%23a7f3d0'/%3E%3Cpath d='M10 100c0-24 14-38 30-38s30 14 30 38z' fill='%23a7f3d0'/%3E%3C/svg%3E">
+    <div class="detailtext">
+      <div class="detailrow"><span class="key" data-i18n="nameKey">नाव</span><span>:</span><span id="lblFName" class="val">—</span></div>
+      <div class="detailrow"><span class="key" data-i18n="genderKey">लिंग</span><span>:</span><span id="lblFGender" class="val">—</span></div>
+      <div class="detailrow"><span class="key" data-i18n="dobKey">जन्मतारीख</span><span>:</span><span id="lblFDob" class="val">—</span></div>
+      <div class="detailrow"><span class="key" data-i18n="casteKey">जात प्रवर्ग</span><span>:</span><span id="lblFCaste" class="val">—</span></div>
+      <div class="detailrow"><span class="key" data-i18n="mobileKey">मोबाईल</span><span>:</span><span id="lblFMobile" class="val">—</span></div>
+      <div class="detailrow"><span class="key" data-i18n="aadhaarKey">आधार</span><span>:</span><span id="lblFAadhaar" class="val">—</span></div>
+    </div>
+    <div class="flex flex-col items-center justify-center" style="width:110px;flex-shrink:0">
+      <div class="qrcode" id="qrcode" aria-label="Farmer QR code"></div>
+      <div class="text-center font-bold" style="font-size:5.5px;line-height:1.1;margin-top:2px">shetkarisevarth.info</div>
+    </div>
+  </div>
+  <div class="farmerid"><span data-i18n="farmerIdCaption">शेतकरी ID</span> : <span id="lblFId">—</span></div>
+</div>
+
+<!-- Back -->
+<div class="idcard" style="justify-content:flex-start;gap:5px">
+  <div class="cardhead">
+    <img id="agriLogoBack" src="https://lh3.googleusercontent.com/d/1Pk5lHrR_F2ccgSiZCIpSGhkaLaOm3RbT" alt="AgriStack" onerror="this.style.visibility='hidden'">
+    <div class="cardtitle" data-i18n="back">कृषि एवं किसान कल्याण मंत्रालय</div>
+    <img id="govLogoBack" src="https://lh3.googleusercontent.com/d/1T-YHhGPSIPMy1UkEvhjQD-C2qZM-JGCJ" alt="भारत राजचिन्ह" onerror="this.style.visibility='hidden'">
+  </div>
+  <div style="padding:1px 2px 3px;border-bottom:1px solid var(--c-light)"><span class="font-bold" style="font-size:8px;display:block;color:var(--c-main)" data-i18n="addressCaption">पत्ता</span><p id="lblFAddress" class="address" style="margin:1px 0 0">—</p></div>
+  <div>
+    <div class="land-heading" data-i18n="land">जमीन तपशील</div>
+    <div class="landwrap" id="landWrap"><table class="landtable"><thead><tr><th data-i18n="district">जिल्हा</th><th data-i18n="subdist">तालुका</th><th data-i18n="village">गाव</th><th data-i18n="khasra">सर्वे/गट नं.</th><th data-i18n="area">क्षेत्र</th></tr></thead><tbody id="lblLandTableBody"></tbody></table></div>
+  </div>
+  <div class="backbottom"><div data-i18n="help">मदत: 1800-180-1551</div><div id="websiteText">🌐 mhfr.agristack.gov.in</div></div>
+</div>
+
+<button type="button" class="printBtn no-print w-full bg-slate-800 text-white font-bold p-2.5 rounded-xl text-xs mt-1" data-i18n="printPdf">🖨️ PDF डाऊनलोड / प्रिंट करा</button>
+<p class="hint no-print mt-2" data-i18n="printHint"></p>
+</div>
+</section>
+</div></main>
+
+<footer><p data-i18n="footer"></p></footer>
+
+<script>
+/* ============ भाषा ============ */
+const translations={
+mr:{subtitle:'डिजिटल शेतकरी ओळखपत्र प्रणाली',formHeading:'📝 शेतकऱ्याची माहिती व जमिनीचे गट भरा',formSub:'एकापेक्षा जास्त जमीन नोंदी जोडू शकता.',langLabel:'कार्डची भाषा',personal:'वैयक्तिक माहिती',name:'शेतकऱ्याचे पूर्ण नाव',gender:'लिंग',dob:'जन्मतारीख',caste:'जात प्रवर्ग',mobile:'मोबाईल नंबर',aadhaar:'आधार नंबर',showFullAadhaar:'कार्डवर पूर्ण आधार नंबर दाखवा (बंद केल्यास फक्त शेवटचे ४ अंक दिसतील)',farmerId:'शेतकरी ID',photo:'शेतकऱ्याचा फोटो',address:'मुख्य पत्ता',land:'जमीन तपशील',landSub:'शेत जमिनीच्या नोंदी',addLand:'+ नवीन जमीन जोडा',district:'जिल्हा',subdist:'तालुका',village:'गाव',khasra:'सर्वे/गट नं.',area:'क्षेत्र',
+qrNote:'QR कोडमध्ये वेबसाइट, शेतकऱ्याचे नाव, आधार क्रमांक आणि शेतकरी ID आहे.',update:'✓ कार्ड अपडेट करा',print:'🖨️ प्रिंट / PDF',printPdf:'🖨️ PDF डाऊनलोड / प्रिंट करा',preview:'📇 डिजिटल कार्ड प्रीव्ह्यू',badge:'एकाच पेजवर प्रिंट',front:'भारत सरकार',back:'कृषि एवं किसान कल्याण मंत्रालय',nameKey:'नाव',genderKey:'लिंग',dobKey:'जन्मतारीख',casteKey:'जात प्रवर्ग',mobileKey:'मोबाईल',aadhaarKey:'आधार',farmerIdCaption:'शेतकरी ID',addressCaption:'पत्ता',help:'मदत: 1800-180-1551',
+printHint:'टीप: प्रिंट करताना "Background graphics" चालू ठेवा. QR मध्ये shetkarisevarth.info, नाव, आधार क्रमांक आणि शेतकरी ID आहे.',needLand:'कमीत कमी एक जमीन नोंद आवश्यक आहे!',
+select:'— निवडा —',themeLabel:'🎨 कार्ड थीम',thGreen:'हिरवी',thBlue:'निळी',thSaffron:'केशरी',thPurple:'जांभळी',badId:'शेतकरी ID ११ अंकी असावा.',male:'पुरुष',female:'महिला',other:'इतर',selDist:'जिल्हा निवडा',selTaluka:'तालुका निवडा',selVillage:'गाव निवडा',firstDist:'आधी जिल्हा निवडा',firstTaluka:'आधी तालुका निवडा',loading:'लोड होत आहे…',typeDist:'जिल्हा टाइप करा',typeTaluka:'तालुका टाइप करा',typeVillage:'गाव टाइप करा',
+settings:'⚙️ कार्ड सेटिंग्ज (अक्षर / लोगो आकार)',sFont:'🔤 कार्डवरील अक्षरे',sGov:'🏛️ शासकीय हेडिंग',sLandHead:'🌾 जमीन तपशील शीर्षक',sAgri:'🌱 AgriStack लोगो',sGovLogo:'🏛️ राजचिन्ह',reset:'रीसेट',
+landWarn:'⚠️ सर्व जमीन नोंदी कार्डवर मावत नाहीत. प्रिंटमध्ये काही नोंदी कापल्या जातील — अक्षरांचा आकार कमी करा किंवा नोंदी कमी करा.',badMobile:'मोबाईल नंबर १० अंकी (६–९ ने सुरू) असावा.',badAadhaar:'आधार नंबर १२ अंकी असावा.',badImage:'कृपया image फाईल निवडा.',imgFail:'फोटो उघडता आला नाही.',
+footer:'हे साधन फक्त माहिती-प्रत तयार करण्यासाठी आहे; हे अधिकृत शासकीय ओळखपत्र नाही. तुम्ही भरलेली सर्व माहिती व फोटो तुमच्या ब्राउझरमध्येच राहतो, सर्व्हरवर पाठवला जात नाही.',
+caste:'जात प्रवर्ग',castes:['अनुसूचित जाती (SC)','अनुसूचित जमाती (ST)','विमुक्त जाती (VJ)','भटक्या जमाती (NT)','इतर मागास वर्ग (OBC)','विशेष मागास प्रवर्ग (SBC)','खुला (सर्वसाधारण)']},
+en:{subtitle:'Digital Farmer Identity Card System',formHeading:'📝 Enter farmer and land details',formSub:'You can add multiple land records.',langLabel:'Card language',personal:'Personal Information',name:'Farmer Full Name',gender:'Gender',dob:'Date of Birth',caste:'Caste Category',mobile:'Mobile Number',aadhaar:'Aadhaar Number',showFullAadhaar:'Show full Aadhaar on card (otherwise only last 4 digits)',farmerId:'Farmer ID',photo:'Farmer Photo',address:'Main Address',land:'Land Details',landSub:'Agricultural land records',addLand:'+ Add Land',district:'District',subdist:'Taluka',village:'Village',khasra:'Survey/Gat No.',area:'Area',
+qrNote:'The QR code contains the website, farmer name, Aadhaar number and Farmer ID.',update:'✓ Update Card',print:'🖨️ Print / PDF',printPdf:'🖨️ Download PDF / Print',preview:'📇 Digital Card Preview',badge:'Print on one page',front:'Government of India',back:'Ministry of Agriculture & Farmers Welfare',nameKey:'Name',genderKey:'Gender',dobKey:'DOB',casteKey:'Caste Category',mobileKey:'Mobile',aadhaarKey:'Aadhaar',farmerIdCaption:'Farmer ID',addressCaption:'Address',help:'Help: 1800-180-1551',
+printHint:'Tip: keep "Background graphics" ON while printing. The QR contains shetkarisevarth.info, name, Aadhaar number and Farmer ID.',needLand:'At least one land record is required!',
+select:'— Select —',themeLabel:'🎨 Card theme',thGreen:'Green',thBlue:'Blue',thSaffron:'Saffron',thPurple:'Purple',badId:'Farmer ID must be 11 digits.',male:'Male',female:'Female',other:'Other',selDist:'Select district',selTaluka:'Select taluka',selVillage:'Select village',firstDist:'Select district first',firstTaluka:'Select taluka first',loading:'Loading…',typeDist:'Type district',typeTaluka:'Type taluka',typeVillage:'Type village',
+settings:'⚙️ Card settings (font / logo size)',sFont:'🔤 Card text',sGov:'🏛️ Government heading',sLandHead:'🌾 Land heading',sAgri:'🌱 AgriStack logo',sGovLogo:'🏛️ Emblem',reset:'Reset',
+landWarn:'⚠️ Not all land records fit on the card. Some rows will be cut off in print — reduce the font size or the number of records.',badMobile:'Mobile number must be 10 digits (starting 6–9).',badAadhaar:'Aadhaar number must be 12 digits.',badImage:'Please choose an image file.',imgFail:'Could not open the photo.',
+footer:'This tool only prepares an information copy; it is not an official government ID. All details and the photo stay in your browser and are never sent to a server.',
+castes:['SC','ST','VJ','NT','OBC','SBC','General']}};
+let currentLang='mr';
+const T=()=>translations[currentLang];
+const $=id=>document.getElementById(id);
+
+function applyI18n(root=document){
+  const t=T();
+  root.querySelectorAll('[data-i18n]').forEach(el=>{const v=t[el.dataset.i18n];if(v!=null)el.textContent=v});
+  root.querySelectorAll('[data-i18n-ph]').forEach(el=>{const v=t[el.dataset.i18nPh];if(v!=null)el.placeholder=v});
+}
+function setLanguage(lang){
+  currentLang=lang;
+  document.documentElement.lang=lang==='en'?'en':'mr';
+  applyI18n();
+  $('casteList').replaceChildren(...T().castes.map(c=>{const o=document.createElement('option');o.value=c;return o}));
+  document.querySelectorAll('.land-row').forEach(refreshRowPlaceholders);
+  updateLiveCard();
+}
+$('languageSelect').addEventListener('change',e=>setLanguage(e.target.value));
+
+/* ============ सेटिंग्ज (अक्षर / लोगो) ============ */
+const root=document.documentElement,SKEY='gn_card_settings';
+const setLogos=(ids,n)=>ids.forEach(id=>{const el=$(id);if(el){el.style.width=n+'px';el.style.height=n+'px'}});
+const SETTINGS={
+  card:{def:1,apply:v=>root.style.setProperty('--card-font-scale',v),fmt:v=>Math.round(v*100)+'%'},
+  gov:{def:1,apply:v=>root.style.setProperty('--gov-font-scale',v),fmt:v=>Math.round(v*100)+'%'},
+  landHead:{def:10,apply:v=>root.style.setProperty('--land-heading-font',v+'px'),fmt:v=>v+'px'},
+  agri:{def:34,apply:v=>setLogos(['agriLogoFront','agriLogoBack'],v),fmt:v=>v+'px'},
+  govLogo:{def:30,apply:v=>setLogos(['govLogoFront','govLogoBack'],v),fmt:v=>v+'px'}};
+const state={};
+function persist(){try{localStorage.setItem(SKEY,JSON.stringify(state))}catch(e){}}
+function applySetting(k,v,save=true){
+  v=Number(v);const s=SETTINGS[k];s.apply(v);state[k]=v;
+  document.querySelector(`[data-set="${k}"]`).value=v;
+  document.querySelector(`[data-out="${k}"]`).textContent=s.fmt(v);
+  if(save)persist();checkOverflow();
+}
+function initSettings(){
+  let saved={};try{saved=JSON.parse(localStorage.getItem(SKEY))||{}}catch(e){}
+  Object.keys(SETTINGS).forEach(k=>applySetting(k,saved[k]??SETTINGS[k].def,false));
+  document.querySelectorAll('[data-set]').forEach(el=>el.addEventListener('input',()=>applySetting(el.dataset.set,el.value)));
+  $('resetSettings').addEventListener('click',()=>{Object.keys(SETTINGS).forEach(k=>applySetting(k,SETTINGS[k].def,false));try{localStorage.removeItem(SKEY)}catch(e){}});
+}
+
+/* ============ कार्ड थीम + अ‍ॅबस्ट्रॅक्ट डिझाईन ============ */
+function decoSVG(i){
+  const hex=(cx,cy,r)=>[[r,0],[r/2,.866*r],[-r/2,.866*r],[-r,0],[-r/2,-.866*r],[r/2,-.866*r]].map(([x,y])=>(cx+x).toFixed(1)+','+(cy+y).toFixed(1)).join(' ');
+  return `<svg class="deco" viewBox="0 0 420 255" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs><pattern id="dotp${i}" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="1.7" class="f3"/></pattern></defs>
+<g class="d d-green">
+  <circle class="s1" cx="395" cy="-5" r="62" stroke-width="14"/><circle class="s1" cx="395" cy="-5" r="96" stroke-width="2"/><circle class="f2" cx="395" cy="-5" r="62"/>
+  <path class="f1" d="M-10 255 C 20 190, 70 168, 118 172 C 98 214, 54 246, -10 255Z"/>
+  <path class="f2" d="M30 255 C 66 218, 116 206, 160 216 C 128 242, 80 255, 30 255Z"/>
+  <path class="s1" d="M0 252 C 40 215, 80 192, 116 175" stroke-width="1.5"/>
+  <path class="f1" d="M300 255 C 310 225, 335 212, 360 210 C 356 235, 335 252, 300 255Z"/>
+</g>
+<g class="d d-blue">
+  <path class="f1" d="M0 188 C 70 158, 140 214, 210 188 S 350 162, 420 194 V255 H0Z"/>
+  <path class="f2" d="M0 214 C 80 188, 150 240, 230 214 S 360 194, 420 222 V255 H0Z"/>
+  <path class="s1" d="M0 40 C 60 18, 120 62, 180 40 S 300 18, 360 42 S 410 50, 420 44" stroke-width="1.6"/>
+  <path class="s1" d="M0 56 C 60 34, 120 78, 180 56 S 300 34, 360 58 S 410 66, 420 60" stroke-width="1"/>
+  <circle class="f1" cx="392" cy="26" r="30"/><circle class="f2" cx="346" cy="58" r="14"/><circle class="f1" cx="30" cy="30" r="12"/><circle class="s1" cx="392" cy="26" r="44" stroke-width="1.5"/>
+</g>
+<g class="d d-saffron">
+  <circle class="f2" cx="420" cy="0" r="125"/><circle class="f1" cx="420" cy="0" r="88"/><circle class="f2" cx="420" cy="0" r="52"/>
+  <path class="f1" d="M0 255 L0 170 L85 255Z"/><path class="f3" d="M0 255 L0 214 L41 255Z"/><path class="f2" d="M62 255 L112 192 L162 255Z"/>
+  <path class="s1" d="M240 255 L420 75 M272 255 L420 107 M304 255 L420 139 M336 255 L420 171" stroke-width="1.6"/>
+</g>
+<g class="d d-purple">
+  <rect x="236" y="0" width="184" height="118" fill="url(#dotp${i})"/>
+  <path class="f1" d="M0 0 L96 0 L0 64Z"/>
+  <polygon class="s1" points="${hex(18,236,46)}" stroke-width="2"/><polygon class="f1" points="${hex(88,248,30)}"/><polygon class="f2" points="${hex(404,214,40)}"/><polygon class="s1" points="${hex(350,246,22)}" stroke-width="1.5"/>
+</g></svg>`;
+}
+function initDeco(){document.querySelectorAll('.idcard').forEach((c,i)=>c.insertAdjacentHTML('afterbegin',decoSVG(i)))}
+
+const THEME_KEY='gn_card_theme',THEMES=['green','blue','saffron','purple'];
+function setTheme(name,save=true){
+  if(!THEMES.includes(name))name='green';
+  root.setAttribute('data-card-theme',name);
+  document.querySelectorAll('.theme-btn').forEach(b=>b.setAttribute('aria-pressed',b.dataset.theme===name));
+  if(save)try{localStorage.setItem(THEME_KEY,name)}catch(e){}
+}
+function initTheme(){
+  let t='green';try{t=localStorage.getItem(THEME_KEY)||'green'}catch(e){}
+  setTheme(t,false);
+  document.querySelectorAll('.theme-btn').forEach(b=>b.addEventListener('click',()=>setTheme(b.dataset.theme)));
+}
+
+/* ============ मोबाईलवर कार्ड बसवणे ============ */
+function fitCards(){
+  const p=document.querySelector('.preview-panel');
+  const s=Math.min(1,(p.clientWidth-24)/420);
+  root.style.setProperty('--fit',s.toFixed(3));
+}
+window.addEventListener('resize',fitCards);
+
+/* ============ फोटो (लहान करून) ============ */
+$('fPhoto').addEventListener('change',e=>{
+  const f=e.target.files[0];if(!f)return;
+  if(!f.type.startsWith('image/')){alert(T().badImage);e.target.value='';return}
+  const url=URL.createObjectURL(f),img=new Image();
+  img.onload=()=>{
+    const r=Math.min(1,400/Math.max(img.width,img.height)),c=document.createElement('canvas');
+    c.width=Math.round(img.width*r);c.height=Math.round(img.height*r);
+    c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+    $('cardPhoto').src=c.toDataURL('image/jpeg',.9);URL.revokeObjectURL(url);
+  };
+  img.onerror=()=>{alert(T().imgFail);URL.revokeObjectURL(url)};
+  img.src=url;
+});
+
+/* ============ जिल्हा / तालुका / गाव (LGD API) ============ */
+/* टीप: साइट https वर असेल तर http API ब्राउझर ब्लॉक करतो; तेव्हा आपोआप "टाइप करा" पर्याय दिसतो. */
+const MV_API='http://115.124.105.220/API/';
+let mvDistricts=[];const mvCache={talukas:{},villages:{}};
+const NAME_KEYS={
+  district:['districtlocalname','districtLocalName','DistrictLocalName','districtnamelocal','DistrictNameLocal','districtnameenglish','DistrictNameEnglish','districtname','DistrictName'],
+  taluka:['subdistrictnamelocal','SubDistrictNameLocal','subdistrictlocalname','SubDistrictLocalName','talukalocalname','TalukaLocalName','TalukaNameLocal','talukanamelocal','subdistrictnameenglish','SubDistrictNameEnglish','subdistrictname','SubDistrictName','talukanameenglish','TalukaNameEnglish','talukaname','TalukaName'],
+  village:['villagelocalname','VillageLocalName','villagenamelocal','VillageNameLocal','villagenameenglish','VillageNameEnglish','villagename','VillageName']};
+const CODE_KEYS={district:['districtcode','DistrictCode','distcode'],taluka:['subdistrictcode','talukacode','TalukaCode'],village:['villagecode','VillageCode']};
+function mvName(o,kind){for(const k of NAME_KEYS[kind]){const v=o[k];if(v!=null&&String(v).trim()&&!/^\d+$/.test(String(v).trim()))return String(v).trim()}return ''}
+function mvCode(o,kind){for(const k of CODE_KEYS[kind])if(o[k]!=null)return String(o[k]);return ''}
+async function mvFetch(path,params={}){
+  const ctrl=new AbortController(),to=setTimeout(()=>ctrl.abort(),8000);
+  try{
+    const qs=new URLSearchParams(params).toString();
+    const r=await fetch(MV_API+path+(qs?'?'+qs:''),{method:'POST',mode:'cors',signal:ctrl.signal});
+    if(!r.ok)throw Error('HTTP '+r.status);
+    const j=await r.json();return Array.isArray(j)?j:(j.data||j.result||j.d||[]);
+  }finally{clearTimeout(to)}
+}
+function mvOpt(sel,items,kind,first){
+  sel.replaceChildren(new Option(first,''));
+  items.forEach(o=>{const n=mvName(o,kind),c=mvCode(o,kind);if(n&&c)sel.add(new Option(n,c))});
+  sel.disabled=sel.options.length<2;
+}
+function mvFallback(row,which){
+  const pairs={all:[['.l-dist','.l-dist-manual'],['.l-subdist','.l-subdist-manual'],['.l-vill','.l-vill-manual']],
+    taluka:[['.l-subdist','.l-subdist-manual'],['.l-vill','.l-vill-manual']],village:[['.l-vill','.l-vill-manual']]}[which];
+  pairs.forEach(([a,b])=>{const s=row.querySelector(a),i=row.querySelector(b);if(s&&i){s.style.display='none';s.value='';i.style.display='block'}});
+}
+function mvValue(row,sel,manualSel){
+  const m=row.querySelector(manualSel),s=row.querySelector(sel);
+  if(m&&m.style.display!=='none')return m.value.trim();
+  return s&&s.value?s.selectedOptions[0].text:'';
+}
+async function mvInitRow(row){
+  const d=row.querySelector('.l-dist'),tl=row.querySelector('.l-subdist'),v=row.querySelector('.l-vill');
+  if(!d||d.dataset.mvReady)return;d.dataset.mvReady='1';
+  try{
+    if(!mvDistricts.length)mvDistricts=await mvFetch('GetAllDistricts');
+    mvOpt(d,mvDistricts,'district',T().selDist);
+    d.addEventListener('change',async()=>{
+      tl.replaceChildren(new Option(T().loading,''));v.replaceChildren(new Option(T().firstTaluka,''));tl.disabled=true;v.disabled=true;
+      if(!d.value){tl.replaceChildren(new Option(T().firstDist,''));updateLiveCard();return}
+      try{
+        const code=d.value;
+        if(!mvCache.talukas[code])mvCache.talukas[code]=await mvFetch('GetTalukasOfDistrict',{distcode:code});
+        mvOpt(tl,mvCache.talukas[code],'taluka',T().selTaluka);
+      }catch(e){mvFallback(row,'taluka')}
+      updateLiveCard();
+    });
+    tl.addEventListener('change',async()=>{
+      v.replaceChildren(new Option(T().loading,''));v.disabled=true;
+      if(!tl.value){v.replaceChildren(new Option(T().firstTaluka,''));updateLiveCard();return}
+      try{
+        const key=d.value+'_'+tl.value;
+        if(!mvCache.villages[key])mvCache.villages[key]=await mvFetch('GetVillagesOfDistrictAndTaluka',{distcode:d.value,talukacode:tl.value});
+        mvOpt(v,mvCache.villages[key],'village',T().selVillage);
+      }catch(e){mvFallback(row,'village')}
+      updateLiveCard();
+    });
+  }catch(e){mvFallback(row,'all');updateLiveCard()}
+}
+function refreshRowPlaceholders(row){
+  const t=T(),d=row.querySelector('.l-dist'),s=row.querySelector('.l-subdist'),v=row.querySelector('.l-vill');
+  if(d.options.length&&!d.options[0].value)d.options[0].text=t.selDist;
+  if(s.options.length&&!s.options[0].value)s.options[0].text=d.value?t.selTaluka:t.firstDist;
+  if(v.options.length&&!v.options[0].value)v.options[0].text=s.value?t.selVillage:t.firstTaluka;
+  applyI18n(row);
+}
+
+/* ============ जमीन नोंदी ============ */
+function addLandRow(){
+  const t=T(),div=document.createElement('div');
+  div.className='p-2.5 rounded-xl border land-row space-y-2 text-xs';
+  div.innerHTML=`
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+    <div><label><span data-i18n="district"></span><select class="l-dist"><option value="">${t.selDist}</option></select></label><input class="l-dist-manual" data-i18n-ph="typeDist" style="display:none;margin-top:4px"></div>
+    <div><label><span data-i18n="subdist"></span><select class="l-subdist" disabled><option value="">${t.firstDist}</option></select></label><input class="l-subdist-manual" data-i18n-ph="typeTaluka" style="display:none;margin-top:4px"></div>
+    <div><label><span data-i18n="village"></span><select class="l-vill" disabled><option value="">${t.firstTaluka}</option></select></label><input class="l-vill-manual" data-i18n-ph="typeVillage" style="display:none;margin-top:4px"></div>
+  </div>
+  <div class="grid grid-cols-2 gap-2 items-end">
+    <div><label><span data-i18n="khasra"></span><input class="l-khasra" data-i18n-ph="khasra"></label></div>
+    <div class="flex gap-1 items-end"><div class="flex-grow"><label><span data-i18n="area"></span><input class="l-area" data-i18n-ph="area"></label></div>
+    <button type="button" class="l-remove bg-red-500 text-white px-2 rounded text-sm" style="height:33px" aria-label="Remove">×</button></div>
+  </div>`;
+  div.querySelector('.l-remove').addEventListener('click',()=>removeLandRow(div));
+  $('landRowsContainer').appendChild(div);
+  applyI18n(div);mvInitRow(div);updateLiveCard();
+}
+function removeLandRow(row){
+  if(document.querySelectorAll('.land-row').length>1){row.remove();updateLiveCard()}
+  else alert(T().needLand);
+}
+$('addLandBtn').addEventListener('click',addLandRow);
+
+/* ============ कार्ड अपडेट ============ */
+function checkOverflow(){
+  const w=$('landWrap'),warn=$('landWarn');
+  if(!w||!warn)return;
+  const over=w.scrollHeight>w.clientHeight+1;
+  warn.hidden=!over;if(over)warn.textContent=T().landWarn;
+}
+let lastQr='';
+function updateLiveCard(){
+  const t=T(),val=id=>$(id).value.trim(),show=(id,txt)=>{$(id).textContent=txt||'—'};
+  show('lblFName',val('fName'));
+  show('lblFGender',{Male:t.male,Female:t.female,Other:t.other}[val('fGender')]);
+  const dob=val('fDob');show('lblFDob',dob?dob.split('-').reverse().join('/'):'');
+  show('lblFCaste',val('fCaste'));
+  show('lblFMobile',val('fMobile'));
+  const aad=val('fAadhaar'),digits=aad.replace(/\D/g,'');
+  show('lblFAadhaar',!aad?'':($('showAadhaar').checked||digits.length<12?aad:'XXXX XXXX '+digits.slice(-4)));
+  show('lblFId',val('fId'));
+  show('lblFAddress',val('fAddress'));
+
+  const idDigits=val('fId').replace(/\D/g,''),iErr=$('fIdErr');iErr.hidden=!idDigits||idDigits.length===11;iErr.textContent=t.badId;
+  const mob=val('fMobile'),mErr=$('mobileErr'),aErr=$('aadhaarErr');
+  mErr.hidden=!mob||/^[6-9]\d{9}$/.test(mob);mErr.textContent=t.badMobile;
+  aErr.hidden=!digits||digits.length===12;aErr.textContent=t.badAadhaar;
+
+  const body=$('lblLandTableBody');body.replaceChildren();
+  document.querySelectorAll('.land-row').forEach(row=>{
+    const tr=document.createElement('tr');
+    [mvValue(row,'.l-dist','.l-dist-manual'),mvValue(row,'.l-subdist','.l-subdist-manual'),mvValue(row,'.l-vill','.l-vill-manual'),row.querySelector('.l-khasra').value.trim(),row.querySelector('.l-area').value.trim()]
+      .forEach(x=>{const td=document.createElement('td');td.textContent=x||'-';tr.appendChild(td)});
+    body.appendChild(tr);
+  });
+  checkOverflow();
+
+  /* QR: वेबसाइट + नाव + आधार + Farmer ID */
+  const qrText='shetkarisevarth.info\nFarmer Name: '+(val('fName')||'-')+'\nAadhaar: '+(val('fAadhaar')||'-')+'\nFarmer ID: '+(val('fId').replace(/\s+/g,'')||'-');
+  if(qrText!==lastQr){
+    lastQr=qrText;const qr=$('qrcode');qr.replaceChildren();
+    if(window.QRCode)new QRCode(qr,{text:qrText,width:100,height:100,correctLevel:QRCode.CorrectLevel.L});else qr.textContent='QR';
+  }
+}
+let timer;const schedule=()=>{clearTimeout(timer);timer=setTimeout(updateLiveCard,120)};
+
+/* इनपुट सुरक्षित करणे */
+$('fMobile').addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'').slice(0,10)});
+$('fAadhaar').addEventListener('input',e=>{const d=e.target.value.replace(/\D/g,'').slice(0,12);e.target.value=d.replace(/(\d{4})(?=\d)/g,'$1 ')});
+/* Farmer ID: 000 00 00 00 00 (११ अंक: पहिले ३ अंक, नंतर २-२ अंकांचे ४ गट) */
+function fmtFarmerId(d){const first=d.slice(0,3),rest=d.slice(3).match(/\d{1,2}/g)||[];return [first,...rest].join(' ').trim()}
+$('fId').addEventListener('input',e=>{e.target.value=fmtFarmerId(e.target.value.replace(/\D/g,'').slice(0,11))});
+$('fDob').max=new Date().toISOString().slice(0,10);
+
+$('farmerForm').addEventListener('input',schedule);
+$('farmerForm').addEventListener('change',schedule);
+$('updateBtn').addEventListener('click',updateLiveCard);
+document.querySelectorAll('.printBtn').forEach(b=>b.addEventListener('click',()=>{updateLiveCard();window.print()}));
+
+window.addEventListener('load',()=>{
+  initDeco();initSettings();initTheme();addLandRow();setLanguage('mr');fitCards();
+});
+</script>
+</body></html>

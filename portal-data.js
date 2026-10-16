@@ -2,29 +2,38 @@
 window.PORTAL_DATA = {
   "announcements": [
     {
-      "emoji": "🌾",
-      "text": "रबी बियाणे साठी अर्ज चालू आहेत, अर्ज करण्यासाठी येथे क्लिक करा.",
-      "url": "mahadbt-portal.html"
-    },
-    {
       "emoji": "👩‍🌾",
       "text": "महिला शेतकरी प्रमाणपत्र योजनेची अधिक माहिती व अर्जासाठी येथे क्लिक करा.",
       "url": "women-farmer.html"
     },
     {
       "emoji": "🧪",
-      "text": "खत विक्री अर्ज प्रणाली (FSAS) ची माहिती येथे पहा.",
+      "text": "२३ ऑक्टोबर पासून खत बुकिंग होणार app द्वारे.",
       "url": "fsas.html"
+    },
+    {
+      "emoji": "🪪",
+      "text": "फार्मर आयडी कार्ड बनवा अगदी मिनिटात.",
+      "url": "farmer-id.html"
     }
   ],
   "schemes": [
+    {
+      "mr": "फार्मर आयडी कार्ड बनवा मोफत",
+      "en": "farmer id card banava agristack card shetkari card ",
+      "emoji": "🪪",
+      "url": "farmer-id.html",
+      "status": "ok",
+      "isNew": true
+    },
     {
       "mr": "CBDC - पोक्रा योजनेत ठिबक व तुषार सिंचन खरेदीपूर्वी अनुदान मिळणार",
       "en": "CBDC - Advance Subsidy for Drip & Sprinkler in PoCRA",
       "emoji": "📱",
       "url": "cbdc.html",
       "status": "ok",
-      "newTag": true
+      "newTag": true,
+      "isNew": true
     },
     {
       "mr": "खत विक्री अर्ज प्रणाली (FFS)",
@@ -32,7 +41,8 @@ window.PORTAL_DATA = {
       "emoji": "🧪",
       "url": "fsas.html",
       "status": "ok",
-      "newTag": true
+      "newTag": true,
+      "isNew": true
     },
     {
       "mr": "महिला शेतकरी प्रमाणपत्र",
@@ -40,7 +50,8 @@ window.PORTAL_DATA = {
       "emoji": "👩‍🌾",
       "url": "women-farmer.html",
       "status": "ok",
-      "newTag": true
+      "newTag": true,
+      "isNew": true
     },
     {
       "mr": "जलतारा योजना (भूजल पुनर्भरण)",
@@ -56,7 +67,8 @@ window.PORTAL_DATA = {
       "emoji": "📊",
       "url": "estimates.html",
       "status": "ok",
-      "newTag": false
+      "newTag": false,
+      "isNew": true
     },
     {
       "mr": "महाडीबीटी पोर्टल (अर्ज एक - योजना अनेक)",
@@ -126,17 +138,18 @@ window.PORTAL_DATA = {
       "mr": "पीक स्पर्धा",
       "en": "Crop Competition",
       "emoji": "🏆",
-      "url": "#",
-      "status": "coming-soon",
+      "url": "crop-competition",
+      "status": "ok",
       "newTag": false
     },
     {
       "mr": "फळबाग व इतर पिके लागवड",
       "en": "Orchard Cultivation",
       "emoji": "🌳",
-      "url": "#",
-      "status": "coming-soon",
-      "newTag": false
+      "url": "falbag-index.html",
+      "status": "ok",
+      "newTag": false,
+      "isNew": false
     },
     {
       "mr": "प्रधानमंत्री सूक्ष्म खाद्य प्रक्रिया उन्नयन योजना (PMFME)",
