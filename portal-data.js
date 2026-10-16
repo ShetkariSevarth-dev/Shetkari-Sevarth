@@ -27,20 +27,20 @@ window.PORTAL_DATA = {
       "isNew": true
     },
     {
+      "mr": "अधिकाऱ्यांसाठी दौरा दैनंदिनी App",
+      "en": "app daily dairy app ",
+      "emoji": "🗓️",
+      "url": "daily-diary.html",
+      "status": "ok",
+      "isNew": true
+    },
+    {
       "mr": "CBDC - पोक्रा योजनेत ठिबक व तुषार सिंचन खरेदीपूर्वी अनुदान मिळणार",
       "en": "CBDC - Advance Subsidy for Drip & Sprinkler in PoCRA",
       "emoji": "📱",
       "url": "cbdc.html",
       "status": "ok",
       "newTag": true,
-      "isNew": true
-    },
-    {
-      "mr": "अधिकाऱ्यांसाठी दौरा दैनंदिनी App",
-      "en": "app daily dairy app ",
-      "emoji": "🗓️",
-      "url": "daily-diary.html",
-      "status": "ok",
       "isNew": true
     },
     {
