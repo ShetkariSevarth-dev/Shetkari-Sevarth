@@ -17,7 +17,7 @@
 </script>
 <meta name="description" content="शेतकरी सेवार्थ – डिजिटल शेतकरी ओळखपत्र तयार करा आणि प्रिंट / PDF करा.">
 <meta name="theme-color" content="#064e35">
-<title>Green Nature | शेतकरी सेवार्थ</title>
+<title>शेतकरी ओळखपत्र | शेतकरी सेवार्थ</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌱%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
@@ -26,12 +26,48 @@
 :root{--green:#087443;--dark:#064e35;--ink:#17251d;
 --c-dark:#064e35;--c-main:#087443;--c-border:#047857;--c-light:#d1fae5;--c-lighter:#f0fdf4;--c-rgb:8 116 67;--c-photo-r:7px;--c-head-r:5px;--card-font-scale:1;--gov-font-scale:1;--land-heading-font:11px;--fit:1}
 *{box-sizing:border-box}
-body{margin:0;font-family:'Tiro Devanagari Marathi',serif;color:var(--ink);background:radial-gradient(ellipse at top,#d1fae5,#f0fdf4 55%,#f1f5f9);min-height:100vh}
-header{background:linear-gradient(120deg,#064e35,#087443,#047857);color:#fff;padding:16px 20px;box-shadow:0 4px 16px #052e1630}
-.head{max-width:1180px;margin:auto;display:flex;align-items:center;gap:14px}
-.logo{width:50px;height:50px;background:#fff;border-radius:12px;padding:4px}
-.brand{font-size:22px;font-weight:800;margin:0}.subbrand{font-size:12px;opacity:.88}
-main{max-width:1180px;margin:20px auto;padding:0 16px 16px}
+body{margin:0;font-family:'Tiro Devanagari Marathi',serif;color:var(--ink);background:radial-gradient(ellipse at top,#d1fae5,#f0fdf4 55%,#f1f5f9);min-height:100vh;display:flex;flex-direction:column}
+
+/* Shared Header & Footer Styling */
+.hero-gradient{background:linear-gradient(135deg,#065f46 0%,#047857 50%,#0f766e 100%)}
+.sv-site-header, .sv-site-footer {
+  height: 85px;
+  min-height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.sv-site-footer{
+  background-color: #0b5e36 !important;
+  color: #ffffff !important;
+  text-align: center;
+  padding: 10px 16px;
+  margin-top: auto;
+  font-size: 13px;
+  line-height: 1.6;
+  width: 100%;
+  border-top: 4px solid #86c83f;
+}
+.sv-footer-inner{max-width:900px;margin:0 auto;width:100%}
+.sv-footer-note{color:#ffffff !important;font-size:13px;margin:0 0 4px}
+.sv-footer-email{margin:2px 0}
+.sv-footer-email a{
+  color: #a3e635 !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 700;
+}
+.sv-footer-copy{color:#e2e8f0 !important; margin-top:4px; font-size:12px;}
+
+/* Global Notice Bar */
+.sv-global-notices{width:100%;max-width:1000px;margin:10px auto 0;box-sizing:border-box;display:flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid #b7ebc8;border-radius:12px;background:linear-gradient(100deg,#fff7d6,#f0fdf4 55%,#e2fbe9);color:#14532d;box-shadow:0 2px 8px rgba(22,101,52,.05)}
+.sv-notice-label{background:#dc2626;color:#fff;border-radius:999px;padding:3px 8px;font-size:11px;font-weight:700;white-space:nowrap}
+.sv-notice-window{overflow:hidden;min-width:0;flex:1}
+.sv-notice-track{display:flex;align-items:center;gap:30px;width:max-content;font-size:13px;font-weight:600}
+.sv-notice-track a{color:#166534;text-decoration:underline}
+
+main{max-width:1180px;margin:20px auto;padding:0 16px 16px;width:100%;flex-grow:1}
 .layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(440px,460px);gap:24px;align-items:start}
 .panel{background:#fff;border:1px solid #d1fae5;border-radius:20px;box-shadow:0 10px 32px #08744318;overflow:hidden}
 .panel-head{padding:16px 20px;background:linear-gradient(90deg,#d1fae5,#fff);border-bottom:1px solid #d1fae5}
@@ -94,12 +130,10 @@ html[data-card-theme="green"] .deco .d-green,html[data-card-theme="blue"] .deco 
 .qrcode{width:108px;height:108px;background:#fff;padding:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .qrcode svg,.qrcode img,.qrcode canvas{width:100px!important;height:100px!important;max-width:100px;max-height:100px;display:block}
 
-footer{max-width:1180px;margin:0 auto 28px;padding:0 16px}
-footer p{font-size:11px;color:#64748b;line-height:1.6;margin:0;text-align:center}
-
 @media(max-width:900px){
   .layout{grid-template-columns:1fr}
   input,select,textarea{font-size:16px} /* iOS zoom टाळण्यासाठी */
+  .sv-site-header, .sv-site-footer { height: auto; min-height: 85px; padding: 12px; }
 }
 @media print{
   @page{size:A4 portrait;margin:10mm}
@@ -113,7 +147,35 @@ footer p{font-size:11px;color:#64748b;line-height:1.6;margin:0;text-align:center
 }
 </style></head>
 <body>
-<header><div class="head"><div class="logo flex items-center justify-center text-2xl" aria-hidden="true">🌱</div><div><h1 class="brand">शेतकरी सेवार्थ</h1><div class="subbrand">🌿 Green Nature • <span data-i18n="subtitle">डिजिटल शेतकरी ओळखपत्र प्रणाली</span></div></div></div></header>
+
+<!-- Header Section -->
+<header class="hero-gradient text-white shadow-md sv-site-header">
+  <div class="max-w-7xl mx-auto px-4 w-full flex items-center justify-between gap-4">
+    <a href="index.html" class="flex items-center cursor-pointer gap-2">
+      <h1 class="text-lg sm:text-2xl font-extrabold tracking-tight">शेतकरी सेवार्थ</h1>
+    </a>
+    
+    <div class="flex items-center flex-wrap justify-end gap-2">
+      <a href="https://mhfr.agristack.gov.in/farmer-registry-mh/#/checkEnrolmentStatus" target="_blank" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold px-3 py-1.5 rounded-xl text-xs shadow-sm transition inline-flex items-center gap-1" rel="noopener noreferrer">
+        <span>🔍</span>
+        <span>Farmer ID शोधा</span>
+      </a>
+      
+      <a href="https://mahadbt.maharashtra.gov.in/Farmer/AgriLogin/AgriLogin" target="_blank" class="bg-gradient-to-r from-orange-600 to-amber-600 hover:opacity-95 text-white font-bold px-3.5 py-1.5 rounded-xl text-xs shadow-md transition inline-block" rel="noopener noreferrer">
+        🚀 महाडीबीटी
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- सामायिक महत्त्वाच्या सूचना बार -->
+<div class="sv-global-notices" role="region" aria-label="महत्त्वाच्या सूचना">
+  <span class="sv-notice-label">📢 सूचना</span>
+  <div class="sv-notice-window">
+    <div class="sv-notice-track" id="svGlobalNoticeTrack"><span>सूचना लोड होत आहेत...</span></div>
+  </div>
+</div>
+
 <noscript><p style="padding:16px;text-align:center">हे साधन वापरण्यासाठी JavaScript चालू असणे आवश्यक आहे.</p></noscript>
 
 <main><div class="layout">
@@ -219,8 +281,37 @@ footer p{font-size:11px;color:#64748b;line-height:1.6;margin:0;text-align:center
 </section>
 </div></main>
 
-<footer><p data-i18n="footer"></p></footer>
+<!-- Footer -->
+<footer class="sv-site-footer" role="contentinfo">
+  <div class="sv-footer-inner">
+    <p class="sv-footer-note">सदर माहिती आपल्या उपयुक्त वाटल्यास किंवा सूचना असल्यास संपर्क साधू शकता.</p>
+    <p class="sv-footer-email" style="margin-top:2px;">📧 ई-मेल: <a href="mailto:shetkarisevarthofficial@gmail.com">shetkarisevarthofficial@gmail.com</a></p>
+    <p class="sv-footer-copy">© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p>
+  </div>
+</footer>
 
+<script src="portal-data.js?v=shared"></script>
+<script>
+  (function(){
+    function loadSharedNotices(){
+      var track=document.getElementById('svGlobalNoticeTrack');
+      if(!track)return;
+      var items=(window.PORTAL_DATA&&Array.isArray(window.PORTAL_DATA.announcements))?window.PORTAL_DATA.announcements:[];
+      track.innerHTML='';
+      if(!items.length){track.textContent='सध्या नवीन अपडेट उपलब्ध नाही.';return;}
+      function add(item){
+        var span=document.createElement('span');span.className='sv-notice-item';
+        var label=(item.emoji?item.emoji+' ':'')+(item.text||'');
+        if(item.url){var a=document.createElement('a');a.href=item.url;a.textContent=label;span.appendChild(a);}
+        else span.textContent=label;
+        track.appendChild(span);
+      }
+      items.forEach(add);
+      if(items.length>1){items.forEach(add);track.classList.add('is-moving');}
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadSharedNotices);else loadSharedNotices();
+  })();
+</script>
 <script>
 /* ============ QR कोड जनरेटर (बाहेरील लायब्ररीशिवाय, पूर्णपणे ऑफलाइन) ============ */
 const QRGen=(function(){
@@ -322,8 +413,6 @@ const QRGen=(function(){
   return {encode,toSVG};
 })();
 
-</script>
-<script>
 /* ============ भाषा ============ */
 const translations={
 mr:{subtitle:'डिजिटल शेतकरी ओळखपत्र प्रणाली',formHeading:'📝 शेतकऱ्याची माहिती व जमिनीचे गट भरा',formSub:'एकापेक्षा जास्त जमीन नोंदी जोडू शकता.',langLabel:'कार्डची भाषा',personal:'वैयक्तिक माहिती',name:'शेतकऱ्याचे पूर्ण नाव',gender:'लिंग',dob:'जन्मतारीख',caste:'जात प्रवर्ग',mobile:'मोबाईल नंबर',aadhaar:'आधार नंबर',farmerId:'शेतकरी ID',photo:'शेतकऱ्याचा फोटो',address:'मुख्य पत्ता',land:'जमीन तपशील',landSub:'शेत जमिनीच्या नोंदी',addLand:'+ नवीन जमीन जोडा',district:'जिल्हा',subdist:'तालुका',village:'गाव',khasra:'सर्वे/गट नं.',area:'क्षेत्र',
@@ -433,6 +522,7 @@ function initTheme(){
 /* ============ मोबाईलवर कार्ड बसवणे ============ */
 function fitCards(){
   const p=document.querySelector('.preview-panel');
+  if(!p)return;
   const s=Math.min(1,(p.clientWidth-24)/420);
   root.style.setProperty('--fit',s.toFixed(3));
 }
@@ -454,7 +544,6 @@ $('fPhoto').addEventListener('change',e=>{
 });
 
 /* ============ जिल्हा / तालुका / गाव (LGD API) ============ */
-/* टीप: साइट https वर असेल तर http API ब्राउझर ब्लॉक करतो; तेव्हा आपोआप "टाइप करा" पर्याय दिसतो. */
 const MV_API='http://115.124.105.220/API/';
 let mvDistricts=[];const mvCache={talukas:{},villages:{}};
 const NAME_KEYS={
@@ -584,7 +673,7 @@ function updateLiveCard(){
   });
   checkOverflow();
 }
-/* QR: वेबसाइट + नाव + आधार + Farmer ID (वेगळे फंक्शन — बाकी कार्डमध्ये अडचण आली तरी QR तयार होतो) */
+/* QR: वेबसाइट + नाव + आधार + Farmer ID */
 function updateQR(){
   const val=id=>$(id).value.trim();
   const qrText='shetkarisevarth.info\nFarmer Name: '+(val('fName')||'-')+'\nAadhaar: '+(val('fAadhaar')||'-')+'\nFarmer ID: '+(val('fId').replace(/\s+/g,'')||'-');
@@ -599,20 +688,40 @@ function updateQR(){
 let timer;const schedule=()=>{clearTimeout(timer);timer=setTimeout(updateLiveCard,40)};
 
 /* इनपुट सुरक्षित करणे */
-$('fMobile').addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'').slice(0,10)});
-$('fAadhaar').addEventListener('input',e=>{const d=e.target.value.replace(/\D/g,'').slice(0,12);e.target.value=d.replace(/(\d{4})(?=\d)/g,'$1 ')});
-/* Farmer ID: 000 00 00 00 00 (११ अंक: पहिले ३ अंक, नंतर २-२ अंकांचे ४ गट) */
+$('fMobile').addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'').slice(0,10)});$('fAadhaar').addEventListener('input',e=>{const d=e.target.value.replace(/\D/g,'').slice(0,12);e.target.value=d.replace(/(\d{4})(?=\d)/g,'$1 ')});
 function fmtFarmerId(d){const first=d.slice(0,3),rest=d.slice(3).match(/\d{1,2}/g)||[];return [first,...rest].join(' ').trim()}
-$('fId').addEventListener('input',e=>{e.target.value=fmtFarmerId(e.target.value.replace(/\D/g,'').slice(0,11))});
-$('fDob').addEventListener('input',e=>{const d=e.target.value.replace(/\D/g,'').slice(0,8);e.target.value=d.replace(/^(\d{2})(\d)/,'$1/$2').replace(/^(\d{2}\/\d{2})(\d)/,'$1/$2')});
+$('fId').addEventListener('input',e=>{e.target.value=fmtFarmerId(e.target.value.replace(/\D/g,'').slice(0,11))});$('fDob').addEventListener('input',e=>{const d=e.target.value.replace(/\D/g,'').slice(0,8);e.target.value=d.replace(/^(\d{2})(\d)/,'$1/$2').replace(/^(\d{2}\/\d{2})(\d)/,'$1/$2')});
 
 $('farmerForm').addEventListener('input',()=>{schedule();updateLiveCard()});
-$('farmerForm').addEventListener('change',schedule);
-$('updateBtn').addEventListener('click',updateLiveCard);
+$('farmerForm').addEventListener('change',schedule);$('updateBtn').addEventListener('click',updateLiveCard);
 document.querySelectorAll('.printBtn').forEach(b=>b.addEventListener('click',()=>{updateLiveCard();window.print()}));
 
 window.addEventListener('load',()=>{
   initDeco();initSettings();initTheme();addLandRow();setLanguage('mr');fitCards();
 });
 </script>
+
+<!-- Shared Global Notices Script -->
+<script>
+  (function(){
+    function loadSharedNotices(){
+      var track=document.getElementById('svGlobalNoticeTrack');
+      if(!track)return;
+      var items=(window.PORTAL_DATA&&Array.isArray(window.PORTAL_DATA.announcements))?window.PORTAL_DATA.announcements:[];
+      track.innerHTML='';
+      if(!items.length){track.textContent='सध्या नवीन अपडेट उपलब्ध नाही.';return;}
+      function add(item){
+        var span=document.createElement('span');span.className='sv-notice-item';
+        var label=(item.emoji?item.emoji+' ':'')+(item.text||'');
+        if(item.url){var a=document.createElement('a');a.href=item.url;a.textContent=label;span.appendChild(a);}
+        else span.textContent=label;
+        track.appendChild(span);
+      }
+      items.forEach(add);
+      if(items.length>1){items.forEach(add);track.classList.add('is-moving');}
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadSharedNotices);else loadSharedNotices();
+  })();
+</script>
 </body></html>
+```[cite: 5]
