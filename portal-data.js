@@ -2,6 +2,11 @@
 window.PORTAL_DATA = {
   "announcements": [
     {
+      "emoji": "🪪",
+      "text": "फार्मर आयडी कार्ड बनवा अगदी मिनिटात.",
+      "url": "farmer-id.html"
+    },
+    {
       "emoji": "👩‍🌾",
       "text": "महिला शेतकरी प्रमाणपत्र योजनेची अधिक माहिती व अर्जासाठी येथे क्लिक करा.",
       "url": "women-farmer.html"
@@ -10,11 +15,6 @@ window.PORTAL_DATA = {
       "emoji": "🧪",
       "text": "२३ ऑक्टोबर पासून खत बुकिंग होणार app द्वारे.",
       "url": "fsas.html"
-    },
-    {
-      "emoji": "🪪",
-      "text": "फार्मर आयडी कार्ड बनवा अगदी मिनिटात.",
-      "url": "farmer-id.html"
     }
   ],
   "schemes": [
@@ -33,6 +33,14 @@ window.PORTAL_DATA = {
       "url": "cbdc.html",
       "status": "ok",
       "newTag": true,
+      "isNew": true
+    },
+    {
+      "mr": "अधिकाऱ्यांसाठी दौरा दैनंदिनी App",
+      "en": "app daily dairy app ",
+      "emoji": "🗓️",
+      "url": "daily-diary.apk",
+      "status": "ok",
       "isNew": true
     },
     {
