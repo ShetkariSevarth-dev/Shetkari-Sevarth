@@ -205,7 +205,7 @@ footer p{font-size:11px;color:#64748b;line-height:1.6;margin:0;text-align:center
     <div class="cardtitle" data-i18n="back">कृषि एवं किसान कल्याण मंत्रालय</div>
     <img id="govLogoBack" src="https://lh3.googleusercontent.com/d/1T-YHhGPSIPMy1UkEvhjQD-C2qZM-JGCJ" alt="भारत राजचिन्ह" onerror="this.style.visibility='hidden'">
   </div>
-  <div style="padding:1px 2px 3px;border-bottom:1px solid var(--c-light)"><span class="font-bold" style="font-size:8px;display:block;color:var(--c-main)" data-i18n="addressCaption">पत्ता</span><p id="lblFAddress" class="address" style="margin:1px 0 0">—</p></div>
+  <div style="padding:1px 2px 3px;border-bottom:1px solid var(--c-light)"><span class="font-bold" style="font-size:calc(8px * var(--card-font-scale));display:block;color:var(--c-main)" data-i18n="addressCaption">पत्ता</span><p id="lblFAddress" class="address" style="margin:1px 0 0">—</p></div>
   <div>
     <div class="land-heading" data-i18n="land">जमीन तपशील</div>
     <div class="landwrap" id="landWrap"><table class="landtable"><thead><tr><th data-i18n="district">जिल्हा</th><th data-i18n="subdist">तालुका</th><th data-i18n="village">गाव</th><th data-i18n="khasra">सर्वे/गट नं.</th><th data-i18n="area">क्षेत्र</th></tr></thead><tbody id="lblLandTableBody"></tbody></table></div>
@@ -362,11 +362,11 @@ function setLanguage(lang){
 $('languageSelect').addEventListener('change',e=>setLanguage(e.target.value));
 
 /* ============ सेटिंग्ज (अक्षर / लोगो) ============ */
-const root=document.documentElement,SKEY='gn_card_settings_v2';
+const root=document.documentElement,SKEY='gn_card_settings_v3';
 const setLogos=(ids,n)=>ids.forEach(id=>{const el=$(id);if(el){el.style.width=n+'px';el.style.height=n+'px'}});
 const SETTINGS={
-  card:{def:1.1,apply:v=>root.style.setProperty('--card-font-scale',v),fmt:v=>Math.round(v*100)+'%'},
-  gov:{def:1.4,apply:v=>root.style.setProperty('--gov-font-scale',v),fmt:v=>Math.round(v*100)+'%'},
+  card:{def:1.25,apply:v=>root.style.setProperty('--card-font-scale',v),fmt:v=>Math.round(v*100)+'%'},
+  gov:{def:1.5,apply:v=>root.style.setProperty('--gov-font-scale',v),fmt:v=>Math.round(v*100)+'%'},
   landHead:{def:11,apply:v=>root.style.setProperty('--land-heading-font',v+'px'),fmt:v=>v+'px'},
   agri:{def:40,apply:v=>setLogos(['agriLogoFront','agriLogoBack'],v),fmt:v=>v+'px'},
   govLogo:{def:40,apply:v=>setLogos(['govLogoFront','govLogoBack'],v),fmt:v=>v+'px'}};
