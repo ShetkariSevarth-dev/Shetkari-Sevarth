@@ -22,13 +22,20 @@
     .action-link{display:inline-flex;justify-content:center;align-items:center;gap:8px;text-align:center;border-radius:999px;padding:10px 20px;font-weight:700;background:#047857;color:#fff;text-decoration:none;box-shadow:0 3px 10px rgba(22,101,52,.15)}
     .action-link:hover{background:#065f46}
     
-    /* Global Notice Bar */
+    /* Global Notice Bar & Scrolling Animation */
     .sv-global-notices{width:100%;max-width:1000px;margin:10px auto 0;box-sizing:border-box;display:flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid #b7ebc8;border-radius:12px;background:linear-gradient(100deg,#fff7d6,#f0fdf4 55%,#e2fbe9);color:#14532d;box-shadow:0 2px 8px rgba(22,101,52,.05)}
-    .sv-notice-label{background:#dc2626;color:#fff;border-radius:999px;padding:3px 8px;font-size:11px;font-weight:700;white-space:nowrap}
+    .sv-notice-label{background:#dc2626;color:#fff;border-radius:999px;padding:3px 8px;font-size:11px;font-weight:700;white-space:nowrap;flex-shrink:0}
     .sv-notice-window{overflow:hidden;min-width:0;flex:1}
     .sv-notice-track{display:flex;align-items:center;gap:30px;width:max-content;font-size:13px;font-weight:600}
     .sv-notice-track a{color:#166534;text-decoration:underline}
+    .sv-notice-track .sv-notice-item{white-space:nowrap}
     
+    @media(prefers-reduced-motion:no-preference){
+      .sv-notice-track.is-moving{animation:svNoticeScroll 32s linear infinite}
+      .sv-notice-track:hover{animation-play-state:paused}
+    }
+    @keyframes svNoticeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
     /* Header and Footer Equal Height & Styling */
     .sv-site-header, .sv-site-footer {
       height: 85px;
@@ -55,7 +62,7 @@
     .sv-footer-email a{
       color: #a3e635 !important;
       text-decoration: underline;
-      text-underline-offset: 3px;
+      text-underline-offset: 3.5px;
       font-weight: 700;
     }
     .sv-footer-copy{color:#e2e8f0 !important; margin-top:4px; font-size:12px;}
@@ -113,42 +120,42 @@
       <div class="space-y-3 mt-3">
         <div class="bg-white p-3 rounded-xl border border-emerald-100">
           <p class="font-bold text-emerald-900 text-sm">१. मॅट्रिक्स कॅलेंडर व्ह्यू (Matrix Calendar View)</p>
-          <p class="text-xs text-gray-600 mt-1">संपूर्ण महिन्याचा कॅलेंडर ग्रिड स्वरूपात दिसतो, ज्यामध्ये प्रत्येक दिवसावर क्लिक करून थेट त्या दिवसाची नोंद करता येते. कामाचे दिवस, शासकीय सुट्ट्या, आणि रविवार/शनिवार यांची रंगसंगतीनुसार स्पष्ट ओळख होते[cite: 4].</p>
+          <p class="text-xs text-gray-600 mt-1">संपूर्ण महिन्याचा कॅलेंडर ग्रिड स्वरूपात दिसतो, ज्यामध्ये प्रत्येक दिवसावर क्लिक करून थेट त्या दिवसाची नोंद करता येते. कामाचे दिवस, शासकीय सुट्ट्या, आणि रविवार/शनिवार यांची रंगसंगतीनुसार स्पष्ट ओळख होते.</p>
         </div>
 
         <div class="bg-white p-3 rounded-xl border border-emerald-100">
           <p class="font-bold text-emerald-900 text-sm">२. दैनंदिन दौरा नोंद (Outward & Return Travel)</p>
-          <p class="text-xs text-gray-600 mt-1">कामाचा प्रकार (उदा. क्षेत्रीय काम, कार्यालयीन काम, रजा इत्यादी) निवडण्याची सोय. प्रवासाचा तपशील जसे की प्रस्थान ठिकाण, पोहचण्याचे ठिकाण, निघण्याची/पोहोचण्याची वेळ, प्रवासाचे साधन आणि अंतर अचूक नोंदवता येते[cite: 4].</p>
+          <p class="text-xs text-gray-600 mt-1">कामाचा प्रकार (उदा. क्षेत्रीय काम, कार्यालयीन काम, रजा इत्यादी) निवडण्याची सोय. प्रवासाचा तपशील जसे की प्रस्थान ठिकाण, पोहचण्याचे ठिकाण, निघण्याची/पोहोचण्याची वेळ, प्रवासाचे साधन आणि अंतर अचूक नोंदवता येते.</p>
         </div>
 
         <div class="bg-white p-3 rounded-xl border border-emerald-100">
           <p class="font-bold text-emerald-900 text-sm">३. ऑटो-सिंक व प्रवासाची जुनी माहिती जतन</p>
-          <p class="text-xs text-gray-600 mt-1">एकदा भरलेली ठिकाणे आणि प्रवासाची माहिती पुढील नोंदीसाठी स्वयंचलितपणे मॅच होते, ज्यामुळे वारंवार तीच माहिती टाईप करावी लागत नाही[cite: 4].</p>
+          <p class="text-xs text-gray-600 mt-1">एकदा भरलेली ठिकाणे आणि प्रवासाची माहिती पुढील नोंदीसाठी स्वयंचलितपणे मॅच होते, ज्यामुळे वारंवार तीच माहिती टाईप करावी लागत नाही.</p>
         </div>
 
         <div class="bg-white p-3 rounded-xl border border-emerald-100">
           <p class="font-bold text-emerald-900 text-sm">४. अहवाल निर्गम (Excel & PDF Download)</p>
-          <p class="text-xs text-gray-600 mt-1">एका क्लिकवर संपूर्ण महिन्याचा डेटा शासकीय नियमांनुसार Excel आणि PDF स्वरूपात डाऊनलोड किंवा प्रिंट करता येतो[cite: 4].</p>
+          <p class="text-xs text-gray-600 mt-1">एका क्लिकवर संपूर्ण महिन्याचा डेटा शासकीय नियमांनुसार Excel आणि PDF स्वरूपात डाऊनलोड किंवा प्रिंट करता येतो.</p>
         </div>
 
         <div class="bg-white p-3 rounded-xl border border-emerald-100">
           <p class="font-bold text-emerald-900 text-sm">५. ड्युअल डेटा बॅकअप व सुरक्षा (JSON Backup & Copy)</p>
-          <p class="text-xs text-gray-600 mt-1">ब्राउझर डेटा किंवा कॅशे क्लिअर झाला तरी तुमचा डेटा सुरक्षित राहण्यासाठी Export JSON आणि Copy JSON चे पर्याय दिले आहेत[cite: 4].</p>
+          <p class="text-xs text-gray-600 mt-1">ब्राउझर डेटा किंवा कॅशे क्लिअर झाला तरी तुमचा डेटा सुरक्षित राहण्यासाठी Export JSON आणि Copy JSON चे पर्याय दिले आहेत.</p>
         </div>
 
         <div class="bg-white p-3 rounded-xl border border-emerald-100">
           <p class="font-bold text-emerald-900 text-sm">६. शेतकरी सेवार्थ पोर्टल लिंक</p>
-          <p class="text-xs text-gray-600 mt-1">ॲपमधूनच एका क्लिकवर थेट बाहेरील ब्राउझरमध्ये शेतकरी सेवार्थ पोर्टल उघडण्याची सोय जोडलेली आहे[cite: 4].</p>
+          <p class="text-xs text-gray-600 mt-1">ॲपमधूनच एका क्लिकवर थेट बाहेरील ब्राउझरमध्ये शेतकरी सेवार्थ पोर्टल उघडण्याची सोय जोडलेली आहे.</p>
         </div>
 
         <div class="bg-white p-3 rounded-xl border border-emerald-100">
           <p class="font-bold text-emerald-900 text-sm">७. दैनिक आठवण (Daily Reminder Notification)</p>
-          <p class="text-xs text-gray-600 mt-1">सुट्टीचे दिवस वगळून दररोज संध्याकाळी ठरलेल्या वेळी आजची नोंद केली का, याची आठवण करून देणारी नोटिफिकेशन प्रणाली[cite: 4].</p>
+          <p class="text-xs text-gray-600 mt-1">सुट्टीचे दिवस वगळून दररोज संध्याकाळी ठरलेल्या वेळी आजची नोंद केली का, याची आठवण करून देणारी नोटिफिकेशन प्रणाली.</p>
         </div>
 
         <div class="bg-white p-3 rounded-xl border border-emerald-100">
           <p class="font-bold text-emerald-900 text-sm">८. मराठी आणि बहुभाषिक सपोर्ट</p>
-          <p class="text-xs text-gray-600 mt-1">पूर्णपणे मराठी भाषेत सुलभ वापर, तसेच अधिकाऱ्याची माहिती प्रोफाइलमध्ये सेव्ह करण्याची सुविधा[cite: 4].</p>
+          <p class="text-xs text-gray-600 mt-1">पूर्णपणे मराठी भाषेत सुलभ वापर, तसेच अधिकाऱ्याची माहिती प्रोफाइलमध्ये सेव्ह करण्याची सुविधा.</p>
         </div>
       </div>
     </section>
@@ -175,6 +182,7 @@
   (function(){
     function loadSharedNotices(){
       var track=document.getElementById('svGlobalNoticeTrack');
+      noticeList = track;
       if(!track)return;
       var items=(window.PORTAL_DATA&&Array.isArray(window.PORTAL_DATA.announcements))?window.PORTAL_DATA.announcements:[];
       track.innerHTML='';
@@ -187,7 +195,10 @@
         track.appendChild(span);
       }
       items.forEach(add);
-      if(items.length>1){items.forEach(add);track.classList.add('is-moving');}
+      if(items.length>1){
+        items.forEach(add); // seamless scroll loop sathi duplicate items
+        track.classList.add('is-moving');
+      }
     }
     if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadSharedNotices);else loadSharedNotices();
   })();
