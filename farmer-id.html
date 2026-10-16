@@ -22,8 +22,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script>window.QRCode||document.write('<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"><\/script>')</script>
 <style>
 :root{--green:#087443;--dark:#064e35;--ink:#17251d;
 --c-dark:#064e35;--c-main:#087443;--c-border:#047857;--c-light:#d1fae5;--c-lighter:#f0fdf4;--c-rgb:8 116 67;--c-photo-r:7px;--c-head-r:5px;--card-font-scale:1;--gov-font-scale:1;--land-heading-font:11px;--fit:1}
@@ -94,7 +92,7 @@ html[data-card-theme="green"] .deco .d-green,html[data-card-theme="blue"] .deco 
 .backbottom{display:flex;align-items:center;justify-content:center;gap:14px;font-size:calc(7.5px * var(--card-font-scale));font-weight:900;color:var(--c-dark);border-top:2px solid var(--c-border);padding-top:4px;background:linear-gradient(90deg,var(--c-lighter),var(--c-light),var(--c-lighter));border-radius:0 0 4px 4px;min-height:18px}
 .backbottom #websiteText{white-space:nowrap}
 .qrcode{width:108px;height:108px;background:#fff;padding:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.qrcode img,.qrcode canvas{width:100px!important;height:100px!important;max-width:100px;max-height:100px;image-rendering:pixelated}
+.qrcode svg,.qrcode img,.qrcode canvas{width:100px!important;height:100px!important;max-width:100px;max-height:100px;display:block}
 
 footer{max-width:1180px;margin:0 auto 28px;padding:0 16px}
 footer p{font-size:11px;color:#64748b;line-height:1.6;margin:0;text-align:center}
@@ -223,6 +221,108 @@ footer p{font-size:11px;color:#64748b;line-height:1.6;margin:0;text-align:center
 
 <footer><p data-i18n="footer"></p></footer>
 
+<script>
+/* ============ QR कोड जनरेटर (बाहेरील लायब्ररीशिवाय, पूर्णपणे ऑफलाइन) ============ */
+const QRGen=(function(){
+  const ECC_PER_BLOCK={
+    L:[-1,7,10,15,20,26,18,20,24,30,18,20,24,26,30,22,24,28,30,28,28,28,28,30,30,26,28,30,30,30,30,30,30,30,30,30,30,30,30,30,30],
+    M:[-1,10,16,26,18,24,16,18,22,22,26,30,22,22,24,24,28,28,26,26,26,26,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28]};
+  const NUM_BLOCKS={
+    L:[-1,1,1,1,1,1,2,2,2,2,4,4,4,4,4,6,6,6,6,7,8,8,9,9,10,12,12,12,13,14,15,16,17,18,19,19,20,21,22,24,25],
+    M:[-1,1,1,1,2,2,4,4,4,5,5,5,8,9,9,10,10,11,13,14,16,17,17,18,20,21,23,25,26,28,29,31,33,35,37,38,40,43,45,47,49]};
+  const FMT_BITS={L:1,M:0};
+  const rawModules=v=>{let r=(16*v+128)*v+64;if(v>=2){const n=Math.floor(v/7)+2;r-=(25*n-10)*n-55;if(v>=7)r-=36}return r};
+  const dataCodewords=(v,e)=>Math.floor(rawModules(v)/8)-ECC_PER_BLOCK[e][v]*NUM_BLOCKS[e][v];
+  const gfMul=(x,y)=>{let z=0;for(let i=7;i>=0;i--){z=(z<<1)^((z>>>7)*0x11D);z^=((y>>>i)&1)*x}return z};
+  function rsDivisor(deg){const r=[];for(let i=0;i<deg-1;i++)r.push(0);r.push(1);let root=1;
+    for(let i=0;i<deg;i++){for(let j=0;j<r.length;j++){r[j]=gfMul(r[j],root);if(j+1<r.length)r[j]^=r[j+1]}root=gfMul(root,2)}return r}
+  function rsRemainder(data,div){const r=div.map(()=>0);
+    for(const b of data){const f=b^r.shift();r.push(0);div.forEach((c,i)=>r[i]^=gfMul(c,f))}return r}
+  function utf8(str){
+    if(typeof TextEncoder!=='undefined')return Array.from(new TextEncoder().encode(str));
+    const s=unescape(encodeURIComponent(str)),o=[];for(let i=0;i<s.length;i++)o.push(s.charCodeAt(i));return o}
+  function encode(text,ecc){
+    ecc=ecc||'L';const bytes=utf8(text);let ver,used;
+    for(ver=1;ver<=40;ver++){
+      const cap=dataCodewords(ver,ecc)*8,cc=ver<10?8:16;used=4+cc+bytes.length*8;
+      if(used<=cap)break;if(ver===40)throw Error('Data too long')}
+    const bits=[],put=(val,len)=>{for(let i=len-1;i>=0;i--)bits.push((val>>>i)&1)};
+    put(4,4);put(bytes.length,ver<10?8:16);bytes.forEach(b=>put(b,8));
+    const capBits=dataCodewords(ver,ecc)*8;
+    put(0,Math.min(4,capBits-bits.length));put(0,(8-bits.length%8)%8);
+    for(let pad=0xEC;bits.length<capBits;pad^=0xEC^0x11)put(pad,8);
+    const data=[];for(let i=0;i<bits.length;i+=8){let b=0;for(let j=0;j<8;j++)b=(b<<1)|bits[i+j];data.push(b)}
+    /* ब्लॉक + Reed-Solomon */
+    const nb=NUM_BLOCKS[ecc][ver],eccLen=ECC_PER_BLOCK[ecc][ver],raw=Math.floor(rawModules(ver)/8);
+    const nShort=nb-raw%nb,shortLen=Math.floor(raw/nb),div=rsDivisor(eccLen),blocks=[];
+    for(let i=0,k=0;i<nb;i++){
+      const dl=shortLen-eccLen+(i<nShort?0:1),dat=data.slice(k,k+dl);k+=dl;
+      const e=rsRemainder(dat,div);if(i<nShort)dat.push(0);blocks.push(dat.concat(e))}
+    const all=[];
+    for(let i=0;i<blocks[0].length;i++)blocks.forEach((b,j)=>{if(i!==shortLen-eccLen||j>=nShort)all.push(b[i])});
+    /* मॅट्रिक्स */
+    const size=ver*4+17,mod=[],fn=[];
+    for(let y=0;y<size;y++){mod.push(new Array(size).fill(false));fn.push(new Array(size).fill(false))}
+    const setFn=(x,y,d)=>{mod[y][x]=d;fn[y][x]=true};
+    for(let i=0;i<size;i++){setFn(6,i,i%2===0);setFn(i,6,i%2===0)}
+    const finder=(cx,cy)=>{for(let dy=-4;dy<=4;dy++)for(let dx=-4;dx<=4;dx++){
+      const d=Math.max(Math.abs(dx),Math.abs(dy)),x=cx+dx,y=cy+dy;
+      if(x>=0&&x<size&&y>=0&&y<size)setFn(x,y,d!==2&&d!==4)}};
+    finder(3,3);finder(size-4,3);finder(3,size-4);
+    let ap=[];if(ver>1){const n=Math.floor(ver/7)+2,step=ver===32?26:Math.ceil((ver*4+4)/(n*2-2))*2;
+      ap=[6];for(let p=size-7;ap.length<n;p-=step)ap.splice(1,0,p)}
+    for(let i=0;i<ap.length;i++)for(let j=0;j<ap.length;j++){
+      if((i===0&&j===0)||(i===0&&j===ap.length-1)||(i===ap.length-1&&j===0))continue;
+      for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++)setFn(ap[i]+dx,ap[j]+dy,Math.max(Math.abs(dx),Math.abs(dy))!==1)}
+    const fmt=mask=>{
+      const d=(FMT_BITS[ecc]<<3)|mask;let r=d;for(let i=0;i<10;i++)r=(r<<1)^((r>>>9)*0x537);
+      const b=((d<<10)|r)^0x5412,bit=i=>((b>>>i)&1)!==0;
+      for(let i=0;i<=5;i++)setFn(8,i,bit(i));setFn(8,7,bit(6));setFn(8,8,bit(7));setFn(7,8,bit(8));
+      for(let i=9;i<15;i++)setFn(14-i,8,bit(i));
+      for(let i=0;i<8;i++)setFn(size-1-i,8,bit(i));
+      for(let i=8;i<15;i++)setFn(8,size-15+i,bit(i));
+      setFn(8,size-8,true)};
+    fmt(0);
+    if(ver>=7){let r=ver;for(let i=0;i<12;i++)r=(r<<1)^((r>>>11)*0x1F25);
+      const b=(ver<<12)|r;for(let i=0;i<18;i++){const c=((b>>>i)&1)!==0,a=size-11+i%3,q=Math.floor(i/3);setFn(a,q,c);setFn(q,a,c)}}
+    /* डेटा ठेवणे */
+    for(let i=0,right=size-1;right>=1;right-=2){
+      if(right===6)right=5;
+      for(let vert=0;vert<size;vert++)for(let j=0;j<2;j++){
+        const x=right-j,up=((right+1)&2)===0,y=up?size-1-vert:vert;
+        if(!fn[y][x]&&i<all.length*8){mod[y][x]=((all[i>>>3]>>>(7-(i&7)))&1)!==0;i++}}}
+    const mask=(m)=>{for(let y=0;y<size;y++)for(let x=0;x<size;x++){
+      let inv;switch(m){case 0:inv=(x+y)%2===0;break;case 1:inv=y%2===0;break;case 2:inv=x%3===0;break;case 3:inv=(x+y)%3===0;break;
+        case 4:inv=(Math.floor(x/3)+Math.floor(y/2))%2===0;break;case 5:inv=x*y%2+x*y%3===0;break;
+        case 6:inv=(x*y%2+x*y%3)%2===0;break;default:inv=((x+y)%2+x*y%3)%2===0}
+      if(!fn[y][x]&&inv)mod[y][x]=!mod[y][x]}};
+    const penalty=()=>{
+      let p=0,dark=0;
+      const line=get=>{let run=1,prev=get(0),hist='';for(let i=0;i<size;i++){const c=get(i);hist+=c?'1':'0';
+        if(i>0){if(c===prev)run++;else{if(run>=5)p+=run-2;run=1;prev=c}}}
+        if(run>=5)p+=run-2;
+        const m=hist.match(/10111010000|00001011101/g);if(m)p+=40*m.length};
+      for(let y=0;y<size;y++)line(i=>mod[y][i]);
+      for(let x=0;x<size;x++)line(i=>mod[i][x]);
+      for(let y=0;y<size;y++)for(let x=0;x<size;x++){
+        if(mod[y][x])dark++;
+        if(x<size-1&&y<size-1&&mod[y][x]===mod[y][x+1]&&mod[y][x]===mod[y+1][x]&&mod[y][x]===mod[y+1][x+1])p+=3}
+      p+=Math.floor(Math.abs(dark*20-size*size*10)/(size*size))*10;return p};
+    let best=0,bestP=Infinity;
+    for(let m=0;m<8;m++){mask(m);fmt(m);const p=penalty();if(p<bestP){bestP=p;best=m}mask(m)}
+    mask(best);fmt(best);
+    return {size,modules:mod,version:ver};
+  }
+  function toSVG(text,ecc,quiet){
+    quiet=quiet==null?3:quiet;const q=encode(text,ecc),n=q.size;let d='';
+    for(let y=0;y<n;y++)for(let x=0;x<n;x++)if(q.modules[y][x])d+='M'+(x+quiet)+','+(y+quiet)+'h1v1h-1z';
+    const t=n+quiet*2;
+    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+t+' '+t+'" shape-rendering="crispEdges" role="img" aria-label="QR code"><rect width="'+t+'" height="'+t+'" fill="#fff"/><path d="'+d+'" fill="#000"/></svg>';
+  }
+  return {encode,toSVG};
+})();
+
+</script>
 <script>
 /* ============ भाषा ============ */
 const translations={
@@ -458,6 +558,7 @@ function checkOverflow(){
 }
 let lastQr='';
 function updateLiveCard(){
+  try{updateQR()}catch(e){}
   const t=T(),val=id=>$(id).value.trim(),show=(id,txt)=>{$(id).textContent=txt||'—'};
   show('lblFName',val('fName'));
   show('lblFGender',{Male:t.male,Female:t.female,Other:t.other}[val('fGender')]);
@@ -482,17 +583,17 @@ function updateLiveCard(){
     body.appendChild(tr);
   });
   checkOverflow();
-
-  /* QR: वेबसाइट + नाव + आधार + Farmer ID */
+}
+/* QR: वेबसाइट + नाव + आधार + Farmer ID (वेगळे फंक्शन — बाकी कार्डमध्ये अडचण आली तरी QR तयार होतो) */
+function updateQR(){
+  const val=id=>$(id).value.trim();
   const qrText='shetkarisevarth.info\nFarmer Name: '+(val('fName')||'-')+'\nAadhaar: '+(val('fAadhaar')||'-')+'\nFarmer ID: '+(val('fId').replace(/\s+/g,'')||'-');
-  if(qrText!==lastQr){
-    const qr=$('qrcode');
-    const make=txt=>{qr.replaceChildren();new QRCode(qr,{text:txt,width:100,height:100,correctLevel:QRCode.CorrectLevel.L})};
-    try{
-      if(!window.QRCode)throw Error('QR library missing');
-      try{make(qrText)}catch(e){make('shetkarisevarth.info\nFarmer Name: '+(val('fName')||'-').slice(0,25)+'\nAadhaar: '+(val('fAadhaar')||'-')+'\nFarmer ID: '+(val('fId').replace(/\s+/g,'')||'-'))}
-      lastQr=qrText;
-    }catch(e){qr.textContent='QR'}
+  if(qrText===lastQr)return;
+  const qr=$('qrcode');
+  try{qr.innerHTML=QRGen.toSVG(qrText,'L',2);lastQr=qrText}
+  catch(e){
+    try{qr.innerHTML=QRGen.toSVG('shetkarisevarth.info\nFarmer ID: '+(val('fId').replace(/\s+/g,'')||'-'),'L',2);lastQr=qrText}
+    catch(e2){qr.textContent='QR'}
   }
 }
 let timer;const schedule=()=>{clearTimeout(timer);timer=setTimeout(updateLiveCard,40)};
