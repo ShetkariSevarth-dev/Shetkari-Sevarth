@@ -39,7 +39,7 @@ window.PORTAL_DATA = {
       "mr": "अधिकाऱ्यांसाठी दौरा दैनंदिनी App",
       "en": "app daily dairy app ",
       "emoji": "🗓️",
-      "url": "daily-diary.apk",
+      "url": "daily-diary.html",
       "status": "ok",
       "isNew": true
     },
