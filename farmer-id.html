@@ -20,14 +20,15 @@
 <title>Green Nature | शेतकरी सेवार्थ</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌱%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com/3.4.17"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>window.QRCode||document.write('<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"><\/script>')</script>
 <style>
 :root{--green:#087443;--dark:#064e35;--ink:#17251d;
---c-dark:#064e35;--c-main:#087443;--c-border:#047857;--c-light:#d1fae5;--c-lighter:#f0fdf4;--c-rgb:8 116 67;--c-photo-r:7px;--c-head-r:5px;--card-font-scale:1;--gov-font-scale:1;--land-heading-font:10px;--fit:1}
+--c-dark:#064e35;--c-main:#087443;--c-border:#047857;--c-light:#d1fae5;--c-lighter:#f0fdf4;--c-rgb:8 116 67;--c-photo-r:7px;--c-head-r:5px;--card-font-scale:1;--gov-font-scale:1;--land-heading-font:11px;--fit:1}
 *{box-sizing:border-box}
-body{margin:0;font-family:'Noto Sans Devanagari',sans-serif;color:var(--ink);background:radial-gradient(ellipse at top,#d1fae5,#f0fdf4 55%,#f1f5f9);min-height:100vh}
+body{margin:0;font-family:'Tiro Devanagari Marathi',serif;color:var(--ink);background:radial-gradient(ellipse at top,#d1fae5,#f0fdf4 55%,#f1f5f9);min-height:100vh}
 header{background:linear-gradient(120deg,#064e35,#087443,#047857);color:#fff;padding:16px 20px;box-shadow:0 4px 16px #052e1630}
 .head{max-width:1180px;margin:auto;display:flex;align-items:center;gap:14px}
 .logo{width:50px;height:50px;background:#fff;border-radius:12px;padding:4px}
@@ -130,11 +131,11 @@ footer p{font-size:11px;color:#64748b;line-height:1.6;margin:0;text-align:center
 <div class="grid grid-cols-2 gap-3">
   <div class="col-span-2"><label for="fName" data-i18n="name">शेतकऱ्याचे पूर्ण नाव</label><input id="fName" maxlength="60"></div>
   <div><label for="fGender" data-i18n="gender">लिंग</label><select id="fGender"><option value="" data-i18n="select">— निवडा —</option><option value="Male" data-i18n="male">पुरुष</option><option value="Female" data-i18n="female">महिला</option><option value="Other" data-i18n="other">इतर</option></select></div>
-  <div><label for="fDob" data-i18n="dob">जन्मतारीख</label><input id="fDob" type="date"></div>
+  <div><label for="fDob" data-i18n="dob">जन्मतारीख</label><input id="fDob" inputmode="numeric" maxlength="10" placeholder="DD/MM/YYYY"></div>
   <div><label for="fCaste" data-i18n="caste">जात प्रवर्ग</label><input id="fCaste" list="casteList" maxlength="40"><datalist id="casteList"></datalist></div>
   <div><label for="fMobile" data-i18n="mobile">मोबाईल नंबर</label><input id="fMobile" type="tel" inputmode="numeric" maxlength="10"><p class="err" id="mobileErr" hidden></p></div>
-  <div class="col-span-2"><label for="fAadhaar" data-i18n="aadhaar">आधार नंबर</label><input id="fAadhaar" inputmode="numeric" maxlength="14" placeholder="0000 0000 0000"><label class="chk"><input type="checkbox" id="showAadhaar" checked><span data-i18n="showFullAadhaar">कार्डवर पूर्ण आधार नंबर दाखवा (बंद केल्यास फक्त शेवटचे ४ अंक दिसतील)</span></label><p class="err" id="aadhaarErr" hidden></p></div>
-  <div class="col-span-2"><label for="fId" data-i18n="farmerId">शेतकरी ID</label><input id="fId" inputmode="numeric" maxlength="14" placeholder="000 00 00 00 00"><p class="err" id="fIdErr" hidden></p></div>
+  <div class="col-span-2"><label for="fAadhaar" data-i18n="aadhaar">आधार नंबर</label><input id="fAadhaar" inputmode="numeric" maxlength="14" placeholder="0000 0000 0000"><p class="err" id="aadhaarErr" hidden></p></div>
+  <div class="col-span-2"><label for="fId" data-i18n="farmerId">शेतकरी ID</label><input id="fId" inputmode="numeric" maxlength="15" placeholder="000 00 00 00 00"><p class="err" id="fIdErr" hidden></p></div>
   <div class="col-span-2"><label for="fPhoto" data-i18n="photo">शेतकऱ्याचा फोटो</label><input type="file" id="fPhoto" accept="image/*" class="text-xs p-1 border rounded-lg bg-gray-50"></div>
   <div class="col-span-2"><label for="fAddress" data-i18n="address">मुख्य पत्ता</label><textarea id="fAddress" rows="2" maxlength="200"></textarea></div>
 </div>
@@ -225,7 +226,7 @@ footer p{font-size:11px;color:#64748b;line-height:1.6;margin:0;text-align:center
 <script>
 /* ============ भाषा ============ */
 const translations={
-mr:{subtitle:'डिजिटल शेतकरी ओळखपत्र प्रणाली',formHeading:'📝 शेतकऱ्याची माहिती व जमिनीचे गट भरा',formSub:'एकापेक्षा जास्त जमीन नोंदी जोडू शकता.',langLabel:'कार्डची भाषा',personal:'वैयक्तिक माहिती',name:'शेतकऱ्याचे पूर्ण नाव',gender:'लिंग',dob:'जन्मतारीख',caste:'जात प्रवर्ग',mobile:'मोबाईल नंबर',aadhaar:'आधार नंबर',showFullAadhaar:'कार्डवर पूर्ण आधार नंबर दाखवा (बंद केल्यास फक्त शेवटचे ४ अंक दिसतील)',farmerId:'शेतकरी ID',photo:'शेतकऱ्याचा फोटो',address:'मुख्य पत्ता',land:'जमीन तपशील',landSub:'शेत जमिनीच्या नोंदी',addLand:'+ नवीन जमीन जोडा',district:'जिल्हा',subdist:'तालुका',village:'गाव',khasra:'सर्वे/गट नं.',area:'क्षेत्र',
+mr:{subtitle:'डिजिटल शेतकरी ओळखपत्र प्रणाली',formHeading:'📝 शेतकऱ्याची माहिती व जमिनीचे गट भरा',formSub:'एकापेक्षा जास्त जमीन नोंदी जोडू शकता.',langLabel:'कार्डची भाषा',personal:'वैयक्तिक माहिती',name:'शेतकऱ्याचे पूर्ण नाव',gender:'लिंग',dob:'जन्मतारीख',caste:'जात प्रवर्ग',mobile:'मोबाईल नंबर',aadhaar:'आधार नंबर',farmerId:'शेतकरी ID',photo:'शेतकऱ्याचा फोटो',address:'मुख्य पत्ता',land:'जमीन तपशील',landSub:'शेत जमिनीच्या नोंदी',addLand:'+ नवीन जमीन जोडा',district:'जिल्हा',subdist:'तालुका',village:'गाव',khasra:'सर्वे/गट नं.',area:'क्षेत्र',
 qrNote:'QR कोडमध्ये वेबसाइट, शेतकऱ्याचे नाव, आधार क्रमांक आणि शेतकरी ID आहे.',update:'✓ कार्ड अपडेट करा',print:'🖨️ प्रिंट / PDF',printPdf:'🖨️ PDF डाऊनलोड / प्रिंट करा',preview:'📇 डिजिटल कार्ड प्रीव्ह्यू',badge:'एकाच पेजवर प्रिंट',front:'भारत सरकार',back:'कृषि एवं किसान कल्याण मंत्रालय',nameKey:'नाव',genderKey:'लिंग',dobKey:'जन्मतारीख',casteKey:'जात प्रवर्ग',mobileKey:'मोबाईल',aadhaarKey:'आधार',farmerIdCaption:'शेतकरी ID',addressCaption:'पत्ता',help:'मदत: 1800-180-1551',
 printHint:'टीप: प्रिंट करताना "Background graphics" चालू ठेवा. QR मध्ये shetkarisevarth.info, नाव, आधार क्रमांक आणि शेतकरी ID आहे.',needLand:'कमीत कमी एक जमीन नोंद आवश्यक आहे!',
 select:'— निवडा —',themeLabel:'🎨 कार्ड थीम',thGreen:'हिरवी',thBlue:'निळी',thSaffron:'केशरी',thPurple:'जांभळी',badId:'शेतकरी ID ११ अंकी असावा.',male:'पुरुष',female:'महिला',other:'इतर',selDist:'जिल्हा निवडा',selTaluka:'तालुका निवडा',selVillage:'गाव निवडा',firstDist:'आधी जिल्हा निवडा',firstTaluka:'आधी तालुका निवडा',loading:'लोड होत आहे…',typeDist:'जिल्हा टाइप करा',typeTaluka:'तालुका टाइप करा',typeVillage:'गाव टाइप करा',
@@ -233,7 +234,7 @@ settings:'⚙️ कार्ड सेटिंग्ज (अक्षर / ल
 landWarn:'⚠️ सर्व जमीन नोंदी कार्डवर मावत नाहीत. प्रिंटमध्ये काही नोंदी कापल्या जातील — अक्षरांचा आकार कमी करा किंवा नोंदी कमी करा.',badMobile:'मोबाईल नंबर १० अंकी (६–९ ने सुरू) असावा.',badAadhaar:'आधार नंबर १२ अंकी असावा.',badImage:'कृपया image फाईल निवडा.',imgFail:'फोटो उघडता आला नाही.',
 footer:'हे साधन फक्त माहिती-प्रत तयार करण्यासाठी आहे; हे अधिकृत शासकीय ओळखपत्र नाही. तुम्ही भरलेली सर्व माहिती व फोटो तुमच्या ब्राउझरमध्येच राहतो, सर्व्हरवर पाठवला जात नाही.',
 caste:'जात प्रवर्ग',castes:['अनुसूचित जाती (SC)','अनुसूचित जमाती (ST)','विमुक्त जाती (VJ)','भटक्या जमाती (NT)','इतर मागास वर्ग (OBC)','विशेष मागास प्रवर्ग (SBC)','खुला (सर्वसाधारण)']},
-en:{subtitle:'Digital Farmer Identity Card System',formHeading:'📝 Enter farmer and land details',formSub:'You can add multiple land records.',langLabel:'Card language',personal:'Personal Information',name:'Farmer Full Name',gender:'Gender',dob:'Date of Birth',caste:'Caste Category',mobile:'Mobile Number',aadhaar:'Aadhaar Number',showFullAadhaar:'Show full Aadhaar on card (otherwise only last 4 digits)',farmerId:'Farmer ID',photo:'Farmer Photo',address:'Main Address',land:'Land Details',landSub:'Agricultural land records',addLand:'+ Add Land',district:'District',subdist:'Taluka',village:'Village',khasra:'Survey/Gat No.',area:'Area',
+en:{subtitle:'Digital Farmer Identity Card System',formHeading:'📝 Enter farmer and land details',formSub:'You can add multiple land records.',langLabel:'Card language',personal:'Personal Information',name:'Farmer Full Name',gender:'Gender',dob:'Date of Birth',caste:'Caste Category',mobile:'Mobile Number',aadhaar:'Aadhaar Number',farmerId:'Farmer ID',photo:'Farmer Photo',address:'Main Address',land:'Land Details',landSub:'Agricultural land records',addLand:'+ Add Land',district:'District',subdist:'Taluka',village:'Village',khasra:'Survey/Gat No.',area:'Area',
 qrNote:'The QR code contains the website, farmer name, Aadhaar number and Farmer ID.',update:'✓ Update Card',print:'🖨️ Print / PDF',printPdf:'🖨️ Download PDF / Print',preview:'📇 Digital Card Preview',badge:'Print on one page',front:'Government of India',back:'Ministry of Agriculture & Farmers Welfare',nameKey:'Name',genderKey:'Gender',dobKey:'DOB',casteKey:'Caste Category',mobileKey:'Mobile',aadhaarKey:'Aadhaar',farmerIdCaption:'Farmer ID',addressCaption:'Address',help:'Help: 1800-180-1551',
 printHint:'Tip: keep "Background graphics" ON while printing. The QR contains shetkarisevarth.info, name, Aadhaar number and Farmer ID.',needLand:'At least one land record is required!',
 select:'— Select —',themeLabel:'🎨 Card theme',thGreen:'Green',thBlue:'Blue',thSaffron:'Saffron',thPurple:'Purple',badId:'Farmer ID must be 11 digits.',male:'Male',female:'Female',other:'Other',selDist:'Select district',selTaluka:'Select taluka',selVillage:'Select village',firstDist:'Select district first',firstTaluka:'Select taluka first',loading:'Loading…',typeDist:'Type district',typeTaluka:'Type taluka',typeVillage:'Type village',
@@ -261,14 +262,14 @@ function setLanguage(lang){
 $('languageSelect').addEventListener('change',e=>setLanguage(e.target.value));
 
 /* ============ सेटिंग्ज (अक्षर / लोगो) ============ */
-const root=document.documentElement,SKEY='gn_card_settings';
+const root=document.documentElement,SKEY='gn_card_settings_v2';
 const setLogos=(ids,n)=>ids.forEach(id=>{const el=$(id);if(el){el.style.width=n+'px';el.style.height=n+'px'}});
 const SETTINGS={
-  card:{def:1,apply:v=>root.style.setProperty('--card-font-scale',v),fmt:v=>Math.round(v*100)+'%'},
-  gov:{def:1,apply:v=>root.style.setProperty('--gov-font-scale',v),fmt:v=>Math.round(v*100)+'%'},
-  landHead:{def:10,apply:v=>root.style.setProperty('--land-heading-font',v+'px'),fmt:v=>v+'px'},
-  agri:{def:34,apply:v=>setLogos(['agriLogoFront','agriLogoBack'],v),fmt:v=>v+'px'},
-  govLogo:{def:30,apply:v=>setLogos(['govLogoFront','govLogoBack'],v),fmt:v=>v+'px'}};
+  card:{def:1.1,apply:v=>root.style.setProperty('--card-font-scale',v),fmt:v=>Math.round(v*100)+'%'},
+  gov:{def:1.4,apply:v=>root.style.setProperty('--gov-font-scale',v),fmt:v=>Math.round(v*100)+'%'},
+  landHead:{def:11,apply:v=>root.style.setProperty('--land-heading-font',v+'px'),fmt:v=>v+'px'},
+  agri:{def:40,apply:v=>setLogos(['agriLogoFront','agriLogoBack'],v),fmt:v=>v+'px'},
+  govLogo:{def:40,apply:v=>setLogos(['govLogoFront','govLogoBack'],v),fmt:v=>v+'px'}};
 const state={};
 function persist(){try{localStorage.setItem(SKEY,JSON.stringify(state))}catch(e){}}
 function applySetting(k,v,save=true){
@@ -460,11 +461,11 @@ function updateLiveCard(){
   const t=T(),val=id=>$(id).value.trim(),show=(id,txt)=>{$(id).textContent=txt||'—'};
   show('lblFName',val('fName'));
   show('lblFGender',{Male:t.male,Female:t.female,Other:t.other}[val('fGender')]);
-  const dob=val('fDob');show('lblFDob',dob?dob.split('-').reverse().join('/'):'');
+  show('lblFDob',val('fDob'));
   show('lblFCaste',val('fCaste'));
   show('lblFMobile',val('fMobile'));
   const aad=val('fAadhaar'),digits=aad.replace(/\D/g,'');
-  show('lblFAadhaar',!aad?'':($('showAadhaar').checked||digits.length<12?aad:'XXXX XXXX '+digits.slice(-4)));
+  show('lblFAadhaar',aad);
   show('lblFId',val('fId'));
   show('lblFAddress',val('fAddress'));
 
@@ -485,11 +486,16 @@ function updateLiveCard(){
   /* QR: वेबसाइट + नाव + आधार + Farmer ID */
   const qrText='shetkarisevarth.info\nFarmer Name: '+(val('fName')||'-')+'\nAadhaar: '+(val('fAadhaar')||'-')+'\nFarmer ID: '+(val('fId').replace(/\s+/g,'')||'-');
   if(qrText!==lastQr){
-    lastQr=qrText;const qr=$('qrcode');qr.replaceChildren();
-    if(window.QRCode)new QRCode(qr,{text:qrText,width:100,height:100,correctLevel:QRCode.CorrectLevel.L});else qr.textContent='QR';
+    const qr=$('qrcode');
+    const make=txt=>{qr.replaceChildren();new QRCode(qr,{text:txt,width:100,height:100,correctLevel:QRCode.CorrectLevel.L})};
+    try{
+      if(!window.QRCode)throw Error('QR library missing');
+      try{make(qrText)}catch(e){make('shetkarisevarth.info\nFarmer Name: '+(val('fName')||'-').slice(0,25)+'\nAadhaar: '+(val('fAadhaar')||'-')+'\nFarmer ID: '+(val('fId').replace(/\s+/g,'')||'-'))}
+      lastQr=qrText;
+    }catch(e){qr.textContent='QR'}
   }
 }
-let timer;const schedule=()=>{clearTimeout(timer);timer=setTimeout(updateLiveCard,120)};
+let timer;const schedule=()=>{clearTimeout(timer);timer=setTimeout(updateLiveCard,40)};
 
 /* इनपुट सुरक्षित करणे */
 $('fMobile').addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'').slice(0,10)});
@@ -497,9 +503,9 @@ $('fAadhaar').addEventListener('input',e=>{const d=e.target.value.replace(/\D/g,
 /* Farmer ID: 000 00 00 00 00 (११ अंक: पहिले ३ अंक, नंतर २-२ अंकांचे ४ गट) */
 function fmtFarmerId(d){const first=d.slice(0,3),rest=d.slice(3).match(/\d{1,2}/g)||[];return [first,...rest].join(' ').trim()}
 $('fId').addEventListener('input',e=>{e.target.value=fmtFarmerId(e.target.value.replace(/\D/g,'').slice(0,11))});
-$('fDob').max=new Date().toISOString().slice(0,10);
+$('fDob').addEventListener('input',e=>{const d=e.target.value.replace(/\D/g,'').slice(0,8);e.target.value=d.replace(/^(\d{2})(\d)/,'$1/$2').replace(/^(\d{2}\/\d{2})(\d)/,'$1/$2')});
 
-$('farmerForm').addEventListener('input',schedule);
+$('farmerForm').addEventListener('input',()=>{schedule();updateLiveCard()});
 $('farmerForm').addEventListener('change',schedule);
 $('updateBtn').addEventListener('click',updateLiveCard);
 document.querySelectorAll('.printBtn').forEach(b=>b.addEventListener('click',()=>{updateLiveCard();window.print()}));
