@@ -6,7 +6,7 @@
 <script>
 /* डोमेन लॉक: हे पेज फक्त तुमच्या वेबसाईटवरच चालेल. डोमेन वेगळे असल्यास ALLOWED_HOSTS मध्ये बदला. */
 (function(){
-  var ALLOWED_HOSTS=['shetkarisevarth.info','www.shetkarisevarth.info','localhost','127.0.0.1']; /* चाचणी झाल्यावर localhost, 127.0.0.1 काढून टाका */
+  var ALLOWED_HOSTS=['shetkarisevarth.info','www.shetkarisevarth.info','localhost','127.0.0.1'];
   var PORTAL='https://shetkarisevarth.info';
   if(ALLOWED_HOSTS.indexOf(location.hostname)===-1){
     window.__blocked=true;
@@ -60,12 +60,18 @@ body{margin:0;font-family:'Tiro Devanagari Marathi',serif;color:var(--ink);backg
 }
 .sv-footer-copy{color:#e2e8f0 !important; margin-top:4px; font-size:12px;}
 
-/* Global Notice Bar */
+/* Global Notice Bar & Scrolling Animation */
 .sv-global-notices{width:100%;max-width:1000px;margin:10px auto 0;box-sizing:border-box;display:flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid #b7ebc8;border-radius:12px;background:linear-gradient(100deg,#fff7d6,#f0fdf4 55%,#e2fbe9);color:#14532d;box-shadow:0 2px 8px rgba(22,101,52,.05)}
-.sv-notice-label{background:#dc2626;color:#fff;border-radius:999px;padding:3px 8px;font-size:11px;font-weight:700;white-space:nowrap}
+.sv-notice-label{background:#dc2626;color:#fff;border-radius:999px;padding:3px 8px;font-size:11px;font-weight:700;white-space:nowrap;flex-shrink:0}
 .sv-notice-window{overflow:hidden;min-width:0;flex:1}
 .sv-notice-track{display:flex;align-items:center;gap:30px;width:max-content;font-size:13px;font-weight:600}
 .sv-notice-track a{color:#166534;text-decoration:underline}
+.sv-notice-track .sv-notice-item{white-space:nowrap}
+@media(prefers-reduced-motion:no-preference){
+  .sv-notice-track.is-moving{animation:svNoticeScroll 32s linear infinite}
+  .sv-notice-track:hover{animation-play-state:paused}
+}
+@keyframes svNoticeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 main{max-width:1180px;margin:20px auto;padding:0 16px 16px;width:100%;flex-grow:1}
 .layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(440px,460px);gap:24px;align-items:start}
@@ -132,7 +138,7 @@ html[data-card-theme="green"] .deco .d-green,html[data-card-theme="blue"] .deco 
 
 @media(max-width:900px){
   .layout{grid-template-columns:1fr}
-  input,select,textarea{font-size:16px} /* iOS zoom टाळण्यासाठी */
+  input,select,textarea{font-size:16px}
   .sv-site-header, .sv-site-footer { height: auto; min-height: 85px; padding: 12px; }
 }
 @media print{
@@ -307,7 +313,10 @@ html[data-card-theme="green"] .deco .d-green,html[data-card-theme="blue"] .deco 
         track.appendChild(span);
       }
       items.forEach(add);
-      if(items.length>1){items.forEach(add);track.classList.add('is-moving');}
+      if(items.length>1){
+        items.forEach(add);
+        track.classList.add('is-moving');
+      }
     }
     if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadSharedNotices);else loadSharedNotices();
   })();
@@ -343,7 +352,6 @@ const QRGen=(function(){
     put(0,Math.min(4,capBits-bits.length));put(0,(8-bits.length%8)%8);
     for(let pad=0xEC;bits.length<capBits;pad^=0xEC^0x11)put(pad,8);
     const data=[];for(let i=0;i<bits.length;i+=8){let b=0;for(let j=0;j<8;j++)b=(b<<1)|bits[i+j];data.push(b)}
-    /* ब्लॉक + Reed-Solomon */
     const nb=NUM_BLOCKS[ecc][ver],eccLen=ECC_PER_BLOCK[ecc][ver],raw=Math.floor(rawModules(ver)/8);
     const nShort=nb-raw%nb,shortLen=Math.floor(raw/nb),div=rsDivisor(eccLen),blocks=[];
     for(let i=0,k=0;i<nb;i++){
@@ -351,7 +359,6 @@ const QRGen=(function(){
       const e=rsRemainder(dat,div);if(i<nShort)dat.push(0);blocks.push(dat.concat(e))}
     const all=[];
     for(let i=0;i<blocks[0].length;i++)blocks.forEach((b,j)=>{if(i!==shortLen-eccLen||j>=nShort)all.push(b[i])});
-    /* मॅट्रिक्स */
     const size=ver*4+17,mod=[],fn=[];
     for(let y=0;y<size;y++){mod.push(new Array(size).fill(false));fn.push(new Array(size).fill(false))}
     const setFn=(x,y,d)=>{mod[y][x]=d;fn[y][x]=true};
@@ -376,7 +383,6 @@ const QRGen=(function(){
     fmt(0);
     if(ver>=7){let r=ver;for(let i=0;i<12;i++)r=(r<<1)^((r>>>11)*0x1F25);
       const b=(ver<<12)|r;for(let i=0;i<18;i++){const c=((b>>>i)&1)!==0,a=size-11+i%3,q=Math.floor(i/3);setFn(a,q,c);setFn(q,a,c)}}
-    /* डेटा ठेवणे */
     for(let i=0,right=size-1;right>=1;right-=2){
       if(right===6)right=5;
       for(let vert=0;vert<size;vert++)for(let j=0;j<2;j++){
@@ -701,7 +707,7 @@ window.addEventListener('load',()=>{
 });
 </script>
 
-<!-- Shared Global Notices Script -->
+<!-- Shared Global Notices Script (Updates automatically from portal-data.js) -->
 <script>
   (function(){
     function loadSharedNotices(){
@@ -718,10 +724,12 @@ window.addEventListener('load',()=>{
         track.appendChild(span);
       }
       items.forEach(add);
-      if(items.length>1){items.forEach(add);track.classList.add('is-moving');}
+      if(items.length>1){
+        items.forEach(add); /* डुप्लिकेशन लूप सुरळीत चालण्यासाठी */
+        track.classList.add('is-moving');
+      }
     }
     if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadSharedNotices);else loadSharedNotices();
   })();
 </script>
 </body></html>
-```[cite: 5]
