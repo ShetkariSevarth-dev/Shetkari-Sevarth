@@ -2,36 +2,29 @@
 window.PORTAL_DATA = {
   "announcements": [
     {
-      "emoji": "🪪",
-      "text": "फार्मर आयडी कार्ड बनवा अगदी मिनिटात.",
-      "url": "farmer-id.html"
-    },
-    {
       "emoji": "👩‍🌾",
       "text": "महिला शेतकरी प्रमाणपत्र योजनेची अधिक माहिती व अर्जासाठी येथे क्लिक करा.",
       "url": "women-farmer.html"
     },
     {
       "emoji": "🧪",
-      "text": "२३ ऑक्टोबर पासून खत बुकिंग होणार app द्वारे.",
+      "text": "२२ ऑक्टोबर पासून खत बुकिंग होणार app द्वारे.",
       "url": "fsas.html"
+    },
+    {
+      "emoji": "⛈️",
+      "text": "जलतारा बनवूया, दुष्काळाला हरवूया!",
+      "url": "jaltara.html"
     }
   ],
   "schemes": [
     {
-      "mr": "फार्मर आयडी कार्ड बनवा मोफत",
-      "en": "farmer id card banava agristack card shetkari card ",
-      "emoji": "🪪",
-      "url": "farmer-id.html",
+      "mr": "खत विक्री अर्ज प्रणाली (FFS)",
+      "en": "Framework for Fertilizer Sales (FFS)",
+      "emoji": "🧪",
+      "url": "fsas.html",
       "status": "ok",
-      "isNew": true
-    },
-    {
-      "mr": "अधिकाऱ्यांसाठी दौरा दैनंदिनी App",
-      "en": "app daily dairy app ",
-      "emoji": "🗓️",
-      "url": "daily-diary.html",
-      "status": "ok",
+      "newTag": true,
       "isNew": true
     },
     {
@@ -44,21 +37,20 @@ window.PORTAL_DATA = {
       "isNew": true
     },
     {
-      "mr": "खत विक्री अर्ज प्रणाली (FFS)",
-      "en": "Framework for Fertilizer Sales (FFS)",
-      "emoji": "🧪",
-      "url": "fsas.html",
-      "status": "ok",
-      "newTag": true,
-      "isNew": true
-    },
-    {
       "mr": "महिला शेतकरी प्रमाणपत्र",
       "en": "Women Farmer Certificate",
       "emoji": "👩‍🌾",
       "url": "women-farmer.html",
       "status": "ok",
       "newTag": true,
+      "isNew": true
+    },
+    {
+      "mr": "अधिकाऱ्यांसाठी दौरा दैनंदिनी App",
+      "en": "app daily dairy app ",
+      "emoji": "🗓️",
+      "url": "daily-diary.html",
+      "status": "ok",
       "isNew": true
     },
     {
@@ -270,6 +262,14 @@ window.PORTAL_DATA = {
       "url": "#",
       "status": "coming-soon",
       "newTag": false
+    },
+    {
+      "mr": "फार्मर आयडी कार्ड बनवा मोफत",
+      "en": "farmer id card banava agristack card shetkari card ",
+      "emoji": "🪪",
+      "url": "farmer-id.html",
+      "status": "coming-soon",
+      "isNew": false
     }
   ],
   "manageAllSchemes": true
