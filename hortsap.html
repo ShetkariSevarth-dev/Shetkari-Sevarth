@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="HORTSAP – फलोत्पादन पिकांवरील कीड रोग सर्वेक्षण, सल्ला व व्यवस्थापन योजनेची संपूर्ण माहिती, पिके, जिल्हे, कार्यपद्धती आणि शेतीशाळा." name="description"/>
+<title>HORTSAP - फलोत्पादन पिकांवरील कीड सर्वेक्षण | शेतकरी सेवार्थ</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&amp;family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+    body{font-family:'Tiro Devanagari Marathi','Noto Sans Devanagari',sans-serif;background-color:#f8fafc;text-rendering:optimizeLegibility;color:#163b2a;margin:0;padding:0}
+    .hero-gradient{background:linear-gradient(135deg,#065f46 0%,#047857 50%,#0f766e 100%)}
+    .content-panel{background:#ffffff;border:1px solid #d7e8dc;border-radius:16px;box-shadow:0 4px 20px rgba(15,80,45,.06);padding:24px;margin:0 auto}
+    .section-card{border-radius:12px;background:#f4fbf5;border:1px solid #d2efda;padding:16px;margin-bottom:14px;box-shadow:0 2px 8px rgba(22,101,52,.04)}
+    .section-heading{font-size:1.1rem;font-weight:800;color:#07472a;margin-bottom:8px;padding-bottom:4px;border-bottom:2px solid #d2efda}
+    p,li{line-height:1.65;font-size:14.5px;color:#2d3748;margin-bottom:8px}
+    ul{margin:0;padding-left:20px}
+    .back-link{display:inline-flex;align-items:center;gap:6px;background:#dcfce7;color:#14532d;border:1px solid #bbf7d0;border-radius:999px;padding:6px 14px;font-size:12px;font-weight:700;text-decoration:none;margin-bottom:12px;transition:.2s}
+    .back-link:hover{background:#bbf7d0}
+    
+    /* Global Notice Bar & Scrolling Animation */
+    .sv-global-notices{width:100%;max-width:1000px;margin:10px auto 0;box-sizing:border-box;display:flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid #b7ebc8;border-radius:12px;background:linear-gradient(100deg,#fff7d6,#f0fdf4 55%,#e2fbe9);color:#14532d;box-shadow:0 2px 8px rgba(22,101,52,.05)}
+    .sv-notice-label{background:#dc2626;color:#fff;border-radius:999px;padding:3px 8px;font-size:11px;font-weight:700;white-space:nowrap;flex-shrink:0}
+    .sv-notice-window{overflow:hidden;min-width:0;flex:1}
+    .sv-notice-track{display:flex;align-items:center;gap:30px;width:max-content;font-size:13px;font-weight:600}
+    .sv-notice-track a{color:#166534;text-decoration:underline}
+    .sv-notice-track .sv-notice-item{white-space:nowrap}
+    
+    @media(prefers-reduced-motion:no-preference){
+      .sv-notice-track.is-moving{animation:svNoticeScroll 32s linear infinite}
+      .sv-notice-track:hover{animation-play-state:paused}
+    }
+    @keyframes svNoticeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    /* Header and Footer Equal Height & Styling */
+    .sv-site-header, .sv-site-footer {
+      height: 85px;
+      min-height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+    .sv-site-footer{
+      background-color: #0b5e36 !important;
+      color: #ffffff !important;
+      text-align: center;
+      padding: 10px 16px;
+      margin-top: 30px;
+      font-size: 13px;
+      line-height: 1.6;
+      width: 100%;
+      border-top: 4px solid #86c83f;
+    }
+    .sv-footer-inner{max-width:900px;margin:0 auto;width:100%}
+    .sv-footer-note{color:#ffffff !important;font-size:13px;margin:0 0 4px}
+    .sv-footer-email{margin:2px 0}
+    .sv-footer-email a{color: #a3e635 !important;text-decoration: underline;text-underline-offset: 3.5px;font-weight: 700;}
+    .sv-footer-copy{color:#e2e8f0 !important; margin-top:4px; font-size:12px;}
+    
+    @media(max-width:640px){
+      .content-panel{padding:14px!important}
+      .section-card{padding:12px!important}
+      .sv-site-header, .sv-site-footer { height: auto; min-height: 85px; padding: 12px; }
+    }
+
+    /* Info Table */
+    .info-table{width:100%;border-collapse:collapse;font-size:13.5px;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(22,101,52,.06);background:white}
+    .info-table thead{background:linear-gradient(135deg,#047857,#065f46);color:#fff}
+    .info-table th,.info-table td{padding:9px 12px;text-align:left;border-bottom:1px solid #e5eee7;vertical-align:top}
+    .info-table tbody tr:hover{background:#ecfdf5}
+    .info-table th{font-weight:700;font-size:13px}
+    .info-table td strong{color:#065f46}
+
+    /* Notice / Info Box */
+    .info-note{background:linear-gradient(100deg,#ecfdf5,#f0fdf4);border-left:4px solid #22c55e;padding:10px 14px;border-radius:10px;margin-top:12px;font-size:13.5px;color:#065f46}
+    .info-note.warn{border-left-color:#dc2626;background:#fef2f2;color:#991b1b}
+    .info-note.blue{border-left-color:#3b82f6;background:#eff6ff;color:#1e3a8a}
+
+    /* Crop chips */
+    .crop-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+    .crop-chip{background:#dcfce7;color:#14532d;border:1px solid #bbf7d0;border-radius:999px;padding:4px 12px;font-size:12.5px;font-weight:700}
+
+    /* FAQ */
+    .faq{display:grid;gap:8px;margin-top:8px}
+    .faq-item{background:white;border:1px solid #d2efda;border-radius:10px;overflow:hidden}
+    .faq-q{width:100%;text-align:left;padding:11px 14px;background:none;border:none;font-size:13.5px;font-weight:700;color:#07472a;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:inherit}
+    .faq-q:hover{background:#f0fdf4}
+    .faq-q::after{content:"+";font-size:18px;color:#22c55e;transition:transform .25s;font-weight:400}
+    .faq-q.active::after{transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 14px}
+    .faq-a p{padding:0 0 12px;color:#475569;font-size:13px;margin:0}
+  </style>
+</head>
+<body class="text-gray-800 min-h-screen flex flex-col justify-between">
+
+<!-- Header Section -->
+<header class="hero-gradient text-white shadow-md sv-site-header">
+  <div class="max-w-6xl mx-auto px-4 w-full flex items-center justify-between gap-4">
+    <a class="text-white/90 hover:text-white text-xs sm:text-sm font-bold bg-white/10 px-3 py-1.5 rounded-full" href="index.html">← मागील पृष्ठ</a>
+    <a class="flex items-center justify-center gap-2" href="index.html"><h1 class="text-lg sm:text-xl font-extrabold tracking-tight">🌱 शेतकरी सेवार्थ</h1></a>
+    <a class="bg-white/20 hover:bg-white/30 text-white font-bold px-3 py-1.5 rounded-full text-xs" href="index.html">🏠 मुख्य पृष्ठ</a>
+  </div>
+</header>
+
+<!-- सामायिक महत्त्वाच्या सूचना बार -->
+<div aria-label="महत्त्वाच्या सूचना" class="sv-global-notices" role="region">
+  <span class="sv-notice-label">📢 सूचना</span>
+  <div class="sv-notice-window">
+    <div class="sv-notice-track" id="svGlobalNoticeTrack"><span>सूचना लोड होत आहेत...</span></div>
+  </div>
+</div>
+
+<!-- Main Content Area -->
+<main class="max-w-4xl mx-auto px-4 py-4 w-full flex-grow">
+  <a class="back-link" href="index.html">← शेतकरी सेवार्थ मुख्य पानावर जा</a>
+  
+  <article class="content-panel space-y-4">
+    <!-- Title Section -->
+    <div class="text-center border-b border-emerald-100 pb-4">
+      <span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-100 border border-emerald-300 px-3.5 py-1 rounded-full mb-2">🍎 फलोत्पादन विशेष योजना</span>
+      <h2 class="text-lg md:text-2xl font-black text-emerald-950 leading-snug">HORTSAP – फळपिकांवरील कीड रोग सर्वेक्षण योजना</h2>
+      <p class="text-sm text-gray-600 mt-2">फलोत्पादन पिकांवरील कीड व रोगांचे वेळीच सर्वेक्षण करून बागायतदारांना अचूक सल्ला आणि उपाययोजना मोबाईल व SMS द्वारे पोहोचवणारी राज्य शासनाची योजना.</p>
+    </div>
+
+    <!-- योजना ओळख -->
+    <section class="section-card bg-emerald-50/80">
+      <h3 class="section-heading text-emerald-950">📋 योजना ओळख आणि पार्श्वभूमी</h3>
+      <p>आकस्मिकरित्या उद्भवणाऱ्या कीड-रोगांच्या प्रादुर्भावामुळे फळबागांचे होणारे नुकसान टाळण्यासाठी आणि शेतकऱ्यांना वेळीच सल्ला देण्यासाठी <strong>सन २०११-१२</strong> पासून <strong>हॉर्टसॅप (HORTSAP)</strong> योजना सुरू करण्यात आली. सुरुवातीला राष्ट्रीय कृषी विकास योजने (RKVY) अंतर्गत सुरू झालेला हा प्रकल्प सध्या राज्य शासनाच्या निधीतून राबवला जात आहे.</p>
+      <p>सन २०१८-१९ पासून धान्य पिकांसाठी असलेल्या 'क्रॉपसॅप' (CROPSAP) आणि फळपिकांसाठी असलेल्या 'हॉर्टसॅप' या दोन्ही प्रकल्पांची कार्यपद्धती समान असल्याने, दोन्ही प्रकल्प एकत्रितपणे राबवले जात आहेत. राज्यातील २८ जिल्ह्यांतील सुमारे ६.५४ लाख हेक्टर क्षेत्रावर याची अंमलबजावणी होत आहे.</p>
+    </section>
+
+    <!-- ⭐ NEW: पिकनिहाय क्षेत्र (Area) -->
+    <section class="section-card">
+      <h3 class="section-heading">🌍 राज्यातील पिकनिहाय क्षेत्र (व्याप्ती)</h3>
+      <p>योजनेची अंमलबजावणी होणाऱ्या प्रमुख पिकांचे राज्यातील अंदाजे क्षेत्र खालीलप्रमाणे आहे:</p>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:8px">
+        <table class="info-table">
+          <thead>
+            <tr><th>पीक</th><th>प्रमुख जिल्हे</th><th>एकूण क्षेत्र (अंदाजे)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>आंबा</strong></td><td>ठाणे, पालघर, रायगड, रत्नागिरी, सिंधुदुर्ग, कोल्हापूर, नाशिक, नंदुरबार, बीड, उस्मानाबाद, पुणे</td><td>१,३०,२२४ हेक्टर</td></tr>
+            <tr><td><strong>डाळिंब</strong></td><td>नाशिक, अहमदनगर, सोलापूर, पुणे, सातारा, सांगली, औरंगाबाद, बीड, धुळे</td><td>१४,२१,९५८ हेक्टर</td></tr>
+            <tr><td><strong>केळी</strong></td><td>पुणे, अहमदनगर, जळगाव, धुळे, नंदुरबार, सोलापूर, हिंगोली, नांदेड</td><td>५८,०६२ हेक्टर</td></tr>
+            <tr><td><strong>संत्रा</strong></td><td>नागपूर, वर्धा, वाशिम, अमरावती, बुलढाणा, अहमदनगर</td><td>१,०२,३२८ हेक्टर</td></tr>
+            <tr><td><strong>मोसंबी</strong></td><td>औरंगाबाद, जालना, अमरावती, वर्धा, नागपूर</td><td>४१,६०२ हेक्टर</td></tr>
+            <tr><td><strong>चिकू</strong></td><td>पालघर</td><td>४,४१८ हेक्टर</td></tr>
+            <tr><td><strong>काजू</strong></td><td>पालघर, रायगड, रत्नागिरी, सिंधुदुर्ग, कोल्हापूर</td><td>१,५८,१९७ हेक्टर</td></tr>
+            <tr><td><strong>भेंडी</strong></td><td>ठाणे, पुणे, सातारा, जळगाव</td><td>३,१५५ हेक्टर</td></tr>
+            <tr><td><strong>टोमॅटो</strong></td><td>पुणे, अहमदनगर, सोलापूर, सातारा, सांगली, ठाणे, औरंगाबाद, लातूर, नागपूर, भंडारा</td><td>१३,८५३ हेक्टर</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ⭐ NEW: पिकनिहाय कीड आणि रोग -->
+    <section class="section-card">
+      <h3 class="section-heading">🔍 पिकनिहाय प्रमुख कीड आणि रोगांची यादी</h3>
+      <p>हॉर्टसॅप योजनेअंतर्गत कृषी विभागाचे कीड सर्वेक्षक (Pest Scouts) प्रामुख्याने खालील कीड आणि रोगांचे निरीक्षण करतात:</p>
+      
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:10px">
+        <table class="info-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">पीक</th>
+              <th style="width: 42%;">प्रमुख कीड (Pests)</th>
+              <th style="width: 43%;">प्रमुख रोग (Diseases)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>आंबा</strong></td>
+              <td>तुडतुडे, फुलकिडे, फळमाशी (सापळ्यासहित)</td>
+              <td>भुरी, करपा</td>
+            </tr>
+            <tr>
+              <td><strong>डाळिंब</strong></td>
+              <td>फळे पोखरणारी अळी, फुलकिडे, शट होल बोअरर (खोड पोखरणारी अळी), तेलकट डाग (Oily Spot)</td>
+              <td>मर (Wilt), तेलकट डाग</td>
+            </tr>
+            <tr>
+              <td><strong>केळी</strong></td>
+              <td>फुलकिडे</td>
+              <td>सिगाटोका (करपा)</td>
+            </tr>
+            <tr>
+              <td><strong>संत्रा व मोसंबी</strong></td>
+              <td>काळी/पांढरी माशी, सिट्रस सायला (Psylla), लिफ मायनर, फळ पोखरणारी अळी</td>
+              <td>फायटोप्थोरा, मर</td>
+            </tr>
+            <tr>
+              <td><strong>चिकू</strong></td>
+              <td>बी-पोखरणारी अळी, फळे पोखरणारी अळी</td>
+              <td>फळगळ, फायटोप्थोरा, मर</td>
+            </tr>
+            <tr>
+              <td><strong>काजू</strong></td>
+              <td>टी मॉस्किटो बग, फुलकिडे</td>
+              <td>शट ब्लायट (Shot Blight)</td>
+            </tr>
+            <tr>
+              <td><strong>भेंडी</strong></td>
+              <td>शूट अँड फ्रूट बोरर, तुडतुडे, मावा/पांढरी माशी, हड्डा बिटल, कोळी (Mites)</td>
+              <td>भुरी, यलो व्हेन मोझॅक व्हायरस</td>
+            </tr>
+            <tr>
+              <td><strong>टोमॅटो</strong></td>
+              <td>फळ पोखरणारी अळी, पांढरी माशी, मावा, फुलकिडे, लिफ मायनर, रेड स्पायडर माइट, इरिओफाइड माइट</td>
+              <td>विषाणूजन्य रोग (Viral diseases), करपा</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ⭐ NEW: सहभागी संस्था आणि सुकाणू समिती -->
+    <section class="section-card">
+      <h3 class="section-heading">🏛️ सहभागी संस्था आणि सुकाणू समिती</h3>
+      <p>या योजनेचे नियोजन आणि तांत्रिक विश्लेषण करण्यासाठी खालील प्रमुख संस्थांचा समावेश असलेली राज्यस्तरीय सुकाणू समिती (Steering Committee) कार्यरत आहे:</p>
+      <ul style="margin-top:6px">
+        <li><strong>अध्यक्ष:</strong> आयुक्त (कृषी), महाराष्ट्र राज्य, पुणे.</li>
+        <li><strong>प्रमुख तांत्रिक संस्था:</strong> राष्ट्रीय एकात्मिक कीड व्यवस्थापन केंद्र (NCIPM), नवी दिल्ली (जे ऑनलाईन डेटा आणि नकाशे तयार करते).</li>
+        <li><strong>कृषी विद्यापीठे:</strong> महात्मा फुले कृषी विद्यापीठ (राहुरी), डॉ. बाळासाहेब सावंत कोकण कृषी विद्यापीठ (दापोली), वसंतराव नाईक मराठवाडा कृषी विद्यापीठ (परभणी), डॉ. पंजाबराव देशमुख कृषी विद्यापीठ (अकोला).</li>
+        <li><strong>राष्ट्रीय संशोधन केंद्रे:</strong> राष्ट्रीय डाळिंब संशोधन केंद्र (सोलापूर), राष्ट्रीय लिंबूवर्गीय संशोधन केंद्र (नागपूर), केळी संशोधन केंद्र (जळगाव), फळ संशोधन केंद्र (वेंगुर्ला), चिकू संशोधन केंद्र (पालघर).</li>
+      </ul>
+    </section>
+
+    <!-- सर्वेक्षण कार्यपद्धती -->
+    <section class="section-card" style="border-left:5px solid #3b82f6">
+      <h3 class="section-heading" style="color:#1e3a8a;border-bottom-color:#bfdbfe">⚙️ सर्वेक्षण कार्यपद्धती आणि अधिकाऱ्यांच्या जबाबदाऱ्या</h3>
+      <p>योजनेची प्रभावी अंमलबजावणी करण्यासाठी क्षेत्रीय पातळीवर दोन प्रमुख अधिकाऱ्यांची नेमणूक केली जाते:</p>
+
+      <div style="background:white;padding:14px;border-radius:10px;border:1px solid #bfdbfe;margin-bottom:10px">
+        <h4 style="font-weight:800;color:#1e40af;margin:0 0 6px;font-size:.95rem">१. कीड सर्वेक्षक (Pest Scout) / कृषि पर्यवेक्षक</h4>
+        <ul style="margin:0;padding-left:20px;font-size:13.5px;color:#334155">
+          <li><strong>क्षेत्र निवड:</strong> फळपिकांसाठी प्रति ५०० ते २००० हेक्टर आणि भाजीपाला पिकांसाठी प्रति २५० ते २००० हेक्टरमागे १ कीड सर्वेक्षक.</li>
+          <li><strong>गाव व प्लॉट निवड:</strong> तालुक्यातील पिकानुसार गावांचे गट (२५० हेक्टर) तयार करून प्रत्येक गटातून <strong>२ निश्चित (Fixed) आणि २ रॅन्डम (Random) प्लॉट</strong> निवडले जातात.</li>
+          <li><strong>भेटी:</strong> आठवड्यातील सोमवार, मंगळवार, गुरुवार आणि शुक्रवार (आठवड्याला २ गावे x ४ दिवस = ८ गावे) सर्वेक्षण करतात.</li>
+          <li><strong>अहवाल:</strong> दर बुधवारी आणि शुक्रवारी मध्यान्हानंतर आपला अहवाल 'कीड नियंत्रकां'ना सादर करतात.</li>
+        </ul>
+      </div>
+
+      <div style="background:white;padding:14px;border-radius:10px;border:1px solid #bfdbfe">
+        <h4 style="font-weight:800;color:#1e40af;margin:0 0 6px;font-size:.95rem">२. कीड नियंत्रक (Pest Monitor) / कृषि अधिकारी</h4>
+        <ul style="margin:0;padding-left:20px;font-size:13.5px;color:#334155">
+          <li><strong>पर्यवेक्षण:</strong> कीड सर्वेक्षकांच्या कामावर देखरेख ठेवतात आणि त्यांनी भरलेला डेटा तपासतात.</li>
+          <li><strong>धावते सर्वेक्षण (Roving Survey):</strong> ज्या गावांचा समावेश सर्वेक्षकांच्या यादीत नाही, अशा दुर्गम भागात (साधारण १०० ते १५० कि.मी. चा गोलाकार दौरा) जाऊन दररोज ५ ते ७ प्लॉटचे स्वतः सर्वेक्षण करतात.</li>
+          <li><strong>ऑनलाईन नोंद:</strong> सर्वेक्षकांकडून मिळालेला डेटा दर बुधवारी आणि शुक्रवारी NCIPM (नवी दिल्ली) च्या अधिकृत वेबसाईटवर ऑनलाईन भरतात.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ⭐ NEW: शेतीशाळेचा अभ्यासक्रम (FFS Curriculum) -->
+    <section class="section-card">
+      <h3 class="section-heading">👨‍🌾 शेतकरी शेतीशाळेचा (FFS) सविस्तर अभ्यासक्रम</h3>
+      <p>हॉर्टसॅप योजनेच्या माध्यमातून बागायतदारांना प्रत्यक्ष शेतात प्रशिक्षण देण्यासाठी <strong>शेतकरी शेतीशाळा</strong> राबवल्या जातात. प्रत्येक पिकासाठी वर्गांची संख्या व तपशील खालीलप्रमाणे आहे:</p>
+      
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:8px">
+        <table class="info-table">
+          <thead>
+            <tr><th>पीक</th><th>एकूण वर्ग</th><th>मुख्य विषय (उदाहरणादाखल)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>केळी</strong></td><td>१० वर्ग (दर ३० दिवसांनी)</td><td>सुधारित बेणे निवड, खत व्यवस्थापन, सिगाटोका (करपा) रोग व्यवस्थापन, पोगासड, फुलकिडे नियंत्रण, काढणी पश्चात तंत्रज्ञान.</td></tr>
+            <tr><td><strong>आंबा</strong></td><td>९ वर्ग (दर ३० दिवसांनी)</td><td>हवामान आधारित विमा, कलमांची निवड, मृदा परीक्षण, फळमाशी नियंत्रण (सापळे), भुरी व करपा व्यवस्थापन, निर्यातक्षम बागेची नोंदणी.</td></tr>
+            <tr><td><strong>डाळिंब</strong></td><td>६ वर्ग</td><td>मृदा परीक्षण, रोपवाटिका व्यवस्थापन, तेलकट डाग रोग, मर रोग, फळे पोखरणारी अळी, निर्यात क्षम डाळिंब उत्पादन.</td></tr>
+            <tr><td><strong>संत्रा व मोसंबी</strong></td><td>१२ वर्ग (मृग व आंबिया बहारानुसार)</td><td>बहार ताण प्रक्रिया व्यवस्थापन, फळगळ रोखणे, सिट्रस सायला नियंत्रण, फायटोप्थोरा रोग, फळांची काढणी व पॅकेजिंग.</td></tr>
+            <tr><td><strong>काजू</strong></td><td>९ वर्ग (दर १५ दिवसांनी)</td><td>कलमांची निवड, अति पावसामध्ये व्यवस्थापन, कीड रोग नियंत्रण (टी मॉस्किटो बग), मित्रकीटक संवर्धन, काढणी पश्चात तंत्रज्ञान.</td></tr>
+            <tr><td><strong>चिकू</strong></td><td>१० वर्ग</td><td>खड्डा भरणे, बोर्डो मिश्रण, बागेतील पाण्याचा निचरा, फांदीवरील रोग व्यवस्थापन, पाने गुंडाळणारी अळी, मर रोग.</td></tr>
+            <tr><td><strong>टोमॅटो</strong></td><td>६ वर्ग</td><td>रोपवाटिका व्यवस्थापन, विषाणूजन्य रोग (लिफ कर्ल) व्यवस्थापन, फळ पोखरणारी अळी, काढणी पश्चात प्रक्रिया.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="info-note" style="margin-top:10px">
+        <strong>AESA (पीक परिसंस्था विश्लेषण):</strong> प्रत्येक वर्गात शेतकऱ्यांना स्वतःच्या शेतातील मित्र कीटक (सत्कीटक) आणि शत्रू कीटक यांची ओळख करून देऊन, निसर्गाचे संतुलन कसे राखावे हे शिकवले जाते. तसेच <strong>३३% महिला शेतीशाळा</strong> घेणे बंधनकारक आहे.
+      </div>
+    </section>
+
+    <!-- तज्ज्ञांचे विश्लेषण आणि SMS सल्ला -->
+    <section class="section-card">
+      <h3 class="section-heading">📲 तज्ज्ञांचे विश्लेषण आणि शेतकऱ्यांना सल्ला</h3>
+      <p>ऑनलाईन भरलेल्या डेटाचे विश्लेषण कृषी विद्यापीठे आणि राष्ट्रीय संशोधन केंद्रे येथील शास्त्रज्ञांकडून केले जाते. त्यानंतर <strong>दर सोमवारी आणि गुरुवारी</strong> शेतकऱ्यांसाठी तालुकानिहाय सल्ला जारी केला जातो.</p>
+      <ul style="margin-top:6px">
+        <li>हा सल्ला शेतकऱ्यांच्या मोबाईलवर <strong>SMS द्वारे</strong> पाठवला जातो.</li>
+        <li>तालुका कृषी अधिकाऱ्यांकडून या सल्ल्याची प्रत (जंबो झेरॉक्स) प्रत्येक गावातील <strong>कृषी वार्ताफलकावर</strong> लावली जाते.</li>
+        <li>गरज पडल्यास दूरदर्शन, आकाशवाणी आणि वृत्तपत्रांच्या माध्यमातूनही कीड नियंत्रणाची माहिती दिली जाते.</li>
+      </ul>
+    </section>
+
+    <!-- आर्थिक तरतूद (शेतीशाळा) -->
+    <section class="section-card">
+      <h3 class="section-heading">💰 शेतीशाळेसाठी आर्थिक मापदंड (प्रति शेतीशाळा)</h3>
+      <p>एका शेतीशाळेसाठी एकूण <strong>रु. १४,०००/-</strong> इतका खर्च निश्चित करण्यात आला आहे. त्याचा तपशील खालीलप्रमाणे:</p>
+      <div style="overflow-x:auto;margin-top:8px">
+        <table class="info-table">
+          <thead>
+            <tr><th>अ.क्र.</th><th>खर्चाचा तपशील</th><th>रक्कम (₹)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>१</td><td>प्रशिक्षण साहित्य व इतर तांत्रिक साहित्य (२५ शेतकरी x ₹२००)</td><td>५,०००</td></tr>
+            <tr><td>२</td><td>अल्पोपहार (चहा-पान, नाश्ता)</td><td>५,०००</td></tr>
+            <tr><td>३</td><td>शेतीदिन खर्च</td><td>२,०००</td></tr>
+            <tr><td>४</td><td>विश्लेषणात्मक अहवाल तयार करणे</td><td>१,०००</td></tr>
+            <tr><td>५</td><td>त्रयस्थ संस्थेमार्फत मूल्यमापन</td><td>१,०००</td></tr>
+            <tr><td colspan="2"><strong>एकूण</strong></td><td><strong>१४,०००</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- महत्त्वाच्या सूचना -->
+    <section class="section-card">
+      <h3 class="section-heading">⚠️ महत्त्वाच्या सूचना (आपत्कालीन परिस्थिती)</h3>
+      <div class="info-note warn">
+        <strong>तातडीची उपाययोजना:</strong> जर एखाद्या भागात कीड-रोगाचा प्रादुर्भाव आर्थिक नुकसान संकेत पातळीच्या (ETL) वर गेला, तर आपत्कालीन परिस्थितीत शेतकऱ्यांना <strong>५०% अनुदानावर</strong> (कमाल रु. ७५०/- प्रति हेक्टर) जैविक/रासायनिक कीटकनाशके व बुरशीनाशके पुरवली जातात.
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-card">
+      <h3 class="section-heading">❓ सतत विचारले जाणारे प्रश्न (FAQ)</h3>
+      <div class="faq">
+        <div class="faq-item"><button class="faq-q">HORTSAP म्हणजे काय?</button><div class="faq-a"><p>HORTSAP (Horticulture Crop Pest Surveillance, Advisory and Management Project) ही फळपिकांवरील (आंबा, डाळिंब, केळी इ.) कीड व रोगांचे सर्वेक्षण करून शेतकऱ्यांना वेळीच सल्ला देणारी शासकीय योजना आहे. ती २०११-१२ पासून सुरू आहे.</p></div></div>
+        <div class="faq-item"><button class="faq-q">शेतकऱ्यांना हा सल्ला कसा मिळतो?</button><div class="faq-a"><p>कीड सर्वेक्षकांकडून मिळालेला डेटा तज्ज्ञांकडून तपासला जातो आणि दर सोमवार व गुरुवारी शेतकऱ्यांच्या मोबाईलवर SMS द्वारे सल्ला पाठवला जातो. तसेच गावातील कृषी वार्ताफलकावरही हा सल्ला लावला जातो.</p></div></div>
+        <div class="faq-item"><button class="faq-q">शेतकरी शेतीशाळेत (FFS) काय शिकवले जाते?</button><div class="faq-a"><p>शेतीशाळेत शेतकऱ्यांना स्वतःच्या बागेत जाऊन कीडींचे निरीक्षण कसे घ्यावे, मित्र-कीटक व शत्रू-कीटक ओळखणे (AESA), योग्य खत व्यवस्थापन आणि एकात्मिक कीड व्यवस्थापन (IPM) याचे प्रशिक्षण दिले जाते.</p></div></div>
+        <div class="faq-item"><button class="faq-q">कीड सर्वेक्षक (Pest Scout) किती क्षेत्राचे सर्वेक्षण करतो?</button><div class="faq-a"><p>फळपिकांसाठी (आंबा, काजू, डाळिंब इ.) ५०० ते २००० हेक्टरसाठी १ सर्वेक्षक आणि भाजीपाला पिकांसाठी (भेंडी, टोमॅटो) २५० ते २००० हेक्टरसाठी १ सर्वेक्षक नेमला जातो.</p></div></div>
+      </div>
+    </section>
+
+    <!-- निष्कर्ष -->
+    <section class="section-card bg-emerald-50/80">
+      <h3 class="section-heading text-emerald-950">📌 निष्कर्ष</h3>
+      <p>HORTSAP ही बागायतदारांसाठी अत्यंत फायदेशीर योजना आहे. याद्वारे कीड-रोगांचा प्रादुर्भाव सुरुवातीलाच ओळखला जातो आणि योग्य वेळी उपाययोजना केल्यामुळे फळांचे नुकसान टळते व उत्पादनात वाढ होते. पात्र बागायतदारांनी स्थानिक कृषी कार्यालयात संपर्क साधून या योजनेचा लाभ घ्यावा.</p>
+      <!-- ⭐ UPDATED: संपर्काची ओळ येथे बदलली आहे -->
+      <div class="info-note" style="margin-top:10px">
+        <strong>अधिक माहितीसाठी:</strong> तालुका कृषी अधिकारी किंवा जवळच्या सहायक कृषी अधिकारी यांच्याशी संपर्क साधा.
+      </div>
+    </section>
+  </article>
+</main>
+
+<!-- Footer -->
+<footer class="sv-site-footer" role="contentinfo">
+  <div class="sv-footer-inner">
+    <p class="sv-footer-note">सदर माहिती आपल्या उपयुक्त वाटल्यास किंवा सूचना असल्यास संपर्क साधू शकता.</p>
+    <p class="sv-footer-email" style="margin-top:2px;">📧 ई-मेल: <a href="mailto:shetkarisevarthofficial@gmail.com">shetkarisevarthofficial@gmail.com</a></p>
+    <p class="sv-footer-copy">© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p>
+  </div>
+</footer>
+
+<script src="portal-data.js?v=shared"></script>
+<script>
+  (function(){
+    function loadSharedNotices(){
+      var track=document.getElementById('svGlobalNoticeTrack');
+      if(!track)return;
+      var items=(window.PORTAL_DATA&&Array.isArray(window.PORTAL_DATA.announcements))?window.PORTAL_DATA.announcements:[];
+      track.innerHTML='';
+      if(!items.length){track.textContent='सध्या नवीन अपडेट उपलब्ध नाही.';return;}
+      function add(item){
+        var span=document.createElement('span');span.className='sv-notice-item';
+        var label=(item.emoji?item.emoji+' ':'')+(item.text||'');
+        if(item.url){var a=document.createElement('a');a.href=item.url;a.textContent=label;span.appendChild(a);}
+        else span.textContent=label;
+        track.appendChild(span);
+      }
+      items.forEach(add);
+      if(items.length>1){
+        items.forEach(add);
+        track.classList.add('is-moving');
+      }
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadSharedNotices);else loadSharedNotices();
+  })();
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var panel = this.nextElementSibling;
+      var isOpen = this.classList.contains('active');
+      document.querySelectorAll('.faq-q').forEach(function(b){
+        b.classList.remove('active');
+        b.nextElementSibling.style.maxHeight = null;
+      });
+      if(!isOpen){
+        this.classList.add('active');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+</body>
+</html>

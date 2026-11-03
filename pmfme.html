@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="mr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>शेतकरी सेवार्थ - प्रधानमंत्री सूक्ष्म खाद्य प्रक्रिया उन्नयन योजना (PMFME)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#047857',
+                            dark: '#065f46',
+                            light: '#0f766e',
+                            bg: '#f1f8e9'
+                        },
+                        accent: {
+                            DEFAULT: '#f57f17',
+                            light: '#ffb300'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Tiro Devanagari Marathi', 'Noto Sans Devanagari', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts for Tiro Devanagari Marathi -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Tiro Devanagari Marathi', 'Noto Sans Devanagari', sans-serif;
+            background-color: #f8fafc;
+            color: #163b2a;
+            margin: 0;
+            padding: 0;
+        }
+        .hero-pattern {
+            background: linear-gradient(135deg, rgba(6, 95, 70, 0.92) 0%, rgba(4, 120, 87, 0.88) 50%, rgba(15, 118, 110, 0.88) 100%), url('https://placehold.co/1920x1080/065f46/ffffff?text=Agriculture+Processing') center/cover no-repeat;
+        }
+        
+        /* Ekach prakarcha Green Gradient Header ani Footer sathi */
+        .sv-custom-gradient {
+            background: linear-gradient(135deg, #065f46 0%, #047857 50%, #0f766e 100%) !important;
+        }
+
+        /* Global Notice Bar & Scrolling Animation */
+        .sv-global-notices {
+            width: 100%;
+            max-width: 1000px;
+            margin: 10px auto 0;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            border: 1px solid #b7ebc8;
+            border-radius: 12px;
+            background: linear-gradient(100deg,#fff7d6,#f0fdf4 55%,#e2fbe9);
+            color: #14532d;
+            box-shadow: 0 2px 8px rgba(22,101,52,.05);
+        }
+        .sv-notice-label {
+            background: #dc2626;
+            color: #fff;
+            border-radius: 999px;
+            padding: 3px 8px;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .sv-notice-window {
+            overflow: hidden;
+            min-width: 0;
+            flex: 1;
+        }
+        .sv-notice-track {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            width: max-content;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .sv-notice-track a {
+            color: #166534;
+            text-decoration: underline;
+        }
+        .sv-notice-track .sv-notice-item {
+            white-space: nowrap;
+        }
+        @media(prefers-reduced-motion:no-preference) {
+            .sv-notice-track.is-moving {
+                animation: svNoticeScroll 32s linear infinite;
+            }
+            .sv-notice-track:hover {
+                animation-play-state: paused;
+            }
+        }
+        @keyframes svNoticeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Header and Footer Styling */
+        .sv-site-header, .sv-site-footer {
+            min-height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        .sv-site-footer {
+            color: #ffffff !important;
+            text-align: center;
+            padding: 20px 16px;
+            margin-top: 40px;
+            font-size: 13px;
+            line-height: 1.6;
+            width: 100%;
+            border-top: 4px solid #86c83f;
+        }
+        .sv-footer-inner { max-width: 900px; margin: 0 auto; width: 100%; }
+        .sv-footer-note { color: #ffffff !important; font-size: 13px; margin: 0 0 4px; }
+        .sv-footer-email { margin: 2px 0; }
+        .sv-footer-email a {
+            color: #a3e635 !important;
+            text-decoration: underline;
+            text-underline-offset: 3.5px;
+            font-weight: 700;
+        }
+        .sv-footer-copy { color: #e2e8f0 !important; margin-top: 4px; font-size: 12px; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-accent selection:text-white min-h-screen flex flex-col justify-between">
+
+    <!-- Header Section -->
+    <header class="sv-custom-gradient text-white shadow-md sv-site-header">
+        <div class="max-w-6xl mx-auto px-4 w-full flex items-center justify-between gap-4">
+            <a class="text-white/90 hover:text-white text-xs sm:text-sm font-bold bg-white/10 px-3 py-1.5 rounded-full" href="index.html">← मुख्य पान</a>
+            <a class="flex items-center justify-center gap-2" href="index.html"><h1 class="text-lg sm:text-xl font-extrabold tracking-tight">🌱 शेतकरी सेवार्थ</h1></a>
+            <a class="bg-white/20 hover:bg-white/30 text-white font-bold px-3 py-1.5 rounded-full text-xs" href="https://pmfme.mofpi.gov.in" target="_blank" rel="noopener noreferrer">🌐 अधिकृत पोर्टल</a>
+        </div>
+    </header>
+
+    <!-- Samayik Mahatvachya Soochana Bar -->
+    <div aria-label="महत्त्वाच्या सूचना" class="sv-global-notices" role="region">
+        <span class="sv-notice-label">📢 सूचना</span>
+        <div class="sv-notice-window">
+            <div class="sv-notice-track" id="svGlobalNoticeTrack"><span>सूचना लोड होत आहेत...</span></div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern text-white py-20 sm:py-28 relative overflow-hidden mt-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl">
+                <span class="inline-block bg-accent/90 text-slate-900 font-bold px-4 py-1.5 rounded-full text-xs sm:text-sm mb-6 tracking-wide shadow-md">
+                    <i class="fa-solid fa-award mr-1"></i> प्रधानमंत्री सूक्ष्म खाद्य प्रक्रिया उन्नयन योजना (PMFME)
+                </span>
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
+                    आपल्या कृषी उत्पादनांना द्या मूल्यवर्धनाची संधी!
+                </h1>
+                <p class="text-base sm:text-xl text-slate-100 mb-10 leading-relaxed font-light">
+                    असंघटित सूक्ष्म अन्न प्रक्रिया उद्योगांचे सक्षमीकरण. ३५% पर्यंत भांडवली अनुदान, नवीन उद्योग व आधुनिकीकरणासाठी सुवर्णसंधी.
+                </p>
+
+                <!-- Quick Stats Badges -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center space-x-4 shadow-lg">
+                        <div class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center text-slate-900 text-xl font-bold">
+                            <i class="fa-solid fa-percent"></i>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold">३५%</div>
+                            <div class="text-xs text-slate-200">भांडवली अनुदान (Subsidy)</div>
+                        </div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center space-x-4 shadow-lg">
+                        <div class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center text-slate-900 text-xl font-bold">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold">₹१० लाख</div>
+                            <div class="text-xs text-slate-200">वैयक्तिक कमाल अनुदान</div>
+                        </div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center space-x-4 shadow-lg">
+                        <div class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center text-slate-900 text-xl font-bold">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold">₹४०,०००</div>
+                            <div class="text-xs text-slate-200">बचत गट (SHG) बीज भांडवल</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#subsidy" class="bg-accent hover:bg-accent-light text-slate-900 font-bold px-8 py-4 rounded-xl text-center shadow-xl transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-calculator"></i> अनुदान कॅल्क्युलेटर तपासा
+                    </a>
+                    <a href="#intro" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold px-8 py-4 rounded-xl text-center backdrop-blur transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-book-open"></i> सविस्तर माहिती वाचा
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20 flex-grow">
+
+        <!-- Section 1: Introduction -->
+        <section id="intro" class="scroll-mt-28 bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-100">
+            <div class="max-w-3xl mb-8">
+                <span class="text-primary font-semibold text-sm uppercase tracking-wider block mb-2"><i class="fa-solid fa-circle-info mr-1"></i> योजना परिचय</span>
+                <h2 class="text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight">प्रधानमंत्री सूक्ष्म खाद्य प्रक्रिया उन्नयन योजना (PMFME) काय आहे?</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div class="md:col-span-2 space-y-4 text-slate-600 text-base sm:text-lg leading-relaxed">
+                    <p>
+                        प्रधानमंत्री सूक्ष्म अन्न प्रक्रिया उद्योग उन्नयन योजना ही केंद्र शासनाच्या अन्न प्रक्रिया उद्योग मंत्रालयामार्फत राबविण्यात येणारी केंद्र पुरस्कृत योजना आहे. आत्मनिर्भर भारत अभियानांतर्गत **२०२०-२१** मध्ये या योजनेची सुरुवात करण्यात आली.
+                    </p>
+                    <p>
+                        या योजनेचा मुख्य उद्देश असंघटित क्षेत्रातील सूक्ष्म अन्न प्रक्रिया उद्योगांचे आधुनिकीकरण, औपचारिकीकरण, आर्थिक सक्षमीकरण आणि व्यावसायिक विकास करणे हा आहे. ग्रामीण भागात उपलब्ध कृषी व फलोत्पादन उत्पादनांवर प्रक्रिया करून त्यांना मूल्यवर्धित उत्पादने म्हणून बाजारपेठ उपलब्ध करून देणे हा या योजनेचा महत्त्वाचा भाग आहे.
+                    </p>
+                    <div class="bg-primary-bg p-4 rounded-2xl border-l-4 border-primary text-slate-700 text-sm font-medium">
+                        <i class="fa-solid fa-lightbulb text-primary mr-2"></i> एक जिल्हा एक उत्पादन (ODOP) संकल्पनेवर आधारित या योजनेद्वारे शेतकऱ्यांना, बचत गटांना आणि वैयक्तिक उद्योजकांना थेट ३५% पर्यंतचे अनुदान मिळते.
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center space-y-4 shadow-inner">
+                    <div class="w-20 h-20 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto text-3xl">
+                        <i class="fa-solid fa-coins"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900">एकूण आर्थिक तरतूद</h3>
+                    <div class="text-3xl font-extrabold text-primary">₹१०,००० कोटी</div>
+                    <p class="text-xs text-slate-500">देशभरातील सूक्ष्म उद्योगांच्या विकासासाठी समर्पित निधी</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Objectives -->
+        <section id="objectives" class="scroll-mt-28">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-primary font-semibold text-sm uppercase tracking-wider block mb-2">मुख्य उद्देश</span>
+                <h2 class="text-2xl sm:text-4xl font-bold text-slate-900">योजनेची प्रमुख उद्दिष्टे</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-primary-bg text-primary rounded-xl flex items-center justify-center text-xl mb-4 font-bold">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">औपचारिकीकरण</h3>
+                    <p class="text-slate-600 text-sm">असंघटित क्षेत्रातील सूक्ष्म अन्न प्रक्रिया उद्योगांना संघटित व औपचारिक क्षेत्रात आणणे.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-primary-bg text-primary rounded-xl flex items-center justify-center text-xl mb-4 font-bold">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">स्पर्धात्मकता वाढवणे</h3>
+                    <p class="text-slate-600 text-sm">नवीन व अस्तित्वात असलेल्या अन्न प्रक्रिया उद्योगांची बाजारपेठेतील स्पर्धात्मक क्षमता वाढविणे.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-primary-bg text-primary rounded-xl flex items-center justify-center text-xl mb-4 font-bold">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">मूल्यवर्धन (Value Addition)</h3>
+                    <p class="text-slate-600 text-sm">कृषी उत्पादनांचे मूल्यवर्धन करून शेतकऱ्यांच्या मालाला योग्य नफा मिळवून देणे.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-primary-bg text-primary rounded-xl flex items-center justify-center text-xl mb-4 font-bold">
+                        <i class="fa-solid fa-people-group"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">बचत गट व FPO प्रोत्साहन</h3>
+                    <p class="text-slate-600 text-sm">महिला बचत गट, शेतकरी उत्पादक संस्था (FPO) व सहकारी संस्थांना आर्थिक सहाय्य देणे.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-primary-bg text-primary rounded-xl flex items-center justify-center text-xl mb-4 font-bold">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">प्रशिक्षण व तंत्रज्ञान</h3>
+                    <p class="text-slate-600 text-sm">अन्न प्रक्रिया उद्योगांसाठी आधुनिक तंत्रज्ञान, यंत्रसामग्री व कौशल्य प्रशिक्षण उपलब्ध करून देणे.</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-primary-bg text-primary rounded-xl flex items-center justify-center text-xl mb-4 font-bold">
+                        <i class="fa-solid fa-store"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">ब्रँडिंग व विपणन</h3>
+                    <p class="text-slate-600 text-sm">उत्पादनांचे ब्रँडिंग, आकर्षक पॅकेजिंग व राष्ट्रीय-आंतरराष्ट्रीय बाजारपेठेशी जोडणी.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Subsidy & Interactive Calculator -->
+        <section id="subsidy" class="scroll-mt-28 bg-gradient-to-br from-primary-dark to-primary text-white rounded-3xl p-6 sm:p-12 shadow-2xl">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="bg-accent text-slate-900 font-bold px-3 py-1 rounded-full text-xs uppercase tracking-wide">आर्थिक सहाय्य</span>
+                <h2 class="text-2xl sm:text-4xl font-bold mt-3">अनुदानाचे स्वरूप व थेट कॅल्क्युलेटर</h2>
+                <p class="text-slate-100 text-sm sm:text-base mt-2">तुमच्या प्रस्तावित प्रकल्प खर्चाची माहिती प्रविष्ट करा आणि अंदाजित अनुदान, स्वतःचा हिस्सा व बँक कर्ज त्वरित जाणून घ्या.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Calculator Form -->
+                <div class="lg:col-span-6 bg-white text-slate-800 p-6 sm:p-8 rounded-2xl shadow-xl">
+                    <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-calculator text-primary"></i> प्रकल्प अनुदान गणकयंत्र (Subsidy Calculator)
+                    </h3>
+
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">लाभार्थी प्रकार निवडा (Entity Type)</label>
+                            <select id="calcType" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 font-medium focus:outline-none focus:border-primary">
+                                <option value="individual">वैयक्तिक सूक्ष्म उद्योजक (Individual Unit - 35%, Max ₹10 Lakh)</option>
+                                <option value="shg">स्वयं सहाय्यता गट सदस्य बीज भांडवल (SHG Seed Capital)</option>
+                                <option value="fpo">FPO / सामायिक पायाभूत सुविधा (Common Infrastructure - 35%, Max ₹3 Crore)</option>
+                            </select>
+                        </div>
+
+                        <div id="projectCostWrapper">
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">प्रस्तावित एकूण प्रकल्प खर्च (रुपयांमध्ये - ₹)</label>
+                            <input type="number" id="calcCost" value="1000000" min="10000" max="100000000" step="50000" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 font-medium focus:outline-none focus:border-primary">
+                            <p class="text-xs text-slate-500 mt-1">उदा. १० लाखांसाठी 1000000 प्रविष्ट करा.</p>
+                        </div>
+
+                        <button onclick="calculateSubsidy()" class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 text-base">
+                            <i class="fa-solid fa-bolt"></i> गणणा करा (Calculate Subsidy)
+                        </button>
+                    </div>
+
+                    <!-- Calculator Results Display -->
+                    <div id="calcResults" class="mt-8 pt-6 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                        <div class="bg-primary-bg p-4 rounded-xl border border-primary/20">
+                            <span class="text-xs text-slate-600 block mb-1">अनुदान (Subsidy)</span>
+                            <span id="resSubsidy" class="text-lg sm:text-xl font-bold text-primary">₹ ३,५०,०००</span>
+                        </div>
+                        <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
+                            <span class="text-xs text-slate-600 block mb-1">स्वतःचा हिस्सा (10%)</span>
+                            <span id="resContribution" class="text-lg sm:text-xl font-bold text-amber-700">₹ १,००,०००</span>
+                        </div>
+                        <div class="bg-slate-100 p-4 rounded-xl border border-slate-200">
+                            <span class="text-xs text-slate-600 block mb-1">अंदाजित बँक कर्ज</span>
+                            <span id="resLoan" class="text-lg sm:text-xl font-bold text-slate-800">₹ ५,५०,०००</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scheme Subsidy Breakdown Details -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl">
+                        <h4 class="font-bold text-lg mb-3 flex items-center gap-2 text-accent-light">
+                            <i class="fa-solid fa-circle-check"></i> वैयक्तिक सूक्ष्म उद्योजकांसाठी सहाय्य
+                        </h4>
+                        <p class="text-sm text-slate-100 leading-relaxed">
+                            पात्र प्रकल्प खर्चाच्या <strong class="text-white">३५% भांडवली अनुदान</strong> (कमाल मर्यादा <strong class="text-accent-light">₹१० लाख</strong> प्रति युनिट). लाभार्थ्याचा स्वतःचा किमान १०% हिस्सा असणे अनिवार्य आहे, उर्वरित रक्कम बँक कर्जाद्वारे उभी केली जाते.
+                        </p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl">
+                        <h4 class="font-bold text-lg mb-3 flex items-center gap-2 text-accent-light">
+                            <i class="fa-solid fa-circle-check"></i> बचत गट (SHG) सदस्यांसाठी विशेष तरतूद
+                        </h4>
+                        <p class="text-sm text-slate-100 leading-relaxed">
+                            अन्न प्रक्रिया उद्योगाशी संबंधित प्रत्येक बचत गट सदस्यास खेळते भांडवल व लहान अवजारांसाठी <strong class="text-accent-light">₹४०,००० प्रति सदस्य बीज भांडवल</strong> दिले जाते.
+                        </p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl">
+                        <h4 class="font-bold text-lg mb-3 flex items-center gap-2 text-accent-light">
+                            <i class="fa-solid fa-circle-check"></i> सामायिक पायाभूत सुविधा (Common Infrastructure)
+                        </h4>
+                        <p class="text-sm text-slate-100 leading-relaxed">
+                            FPO, बचत गट महासंघ किंवा सहकारी संस्थांना सामायिक सुविधा केंद्रांसाठी (शीतगृह, गोदाम, चाचणी प्रयोगशाळा) <strong class="text-accent-light">₹३ कोटींपर्यंत कमाल अनुदान</strong>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: ODOP Quick Search & Directory -->
+        <section id="odop" class="scroll-mt-28 bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-100">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <span class="text-primary font-semibold text-sm uppercase tracking-wider block mb-1">एक जिल्हा एक उत्पादन</span>
+                    <h2 class="text-2xl sm:text-4xl font-bold text-slate-900">महाराष्ट्रातील जिल्ह्यानुसार ODOP उत्पादने</h2>
+                    <p class="text-slate-600 text-sm mt-1">तुमच्या जिल्ह्यातील वैशिष्ट्यपूर्ण अन्न प्रक्रिया उत्पादन शोधा.</p>
+                </div>
+                <div class="w-full md:w-72">
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                            <i class="fa-solid fa-search"></i>
+                        </span>
+                        <input type="text" id="odopSearch" placeholder="जिल्हा किंवा उत्पादन शोधा..." onkeyup="filterODOP()" class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:border-primary">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ODOP Table -->
+            <div class="overflow-x-auto rounded-2xl border border-slate-200">
+                <table id="odopTable" class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-primary text-white text-sm">
+                            <th class="py-3.5 px-6 font-semibold">अ.क्र.</th>
+                            <th class="py-3.5 px-6 font-semibold">जिल्हा (District)</th>
+                            <th class="py-3.5 px-6 font-semibold">ODOP प्रमुख उत्पादन (Focus Product)</th>
+                            <th class="py-3.5 px-6 font-semibold">संभाव्य प्रक्रिया उद्योग</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-sm text-slate-700">
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="py-3 px-6 font-medium">१</td>
+                            <td class="py-3 px-6 font-bold text-slate-900">पुणे</td>
+                            <td class="py-3 px-6">फळे (केळी, डाळिंब, अंजीर) व ज्यूस</td>
+                            <td class="py-3 px-6">जॅम, जेली, फ्रूट पल्प, डिहायड्रेशन</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="py-3 px-6 font-medium">२</td>
+                            <td class="py-3 px-6 font-bold text-slate-900">नाशिक</td>
+                            <td class="py-3 px-6">द्राक्ष, कांदा व भाजीपाला</td>
+                            <td class="py-3 px-6">राईझिन (बेदाणा), कांदा पावडर, फ्लेक्स</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="py-3 px-6 font-medium">३</td>
+                            <td class="py-3 px-6 font-bold text-slate-900">नागपूर</td>
+                            <td class="py-3 px-6">संत्रा (Orange)</td>
+                            <td class="py-3 px-6">संत्रा ज्यूस, स्क्वॅश, जॅम, काचऱ्या</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="py-3 px-6 font-medium">४</td>
+                            <td class="py-3 px-6 font-bold text-slate-900">लातूर</td>
+                            <td class="py-3 px-6">सोयाबीन व तूर डाळ</td>
+                            <td class="py-3 px-6">सोया दूध, सोया पनीर, डाळ मिल</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="py-3 px-6 font-medium">५</td>
+                            <td class="py-3 px-6 font-bold text-slate-900">जळगाव</td>
+                            <td class="py-3 px-6">केळी (Banana)</td>
+                            <td class="py-3 px-6">केळी वेफर्स, पावडर, फायबर प्रक्रिया</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="py-3 px-6 font-medium">६</td>
+                            <td class="py-3 px-6 font-bold text-slate-900">कोल्हापूर</td>
+                            <td class="py-3 px-6">गूळ (Jaggery)</td>
+                            <td class="py-3 px-6">आधुनिक गूळ प्रक्रिया, मसाला गूळ, पॅकिंग</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="py-3 px-6 font-medium">७</td>
+                            <td class="py-3 px-6 font-bold text-slate-900">अमरावती</td>
+                            <td class="py-3 px-6">संत्रा व सोयाबीन</td>
+                            <td class="py-3 px-6">संत्रा ज्यूस प्रक्रिया, तेल मिल</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="py-3 px-6 font-medium">८</td>
+                            <td class="py-3 px-6 font-bold text-slate-900">छत्रपती संभाजीनगर (औरंगाबाद)</td>
+                            <td class="py-3 px-6">मका व संत्रा</td>
+                            <td class="py-3 px-6">मका प्रक्रिया, स्टार्च, ज्यूस</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="py-3 px-6 font-medium">९</td>
+                            <td class="py-3 px-6 font-bold text-slate-900">रत्नागिरी / सिंधुदुर्ग</td>
+                            <td class="py-3 px-6">हापूस आंबा व काजू</td>
+                            <td class="py-3 px-6">आंबा पल्प, काजू प्रक्रिया व ग्रेडिंग</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="py-3 px-6 font-medium">१०</td>
+                            <td class="py-3 px-6 font-bold text-slate-900">सोलापूर</td>
+                            <td class="py-3 px-6">डाळिंब (Pomegranate)</td>
+                            <td class="py-3 px-6">डाळिंब आरिल्स पॅकिंग, ज्यूस, सिरप</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-xs text-slate-500 mt-4 text-center">* महाराष्ट्र शासनाच्या अधिकृत अधिसूचनेनुसार इतर जिल्ह्यांचे ODOP उत्पादन देखील PMFME अंतर्गत पात्र आहेत.</p>
+        </section>
+
+        <!-- Section 5: Eligibility & Required Documents -->
+        <section id="eligibility" class="scroll-mt-28 grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Eligibility -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-100 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-primary-bg text-primary rounded-xl flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-bold text-slate-900">पात्रता निकष (Eligibility)</h3>
+                    </div>
+                    <ul class="space-y-4 text-slate-600 text-sm sm:text-base">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-primary mt-1"></i>
+                            <span>वय किमान **१८ वर्षे** पूर्ण असावे.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-primary mt-1"></i>
+                            <span>वैयक्तिक सूक्ष्म उद्योजक नवीन किंवा अस्तित्वात असलेला उद्योग सुरू करू शकतात.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-primary mt-1"></i>
+                            <span>कुटुंबातील एकाच व्यक्तीला या योजनेचा लाभ घेता येतो.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-primary mt-1"></i>
+                            <span>महिला बचत गट (SHGs), शेतकरी उत्पादक संस्था (FPO), आणि सहकारी संस्था थेट अर्ज करू शकतात.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-primary mt-1"></i>
+                            <span>प्रकल्प अन्न प्रक्रिया क्षेत्राशी संबंधित असणे आणि त्यासाठी व्यवहार्य प्रकल्प अहवाल (DPR) असणे आवश्यक आहे.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-8 pt-4 border-t border-slate-100 bg-amber-50 p-4 rounded-2xl text-xs text-amber-800">
+                    <i class="fa-solid fa-triangle-exclamation mr-1"></i> **अपात्र व्यवसाय:** सरळ शेतमाल खरेदी-विक्री (प्रक्रिया न करता), दूध सुटे विकणे, रेस्टॉरंट किंवा हॉटेल सेवा या योजनेत पात्र नाहीत.
+                </div>
+            </div>
+
+            <!-- Documents Required -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-100 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-primary-bg text-primary rounded-xl flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-file-lines"></i>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-bold text-slate-900">आवश्यक कागदपत्रे</h3>
+                    </div>
+                    <ul class="space-y-4 text-slate-600 text-sm sm:text-base">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-file-arrow-right text-primary mt-1"></i>
+                            <span>**आधार कार्ड** व **पॅन कार्ड** (अर्जदाराचे).</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-file-arrow-right text-primary mt-1"></i>
+                            <span>रहिवासी पुरावा व पासपोर्ट साईझ फोटो.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-file-arrow-right text-primary mt-1"></i>
+                            <span>बँक पासबुक किंवा बँक स्टेटमेंट (शेवटचे ६ महिने).</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-file-arrow-right text-primary mt-1"></i>
+                            <span>उद्यम नोंदणी (Udyam Registration) व FSSAI परवाना.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-file-arrow-right text-primary mt-1"></i>
+                            <span>सविस्तर प्रकल्प अहवाल (**DPR**) व यंत्रसामग्रीची कोटेशन्स.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-8 pt-4 border-t border-slate-100 bg-primary-bg p-4 rounded-2xl text-xs text-primary-dark font-medium">
+                    <i class="fa-solid fa-circle-info mr-1"></i> बचत गट किंवा FPO असल्यास संस्थेचे नोंदणी प्रमाणपत्र, ठराव व संचालक मंडळाची यादी आवश्यक.
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Business Types -->
+        <section id="businesses" class="scroll-mt-28">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-primary font-semibold text-sm uppercase tracking-wider block mb-2">पात्र उद्योग</span>
+                <h2 class="text-2xl sm:text-4xl font-bold text-slate-900">कोणते अन्न प्रक्रिया उद्योग सुरू करता येतात?</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Item 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 hover:border-primary transition-all text-center group">
+                    <div class="w-16 h-16 bg-primary-bg text-primary rounded-2xl flex items-center justify-center text-2xl mx-mb-4 mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-1">डाळ मिल उद्योग</h3>
+                    <p class="text-xs text-slate-500">तूर, हरभरा, मूग, मसूद डाळ प्रतवारी व पॅकिंग</p>
+                </div>
+                <!-- Item 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 hover:border-primary transition-all text-center group">
+                    <div class="w-16 h-16 bg-primary-bg text-primary rounded-2xl flex items-center justify-center text-2xl mx-mb-4 mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-pepper-hot"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-1">मसाला उद्योग</h3>
+                    <p class="text-xs text-slate-500">हळद, मिरची, धणे पावडर व गरम मसाला निर्मिती</p>
+                </div>
+                <!-- Item 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 hover:border-primary transition-all text-center group">
+                    <div class="w-16 h-16 bg-primary-bg text-primary rounded-2xl flex items-center justify-center text-2xl mx-mb-4 mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-apple-whole"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-1">फळे व भाजीपाला प्रक्रिया</h3>
+                    <p class="text-xs text-slate-500">जॅम, जेली, ज्यूस, स्क्वॅश व डिहायड्रेटेड भाजीपाला</p>
+                </div>
+                <!-- Item 4 -->
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 hover:border-primary transition-all text-center group">
+                    <div class="w-16 h-16 bg-primary-bg text-primary rounded-2xl flex items-center justify-center text-2xl mx-mb-4 mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bread-slice"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-1">बेकरी व तृणधान्य उद्योग</h3>
+                    <p class="text-xs text-slate-500">बिस्किटे, ब्रेड, पापड, लोणचे, मिल निर्मिती</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Application Process Steps -->
+        <section class="bg-white rounded-3xl p-6 sm:p-12 shadow-xl border border-slate-100">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-primary font-semibold text-sm uppercase tracking-wider block mb-2">अर्ज प्रक्रिया</span>
+                <h2 class="text-2xl sm:text-4xl font-bold text-slate-900">ऑनलाइन अर्ज कसा करावा? (Step-by-Step)</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 relative">
+                    <div class="w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center font-bold text-lg mb-4">१</div>
+                    <h3 class="font-bold text-base text-slate-900 mb-2">पोर्टल नोंदणी</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">अधिकृत पोर्टल `pmfme.mofpi.gov.in` वर जाऊन 'Applicant Login' द्वारे नवीन नोंदणी करा.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 relative">
+                    <div class="w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center font-bold text-lg mb-4">२</div>
+                    <h3 class="font-bold text-base text-slate-900 mb-2">माहिती व DPR अपलोड</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">वैयक्तिक तपशील, प्रस्तावित व्यवसाय, बँक माहिती आणि सविस्तर प्रकल्प अहवाल (DPR) अपलोड करा.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 relative">
+                    <div class="w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center font-bold text-lg mb-4">३</div>
+                    <h3 class="font-bold text-base text-slate-900 mb-2">छाननी व DRP सहाय्य</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">जिल्हा संसाधन व्यक्ती (DRP) द्वारे अर्जाची तपासणी व जिल्हा नोडल अधिकाऱ्यांकडून शिफारस.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 relative">
+                    <div class="w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center font-bold text-lg mb-4">४</div>
+                    <h3 class="font-bold text-base text-slate-900 mb-2">बँक कर्ज व अनुदान</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">बँकेकडून कर्जाची मंजुरी व वितरणानंतर ३५% अनुदान थेट कर्ज खात्यात समायोजित केले जाते.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: FAQ Accordion -->
+        <section id="faq" class="scroll-mt-28 max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-primary font-semibold text-sm uppercase tracking-wider block mb-2">सतत विचारले जाणारे प्रश्न</span>
+                <h2 class="text-2xl sm:text-4xl font-bold text-slate-900">FAQ (महत्त्वाचे प्रश्न व उत्तरे)</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Accordion 1 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition-colors">
+                        <span>प्रश्न १. PMFME योजनेत वैयक्तिक उद्योजकास जास्तीत जास्त किती अनुदान मिळते?</span>
+                        <i class="fa-solid fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="hidden p-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100">
+                        उत्तर: पात्र प्रकल्प खर्चाच्या ३५% किंवा जास्तीत जास्त **₹१० लाख** पर्यंतचे भांडवली अनुदान मिळते. यामध्ये लाभार्थ्याचा किमान १०% स्वतःचा हिस्सा असणे अनिवार्य आहे.
+                    </div>
+                </div>
+
+                <!-- Accordion 2 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition-colors">
+                        <span>प्रश्न २. अनुदान थेट बँक खात्यात जमा होते का?</span>
+                        <i class="fa-solid fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="hidden p-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100">
+                        उत्तर: नाही. हे अनुदान **Credit Linked Back-ended Subsidy** स्वरूपाचे असते. बँक कर्ज मंजूर झाल्यानंतर व उद्योग सुरू झाल्यानंतर ते थेट तुमच्या कर्ज खात्याशी समायोजित केले जाते.
+                    </div>
+                </div>
+
+                <!-- Accordion 3 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition-colors">
+                        <span>प्रश्न ३. बचत गटाच्या सदस्यांना काय लाभ मिळतो?</span>
+                        <i class="fa-solid fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="hidden p-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100">
+                        उत्तर: अन्न प्रक्रिया उद्योगाशी संबंधित प्रत्येक बचत गट सदस्यास खेळते भांडवल व लहान अवजारांसाठी **₹४०,००० प्रति सदस्य बीज भांडवल** दिले जाते.
+                    </div>
+                </div>
+
+                <!-- Accordion 4 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition-colors">
+                        <span>प्रश्न ४. या योजनेसाठी अर्ज कुठे आणि कसा करावा?</span>
+                        <i class="fa-solid fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="hidden p-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100">
+                        उत्तर: अधिकृत पोर्टल **https://pmfme.mofpi.gov.in** वर जाऊन ऑनलाइन अर्ज करता येतो. तसेच जिल्ह्यातील जिल्हा अधीक्षक कृषी अधिकारी कार्यालय किंवा जिल्हा उद्योग केंद्र येथे संपर्क साधू शकता.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: Contact & Official Links -->
+        <section id="contact" class="scroll-mt-28 bg-slate-900 text-white rounded-3xl p-8 sm:p-12 shadow-2xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div>
+                    <span class="text-accent font-semibold text-sm uppercase tracking-wider block mb-2">अधिकृत संपर्क व सहाय्यता</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-4">अधिक माहितीसाठी संपर्क</h2>
+                    <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+                        आपल्या जिल्ह्यातील **जिल्हा अधीक्षक कृषी अधिकारी (DSAO)** कार्यालय किंवा **जिल्हा उद्योग केंद्र (DIC)** येथे संपर्क साधावा.
+                    </p>
+                    <div class="space-y-3 text-sm text-slate-300">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-accent"></i>
+                            <span>ईमेल सहाय्यता: pmfme-fpi@gov.in</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-globe text-accent"></i>
+                            <span>अधिकृत संकेतस्थळ: https://pmfme.mofpi.gov.in</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur border border-white/20 p-6 rounded-2xl flex flex-col justify-center space-y-4">
+                    <h3 class="font-bold text-lg text-accent-light">त्वरित लिंक्स (Quick Links)</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <a href="https://pmfme.mofpi.gov.in" target="_blank" rel="noopener noreferrer" class="bg-primary hover:bg-primary-dark text-white p-3 rounded-xl text-center text-sm font-semibold transition-all shadow">
+                            <i class="fa-solid fa-globe mr-1"></i> PMFME पोर्टल
+                        </a>
+                        <a href="https://www.mofpi.gov.in" target="_blank" rel="noopener noreferrer" class="bg-slate-800 hover:bg-slate-700 text-white border border-slate-600 p-3 rounded-xl text-center text-sm font-semibold transition-all shadow">
+                            <i class="fa-solid fa-building-columns mr-1"></i> MoFPI मंत्रालय
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="sv-site-footer sv-custom-gradient" role="contentinfo">
+        <div class="sv-footer-inner">
+            <p class="sv-footer-note">सदर माहिती आपल्या उपयुक्त वाटल्यास किंवा सूचना असल्यास संपर्क साधू शकता.</p>
+            <p class="sv-footer-email" style="margin-top:2px;">📧 ई-मेल: <a href="mailto:shetkarisevarthofficial@gmail.com">shetkarisevarthofficial@gmail.com</a></p>
+            <p class="sv-footer-copy">© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p>
+        </div>
+    </footer>
+
+    <!-- Portal Data & Notices Script -->
+    <script src="portal-data.js?v=shared"></script>
+    <script>
+      (function(){
+        function loadSharedNotices(){
+          var track = document.getElementById('svGlobalNoticeTrack');
+          if(!track) return;
+          var items = (window.PORTAL_DATA && Array.isArray(window.PORTAL_DATA.announcements)) ? window.PORTAL_DATA.announcements : [];
+          track.innerHTML = '';
+          if(!items.length){ track.textContent = 'सध्या नवीन अपडेट उपलब्ध नाही.'; return; }
+          function add(item){
+            var span = document.createElement('span');
+            span.className = 'sv-notice-item';
+            var label = (item.emoji ? item.emoji + ' ' : '') + (item.text || '');
+            if(item.url){
+              var a = document.createElement('a');
+              a.href = item.url;
+              a.textContent = label;
+              span.appendChild(a);
+            } else {
+              span.textContent = label;
+            }
+            track.appendChild(span);
+          }
+          items.forEach(add);
+          if(items.length > 1){
+            items.forEach(add);
+            track.classList.add('is-moving');
+          }
+        }
+        if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', loadSharedNotices);
+        else loadSharedNotices();
+      })();
+    </script>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Subsidy Calculator Logic
+        function calculateSubsidy() {
+            const type = document.getElementById('calcType').value;
+            let cost = parseFloat(document.getElementById('calcCost').value) || 0;
+            let subsidy = 0;
+            let contribution = 0;
+            let loan = 0;
+
+            if (type === 'individual') {
+                subsidy = cost * 0.35;
+                if (subsidy > 1000000) subsidy = 1000000;
+                contribution = cost * 0.10;
+                loan = cost - subsidy - contribution;
+                if (loan < 0) loan = 0;
+            } else if (type === 'shg') {
+                subsidy = 40000;
+                contribution = 0;
+                loan = cost > 40000 ? cost - 40000 : 0;
+            } else if (type === 'fpo') {
+                subsidy = cost * 0.35;
+                if (subsidy > 30000000) subsidy = 30000000;
+                contribution = cost * 0.10;
+                loan = cost - subsidy - contribution;
+                if (loan < 0) loan = 0;
+            }
+
+            document.getElementById('resSubsidy').innerText = '₹ ' + subsidy.toLocaleString('en-IN');
+            document.getElementById('resContribution').innerText = '₹ ' + contribution.toLocaleString('en-IN');
+            document.getElementById('resLoan').innerText = '₹ ' + loan.toLocaleString('en-IN');
+        }
+
+        window.onload = function() {
+            calculateSubsidy();
+        };
+
+        // ODOP District Search Filter
+        function filterODOP() {
+            let input = document.getElementById('odopSearch').value.toLowerCase();
+            let table = document.getElementById('odopTable');
+            let tr = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < tr.length; i++) {
+                let tdDistrict = tr[i].getElementsByTagName('td')[1];
+                let tdProduct = tr[i].getElementsByTagName('td')[2];
+                if (tdDistrict || tdProduct) {
+                    let txtDistrict = tdDistrict.textContent || tdDistrict.innerText;
+                    let txtProduct = tdProduct.textContent || tdProduct.innerText;
+                    if (txtDistrict.toLowerCase().indexOf(input) > -1 || txtProduct.toLowerCase().indexOf(input) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        // FAQ Accordion Toggle
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+    </script>
+</body>
+</html>

@@ -8,7 +8,7 @@ window.PORTAL_DATA = {
     },
     {
       "emoji": "🧪",
-      "text": "२२ ऑक्टोबर पासून खत बुकिंग होणार app द्वारे.",
+      "text": " खत बुकिंग होणार app द्वारे कशी करायची?",
       "url": "fsas.html"
     },
     {
@@ -155,24 +155,25 @@ window.PORTAL_DATA = {
       "mr": "प्रधानमंत्री सूक्ष्म खाद्य प्रक्रिया उन्नयन योजना (PMFME)",
       "en": "PMFME Scheme",
       "emoji": "🏭",
-      "url": "#",
-      "status": "coming-soon",
-      "newTag": false
+      "url": "pmfme.html",
+      "status": "ok",
+      "newTag": false,
+      "isNew": true
     },
     {
       "mr": "डॉ. बाबासाहेब आंबेडकर कृषी स्वावलंबन योजना",
-      "en": "Ambedkar Krishi Swavalamban",
+      "en": "Ambedkar Krishi Swavalamban dr babasaheb krushi swawlamban",
       "emoji": "🏡",
-      "url": "#",
-      "status": "coming-soon",
+      "url": "baksy.html",
+      "status": "ok",
       "newTag": false
     },
     {
       "mr": "बिरसा मुंडा कृषि क्रांती योजना",
-      "en": "Birsa Munda Krishi Kranti",
+      "en": "Birsa Munda Krishi Kranti birasa munda ",
       "emoji": "🏹",
-      "url": "#",
-      "status": "coming-soon",
+      "url": "bmkky.html",
+      "status": "ok",
       "newTag": false
     },
     {
@@ -208,11 +209,11 @@ window.PORTAL_DATA = {
       "newTag": false
     },
     {
-      "mr": "एकात्मिक किड / रोग व्यवस्थापन",
-      "en": "Integrated Pest / Disease Management",
+      "mr": "HORTSAP – फळपिकांवरील कीड रोग सर्वेक्षण योजना",
+      "en": "hortsap",
       "emoji": "🩺",
-      "url": "#",
-      "status": "coming-soon",
+      "url": "hortsap.html",
+      "status": "ok",
       "newTag": false
     },
     {

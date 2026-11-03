@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="बिरसा मुंडा कृषी क्रांती योजना – अनुसूचित जमातीच्या शेतकऱ्यांसाठी 100% पर्यंत अनुदान, नवीन विहीर, विहीर दुरुस्ती, ठिबक/तुषार सिंचन, पात्रता आणि अर्ज प्रक्रिया." name="description"/>
+<title>बिरसा मुंडा कृषी क्रांती योजना | शेतकरी सेवार्थ</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&amp;family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+    body{font-family:'Tiro Devanagari Marathi','Noto Sans Devanagari',sans-serif;background-color:#f8fafc;text-rendering:optimizeLegibility;color:#163b2a;margin:0;padding:0}
+    .hero-gradient{background:linear-gradient(135deg,#065f46 0%,#047857 50%,#0f766e 100%)}
+    .content-panel{background:#ffffff;border:1px solid #d7e8dc;border-radius:16px;box-shadow:0 4px 20px rgba(15,80,45,.06);padding:24px;margin:0 auto}
+    .section-card{border-radius:12px;background:#f4fbf5;border:1px solid #d2efda;padding:16px;margin-bottom:14px;box-shadow:0 2px 8px rgba(22,101,52,.04)}
+    .section-heading{font-size:1.1rem;font-weight:800;color:#07472a;margin-bottom:8px;padding-bottom:4px;border-bottom:2px solid #d2efda}
+    p,li{line-height:1.65;font-size:14.5px;color:#2d3748;margin-bottom:8px}
+    ul{margin:0;padding-left:20px}
+    .back-link{display:inline-flex;align-items:center;gap:6px;background:#dcfce7;color:#14532d;border:1px solid #bbf7d0;border-radius:999px;padding:6px 14px;font-size:12px;font-weight:700;text-decoration:none;margin-bottom:12px;transition:.2s}
+    .back-link:hover{background:#bbf7d0}
+    .action-link{display:inline-flex;justify-content:center;align-items:center;gap:8px;text-align:center;border-radius:999px;padding:10px 20px;font-weight:700;background:#047857;color:#fff;text-decoration:none;box-shadow:0 3px 10px rgba(22,101,52,.15)}
+    .action-link:hover{background:#065f46}
+    
+    /* Global Notice Bar & Scrolling Animation */
+    .sv-global-notices{width:100%;max-width:1000px;margin:10px auto 0;box-sizing:border-box;display:flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid #b7ebc8;border-radius:12px;background:linear-gradient(100deg,#fff7d6,#f0fdf4 55%,#e2fbe9);color:#14532d;box-shadow:0 2px 8px rgba(22,101,52,.05)}
+    .sv-notice-label{background:#dc2626;color:#fff;border-radius:999px;padding:3px 8px;font-size:11px;font-weight:700;white-space:nowrap;flex-shrink:0}
+    .sv-notice-window{overflow:hidden;min-width:0;flex:1}
+    .sv-notice-track{display:flex;align-items:center;gap:30px;width:max-content;font-size:13px;font-weight:600}
+    .sv-notice-track a{color:#166534;text-decoration:underline}
+    .sv-notice-track .sv-notice-item{white-space:nowrap}
+    
+    @media(prefers-reduced-motion:no-preference){
+      .sv-notice-track.is-moving{animation:svNoticeScroll 32s linear infinite}
+      .sv-notice-track:hover{animation-play-state:paused}
+    }
+    @keyframes svNoticeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    /* Header and Footer Equal Height & Styling */
+    .sv-site-header, .sv-site-footer {
+      height: 85px;
+      min-height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+    .sv-site-footer{
+      background-color: #0b5e36 !important;
+      color: #ffffff !important;
+      text-align: center;
+      padding: 10px 16px;
+      margin-top: 30px;
+      font-size: 13px;
+      line-height: 1.6;
+      width: 100%;
+      border-top: 4px solid #86c83f;
+    }
+    .sv-footer-inner{max-width:900px;margin:0 auto;width:100%}
+    .sv-footer-note{color:#ffffff !important;font-size:13px;margin:0 0 4px}
+    .sv-footer-email{margin:2px 0}
+    .sv-footer-email a{
+      color: #a3e635 !important;
+      text-decoration: underline;
+      text-underline-offset: 3.5px;
+      font-weight: 700;
+    }
+    .sv-footer-copy{color:#e2e8f0 !important; margin-top:4px; font-size:12px;}
+    
+    @media(max-width:640px){
+      .content-panel{padding:14px!important}
+      .section-card{padding:12px!important}
+      .sv-site-header, .sv-site-footer { height: auto; min-height: 85px; padding: 12px; }
+    }
+
+    /* Subsidy Table */
+    .subsidy-table{width:100%;border-collapse:collapse;font-size:13.5px;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(22,101,52,.06);background:white}
+    .subsidy-table thead{background:linear-gradient(135deg,#047857,#065f46);color:#fff}
+    .subsidy-table th,.subsidy-table td{padding:9px 12px;text-align:left;border-bottom:1px solid #e5eee7}
+    .subsidy-table tbody tr:hover{background:#ecfdf5}
+    .subsidy-table th{font-weight:700;font-size:13px}
+    .subsidy-table td:last-child{font-weight:700;color:#065f46;white-space:nowrap}
+
+    /* Notice / Info Box */
+    .info-note{background:linear-gradient(100deg,#ecfdf5,#f0fdf4);border-left:4px solid #22c55e;padding:10px 14px;border-radius:10px;margin-top:12px;font-size:13.5px;color:#065f46}
+    .info-note.warn{border-left-color:#dc2626;background:#fef2f2;color:#991b1b}
+    .info-note.amber{border-left-color:#f59e0b;background:#fffbeb;color:#92400e}
+
+    /* Steps */
+    .steps{counter-reset:step;display:grid;gap:10px;margin-top:10px}
+    .step{position:relative;padding:12px 14px 12px 52px;background:white;border:1px solid #d2efda;border-radius:12px}
+    .step::before{counter-increment:step;content:counter(step);position:absolute;left:12px;top:12px;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#047857);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+    .step strong{color:#07472a;display:block;margin-bottom:3px;font-size:14px}
+    .step p{margin:0;font-size:13px;color:#475569}
+
+    /* Docs list */
+    .docs-list{list-style:none;padding:0;display:grid;gap:6px;margin-top:8px}
+    .docs-list li{background:white;padding:8px 12px;border-radius:9px;border:1px solid #d2efda;font-size:13.5px;display:flex;align-items:center;gap:8px;margin:0}
+    .docs-list li::before{content:"✓";color:#fff;background:linear-gradient(135deg,#22c55e,#047857);width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;font-weight:800}
+
+    /* FAQ */
+    .faq{display:grid;gap:8px;margin-top:8px}
+    .faq-item{background:white;border:1px solid #d2efda;border-radius:10px;overflow:hidden}
+    .faq-q{width:100%;text-align:left;padding:11px 14px;background:none;border:none;font-size:13.5px;font-weight:700;color:#07472a;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:inherit}
+    .faq-q:hover{background:#f0fdf4}
+    .faq-q::after{content:"+";font-size:18px;color:#22c55e;transition:transform .25s;font-weight:400}
+    .faq-q.active::after{transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 14px}
+    .faq-a p{padding:0 0 12px;color:#475569;font-size:13px;margin:0}
+
+    /* Highlight Box */
+    .highlight-box{background:linear-gradient(135deg,#ecfdf5,#d1fae5);border:1px solid #6ee7b7;border-radius:12px;padding:14px;text-align:center;margin-bottom:14px}
+    .highlight-box .big{font-size:1.5rem;font-weight:800;color:#065f46}
+    .highlight-box .sub{font-size:12.5rem;color:#047857;font-weight:600}
+  </style>
+</head>
+<body class="text-gray-800 min-h-screen flex flex-col justify-between">
+
+<!-- Header Section -->
+<header class="hero-gradient text-white shadow-md sv-site-header">
+  <div class="max-w-6xl mx-auto px-4 w-full flex items-center justify-between gap-4">
+    <a class="text-white/90 hover:text-white text-xs sm:text-sm font-bold bg-white/10 px-3 py-1.5 rounded-full" href="index.html">← मागील पृष्ठ</a>
+    <a class="flex items-center justify-center gap-2" href="index.html"><h1 class="text-lg sm:text-xl font-extrabold tracking-tight">🌱 शेतकरी सेवार्थ</h1></a>
+    <a class="bg-white/20 hover:bg-white/30 text-white font-bold px-3 py-1.5 rounded-full text-xs" href="index.html">🏠 मुख्य पृष्ठ</a>
+  </div>
+</header>
+
+<!-- सामायिक महत्त्वाच्या सूचना बार -->
+<div aria-label="महत्त्वाच्या सूचना" class="sv-global-notices" role="region">
+  <span class="sv-notice-label">📢 सूचना</span>
+  <div class="sv-notice-window">
+    <div class="sv-notice-track" id="svGlobalNoticeTrack"><span>सूचना लोड होत आहेत...</span></div>
+  </div>
+</div>
+
+<!-- Main Content Area -->
+<main class="max-w-4xl mx-auto px-4 py-4 w-full flex-grow">
+  <a class="back-link" href="index.html">← शेतकरी सेवार्थ मुख्य पानावर जा</a>
+  
+  <article class="content-panel space-y-4">
+    <!-- Title Section -->
+    <div class="text-center border-b border-emerald-100 pb-4">
+      <span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-100 border border-emerald-300 px-3.5 py-1 rounded-full mb-2">🏹 अनुसूचित जमाती शेतकरी विशेष योजना</span>
+      <h2 class="text-lg md:text-2xl font-black text-emerald-950 leading-snug">बिरसा मुंडा कृषी क्रांती योजना</h2>
+      <p class="text-sm text-gray-600 mt-2">अनुसूचित जमातीच्या शेतकऱ्यांना शाश्वत सिंचन सुविधा, नवीन विहीर, विहीर दुरुस्ती, ठिबक/तुषार सिंचन आणि इतर साधनांसाठी 100% पर्यंत अनुदान.</p>
+      <div class="mt-4 flex flex-wrap gap-2 justify-center">
+        <a class="action-link text-sm" href="https://mahadbt.maharashtra.gov.in/farmer/login/login" target="_blank" rel="noopener noreferrer">🚀 महा-डीबीटी पोर्टलवर अर्ज करा</a>
+      </div>
+    </div>
+
+    <!-- योजना ओळख -->
+    <section class="section-card bg-emerald-50/80">
+      <h3 class="section-heading text-emerald-950">📋 योजना ओळख</h3>
+      <p><strong>बिरसा मुंडा कृषी क्रांती योजना</strong> ही महाराष्ट्र शासनाच्या <strong>कृषी विभागामार्फत</strong> राबविण्यात येणारी 100% राज्य पुरस्कृत योजना आहे. ही योजना विशेषतः <strong>अनुसूचित जमाती (ST) प्रवर्गातील शेतकऱ्यांसाठी</strong> आहे. या योजनेचा मुख्य उद्देश <strong>जमिनीतील ओलावा टिकवून ठेवणे, शाश्वत सिंचन सुविधा उपलब्ध करून देणे आणि आदिवासी शेतकऱ्यांचे आर्थिक उत्पन्न वाढवून त्यांना स्वयंपूर्ण बनवणे</strong> हा आहे.</p>
+      <div class="info-note">
+        <strong>लाभार्थी गट:</strong> अनुसूचित जमाती (ST) शेतकरी • <strong>अंमलबजावणी:</strong> कृषी विभाग, महाराष्ट्र शासन • <strong>योजना प्रकार:</strong> 100% राज्य पुरस्कृत (Tribal Sub Plan)
+      </div>
+      <div class="info-note amber" style="margin-top:10px">
+        <strong>वगळलेले जिल्हे:</strong> मुंबई, सिंधुदुर्ग, रत्नागिरी, सातारा, सांगली आणि कोल्हापूर वगळता राज्यातील इतर सर्व जिल्ह्यांमध्ये ही योजना राबविली जाते.
+      </div>
+    </section>
+
+    <!-- ⭐ योजना सुरू झाल्याची तारीख -->
+    <section class="section-card" style="border-left:5px solid #f59e0b">
+      <h3 class="section-heading">📅 योजना सुरू झाल्याची तारीख</h3>
+      <p>बिरसा मुंडा कृषी क्रांती योजना <strong>सन 2020-21 ते 2021-22</strong> या कालावधीत सुरू करण्यात आली. कोरोना महामारीच्या पार्श्वभूमीवर 2020-21 मध्ये डॉ. बाबासाहेब आंबेडकर कृषी स्वावलंबन योजनेची अंमलबजावणी तात्पुरती स्थगित करण्यात आली होती, त्याच काळात राज्य शासनाने या योजनेला <strong>प्रशासकीय व तांत्रिक मान्यता</strong> दिली. त्यानंतर <strong>सन 2021-22</strong> पासून योजनेची प्रत्यक्ष अंमलबजावणी सुरू झाली. 1 ऑक्टोबर 2024 च्या शासन निर्णयान्वये योजनेच्या आर्थिक निकषांमध्ये सुधारणा व नवीन घटकांचा समावेश करण्यात आला.</p>
+    </section>
+
+    <!-- योजनेची उद्दिष्टे -->
+    <section class="section-card">
+      <h3 class="section-heading">🎯 योजनेची उद्दिष्टे</h3>
+      <ul style="margin-top:6px">
+        <li>जमिनीतील ओलावा टिकवून ठेवणे आणि शेतकऱ्यांना <strong>शाश्वत सिंचन सुविधा</strong> उपलब्ध करून देणे.</li>
+        <li>अनुसूचित जमातीतील शेतकऱ्यांचे <strong>कृषी उत्पन्न वाढवणे</strong> आणि त्यांना <strong>स्वयंपूर्ण</strong> बनवणे.</li>
+        <li>आदिवासी शेतकऱ्यांचे <strong>जीवनमान उंचावणे</strong>.</li>
+        <li><strong>विहीर, पंप, ठिबक/तुषार सिंचन, शेततळे</strong> यांसारख्या पायाभूत सुविधा निर्माण करणे.</li>
+        <li>कोरडवाहू क्षेत्र ओलिताखाली आणून <strong>पीक उत्पादन वाढवणे</strong>.</li>
+      </ul>
+    </section>
+
+    <!-- अनुदानाचे घटक -->
+    <section class="section-card">
+      <h3 class="section-heading">💰 अनुदानाचे घटक आणि रक्कम</h3>
+      
+      <div class="info-note warn" style="margin-bottom:12px">
+        <strong>महत्त्वाची नोंद:</strong> योजनेच्या अनुदान दरांच्या दोन आवृत्त्या खाली दिल्या आहेत. <strong>अंतिम रक्कम महा-डीबीटी पोर्टलवर किंवा तालुका कृषी अधिकाऱ्यांकडून खात्री करा.</strong>
+      </div>
+
+      <h4 style="font-weight:800;color:#065f46;margin:12px 0 6px;font-size:.95rem">📌 सुधारित दर</h4>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+        <table class="subsidy-table">
+          <thead>
+            <tr><th>अ.क्र.</th><th>घटक</th><th>अनुदान मर्यादा (₹)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td><strong>नवीन विहीर</strong></td><td>₹4,00,000</td></tr>
+            <tr><td>2</td><td><strong>जुनी विहीर दुरुस्ती</strong></td><td>₹1,00,000</td></tr>
+            <tr><td>3</td><td><strong>इनवेल बोअरिंग</strong></td><td>₹40,000</td></tr>
+            <tr><td>4</td><td><strong>पंप संच (10 HP पर्यंत)</strong></td><td>₹40,000 (90% किंवा प्रत्यक्ष खर्च, जे कमी असेल)</td></tr>
+            <tr><td>5</td><td><strong>शेततळ्याचे प्लास्टिक अस्तरीकरण</strong></td><td>₹2,00,000</td></tr>
+            <tr><td>6</td><td><strong>ठिबक सिंचन संच</strong></td><td>₹97,000 पर्यंत</td></tr>
+            <tr><td>7</td><td><strong>तुषार सिंचन संच</strong></td><td>₹47,000 पर्यंत</td></tr>
+            <tr><td>8</td><td><strong>पीव्हीसी पाईप</strong></td><td>₹50,000</td></tr>
+            <tr><td>9</td><td><strong>सौर पंप</strong></td><td>₹50,000</td></tr>
+            <tr><td>10</td><td><strong>परसबाग</strong></td><td>₹5,000</td></tr>
+            <tr><td>11</td><td>शेती यंत्रसामग्री (बैलजोडी/ट्रॅक्टर चालित) <span class="text-xs font-bold text-amber-700">(नवीन)</span></td><td>₹50,000</td></tr>
+            <tr><td>12</td><td>विंधन विहीर <span class="text-xs font-bold text-amber-700">(नवीन)</span></td><td>₹50,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 style="font-weight:800;color:#065f46;margin:16px 0 6px;font-size:.95rem">📌 पोर्टलवरील दर</h4>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+        <table class="subsidy-table">
+          <thead>
+            <tr><th>अ.क्र.</th><th>घटक</th><th>अनुदान मर्यादा (₹)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>नवीन विहीर</td><td>₹2,50,000</td></tr>
+            <tr><td>2</td><td>जुनी विहीर दुरुस्ती</td><td>₹50,000</td></tr>
+            <tr><td>3</td><td>इनवेल बोअरिंग</td><td>₹20,000</td></tr>
+            <tr><td>4</td><td>पंप संच</td><td>₹20,000</td></tr>
+            <tr><td>5</td><td>वीज जोडणी आकार</td><td>₹10,000</td></tr>
+            <tr><td>6</td><td>शेततळे प्लास्टिक अस्तरीकरण</td><td>₹1,00,000</td></tr>
+            <tr><td>7</td><td>ठिबक सिंचन संच</td><td>₹50,000</td></tr>
+            <tr><td>8</td><td>तुषार सिंचन संच</td><td>₹25,000</td></tr>
+            <tr><td>9</td><td>पीव्हीसी पाईप</td><td>₹30,000</td></tr>
+            <tr><td>10</td><td>परसबाग</td><td>₹500</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-note" style="margin-top:14px">
+        <strong>महत्त्वाचे:</strong> प्रत्येक लाभार्थ्याला खालीलपैकी <strong>फक्त एकाच घटकाचा</strong> लाभ मिळू शकतो — नवीन विहीर, जुनी विहीर दुरुस्ती किंवा शेततळ्याचे प्लास्टिक अस्तरीकरण. प्रत्येक घटकासोबत पंप संचासाठी वीज जोडणीचा आकार वेगळा मिळू शकतो.
+      </div>
+    </section>
+
+    <!-- पात्रता निकष -->
+    <section class="section-card">
+      <h3 class="section-heading">✅ पात्रता निकष</h3>
+      <ul style="margin-top:6px">
+        <li>लाभार्थी <strong>अनुसूचित जमाती (ST)</strong> प्रवर्गातील शेतकरी असणे <strong>बंधनकारक</strong> आहे.</li>
+        <li>सक्षम प्राधिकाऱ्याने दिलेले <strong>वैध जात प्रमाणपत्र</strong> असणे आवश्यक.</li>
+        <li>शेतकऱ्याच्या नावे <strong>7/12 उतारा आणि 8-अ</strong> असणे बंधनकारक.</li>
+        <li><strong>आधार कार्ड</strong> आणि आधार-संलग्न <strong>बँक खाते</strong> आवश्यक.</li>
+        <li>जमीन धारणा: <strong>किमान 0.20 हेक्टर ते कमाल 6.00 हेक्टर</strong> (नवीन विहिरीसाठी किमान <strong>0.40 हेक्टर</strong> आवश्यक).</li>
+        <li><strong>दारिद्र्य रेषेखालील (BPL)</strong> लाभार्थ्यांना प्राधान्य.</li>
+        <li>सदर योजनेसाठी <strong>वार्षिक उत्पन्न मर्यादा ₹1,50,000</strong> ही अट <strong>शिथिल करण्यात आली आहे</strong>.</li>
+        <li>अत्यंत दुर्गम भागातील लहान जमीनधारकांसाठी: 0.40 हेक्टरपेक्षा कमी जमीन असलेले दोन किंवा अधिक लाभार्थी एकत्र येऊन एकूण 0.40 हेक्टर क्षेत्र असल्यास लेखी करार देऊन पात्र ठरू शकतात.</li>
+      </ul>
+      <div class="info-note warn" style="margin-top:12px">
+        <strong>अपात्रता / मर्यादा:</strong> एकदा योजनेचा पूर्ण लाभ घेतल्यास पुढील <strong>5 वर्षांपर्यंत</strong> त्याच लाभार्थ्यास किंवा कुटुंबास या योजनेचा पुन्हा लाभ देय नाही.
+      </div>
+    </section>
+
+    <!-- अर्ज प्रक्रिया -->
+    <section class="section-card">
+      <h3 class="section-heading">📝 अर्ज प्रक्रिया (Step-by-Step)</h3>
+      <div class="steps">
+        <div class="step"><strong>पायरी 1: महा-डीबीटी पोर्टलला भेट द्या</strong><p><a href="https://mahadbt.maharashtra.gov.in/farmer/login/login" target="_blank" rel="noopener" style="color:#047857;font-weight:600">mahadbt.maharashtra.gov.in/farmer/login/login</a> उघडा.</p></div>
+        <div class="step"><strong>पायरी 2: नोंदणी / लॉगिन</strong><p>आधार क्रमांक वापरून नवीन शेतकरी खाते तयार करा किंवा विद्यमान खात्यात लॉगिन करा.</p></div>
+        <div class="step"><strong>पायरी 3: योजना शोधा</strong><p>योजनांच्या यादीत <strong>“बिरसा मुंडा कृषी क्रांती योजना (आदिवासी उप योजना / आदिवासी उप योजना बाह्य)”</strong> शोधा आणि निवडा.</p></div>
+        <div class="step"><strong>पायरी 4: अर्ज भरा व कागदपत्रे अपलोड करा</strong><p>जमीन तपशील (7/12 सर्व्हे क्रमांक, क्षेत्र), बँक माहिती भरून आवश्यक कागदपत्रे अपलोड करा.</p></div>
+        <div class="step"><strong>पायरी 5: सादर व मंजुरी</strong><p>अर्ज सादर करा. सन 2025-26 पासून <strong>“प्रथम अर्ज करणाऱ्यास प्रथम प्राधान्य”</strong> पद्धतीने छाननी केली जाते. क्षेत्रीय कृषी अधिकाऱ्यांची पाहणी व शिफारसीनंतर मंजुरी दिली जाते.</p></div>
+      </div>
+      <div class="info-note" style="margin-top:12px">
+        <strong>महत्त्वाचे:</strong> अर्जाचा अनुक्रमांक महा-डीबीटी पोर्टलवरील “शेतकऱ्यांनी केलेल्या अर्जांची तारीख व वेळेनुसार क्रमवार यादी” या लिंकवर पाहता येतो. शंका असल्यास <strong>022-61316429</strong> (सकाळी 9 ते सायं. 7, सोम–शुक्र) या हेल्पलाईनवर संपर्क साधा.
+      </div>
+    </section>
+
+    <!-- आवश्यक कागदपत्रे -->
+    <section class="section-card">
+      <h3 class="section-heading">📄 आवश्यक कागदपत्रे</h3>
+      <ul class="docs-list">
+        <li>सक्षम प्राधिकाऱ्याचे <strong>वैध जात प्रमाणपत्र</strong> (अनुसूचित जमाती)</li>
+        <li><strong>7/12 उतारा</strong> (शेतकऱ्याच्या नावे)</li>
+        <li><strong>8-अ उतारा</strong></li>
+        <li><strong>आधार कार्ड</strong> व आधार-संलग्न <strong>बँक पासबुक</strong></li>
+        <li><strong>वार्षिक उत्पन्नाचा दाखला</strong> (तहसीलदार कार्यालय)</li>
+        <li>लाभार्थ्याचे <strong>प्रतिज्ञापत्र</strong> (100/500 रु. स्टॅम्प पेपरवर)</li>
+        <li>अपंग असल्यास <strong>अपंगत्व प्रमाणपत्र</strong></li>
+        <li><strong>तलाठी दाखला</strong> — सामाईक एकूण धारणा क्षेत्र (0.40 ते 6 हेक्टर), विहीर नसल्याचे प्रमाणपत्र, प्रस्तावित विहीर 500 फूटांपेक्षा जास्त अंतरावर असल्याचा दाखला, सर्व्हे नंबर नकाशा व चतु:सीमा</li>
+        <li><strong>भूजल सर्वेक्षण व विकास यंत्रणेचा</strong> पाणी उपलब्धतेचा दाखला</li>
+        <li><strong>कृषी अधिकारी (विभागीय) यांचा</strong> क्षेत्रीय पाहणी व शिफारसपत्र</li>
+        <li><strong>गट विकास अधिकारी यांचे</strong> शिफारसपत्र</li>
+        <li>विहिरीच्या जागेचा <strong>फोटो</strong> (महत्त्वाच्या खुणेसह व लाभार्थ्यासह)</li>
+        <li><strong>प्रकल्प अधिकारी, आदिवासी विकास प्रकल्प</strong> यांचेकडील शिफारसपत्र</li>
+      </ul>
+    </section>
+
+    <!-- महत्त्वाच्या लिंक्स -->
+    <section class="section-card">
+      <h3 class="section-heading">🔗 महत्त्वाच्या लिंक्स</h3>
+      <ul style="margin-top:6px">
+        <li><strong>महा-डीबीटी पोर्टल (अर्ज):</strong> <a href="https://mahadbt.maharashtra.gov.in/farmer/login/login" target="_blank" rel="noopener" style="color:#047857;font-weight:600">mahadbt.maharashtra.gov.in/farmer/login/login</a></li>
+        <li><strong>कृषी विभाग, महाराष्ट्र:</strong> <a href="https://krishi.maharashtra.gov.in" target="_blank" rel="noopener" style="color:#047857;font-weight:600">krishi.maharashtra.gov.in</a></li>
+        <li><strong>हेल्पलाईन क्रमांक:</strong> 022-61316429 (सकाळी 9 ते सायं. 7, सोमवार–शुक्रवार)</li>
+        <li><strong>स्थानिक संपर्क:</strong> तालुका कृषी अधिकारी / पंचायत समिती कृषी विभाग</li>
+      </ul>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-card">
+      <h3 class="section-heading">❓ सतत विचारले जाणारे प्रश्न (FAQ)</h3>
+      <div class="faq">
+        <div class="faq-item"><button class="faq-q">योजनेचा लाभ कोणाला मिळतो?</button><div class="faq-a"><p>अनुसूचित जमाती (ST) प्रवर्गातील शेतकऱ्यांना, ज्यांच्याकडे वैध जात प्रमाणपत्र, 7/12, 8-अ, आधार व आधार-संलग्न बँक खाते आहे.</p></div></div>
+        <div class="faq-item"><button class="faq-q">योजना कधी सुरू झाली?</button><div class="faq-a"><p>सन 2020-21 ते 2021-22 या कालावधीत योजनेला प्रशासकीय व तांत्रिक मान्यता मिळाली आणि 2021-22 पासून प्रत्यक्ष अंमलबजावणी सुरू झाली. 1 ऑक्टोबर 2024 रोजी निकषांमध्ये सुधारणा करण्यात आली.</p></div></div>
+        <div class="faq-item"><button class="faq-q">नवीन विहिरीसाठी किती अनुदान मिळते?</button><div class="faq-a"><p>सुधारित दरानुसार <strong>₹4,00,000</strong> पर्यंत; पोर्टलवरील जुन्या दरानुसार <strong>₹2,50,000</strong>. अंतिम रक्कम अधिकृत पोर्टलवर तपासा.</p></div></div>
+        <div class="faq-item"><button class="faq-q">एका लाभार्थ्याला किती घटकांचा लाभ मिळू शकतो?</button><div class="faq-a"><p>नवीन विहीर, जुनी विहीर दुरुस्ती किंवा शेततळ्याचे प्लास्टिक अस्तरीकरण — यापैकी <strong>फक्त एकाच घटकाचा</strong> लाभ मिळू शकतो.</p></div></div>
+        <div class="faq-item"><button class="faq-q">किमान किती जमीन आवश्यक आहे?</button><div class="faq-a"><p>सर्वसाधारणपणे <strong>0.20 हेक्टर</strong>; परंतु नवीन विहिरीसाठी किमान <strong>0.40 हेक्टर</strong> वहिती क्षेत्र आवश्यक. कमाल मर्यादा <strong>6.00 हेक्टर</strong>.</p></div></div>
+        <div class="faq-item"><button class="faq-q">उत्पन्न मर्यादा किती आहे?</button><div class="faq-a"><p>सुरुवातीला ₹1,50,000 होती, परंतु ही अट <strong>शिथिल करण्यात आली आहे</strong>. तरीही अधिकृत पोर्टलवर खात्री करा.</p></div></div>
+        <div class="faq-item"><button class="faq-q">अनुदान कसे मिळते?</button><div class="faq-a"><p><strong>DBT (Direct Benefit Transfer)</strong> द्वारे थेट लाभार्थ्याच्या आधार-संलग्न बँक खात्यात जमा केले जाते.</p></div></div>
+        <div class="faq-item"><button class="faq-q">कोणत्या जिल्ह्यांमध्ये ही योजना लागू नाही?</button><div class="faq-a"><p>मुंबई, सिंधुदुर्ग, रत्नागिरी, सातारा, सांगली आणि कोल्हापूर या जिल्ह्यांमध्ये ही योजना राबविली जात नाही.</p></div></div>
+      </div>
+    </section>
+
+    <!-- निष्कर्ष -->
+    <section class="section-card bg-emerald-50/80">
+      <h3 class="section-heading text-emerald-950">📌 निष्कर्ष</h3>
+      <p>बिरसा मुंडा कृषी क्रांती योजना ही <strong>अनुसूचित जमातीतील शेतकऱ्यांसाठी</strong> शाश्वत सिंचन आणि कृषी विकासाची महत्त्वाची राज्य सरकारची 100% पुरस्कृत योजना आहे. यामध्ये <strong>नवीन विहीर, जुनी विहीर दुरुस्ती, इनवेल बोअरिंग, पंप संच, ठिबक/तुषार सिंचन, शेततळे, सौर पंप</strong> यांसारख्या घटकांवर <strong>100% पर्यंत अनुदान</strong> मिळते. पात्र आदिवासी शेतकऱ्यांनी <strong>महा-डीबीटी पोर्टल</strong>वर नोंदणी करून अर्ज करावा.</p>
+      <div class="info-note" style="margin-top:10px">
+        <strong>अधिक माहितीसाठी:</strong> तालुक्यातील <strong>कृषी अधिकारी</strong> किंवा <strong>पंचायत समिती कृषी विभाग</strong> येथे संपर्क साधा.
+      </div>
+    </section>
+  </article>
+</main>
+
+<!-- Footer -->
+<footer class="sv-site-footer" role="contentinfo">
+  <div class="sv-footer-inner">
+    <p class="sv-footer-note">सदर माहिती आपल्या उपयुक्त वाटल्यास किंवा सूचना असल्यास संपर्क साधू शकता.</p>
+    <p class="sv-footer-email" style="margin-top:2px;">📧 ई-मेल: <a href="mailto:shetkarisevarthofficial@gmail.com">shetkarisevarthofficial@gmail.com</a></p>
+    <p class="sv-footer-copy">© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p>
+  </div>
+</footer>
+
+<script src="portal-data.js?v=shared"></script>
+<script>
+  (function(){
+    function loadSharedNotices(){
+      var track=document.getElementById('svGlobalNoticeTrack');
+      if(!track)return;
+      var items=(window.PORTAL_DATA&&Array.isArray(window.PORTAL_DATA.announcements))?window.PORTAL_DATA.announcements:[];
+      track.innerHTML='';
+      if(!items.length){track.textContent='सध्या नवीन अपडेट उपलब्ध नाही.';return;}
+      function add(item){
+        var span=document.createElement('span');span.className='sv-notice-item';
+        var label=(item.emoji?item.emoji+' ':'')+(item.text||'');
+        if(item.url){var a=document.createElement('a');a.href=item.url;a.textContent=label;span.appendChild(a);}
+        else span.textContent=label;
+        track.appendChild(span);
+      }
+      items.forEach(add);
+      if(items.length>1){
+        items.forEach(add);
+        track.classList.add('is-moving');
+      }
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadSharedNotices);else loadSharedNotices();
+  })();
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var panel = this.nextElementSibling;
+      var isOpen = this.classList.contains('active');
+      document.querySelectorAll('.faq-q').forEach(function(b){
+        b.classList.remove('active');
+        b.nextElementSibling.style.maxHeight = null;
+      });
+      if(!isOpen){
+        this.classList.add('active');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+</body>
+</html>
