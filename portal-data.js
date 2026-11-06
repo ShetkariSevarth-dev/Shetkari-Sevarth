@@ -2,6 +2,11 @@
 window.PORTAL_DATA = {
   "announcements": [
     {
+      "emoji": "🌾",
+      "text": "चारा लागवड योजनेचे चे अंदाजपत्रक बनवा.",
+      "url": "estimates.html"
+    },
+    {
       "emoji": "👩‍🌾",
       "text": "महिला शेतकरी प्रमाणपत्र योजनेची अधिक माहिती व अर्जासाठी येथे क्लिक करा.",
       "url": "women-farmer.html"
@@ -19,8 +24,17 @@ window.PORTAL_DATA = {
   ],
   "schemes": [
     {
+      "mr": "फळबाग व इतर पिके लागवड - विकसित भारत- रोजगार आणि आजीविका मिशन (ग्रामीण)",
+      "en": "Orchard Cultivation vb g ram g",
+      "emoji": "🌳",
+      "url": "falbag-vbg-ram-g.html",
+      "status": "ok",
+      "newTag": false,
+      "isNew": true
+    },
+    {
       "mr": "खत विक्री अर्ज प्रणाली (FFS)",
-      "en": "Framework for Fertilizer Sales (FFS)",
+      "en": "Framework for Fertilizer Sales (FFS) khat booking",
       "emoji": "🧪",
       "url": "fsas.html",
       "status": "ok",
@@ -95,6 +109,15 @@ window.PORTAL_DATA = {
       "newTag": false
     },
     {
+      "mr": "बियाणे खते कीटकनाशके विक्री परवाने",
+      "en": "Agri Input Licenses krushi kendra liacence parwana licence krushi kendra ",
+      "emoji": "🏷️",
+      "url": "qc-licences.html",
+      "status": "ok",
+      "newTag": false,
+      "isNew": true
+    },
+    {
       "mr": "प्रधानमंत्री किसान सन्मान निधी व मानधन योजना",
       "en": "PM-KISAN Scheme",
       "emoji": "💳",
@@ -141,15 +164,6 @@ window.PORTAL_DATA = {
       "url": "crop-competition",
       "status": "ok",
       "newTag": false
-    },
-    {
-      "mr": "फळबाग व इतर पिके लागवड",
-      "en": "Orchard Cultivation",
-      "emoji": "🌳",
-      "url": "falbag-index.html",
-      "status": "ok",
-      "newTag": false,
-      "isNew": false
     },
     {
       "mr": "प्रधानमंत्री सूक्ष्म खाद्य प्रक्रिया उन्नयन योजना (PMFME)",
@@ -233,9 +247,9 @@ window.PORTAL_DATA = {
       "newTag": false
     },
     {
-      "mr": "बियाणे खते कीटकनाशके विक्री परवाने",
-      "en": "Agri Input Licenses",
-      "emoji": "🏷️",
+      "mr": "पीक कापणी प्रयोग मार्गदर्शिका",
+      "en": "Crop Cutting Experiments",
+      "emoji": "📐",
       "url": "#",
       "status": "coming-soon",
       "newTag": false
@@ -244,14 +258,6 @@ window.PORTAL_DATA = {
       "mr": "CROPSAP व HORTSAP पिकावरील कीड सर्वेक्षण",
       "en": "CROPSAP & HORTSAP",
       "emoji": "🔍",
-      "url": "#",
-      "status": "coming-soon",
-      "newTag": false
-    },
-    {
-      "mr": "पीक कापणी प्रयोग मार्गदर्शिका",
-      "en": "Crop Cutting Experiments",
-      "emoji": "📐",
       "url": "#",
       "status": "coming-soon",
       "newTag": false
@@ -269,7 +275,7 @@ window.PORTAL_DATA = {
       "en": "farmer id card banava agristack card shetkari card ",
       "emoji": "🪪",
       "url": "farmer-id.html",
-      "status": "coming-soon",
+      "status": "ok",
       "isNew": false
     }
   ],

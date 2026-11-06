@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="विकसित भारत- रोजगार आणि आजीविका मिशन - फळझाडे, वृक्ष, फुलपिके, औषधी वनस्पती लागवड आणि पिकनिहाय अंदाजपत्रक." name="description"/>
+<title>विकसित भारत - रोजगार आणि आजीविका मिशन | शेतकरी सेवार्थ</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&amp;family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+    body{font-family:'Tiro Devanagari Marathi','Noto Sans Devanagari',sans-serif;background-color:#f8fafc;text-rendering:optimizeLegibility;color:#163b2a;margin:0;padding:0}
+    .hero-gradient{background:linear-gradient(135deg,#065f46 0%,#047857 50%,#0f766e 100%)}
+    .content-panel{background:#ffffff;border:1px solid #d7e8dc;border-radius:16px;box-shadow:0 4px 20px rgba(15,80,45,.06);padding:24px;margin:0 auto}
+    .section-card{border-radius:12px;background:#f4fbf5;border:1px solid #d2efda;padding:16px;margin-bottom:14px;box-shadow:0 2px 8px rgba(22,101,52,.04)}
+    .section-heading{font-size:1.1rem;font-weight:800;color:#07472a;margin-bottom:8px;padding-bottom:4px;border-bottom:2px solid #d2efda}
+    p,li{line-height:1.65;font-size:14.5px;color:#2d3748;margin-bottom:8px}
+    
+    /* 🟢 Custom Colored Bullet List CSS 🟢 */
+    ul.colored-bullet-list { padding-left: 0; list-style-type: none; margin:0; margin-top:6px;}
+    ul.colored-bullet-list li { position: relative; padding-left: 24px; margin-bottom: 8px; }
+    ul.colored-bullet-list li::before {
+        content: ""; position: absolute; left: 0; top: 8px;
+        width: 10px; height: 10px; background-color: #059669; border-radius: 50%;
+        box-shadow: 0 0 0 2px #ecfdf5;
+    }
+
+    /* 🔴 Blinking Text Animation 🔴 */
+    @keyframes blink-red {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+    }
+    .blink-text {
+        animation: blink-red 1s infinite;
+        color: #dc2626; /* Red color */
+        font-weight: 800;
+    }
+
+    .back-link{display:inline-flex;align-items:center;gap:6px;background:#dcfce7;color:#14532d;border:1px solid #bbf7d0;border-radius:999px;padding:6px 14px;font-size:12px;font-weight:700;text-decoration:none;margin-bottom:12px;transition:.2s}
+    .back-link:hover{background:#bbf7d0}
+    
+    /* Global Notice Bar & Scrolling Animation */
+    .sv-global-notices{width:100%;max-width:1000px;margin:10px auto 0;box-sizing:border-box;display:flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid #b7ebc8;border-radius:12px;background:linear-gradient(100deg,#fff7d6,#f0fdf4 55%,#e2fbe9);color:#14532d;box-shadow:0 2px 8px rgba(22,101,52,.05)}
+    .sv-notice-label{background:#dc2626;color:#fff;border-radius:999px;padding:3px 8px;font-size:11px;font-weight:700;white-space:nowrap;flex-shrink:0}
+    .sv-notice-window{overflow:hidden;min-width:0;flex:1}
+    .sv-notice-track{display:flex;align-items:center;gap:30px;width:max-content;font-size:13px;font-weight:600}
+    .sv-notice-track a{color:#166534;text-decoration:underline}
+    .sv-notice-track .sv-notice-item{white-space:nowrap}
+    
+    @media(prefers-reduced-motion:no-preference){
+      .sv-notice-track.is-moving{animation:svNoticeScroll 32s linear infinite}
+      .sv-notice-track:hover{animation-play-state:paused}
+    }
+    @keyframes svNoticeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    /* Header and Footer Equal Height & Styling */
+    .sv-site-header, .sv-site-footer {
+      height: 85px;
+      min-height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+    .sv-site-footer{
+      background-color: #0b5e36 !important;
+      color: #ffffff !important;
+      text-align: center;
+      padding: 10px 16px;
+      margin-top: 30px;
+      font-size: 13px;
+      line-height: 1.6;
+      width: 100%;
+      border-top: 4px solid #86c83f;
+    }
+    .sv-footer-inner{max-width:900px;margin:0 auto;width:100%}
+    .sv-footer-note{color:#ffffff !important;font-size:13px;margin:0 0 4px}
+    .sv-footer-email{margin:2px 0}
+    .sv-footer-email a{color: #a3e635 !important;text-decoration: underline;text-underline-offset: 3.5px;font-weight: 700;}
+    .sv-footer-copy{color:#e2e8f0 !important; margin-top:4px; font-size:12px;}
+    
+    @media(max-width:640px){
+      .content-panel{padding:14px!important}
+      .section-card{padding:12px!important}
+      .sv-site-header, .sv-site-footer { height: auto; min-height: 85px; padding: 12px; }
+    }
+
+    /* Info Table */
+    .info-table{width:100%;border-collapse:collapse;font-size:13.5px;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(22,101,52,.06);background:white;margin-top:10px}
+    .info-table thead{background:linear-gradient(135deg,#047857,#065f46);color:#fff}
+    .info-table th,.info-table td{padding:10px 12px;text-align:left;border-bottom:1px solid #e5eee7;vertical-align:top}
+    .info-table tbody tr:hover{background:#ecfdf5}
+    .info-table th{font-weight:700;font-size:13px}
+    .info-table td strong{color:#065f46}
+
+    /* Notice / Info Box */
+    .info-note{background:linear-gradient(100deg,#ecfdf5,#f0fdf4);border-left:4px solid #22c55e;padding:10px 14px;border-radius:10px;margin-top:12px;font-size:13.5px;color:#065f46}
+    .info-note.blue{border-left-color:#3b82f6;background:#eff6ff;color:#1e3a8a}
+    .info-note.warn{border-left-color:#dc2626;background:#fef2f2;color:#991b1b}
+</style>
+</head>
+<body class="text-gray-800 min-h-screen flex flex-col justify-between">
+
+<!-- Header Section -->
+<header class="hero-gradient text-white shadow-md sv-site-header">
+  <div class="max-w-6xl mx-auto px-4 w-full flex items-center justify-between gap-4">
+    <a class="text-white/90 hover:text-white text-xs sm:text-sm font-bold bg-white/10 px-3 py-1.5 rounded-full" href="index.html">← मागील पृष्ठ</a>
+    
+    <!-- 🔴 मोठा केलेला फॉन्ट (text-2xl sm:text-3xl) 🔴 -->
+    <a class="flex items-center justify-center gap-2" href="index.html">
+        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">🌱 शेतकरी सेवार्थ</h1>
+    </a>
+    
+    <a class="bg-white/20 hover:bg-white/30 text-white font-bold px-3 py-1.5 rounded-full text-xs" href="index.html">🏠 मुख्य पृष्ठ</a>
+  </div>
+</header>
+
+<!-- सामायिक महत्त्वाच्या सूचना बार -->
+<div aria-label="महत्त्वाच्या सूचना" class="sv-global-notices" role="region">
+  <span class="sv-notice-label">📢 सूचना</span>
+  <div class="sv-notice-window">
+    <div class="sv-notice-track" id="svGlobalNoticeTrack"><span>सूचना लोड होत आहेत...</span></div>
+  </div>
+</div>
+
+<!-- Main Content Area -->
+<main class="max-w-4xl mx-auto px-4 py-4 w-full flex-grow">
+  <a class="back-link" href="index.html">← शेतकरी सेवार्थ मुख्य पानावर जा</a>
+  
+  <article class="content-panel space-y-4">
+    <!-- Title Section -->
+    <div class="text-center border-b border-emerald-100 pb-4">
+      <span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-100 border border-emerald-300 px-3.5 py-1 rounded-full mb-2">🌳 रोजगार हमी योजना</span>
+      <h2 class="text-lg md:text-2xl font-black text-emerald-950 leading-snug">विकसित भारत- रोजगार आणि आजीविका मिशन (ग्रामीण)</h2>
+      <p class="text-sm text-gray-600 mt-2">फळझाडे, वृक्ष, फुलपिके, औषधी वनस्पती, मसाला पिके लागवड तसेच गांडूळ खत / नाडेप कंपोस्ट युनिट / रेशीम उद्योग विकास</p>
+      
+      <!-- 🆕 नवीन टॅब (सविस्तर अंदाजपत्रक) 🆕 -->
+      <div class="mt-4 flex justify-center">
+        <a href="https://shetkarisevarth.info/estimates.html" target="_blank" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-2.5 px-6 rounded-full shadow-lg transition transform hover:-translate-y-0.5 text-sm sm:text-base border border-blue-500/50">
+          📊 सविस्तर अंदाजपत्रक पहा
+        </a>
+      </div>
+    </div>
+
+    <!-- १. लागवडीचे ठिकाण -->
+    <section class="section-card">
+      <h3 class="section-heading">📍 लागवड कोणत्या ठिकाणी करता येते?</h3>
+      <ul class="colored-bullet-list">
+        <li><strong>वैयक्तिक लाभार्थ्याच्या सलग शेतावर:</strong> फळझाडे लागवड / वृक्ष लागवड व फुलपिके लागवड.</li>
+        <li><strong>वैयक्तिक लाभार्थ्याच्या शेताच्या बांधावर:</strong> फळझाडे लागवड / वृक्ष लागवड.</li>
+        <li><strong>वैयक्तिक लाभार्थ्याच्या पडीक शेत जमिनीवर:</strong> फळझाडे लागवड / वृक्ष लागवड.</li>
+      </ul>
+    </section>
+
+    <!-- २. लाभार्थी पात्रता -->
+    <section class="section-card">
+      <h3 class="section-heading">👨‍🌾 लाभार्थी पात्रता</h3>
+      <p>मग्रारोहयो साठी जॉब कार्ड धारक असलेल्या खालीलपैकी कोणत्याही एका प्रवर्गातील व्यक्ती या योजनेचा लाभ घेण्यास पात्र आहेत:</p>
+      <ul class="colored-bullet-list">
+        <li>अनुसूचित जाती (SC) किंवा अनुसूचित जमाती (ST).</li>
+        <li>भटक्या जमाती (Nomadic Tribes) किंवा विमुक्त जमाती (De-notified Tribes).</li>
+        <li>दारिद्र्य रेषेखालील इतर कुटुंबे.</li>
+        <li>स्त्री कुटुंबप्रमुख असलेली कुटुंबे किंवा दिव्यांग व्यक्ती कुटुंबप्रमुख असलेली कुटुंबे.</li>
+        <li>भूसुधारक योजनेचे लाभार्थी (Beneficiaries of land reforms).</li>
+        <li>प्रधानमंत्री आवास योजना- ग्रामीण योजनेखालील लाभार्थी.</li>
+        <li>अनुसूचित जमातीचे व अन्य परंपरागत वन निवासी (वन हक्क मान्य करणे) अधिनियम 2006 नुसार पात्र व्यक्ती.</li>
+        <li>कृषी कर्ज माफी योजना 2008 नुसार लहान शेतकरी (1 ते 2 हेक्टर) व सिमांत शेतकरी (1 हेक्टर पर्यंत).</li>
+      </ul>
+      <div class="info-note blue" style="margin-top:10px">
+        <strong>महत्त्वाचे:</strong> लाभार्थी स्वतःसाठी जॉब कार्ड धारक असावा. लागवडीसाठी खड्डे खोदणे, पाणी देणे, औषधे फवारणे ही कामे लाभधारकाने स्वतः व जॉबकार्ड धारक मजुरांकडून करून घेणे आवश्यक आहे.
+      </div>
+    </section>
+
+    <!-- ३. क्षेत्र मर्यादा -->
+    <section class="section-card">
+      <h3 class="section-heading">📏 क्षेत्र मर्यादा आणि जमीन</h3>
+      <ul class="colored-bullet-list">
+        <li>फळझाड, फळपीक व वृक्ष लागवडीसाठी <strong>किमान ०.०५ हेक्टर व कमाल २ हेक्टर</strong> प्रती लाभार्थी क्षेत्र मर्यादा आहे.</li>
+        <li>इच्छुक लाभधारकाच्या नावे जमीन असणे आवश्यक आहे.</li>
+        <li>जमीन कूळ कायद्याखाली येत असल्यास व 7/12 वर कुळाचे नाव असेल तर योजना कुळाच्या संमतीने राबविण्यात येते.</li>
+      </ul>
+    </section>
+
+    <!-- ४. अर्ज प्रक्रिया -->
+    <section class="section-card">
+      <h3 class="section-heading">📝 अर्ज कुठे आणि कसा करावा?</h3>
+      <ul class="colored-bullet-list">
+        <li><strong>अर्जाचे ठिकाण:</strong> ग्रामपंचायत कार्यालयात. तसेच प्रत्येक महसूली गावात २४ तास अर्ज टाकता येईल अशा सार्वजनिक इमारतीच्या ठिकाणी अर्ज पेटी ठेवण्यात येणार आहे.</li>
+        <li><strong>अर्जाचा नमुना:</strong> प्रपत्र-अ व प्रपत्र-ब मध्ये अर्ज करावा.</li>
+        <li><strong>मान्यता:</strong> अर्जांना मान्यता ग्रामपंचायत/ग्रामसभा देते. त्यानंतर तांत्रिक व प्रशासकीय मान्यता दिली जाते.</li>
+        <li><strong>अर्जाचा कालावधी:</strong> अर्ज वर्षभर करता येतो. मात्र <strong>१५ जुलै ते ३० नोव्हेंबर</strong> या कालावधीत आलेले अर्ज त्या वर्षाच्या लेबर बजेटमध्ये समाविष्ट होतात. उर्वरित अर्ज पूरक लेबर बजेटमध्ये घेतले जातात.</li>
+      </ul>
+    </section>
+
+    <!-- ५. आवश्यक कागदपत्रे -->
+    <section class="section-card">
+      <h3 class="section-heading">📄 आवश्यक कागदपत्रे</h3>
+      <ul class="colored-bullet-list">
+        <li>७/१२ उतारा व ८-अ उतारा.</li>
+        <li>आधार कार्ड.</li>
+        <li>राष्ट्रीयकृत बँकेचे पासबुक झेरॉक्स.</li>
+        <li>जॉब कार्ड.</li>
+        <li>दारिद्र्य रेषेखाली असल्यास तो दाखला.</li>
+        <li>जातीचा दाखला किंवा जातीचा उल्लेख असलेले कोणतेही अधिकृत शासनाचे पुरावे.</li>
+      </ul>
+    </section>
+
+    <!-- ६. रोपे खरेदी -->
+    <section class="section-card">
+      <h3 class="section-heading">🌱 कलमे व रोपे खरेदी कोठून करावीत?</h3>
+      <p>कलमे, रोपे निवड व खरेदी व वाहतूक लाभार्थी यांनी स्वतः करावी. खालील रोपवाटिकांना प्राधान्य द्यावे:</p>
+      <ul class="colored-bullet-list">
+        <li>कृषी विभागाच्या रोपवाटीका.</li>
+        <li>कृषी विद्यापीठाच्या रोपवाटिका.</li>
+        <li>खाजगी शासन मान्यता प्राप्त (पंजीकृत) रोपवाटिका.</li>
+        <li>सामाजिक वनीकरण विभाग किंवा अन्य शासकीय विभाग रोपवाटिका.</li>
+      </ul>
+      <div class="info-note blue" style="margin-top:10px">
+        <strong>टीप:</strong> रोपांची अद्यावत उपलब्धता पाहण्यासाठी <a href="https://nnp.nhb.gov.in" target="_blank" class="font-bold underline">National Nursery Portal (nnp.nhb.gov.in)</a> चा वापर करावा. खते औषधे व इतर साहित्य शेतकऱ्यांनी स्वतः खरेदी करून पावत्या सादर करणे आवश्यक आहे.
+      </div>
+    </section>
+
+    <!-- ७. योजनेतील पिके -->
+    <section class="section-card">
+      <h3 class="section-heading">🌳 योजनेत समाविष्ट पिके</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <h4 class="font-bold text-emerald-900 mb-2">फळपिके (नगदी):</h4>
+          <p class="text-sm text-gray-700 leading-relaxed">आंबा, काजू, चिकू, पेरू, डाळिंब, संत्रा, मोसंबी, कागदी लिंबू, नारळ, बोर, सिताफळ, आवळा, चिंच, कवठ, जांभूळ, कोकम, फणस, अंजीर, सुपारी, बांबू, केळी (३ वर्ष), ड्रॅगन फ्रुट, अव्हाकॅडो, द्राक्ष, करवंद.</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-emerald-900 mb-2">वृक्ष व औषधी वनस्पती:</h4>
+          <p class="text-sm text-gray-700 leading-relaxed">साग, चंदन, खाया, नीम, चारोळी, महोगनी, बाभूळ, खैर, ताड, रबर, शिसव, नीलगिरी, सुबाभूळ, शमी, गुलमोहर, अर्जुन, असन, अशोक, बेहडा, हिरडा, बेल, टेटू, रिठा, गुग्गुळ इ.</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-emerald-900 mb-2">फुलझाडे:</h4>
+          <p class="text-sm text-gray-700 leading-relaxed">गुलाब, मोगरा, निशिगंध, सोनचाफा.</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-emerald-900 mb-2">मसाला पिके:</h4>
+          <p class="text-sm text-gray-700 leading-relaxed">लवंग, मिरी, दालचीनी, जायफळ.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ८. अनुदान वाटप -->
+    <section class="section-card">
+      <h3 class="section-heading">💰 अनुदान किती व कसे मिळेल?</h3>
+      <ul class="colored-bullet-list">
+        <li>अनुदान <strong>३ वर्षांत</strong> मिळेल.</li>
+        <li><strong>अट:</strong> दुसऱ्या व तिसऱ्या वर्षी बागायती पिकांच्या बाबतीत कमीत कमी <strong>९०%</strong> व कोरडवाहू पिकांच्या बाबतीत किमान <strong>७५%</strong> झाडे जिवंत ठेवणाऱ्या लाभार्थ्यांनाच पुढील अनुदान देय आहे.</li>
+        <li>निशिगंध, मोगरा, गुलाब, सोनचाफा या फुलपिकांसाठी प्रति हेक्टर <strong>२ लाख रुपयांपर्यंत</strong> अनुदान एकाच वर्षात १००% मिळते.</li>
+      </ul>
+    </section>
+
+    <!-- ९. सविस्तर अंदाजपत्रक तक्ता (Dropdown) -->
+    <section class="section-card" style="border-left:5px solid #3b82f6">
+      <h3 class="section-heading" style="color:#1e3a8a;border-bottom-color:#bfdbfe">📑 पिकनिहाय सविस्तर अंदाजपत्रक (३ वर्षांचा खर्च व मजुरी)</h3>
+      <p>खालील ड्रॉपडाऊनमधून पीक निवडा. निवडल्यानंतर त्या पिकासाठी लागणारी मजुरी, सामुग्री आणि एकूण खर्च (३ वर्षांचा) याची सविस्तर माहिती खाली दिसेल. <em>(सोयीसाठी सुरुवातीला आंबा पिकाचे अंदाजपत्रक आपोआप दाखवले आहे)</em></p>
+      
+      <div class="mt-4">
+        <!-- 🔴 इथे लाल रंगात ब्लिंक होणारा मजकूर जोडला आहे 🔴 -->
+        <label for="cropDropdown" class="block text-sm font-bold text-emerald-900 mb-2">
+            पीक निवडा (Select Crop): <span class="blink-text ml-1 text-base">👉 इथे पिक निवडून अनुदान रक्कम पहा</span>
+        </label>
+        
+        <select id="cropDropdown" class="w-full p-3 border border-emerald-300 rounded-lg shadow-sm bg-white text-gray-800 font-medium focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition cursor-pointer" onchange="showCropDetails()">
+          <option value="">-- कृपया पीक निवडा --</option>
+          <!-- Options will be populated by JS -->
+        </select>
+      </div>
+
+      <!-- Details Display Area -->
+      <div id="cropDetails" class="hidden mt-6 bg-white rounded-xl shadow-md border border-emerald-100 overflow-hidden">
+        <div class="bg-emerald-700 p-3 text-white flex justify-between items-center">
+            <h4 class="text-lg font-bold m-0" id="selectedCropName">पिकाचे नाव</h4>
+            <span class="bg-emerald-800 text-xs px-2 py-1 rounded">अंतर: <span id="cropDist"></span> | झाडे/हे: <span id="cropPlants"></span></span>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x divide-emerald-100">
+            <!-- Year 1 -->
+            <div class="p-4">
+                <h5 class="text-center font-extrabold text-blue-800 mb-3 bg-blue-50 py-1 rounded">वर्ष पहिले</h5>
+                <div class="space-y-2 text-sm">
+                    <div class="flex justify-between border-b border-gray-100 pb-1"><span class="text-gray-600">मजुरी:</span> <span class="font-semibold text-gray-800" id="y1Labor">₹ 0</span></div>
+                    <div class="flex justify-between border-b border-gray-100 pb-1"><span class="text-gray-600">सामुग्री:</span> <span class="font-semibold text-gray-800" id="y1Mat">₹ 0</span></div>
+                    <div class="flex justify-between font-bold text-blue-900 mt-2 pt-2 border-t border-blue-100"><span>एकूण:</span> <span id="y1Total">₹ 0</span></div>
+                </div>
+            </div>
+            <!-- Year 2 -->
+            <div class="p-4 bg-gray-50/50">
+                <h5 class="text-center font-extrabold text-indigo-800 mb-3 bg-indigo-50 py-1 rounded">वर्ष दुसरे</h5>
+                <div class="space-y-2 text-sm">
+                    <div class="flex justify-between border-b border-gray-100 pb-1"><span class="text-gray-600">मजुरी:</span> <span class="font-semibold text-gray-800" id="y2Labor">₹ 0</span></div>
+                    <div class="flex justify-between border-b border-gray-100 pb-1"><span class="text-gray-600">सामुग्री:</span> <span class="font-semibold text-gray-800" id="y2Mat">₹ 0</span></div>
+                    <div class="flex justify-between font-bold text-indigo-900 mt-2 pt-2 border-t border-indigo-100"><span>एकूण:</span> <span id="y2Total">₹ 0</span></div>
+                </div>
+            </div>
+            <!-- Year 3 -->
+            <div class="p-4">
+                <h5 class="text-center font-extrabold text-purple-800 mb-3 bg-purple-50 py-1 rounded">वर्ष तिसरे</h5>
+                <div class="space-y-2 text-sm">
+                    <div class="flex justify-between border-b border-gray-100 pb-1"><span class="text-gray-600">मजुरी:</span> <span class="font-semibold text-gray-800" id="y3Labor">₹ 0</span></div>
+                    <div class="flex justify-between border-b border-gray-100 pb-1"><span class="text-gray-600">सामुग्री:</span> <span class="font-semibold text-gray-800" id="y3Mat">₹ 0</span></div>
+                    <div class="flex justify-between font-bold text-purple-900 mt-2 pt-2 border-t border-purple-100"><span>एकूण:</span> <span id="y3Total">₹ 0</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Grand Total -->
+        <div class="bg-emerald-50 p-4 border-t border-emerald-200 flex justify-between items-center font-black text-emerald-900 text-lg">
+            <span>एकूण ३ वर्षांचा खर्च (मजुरी + सामुग्री):</span>
+            <span class="text-xl" id="grandTotal">₹ 0</span>
+        </div>
+      </div>
+      
+    </section>
+
+    <!-- १०. लागवडीचा कालावधी -->
+    <section class="section-card">
+      <h3 class="section-heading">📅 लागवड कधी करावी?</h3>
+      <ul class="colored-bullet-list">
+        <li>तांत्रिक व प्रशासकीय मान्यता मिळाल्यानंतर लागवड करावी.</li>
+        <li>पावसाळ्याचा विचार करता फळबाग / वृक्ष लागवड / फुलपिके लागवडीचा कालावधी <strong>१ जून ते ३१ डिसेंबर</strong> पर्यंत योग्य असतो.</li>
+        <li>जमिनीतील आर्द्रता योग्य असल्यास या कालावधीत वाढ करण्याचे अधिकार जिल्हास्तरीय समितीस आहेत.</li>
+        <li>सिंचनाची व्यवस्था असल्यास वर्षभरात केव्हाही लागवड करता येईल.</li>
+      </ul>
+    </section>
+    
+    <!-- ११. हजेरी व मजुरी प्रक्रिया -->
+    <section class="section-card">
+      <h3 class="section-heading">👷 मजुरी व हजेरी प्रक्रिया</h3>
+      <ul class="colored-bullet-list">
+        <li>हजेरी पत्रक (इ-मस्टर) निर्गमीत करणे, भरणे व कुशल-अकुशल देयके प्रदान करण्याचे अधिकार <strong>तालुका कृषी अधिकारी</strong> यांना आहेत.</li>
+        <li>तांत्रिक अधिकारी कामाचे मोजमाप घेऊन मजुरीची परीगणना करतात.</li>
+        <li>दर १५ दिवसांनी हजेरीपत्रकाप्रमाणे मजुरी दिली जाते. मजुरीची रक्कम फक्त बँक / पोस्ट मार्फत दिली जाते.</li>
+      </ul>
+    </section>
+
+  </article>
+</main>
+
+<!-- Footer -->
+<footer class="sv-site-footer" role="contentinfo">
+  <div class="sv-footer-inner">
+    <p class="sv-footer-note">सदर माहिती आपल्या उपयुक्त वाटल्यास किंवा सूचना असल्यास संपर्क साधू शकता.</p>
+    <p class="sv-footer-email" style="margin-top:2px;">📧 ई-मेल: <a href="mailto:shetkarisevarthofficial@gmail.com">shetkarisevarthofficial@gmail.com</a></p>
+    <p class="sv-footer-copy">© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p>
+  </div>
+</footer>
+
+<script src="portal-data.js?v=shared"></script>
+<script>
+  // नोटीस लोड करण्यासाठी
+  (function(){
+    function loadSharedNotices(){
+      var track=document.getElementById('svGlobalNoticeTrack');
+      if(!track)return;
+      var items=(window.PORTAL_DATA&&Array.isArray(window.PORTAL_DATA.announcements))?window.PORTAL_DATA.announcements:[];
+      track.innerHTML='';
+      if(!items.length){track.textContent='सध्या नवीन अपडेट उपलब्ध नाही.';return;}
+      function add(item){
+        var span=document.createElement('span');span.className='sv-notice-item';
+        var label=(item.emoji?item.emoji+' ':'')+(item.text||'');
+        if(item.url){var a=document.createElement('a');a.href=item.url;a.textContent=label;span.appendChild(a);}
+        else span.textContent=label;
+        track.appendChild(span);
+      }
+      items.forEach(add);
+      if(items.length>1){
+        items.forEach(add);
+        track.classList.add('is-moving');
+      }
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadSharedNotices);else loadSharedNotices();
+  })();
+
+  // 📊 Excel Data for Dropdown
+  const cropDataRaw = [
+    ["आंबा कलमे (१० x १०)", "१० x १०", 100, 93515, 32582, 48818, 12041, 47233, 12331],
+    ["आंबा कलमे (५ x ५)", "५ x ५", 400, 120143, 81362, 48818, 32559, 79884, 30359],
+    ["काजू कलमे (७ x ७)", "७ x ७", 200, 146771, 146771, 37406, 17122, 35821, 16822],
+    ["चिकू कलमे (१० x १०)", "१० x १०", 100, 88760, 33260, 48818, 14079, 47233, 13329],
+    ["पेरू कलमे (६ x ६)", "६ x ६", 277, 74495, 120089, 35821, 19168, 35821, 19331],
+    ["पेरू कलमे (३ x २)", "३ x २", 1666, 164840, 132561, 74178, 32815, 71642, 22655],
+    ["डाळिंब कलमे (४.५ x ३)", "४.५ x ३", 740, 114120, 52885, 61815, 46454, 59279, 41718],
+    ["संत्रा कलमे (६ x ६)", "६ x ६", 277, 78933, 47252, 39308, 17147, 38040, 16759],
+    ["संत्रा कलमे (६ x ३)", "६ x ३", 555, 109682, 89630, 61815, 34588, 58962, 33756],
+    ["संत्रा कलमे (५.४० x ५.४०)", "५.४० x ५.४०", 342, 63400, 45480, 35504, 20142, 34870, 20457],
+    ["मोसंबी कलमे (६ x ६)", "६ x ६", 277, 78933, 44252, 39308, 17147, 38040, 16759],
+    ["कागदी लिंबू कलमे (६ x ६)", "६ x ६", 277, 78933, 38942, 39308, 15497, 38040, 16759],
+    ["नारळ रोपे (८ x ८)", "८ x ८", 150, 79250, 42960, 31066, 11659, 30432, 9934],
+    ["नारळ रोपे टी x डी (८ x ८)", "८ x ८", 150, 81469, 40460, 31066, 12559, 30432, 9934],
+    ["कागदी लिंबू रोपे (६ x ६)", "६ x ६", 277, 78933, 36172, 39308, 16718, 38040, 18506],
+    ["आवळा कलमे (६ x ६)", "६ x ६", 277, 76397, 34495, 37089, 24706, 36455, 28606],
+    ["आवळा कलमे (७ x ७)", "७ x ७", 200, 69106, 35680, 32334, 18252, 31383, 21052],
+    ["आवळा कलमे (८ x ८)", "८ x ८", 150, 54841, 28630, 24409, 13969, 31383, 16069],
+    ["चिंच कलमे विकसित जाती (१० x १०)", "१० x १०", 100, 65302, 31380, 23775, 10186, 22824, 11086],
+    ["जांभूळ कलमे (१० x १०)", "१० x १०", 100, 65302, 30610, 22824, 8893, 22824, 9793],
+    ["कोकम रोपे (७ x ७)", "७ x ७", 200, 61181, 29260, 22824, 6787, 22824, 6587],
+    ["कोकम कलमे (७ x ७)", "७ x ७", 200, 61181, 33260, 23458, 7587, 23458, 6587],
+    ["फणस रोपे (१० x १०)", "१० x १०", 100, 61181, 25610, 19337, 4236, 18703, 3636],
+    ["फणस कलमे (१० x १०)", "१० x १०", 100, 61181, 28610, 19337, 4836, 18703, 3636],
+    ["अंजिर कलमे (५ x ५)", "५ x ५", 400, 76397, 40780, 29481, 16440, 27896, 12440],
+    ["सुपारी (२.७५ x २.७५)", "२.७५ x २.७५", 1370, 169595, 18955, 87809, 50404, 86224, 49719],
+    ["ड्रॅगनफ्रूट (३.५ x ३.०)", "३.५ x ३.०", 3808, 80201, 161861, 28847, 34401, 79567, 4628],
+    ["अव्हाकडो (८ x ८)", "८ x ८", 150, 80201, 35060, 3487, 15900, 27262, 7400],
+    ["केळी ३ वर्ष (१.८ x १.५)", "१.८ x १.५", 3704, 148990, 56596, 64351, 24446, 63400, 14721],
+    ["निशिगंध (०.३० x ०.३०)", "०.३० x ०.३०", 111111, 147405, 60362, 37406, 29200, 38674, 21600],
+    ["मोगरा (१ x १)", "१ x १", 100000, 263110, 159820, 0, 0, 0, 0],
+    ["गुलाब (१ x १)", "१ x १", 100000, 324925, 142360, 0, 0, 0, 0],
+    ["सोनचाफा (३ x ३)", "३ x ३", 1111, 413368, 199260, 0, 0, 0, 0],
+    ["पानपिंपरी (१ x २)", "१ x २", 111111, 83371, 66750, 52939, 29774, 56426, 32476],
+    ["बांबू (५ x ५)", "५ x ५", 400, 77031, 77008, 33919, 7008, 32334, 5408],
+    ["करवंद कलमे (५ x ५)", "५ x ५", 400, 77982, 145855, 127751, 12098, 119826, 29714],
+    ["बोर रोपे (५ x ५)", "५ x ५", 400, 72276, 38050, 20605, 18752, 17752, 16552],
+    ["बोर रोपे (६ x ६)", "६ x ६", 277, 34870, 29440, 17435, 11666, 16167, 8866]
+  ];
+
+  const formatCurrency = (amount) => {
+    return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(amount).replace('₹', '₹ ');
+  };
+
+  const dropdown = document.getElementById('cropDropdown');
+  cropDataRaw.forEach((crop, index) => {
+    let option = document.createElement("option");
+    option.value = index;
+    option.text = crop[0];
+    dropdown.appendChild(option);
+  });
+
+  function showCropDetails() {
+    const selectedIndex = dropdown.value;
+    const detailsDiv = document.getElementById('cropDetails');
+
+    if (selectedIndex === "") {
+      detailsDiv.classList.add('hidden');
+      return;
+    }
+
+    const crop = cropDataRaw[selectedIndex];
+    
+    document.getElementById('selectedCropName').innerText = crop[0];
+    document.getElementById('cropDist').innerText = crop[1];
+    document.getElementById('cropPlants').innerText = crop[2];
+
+    const y1Total = crop[3] + crop[4];
+    const y2Total = crop[5] + crop[6];
+    const y3Total = crop[7] + crop[8];
+    const grandTotal = y1Total + y2Total + y3Total;
+
+    document.getElementById('y1Labor').innerText = formatCurrency(crop[3]);
+    document.getElementById('y1Mat').innerText = formatCurrency(crop[4]);
+    document.getElementById('y1Total').innerText = formatCurrency(y1Total);
+
+    document.getElementById('y2Labor').innerText = formatCurrency(crop[5]);
+    document.getElementById('y2Mat').innerText = formatCurrency(crop[6]);
+    document.getElementById('y2Total').innerText = formatCurrency(y2Total);
+
+    document.getElementById('y3Labor').innerText = formatCurrency(crop[7]);
+    document.getElementById('y3Mat').innerText = formatCurrency(crop[8]);
+    document.getElementById('y3Total').innerText = formatCurrency(y3Total);
+
+    document.getElementById('grandTotal').innerText = formatCurrency(grandTotal);
+
+    detailsDiv.classList.remove('hidden');
+  }
+
+  // 🆕 पेज लोड होताच आपोआप 'आंबा कलमे (१० x १०)' ची माहिती दाखवण्यासाठी
+  window.addEventListener('DOMContentLoaded', () => {
+    if (cropDataRaw.length > 0) {
+        dropdown.value = "0"; // Index 0 म्हणजे पहिले पीक (आंबा)
+        showCropDetails();    // फंक्शन कॉल करून डेटा दाखवला
+    }
+  });
+</script>
+</body>
+</html>

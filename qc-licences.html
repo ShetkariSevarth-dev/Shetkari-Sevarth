@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="कृषी सेवा केंद्र (KSK) संचालन, परवाना मार्गदर्शक आणि तात्पुरत्या गोदाम परवानगीची संपूर्ण माहिती." name="description"/>
+<title>कृषी सेवा केंद्र (KSK) परवाना व गोदाम माहिती | शेतकरी सेवार्थ</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&amp;family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+    body{font-family:'Tiro Devanagari Marathi','Noto Sans Devanagari',sans-serif;background-color:#f8fafc;text-rendering:optimizeLegibility;color:#163b2a;margin:0;padding:0}
+    .hero-gradient{background:linear-gradient(135deg,#065f46 0%,#047857 50%,#0f766e 100%)}
+    .content-panel{background:#ffffff;border:1px solid #d7e8dc;border-radius:16px;box-shadow:0 4px 20px rgba(15,80,45,.06);padding:24px;margin:0 auto}
+    .section-card{border-radius:12px;background:#f4fbf5;border:1px solid #d2efda;padding:16px;margin-bottom:14px;box-shadow:0 2px 8px rgba(22,101,52,.04)}
+    .section-heading{font-size:1.1rem;font-weight:800;color:#07472a;margin-bottom:8px;padding-bottom:4px;border-bottom:2px solid #d2efda}
+    p,li{line-height:1.65;font-size:14.5px;color:#2d3748;margin-bottom:8px}
+    
+    /* 🟢 Custom Colored Bullet List CSS 🟢 */
+    ul.colored-bullet-list { padding-left: 0; list-style-type: none; margin:0; margin-top:6px;}
+    ul.colored-bullet-list li { position: relative; padding-left: 24px; margin-bottom: 8px; }
+    ul.colored-bullet-list li::before {
+        content: ""; position: absolute; left: 0; top: 8px;
+        width: 10px; height: 10px; background-color: #059669; border-radius: 50%;
+        box-shadow: 0 0 0 2px #ecfdf5;
+    }
+
+    .back-link{display:inline-flex;align-items:center;gap:6px;background:#dcfce7;color:#14532d;border:1px solid #bbf7d0;border-radius:999px;padding:6px 14px;font-size:12px;font-weight:700;text-decoration:none;margin-bottom:12px;transition:.2s}
+    .back-link:hover{background:#bbf7d0}
+    
+    /* Global Notice Bar & Scrolling Animation */
+    .sv-global-notices{width:100%;max-width:1000px;margin:10px auto 0;box-sizing:border-box;display:flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid #b7ebc8;border-radius:12px;background:linear-gradient(100deg,#fff7d6,#f0fdf4 55%,#e2fbe9);color:#14532d;box-shadow:0 2px 8px rgba(22,101,52,.05)}
+    .sv-notice-label{background:#dc2626;color:#fff;border-radius:999px;padding:3px 8px;font-size:11px;font-weight:700;white-space:nowrap;flex-shrink:0}
+    .sv-notice-window{overflow:hidden;min-width:0;flex:1}
+    .sv-notice-track{display:flex;align-items:center;gap:30px;width:max-content;font-size:13px;font-weight:600}
+    .sv-notice-track a{color:#166534;text-decoration:underline}
+    .sv-notice-track .sv-notice-item{white-space:nowrap}
+    
+    @media(prefers-reduced-motion:no-preference){
+      .sv-notice-track.is-moving{animation:svNoticeScroll 32s linear infinite}
+      .sv-notice-track:hover{animation-play-state:paused}
+    }
+    @keyframes svNoticeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    /* Header and Footer Equal Height & Styling */
+    .sv-site-header, .sv-site-footer {
+      height: 85px;
+      min-height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+    .sv-site-footer{
+      background-color: #0b5e36 !important;
+      color: #ffffff !important;
+      text-align: center;
+      padding: 10px 16px;
+      margin-top: 30px;
+      font-size: 13px;
+      line-height: 1.6;
+      width: 100%;
+      border-top: 4px solid #86c83f;
+    }
+    .sv-footer-inner{max-width:900px;margin:0 auto;width:100%}
+    .sv-footer-note{color:#ffffff !important;font-size:13px;margin:0 0 4px}
+    .sv-footer-email{margin:2px 0}
+    .sv-footer-email a{color: #a3e635 !important;text-decoration: underline;text-underline-offset: 3.5px;font-weight: 700;}
+    .sv-footer-copy{color:#e2e8f0 !important; margin-top:4px; font-size:12px;}
+    
+    @media(max-width:640px){
+      .content-panel{padding:14px!important}
+      .section-card{padding:12px!important}
+      .sv-site-header, .sv-site-footer { height: auto; min-height: 85px; padding: 12px; }
+    }
+
+    /* Info Table */
+    .info-table{width:100%;border-collapse:collapse;font-size:13.5px;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(22,101,52,.06);background:white;margin-top:10px}
+    .info-table thead{background:linear-gradient(135deg,#047857,#065f46);color:#fff}
+    .info-table th,.info-table td{padding:10px 12px;text-align:left;border-bottom:1px solid #e5eee7;vertical-align:top}
+    .info-table tbody tr:hover{background:#ecfdf5}
+    .info-table th{font-weight:700;font-size:13px}
+    .info-table td strong{color:#065f46}
+
+    /* Notice / Info Box */
+    .info-note{background:linear-gradient(100deg,#ecfdf5,#f0fdf4);border-left:4px solid #22c55e;padding:10px 14px;border-radius:10px;margin-top:12px;font-size:13.5px;color:#065f46}
+    .info-note.warn{border-left-color:#dc2626;background:#fef2f2;color:#991b1b}
+    .info-note.amber{border-left-color:#f59e0b;background:#fffbeb;color:#92400e}
+    .info-note.blue{border-left-color:#3b82f6;background:#eff6ff;color:#1e3a8a}
+    
+    /* Nested lists inside info notes */
+    .info-note ul { list-style-type: disc; padding-left: 20px; margin-top: 4px; margin-bottom: 0; }
+</style>
+</head>
+<body class="text-gray-800 min-h-screen flex flex-col justify-between">
+
+<!-- Header Section -->
+<header class="hero-gradient text-white shadow-md sv-site-header">
+  <div class="max-w-6xl mx-auto px-4 w-full flex items-center justify-between gap-4">
+    <a class="text-white/90 hover:text-white text-xs sm:text-sm font-bold bg-white/10 px-3 py-1.5 rounded-full" href="index.html">← मागील पृष्ठ</a>
+    <a class="flex items-center justify-center gap-2" href="index.html"><h1 class="text-lg sm:text-xl font-extrabold tracking-tight">🌱 शेतकरी सेवार्थ</h1></a>
+    <a class="bg-white/20 hover:bg-white/30 text-white font-bold px-3 py-1.5 rounded-full text-xs" href="index.html">🏠 मुख्य पृष्ठ</a>
+  </div>
+</header>
+
+<!-- सामायिक महत्त्वाच्या सूचना बार -->
+<div aria-label="महत्त्वाच्या सूचना" class="sv-global-notices" role="region">
+  <span class="sv-notice-label">📢 सूचना</span>
+  <div class="sv-notice-window">
+    <div class="sv-notice-track" id="svGlobalNoticeTrack"><span>सूचना लोड होत आहेत...</span></div>
+  </div>
+</div>
+
+<!-- Main Content Area -->
+<main class="max-w-4xl mx-auto px-4 py-4 w-full flex-grow">
+  <a class="back-link" href="index.html">← शेतकरी सेवार्थ मुख्य पानावर जा</a>
+  
+  <article class="content-panel space-y-4">
+    <!-- Title Section -->
+    <div class="text-center border-b border-emerald-100 pb-4">
+      <span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-100 border border-emerald-300 px-3.5 py-1 rounded-full mb-2">🏪 कृषी सेवा केंद्र (KSK)</span>
+      <h2 class="text-lg md:text-2xl font-black text-emerald-950 leading-snug">कृषी सेवा केंद्र (KSK) संचालन व परवाना मार्गदर्शक</h2>
+    </div>
+
+    <!-- प्राथमिक माहिती आणि अर्ज प्रक्रिया -->
+    <section class="section-card">
+      <h3 class="section-heading">📌 प्राथमिक माहिती आणि अर्ज प्रक्रिया</h3>
+      <p>बियाणे, खते आणि कीटकनाशके विक्रीसाठी परवाना घेणे कायद्याने बंधनकारक आहे. अर्ज प्रक्रिया खालीलप्रमाणे आहे:</p>
+      <ul class="colored-bullet-list">
+        <li><strong>ऑनलाइन अर्ज:</strong> <a href="https://aaplesarkar.mahaonline.gov.in" target="_blank" class="text-emerald-700 underline font-semibold">aaplesarkar.mahaonline.gov.in</a> वर ऑनलाइन अर्ज करावा.</li>
+        <li><strong>प्रक्रिया:</strong> ऑनलाइन अर्जाची प्रत, ग्रास (GRAS) चलन आणि आवश्यक कागदपत्रांची फाईल तयार करून तालुका कृषी अधिकारी कार्यालयात जमा करावी.</li>
+        <li><strong>मंजुरी:</strong> तालुका कार्यालयाकडून छाननी होऊन ७ दिवसांत जिल्हा अधीक्षक कृषी अधिकारी (DSAO) कार्यालयाकडे शिफारस केली जाते. मंजुरीनंतर परवाना ऑनलाइन प्रिंट होतो.</li>
+      </ul>
+    </section>
+
+    <!-- अर्जदाराची पात्रता -->
+    <section class="section-card">
+      <h3 class="section-heading">🎓 अर्जदाराची पात्रता (Qualification)</h3>
+      <p>परवाना मिळवण्यासाठी अर्जदाराकडे खालीलपैकी कोणतीही एक पात्रता असणे आवश्यक आहे:</p>
+      <ul class="colored-bullet-list" style="margin-top:10px">
+        <li><strong>कृषी पदविका</strong> (Agriculture Diploma)</li>
+        <li><strong>कृषी पदवी</strong> (B.Sc. Agri)</li>
+        <li><strong>B.Sc. (Chemistry)</strong> किंवा संबंधित विज्ञान शाखा</li>
+        <li><strong>MANAGE हैद्राबाद, Fertilizer Association of India</strong> किंवा शासनमान्य संस्थेचा सर्टिफिकेट कोर्स</li>
+      </ul>
+    </section>
+
+    <!-- परवाना शुल्क आणि वैधता -->
+    <section class="section-card">
+      <h3 class="section-heading">💰 परवाना शुल्क आणि वैधता (Fees & Validity)</h3>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+        <table class="info-table">
+          <thead>
+            <tr>
+              <th>निविष्ठा प्रकार</th>
+              <th>नवीन परवाना शुल्क</th>
+              <th>नूतनीकरण शुल्क</th>
+              <th>वैधता कालावधी</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>बियाणे (किरकोळ)</strong></td>
+              <td>रु. १,०००/-</td>
+              <td>रु. ५००/- (विलंबासह रु. १,०००/-)</td>
+              <td>३ वर्षे (नूतनीकरण १ महिन्यात न केल्यास रद्द)</td>
+            </tr>
+            <tr>
+              <td><strong>खते (किरकोळ)</strong></td>
+              <td>रु. ४५०/-</td>
+              <td>रु. ४५०/- (विलंब शुल्क रु. ६०/-)</td>
+              <td>३ वर्षे (नूतनीकरण १ महिन्यात न केल्यास रद्द)</td>
+            </tr>
+            <tr>
+              <td><strong>खते (घाऊक)</strong></td>
+              <td>रु. २,२५०/-</td>
+              <td>रु. २,२५०/- (विलंब शुल्क रु. ७५/-)</td>
+              <td>३ वर्षे</td>
+            </tr>
+            <tr>
+              <td><strong>कीटकनाशके (शहरी)</strong></td>
+              <td>रु. ५००/- (प्रति औषध, कमाल रु. ७,५००/-)</td>
+              <td>नूतनीकरण आवश्यक नाही*</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td><strong>कीटकनाशके (ग्रामीण)</strong></td>
+              <td>रु. १००/- (प्रति औषध, कमाल रु. ७,५००/-)</td>
+              <td>नूतनीकरण आवश्यक नाही*</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- तात्पुरत्या स्वरूपात गोदाम परवानगी -->
+    <section class="section-card" style="border-left:5px solid #f59e0b">
+      <h3 class="section-heading" style="color:#92400e;border-bottom-color:#fde68a">🏢 तात्पुरत्या स्वरूपात गोदाम परवानगी हवी असल्यास</h3>
+      <p>तात्पुरत्या स्वरूपात गोदामासाठी परवानगी हवी असल्यास, लेखी अर्ज आणि खालील कागदपत्रे <strong>दोन प्रतीत</strong> सादर करावी लागतील:</p>
+      
+      <h4 style="font-weight:800;color:#92400e;margin:12px 0 6px;font-size:.95rem">📄 आवश्यक कागदपत्रे (२ प्रती)</h4>
+      <ul class="colored-bullet-list">
+        <li><strong>नाहरकत प्रमाणपत्र:</strong> ग्रामपंचायत / नगरपरिषद / नगरपंचायत यांचे.</li>
+        <li><strong>जागेची टॅक्स पावती</strong> किंवा <strong>जागेचा ८-अ</strong> उतारा.</li>
+        <li><strong>भाडेकरारनामा</strong> किंवा <strong>संमत्तीपत्र</strong> (रु. १००/- स्टॅम्प पेपरवर).</li>
+        <li><strong>परवाना प्रत</strong> (विद्यमान परवान्याची प्रत).</li>
+        <li><strong>चलान प्रत</strong> (खालीलप्रमाणे शुल्क भरून).</li>
+      </ul>
+
+      <h4 style="font-weight:800;color:#92400e;margin:16px 0 6px;font-size:.95rem">💸 चलान शुल्क (तात्पुरते गोदाम)</h4>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+        <table class="info-table">
+          <thead>
+            <tr>
+              <th>निविष्ठा प्रकार</th>
+              <th>शुल्क (₹)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>बियाणे (सामान्य)</td><td>₹ ५००/-</td></tr>
+            <tr><td>कापूस बियाणे</td><td>₹ १००/-</td></tr>
+            <tr><td>खते (किरकोळ)</td><td>₹ ६०/-</td></tr>
+            <tr><td>रासायनिक खते (घाऊक)</td><td>₹ १५०/-</td></tr>
+            <tr><td>कीटकनाशके (ग्रामीण)</td><td>₹ १००/-</td></tr>
+            <tr><td>कीटकनाशके (शहरी)</td><td>₹ ३००/-</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-note warn" style="margin-top:14px">
+        <strong>⚠️ महत्त्वाची सूचना:</strong> 
+        <ul>
+          <li>अर्जासह वरील सर्व कागदपत्रे <strong>दोन प्रतीत</strong> सादर करावीत.</li>
+          <li>मिळालेली परवानगी फक्त <strong>९० दिवसांकरता</strong> वैध राहील.</li>
+        </ul>
+      </div>
+
+      <div class="info-note blue" style="margin-top:10px">
+        <strong>🪧 फ्लेक्स फलक सूचना:</strong> तात्पुरत्या गोदामाच्या समोर <strong>"तात्पुरता गोदाम ........... कृषी केंद्र"</strong> असे नाव असलेला फ्लेक्स लावणे बंधनकारक आहे.
+      </div>
+    </section>
+
+    <!-- नूतनीकरण आणि दुरुस्त अर्ज -->
+    <section class="section-card">
+      <h3 class="section-heading">🔄 नूतनीकरण आणि दुरुस्त अर्ज (Renewal & Rectification)</h3>
+      <p>परवान्याचे नूतनीकरण किंवा त्यात दुरुस्ती (उदा. जागा बदल, गोदाम समावेश, स्त्रोत समावेश) करायची असल्यास खालीलप्रमाणे अर्ज करावा:</p>
+      
+      <h4 style="font-weight:800;color:#065f46;margin:12px 0 6px;font-size:.95rem">१. जागा बदल असल्यास किंवा गोदाम समावेश असल्यास</h4>
+      <ul class="colored-bullet-list">
+        <li>ग्रामपंचायत किंवा नगरपरिषद/नगरपंचायत यांचे <strong>ना-हरकत प्रमाणपत्र</strong>.</li>
+        <li>जागेची <strong>टॅक्स पावती</strong> किंवा <strong>८-अ</strong> उतारा.</li>
+        <li><strong>भाडेकरारनामा</strong> किंवा <strong>संमत्तीपत्र</strong> (रु. १००/- स्टॅम्पवर).</li>
+      </ul>
+
+      <h4 style="font-weight:800;color:#065f46;margin:16px 0 6px;font-size:.95rem">२. दुरुस्त अर्जासाठी चलान शुल्क</h4>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+        <table class="info-table">
+          <thead>
+            <tr>
+              <th>निविष्ठा प्रकार</th>
+              <th>दुरुस्ती शुल्क (₹)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>बियाणे</td><td>₹ ५००/-</td></tr>
+            <tr><td>कापूस बियाणे</td><td>₹ १००/-</td></tr>
+            <tr><td>खते (किरकोळ)</td><td>₹ ६०/-</td></tr>
+            <tr><td>रासायनिक खते (घाऊक)</td><td>₹ १५०/-</td></tr>
+            <tr><td>कीटकनाशके (ग्रामीण)</td><td>₹ १००/-</td></tr>
+            <tr><td>कीटकनाशके (शहरी)</td><td>₹ ३००/-</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- आवश्यक कागदपत्रे -->
+    <section class="section-card">
+      <h3 class="section-heading">📄 नवीन परवान्यासाठी आवश्यक कागदपत्रे (Checklist)</h3>
+      <ul class="colored-bullet-list">
+        <li>विहित नमुन्यातील अर्ज व ऑनलाइन चलनाची प्रत.</li>
+        <li>आधार कार्ड, पॅन कार्ड.</li>
+        <li>गुणनियंत्रण निरीक्षक यांचा प्रमाणित जागेचा नकाशा व जागा योग्यता प्रमाणपत्र.</li>
+        <li>उगम प्रमाणपत्र (Source Certificate) - २ प्रती.</li>
+        <li>ना-हरकत प्रमाणपत्र (NOC) - ग्रामपंचायत/नगरपालिका.</li>
+        <li>रहिवासी प्रमाणपत्र.</li>
+        <li>प्रतिज्ञापत्र (रु. १०० स्टॅम्प पेपरवर नोटरी).</li>
+        <li>जागा मालकीची असल्यास मालमत्ता कर पावती; भाड्याची असल्यास रु. १०० स्टॅम्प पेपरवर नोटरी करारनामा.</li>
+        <li>गोदामाचे Geotag फोटो.</li>
+        <li>पार्टनरशिप डीड / संस्थेचा ठराव (लागू असल्यास).</li>
+      </ul>
+    </section>
+
+    <!-- कृषी सेवा केंद्र (KSK) संचालन सूचना -->
+    <section class="section-card">
+      <h3 class="section-heading">🏪 कृषी सेवा केंद्र (KSK) संचालन सूचना (जिल्हा परिषद नियम)</h3>
+      <div class="info-note warn" style="margin-bottom:10px">
+        <strong>दुकानाचे स्वरूप:</strong> दुकानाला <b>पिवळा रंग</b> द्यावा. दुकानावर नामफलक लावून त्यावर <b>सर्व्ह परवाना क्रमांक</b> नोंदवावा. बियाणे, खते व औषधांचा परवाना दर्शनी भागात लावावा.
+      </div>
+      <ul class="colored-bullet-list">
+        <li><strong>फलक:</strong> खते, बियाणे व कीटकनाशके यांचा साठा व दर यांचे <b>स्वतंत्र फलक</b> करावेत व दररोज साठा अद्यावत करावा.</li>
+        <li><strong>वजन काटा:</strong> दुकानात ५ किलो आणि ५० किलो क्षमतेचा वजन काटा अनिवार्य आहे.</li>
+        <li><strong>साठा नोंदवही:</strong> खते, बियाणे व कीटकनाशके यांची स्वतंत्र साठा नोंदवही (परिशिष्ट अ नुसार) ठेवावी. प्रत्येक आर्थिक वर्षात पानांना क्रमांक देऊन <b>गुणनियंत्रण निरीक्षकाकडून सीलबंद</b> करून घेणे बंधनकारक आहे.</li>
+        <li><strong>साठवणूक:</strong> खते, बियाणे व कीटकनाशके विभागवार स्वतंत्र जागी ठेवावीत. मुदतबाह्य साठा "विक्री करीत नाही" असे लिहून बाजूला ठेवावा.</li>
+        <li><strong>IFMS:</strong> आपले IFMS प्रोफाईल अद्यावत ठेवावे.</li>
+        <li><strong>तपासणी अहवाल:</strong> निरीक्षकांनी तपासणी केल्यास त्रुटी ७ दिवसांत पूर्ण करून अहवाल द्यावा.</li>
+      </ul>
+    </section>
+
+    <!-- खते विक्रीचे विशेष नियम -->
+    <section class="section-card">
+      <h3 class="section-heading">🌾 खते विक्रीचे विशेष नियम</h3>
+      <ul class="colored-bullet-list">
+        <li>घाऊक व किरकोळ विक्रीचे परवाने <b>स्वतंत्र</b> काढणे बंधनकारक आहे.</li>
+        <li>खते फक्त परवानाधारक कंपनी/होलसेलरकडूनच खरेदी करावी व बिले जतन करावीत.</li>
+        <li>अनुदानित खते विकताना <b>POS मशीनचा वापर</b> बंधनकारक आहे. शेतकऱ्याची स्वाक्षरी (परिशिष्ट ब) घ्यावी.</li>
+        <li>सुटे खते विकताना एका वेळी एकाच खताची एकच गोणी उघडावी.</li>
+        <li>मासिक खरेदी-विक्री अहवाल कृषी अधिकारी व पंचायत समितीला द्यावा.</li>
+      </ul>
+    </section>
+
+    <!-- बियाणे विक्रीचे विशेष नियम -->
+    <section class="section-card">
+      <h3 class="section-heading">🌱 बियाणे विक्रीचे विशेष नियम</h3>
+      <ul class="colored-bullet-list">
+        <li>सर्व बियाणे सीलबंद पॅकिंगमध्ये विकावे. आवरणावर तपशील नोंदी असणे गरजेचे आहे.</li>
+        <li>खरेदी करताना प्रमाणित (Certified) किंवा सत्यतादर्शक (Truthful) लेबलची खात्री करावी.</li>
+        <li>काउंटरवर प्रत्येक बियाण्याचा नमुना पॅकिंग तपशीलासह दाखवण्यासाठी ठेवावा.</li>
+        <li><strong>नमुना जतन:</strong> प्रत्येक बियाणे लॉटचा एक नमुना <b>१ वर्षासाठी</b> जतन करून ठेवावा.</li>
+        <li>खरीप हंगाम २०२५ साठी बियाणे विक्रीत <b>"साथी" पोर्टलचा</b> वापर बंधनकारक आहे.</li>
+        <li>उगवण तक्रार आल्यास शेतकऱ्याशी आदरयुक्त संपर्क ठेवून त्वरित निवारण करावे.</li>
+      </ul>
+    </section>
+
+    <!-- कीटकनाशके विक्रीचे विशेष नियम -->
+    <section class="section-card">
+      <h3 class="section-heading">🐛 कीटकनाशके विक्रीचे विशेष नियम</h3>
+      <ul class="colored-bullet-list">
+        <li>औषधे सीलबंद पॅकिंगमध्येच विकावीत. विक्री बिलावर (परिशिष्ट ब) औषधाचे नाव, बॅच क्रमांक, अंतिम तारीख, किंमत व लेबल क्लेमची नोंद असावी.</li>
+        <li>साठवणुकीची जागा योग्य असावी (जास्त ओलावा नसावा).</li>
+        <li>तणनाशकाची शिफारस करताना शेजारील पिके संवेदनशील नाहीत याची खात्री करावी.</li>
+        <li>कीटकनाशके हाताळताना कामगारांनी काळजी घ्यावी.</li>
+      </ul>
+    </section>
+
+    <!-- निरीक्षकांचे अधिकार -->
+    <section class="section-card">
+      <h3 class="section-heading">⚖️ निरीक्षकांचे अधिकार (Inspector Powers)</h3>
+      <p>गुणनियंत्रण निरीक्षक (QC Inspector) यांना खालील अधिकार आहेत:</p>
+      <ul class="colored-bullet-list">
+        <li>कोणत्याही वेळी दुकानाची तपासणी करणे व नमुने घेणे.</li>
+        <li>कायद्याचे उल्लंघन आढळल्यास साठा जप्त (Seize) करणे किंवा Stop Sale ची सूचना देणे.</li>
+        <li>हिशोब पुस्तके तपासणे व आवश्यकता असल्यास जप्त करणे.</li>
+      </ul>
+    </section>
+  </article>
+</main>
+
+<!-- Footer -->
+<footer class="sv-site-footer" role="contentinfo">
+  <div class="sv-footer-inner">
+    <p class="sv-footer-note">सदर माहिती आपल्या उपयुक्त वाटल्यास किंवा सूचना असल्यास संपर्क साधू शकता.</p>
+    <p class="sv-footer-email" style="margin-top:2px;">📧 ई-मेल: <a href="mailto:shetkarisevarthofficial@gmail.com">shetkarisevarthofficial@gmail.com</a></p>
+    <p class="sv-footer-copy">© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p>
+  </div>
+</footer>
+
+<script src="portal-data.js?v=shared"></script>
+<script>
+  (function(){
+    function loadSharedNotices(){
+      var track=document.getElementById('svGlobalNoticeTrack');
+      if(!track)return;
+      var items=(window.PORTAL_DATA&&Array.isArray(window.PORTAL_DATA.announcements))?window.PORTAL_DATA.announcements:[];
+      track.innerHTML='';
+      if(!items.length){track.textContent='सध्या नवीन अपडेट उपलब्ध नाही.';return;}
+      function add(item){
+        var span=document.createElement('span');span.className='sv-notice-item';
+        var label=(item.emoji?item.emoji+' ':'')+(item.text||'');
+        if(item.url){var a=document.createElement('a');a.href=item.url;a.textContent=label;span.appendChild(a);}
+        else span.textContent=label;
+        track.appendChild(span);
+      }
+      items.forEach(add);
+      if(items.length>1){
+        items.forEach(add);
+        track.classList.add('is-moving');
+      }
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadSharedNotices);else loadSharedNotices();
+  })();
+</script>
+</body>
+</html>

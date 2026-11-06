@@ -109,6 +109,7 @@ html[data-card-theme="purple"]{--c-dark:#4c1d95;--c-main:#6d28d9;--c-border:#7c3
 
 /* ID card */
 .idcard{width:420px;height:255px;zoom:var(--fit);border-radius:12px;border:2px solid var(--c-border);padding:9px 11px;box-shadow:0 6px 20px rgb(var(--c-rgb) / .21);position:relative;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;background:linear-gradient(135deg,var(--c-lighter),#fff 48%,var(--c-light));margin:0 auto 14px;flex-shrink:0}
+.idcard{color:#000}
 .idcard>*{position:relative;z-index:1}
 .idcard>.deco{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 .deco .d{display:none}
@@ -117,25 +118,26 @@ html[data-card-theme="green"] .deco .d-green,html[data-card-theme="blue"] .deco 
 .deco .s1{fill:none;stroke:rgb(var(--c-rgb) / .16)}
 .cardhead{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--c-border);padding:0 3px 5px;background:linear-gradient(90deg,var(--c-light),var(--c-lighter));border-radius:var(--c-head-r)}
 .cardhead img{object-fit:contain;flex-shrink:0;filter:drop-shadow(0 1px 1px #064e3b20)}
-.cardtitle{text-align:center;font-weight:900;color:var(--c-dark);line-height:1.25;flex:1;padding:0 4px;font-size:calc(11px * var(--gov-font-scale))}
+.cardtitle{text-align:center;font-weight:900;color:#000;line-height:1.25;flex:1;padding:0 4px;font-size:calc(11px * var(--gov-font-scale))}
 .details{display:flex;gap:7px;align-items:center;margin:3px 0}
 .photo{width:67px;height:82px;border:2px solid var(--c-main);border-radius:var(--c-photo-r);object-fit:cover;background:#fff;flex-shrink:0}
 .detailtext{font-size:calc(9px * var(--card-font-scale));line-height:1.55;flex:1;min-width:0}
 .detailrow{display:flex;gap:3px}
-.detailrow .key{width:calc(47px * var(--card-font-scale));color:var(--c-dark);font-weight:800;flex-shrink:0}
+.detailrow .key{width:calc(47px * var(--card-font-scale));color:#000;font-weight:800;flex-shrink:0}
 .detailrow .val{font-weight:700;overflow-wrap:anywhere}
 .farmerid{background:linear-gradient(90deg,var(--c-dark),var(--c-main));color:#fff;text-align:center;border-radius:4px;padding:3px;font-weight:900;font-size:calc(11px * var(--card-font-scale))}
 .address{font-size:calc(8.5px * var(--card-font-scale));line-height:1.25;font-weight:600;overflow-wrap:anywhere}
-.land-heading{text-align:center;font-weight:900;color:var(--c-dark);font-size:var(--land-heading-font);line-height:1.15;padding:2px 0 3px;border-bottom:1px solid var(--c-light);margin-bottom:2px}
+.land-heading{text-align:center;font-weight:900;color:#000;font-size:var(--land-heading-font);line-height:1.15;padding:2px 0 3px;border-bottom:1px solid var(--c-light);margin-bottom:2px}
 .landwrap{border:1px solid var(--c-border);border-radius:5px;overflow:hidden;max-height:78px;overflow-y:auto;background:#fff}
 .landtable{width:100%;border-collapse:collapse;font-size:calc(7px * var(--card-font-scale));table-layout:fixed}
 .landtable th{background:var(--c-dark);color:#fff;padding:2px 1px;text-align:center}
 .landtable td{padding:2px 1px;border-bottom:1px solid var(--c-light);overflow-wrap:anywhere;text-align:center;vertical-align:middle}
-.backbottom{display:flex;align-items:center;justify-content:center;gap:14px;font-size:calc(7.5px * var(--card-font-scale));font-weight:900;color:var(--c-dark);border-top:2px solid var(--c-border);padding-top:4px;background:linear-gradient(90deg,var(--c-lighter),var(--c-light),var(--c-lighter));border-radius:0 0 4px 4px;min-height:18px}
+.backbottom{display:flex;align-items:center;justify-content:center;gap:14px;font-size:calc(7.5px * var(--card-font-scale));font-weight:900;color:#000;border-top:2px solid var(--c-border);padding-top:4px;background:linear-gradient(90deg,var(--c-lighter),var(--c-light),var(--c-lighter));border-radius:0 0 4px 4px;min-height:18px}
 .backbottom #websiteText{white-space:nowrap}
 .qrcode{width:108px;height:108px;background:#fff;padding:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .qrcode svg,.qrcode img,.qrcode canvas{width:100px!important;height:100px!important;max-width:100px;max-height:100px;display:block}
 
+.notice-red{color:#dc2626;font-weight:800;text-align:center;font-size:calc(8px * var(--card-font-scale));line-height:1.25}
 @media(max-width:900px){
   .layout{grid-template-columns:1fr}
   input,select,textarea{font-size:16px}
@@ -245,7 +247,7 @@ html[data-card-theme="green"] .deco .d-green,html[data-card-theme="blue"] .deco 
 <div class="idcard">
   <div class="cardhead">
     <img id="agriLogoFront" src="https://lh3.googleusercontent.com/d/1Pk5lHrR_F2ccgSiZCIpSGhkaLaOm3RbT" alt="AgriStack" onerror="this.style.visibility='hidden'">
-    <div class="cardtitle" data-i18n="front">भारत सरकार</div>
+    <div class="cardtitle">फार्मर आयडी</div>
     <img id="govLogoFront" src="https://lh3.googleusercontent.com/d/1T-YHhGPSIPMy1UkEvhjQD-C2qZM-JGCJ" alt="भारत राजचिन्ह" onerror="this.style.visibility='hidden'">
   </div>
   <div class="details">
@@ -260,25 +262,27 @@ html[data-card-theme="green"] .deco .d-green,html[data-card-theme="blue"] .deco 
     </div>
     <div class="flex flex-col items-center justify-center" style="width:110px;flex-shrink:0">
       <div class="qrcode" id="qrcode" aria-label="Farmer QR code"></div>
-      <div class="text-center font-bold" style="font-size:5.5px;line-height:1.1;margin-top:2px">shetkarisevarth.info</div>
+      <div class="text-center font-bold" style="font-size:5.5px;line-height:1.1;margin-top:2px">shetkarisevarth.in</div>
     </div>
   </div>
   <div class="farmerid"><span data-i18n="farmerIdCaption">शेतकरी ID</span> : <span id="lblFId">—</span></div>
+  <div class="notice-red" data-i18n="notOfficial">हे अधिकृत ओळखपत्र नाही , फार्मर आयडी लक्षात रहावा यासाठी आहे.</div>
 </div>
 
 <!-- Back -->
 <div class="idcard" style="justify-content:flex-start;gap:5px">
   <div class="cardhead">
     <img id="agriLogoBack" src="https://lh3.googleusercontent.com/d/1Pk5lHrR_F2ccgSiZCIpSGhkaLaOm3RbT" alt="AgriStack" onerror="this.style.visibility='hidden'">
-    <div class="cardtitle" data-i18n="back">कृषि एवं किसान कल्याण मंत्रालय</div>
+    <div class="cardtitle">Farmer ID</div>
     <img id="govLogoBack" src="https://lh3.googleusercontent.com/d/1T-YHhGPSIPMy1UkEvhjQD-C2qZM-JGCJ" alt="भारत राजचिन्ह" onerror="this.style.visibility='hidden'">
   </div>
-  <div style="padding:1px 2px 3px;border-bottom:1px solid var(--c-light)"><span class="font-bold" style="font-size:calc(8px * var(--card-font-scale));display:block;color:var(--c-main)" data-i18n="addressCaption">पत्ता</span><p id="lblFAddress" class="address" style="margin:1px 0 0">—</p></div>
+  <div style="padding:1px 2px 3px;border-bottom:1px solid var(--c-light)"><span class="font-bold" style="font-size:calc(8px * var(--card-font-scale));display:block;color:#000" data-i18n="addressCaption">पत्ता</span><p id="lblFAddress" class="address" style="margin:1px 0 0">—</p></div>
   <div>
     <div class="land-heading" data-i18n="land">जमीन तपशील</div>
     <div class="landwrap" id="landWrap"><table class="landtable"><thead><tr><th data-i18n="district">जिल्हा</th><th data-i18n="subdist">तालुका</th><th data-i18n="village">गाव</th><th data-i18n="khasra">सर्वे/गट नं.</th><th data-i18n="area">क्षेत्र</th></tr></thead><tbody id="lblLandTableBody"></tbody></table></div>
   </div>
-  <div class="backbottom"><div data-i18n="help">मदत: 1800-180-1551</div><div id="websiteText">🌐 mhfr.agristack.gov.in</div></div>
+  <div class="backbottom"><div id="websiteText">🌐 mhfr.agristack.gov.in</div></div>
+  <div class="notice-red" style="margin-top:auto" data-i18n="notOfficial">हे अधिकृत ओळखपत्र नाही , फार्मर आयडी लक्षात रहावा यासाठी आहे.</div>
 </div>
 
 <button type="button" class="printBtn no-print w-full bg-slate-800 text-white font-bold p-2.5 rounded-xl text-xs mt-1" data-i18n="printPdf">🖨️ PDF डाऊनलोड / प्रिंट करा</button>
@@ -422,16 +426,16 @@ const QRGen=(function(){
 /* ============ भाषा ============ */
 const translations={
 mr:{subtitle:'डिजिटल शेतकरी ओळखपत्र प्रणाली',formHeading:'📝 शेतकऱ्याची माहिती व जमिनीचे गट भरा',formSub:'एकापेक्षा जास्त जमीन नोंदी जोडू शकता.',langLabel:'कार्डची भाषा',personal:'वैयक्तिक माहिती',name:'शेतकऱ्याचे पूर्ण नाव',gender:'लिंग',dob:'जन्मतारीख',caste:'जात प्रवर्ग',mobile:'मोबाईल नंबर',aadhaar:'आधार नंबर',farmerId:'शेतकरी ID',photo:'शेतकऱ्याचा फोटो',address:'मुख्य पत्ता',land:'जमीन तपशील',landSub:'शेत जमिनीच्या नोंदी',addLand:'+ नवीन जमीन जोडा',district:'जिल्हा',subdist:'तालुका',village:'गाव',khasra:'सर्वे/गट नं.',area:'क्षेत्र',
-qrNote:'QR कोडमध्ये वेबसाइट, शेतकऱ्याचे नाव, आधार क्रमांक आणि शेतकरी ID आहे.',update:'✓ कार्ड अपडेट करा',print:'🖨️ प्रिंट / PDF',printPdf:'🖨️ PDF डाऊनलोड / प्रिंट करा',preview:'📇 डिजिटल कार्ड प्रीव्ह्यू',badge:'एकाच पेजवर प्रिंट',front:'भारत सरकार',back:'कृषि एवं किसान कल्याण मंत्रालय',nameKey:'नाव',genderKey:'लिंग',dobKey:'जन्मतारीख',casteKey:'जात प्रवर्ग',mobileKey:'मोबाईल',aadhaarKey:'आधार',farmerIdCaption:'शेतकरी ID',addressCaption:'पत्ता',help:'मदत: 1800-180-1551',
-printHint:'टीप: प्रिंट करताना "Background graphics" चालू ठेवा. QR मध्ये shetkarisevarth.info, नाव, आधार क्रमांक आणि शेतकरी ID आहे.',needLand:'कमीत कमी एक जमीन नोंद आवश्यक आहे!',
+qrNote:'QR कोडमध्ये वेबसाइट, शेतकऱ्याचे नाव, आधार क्रमांक आणि शेतकरी ID आहे.',update:'✓ कार्ड अपडेट करा',print:'🖨️ प्रिंट / PDF',printPdf:'🖨️ PDF डाऊनलोड / प्रिंट करा',preview:'📇 डिजिटल कार्ड प्रीव्ह्यू',badge:'एकाच पेजवर प्रिंट',front:'भारत सरकार',back:'कृषि एवं किसान कल्याण मंत्रालय',nameKey:'नाव',genderKey:'लिंग',dobKey:'जन्मतारीख',casteKey:'जात प्रवर्ग',mobileKey:'मोबाईल',aadhaarKey:'आधार',farmerIdCaption:'शेतकरी ID',addressCaption:'पत्ता',help:'मदत: 1800-180-1551',notOfficial:'हे अधिकृत ओळखपत्र नाही , फार्मर आयडी लक्षात रहावा यासाठी आहे.',
+printHint:'टीप: प्रिंट करताना "Background graphics" चालू ठेवा. QR मध्ये shetkarisevarth.in, नाव, आधार क्रमांक आणि शेतकरी ID आहे.',needLand:'कमीत कमी एक जमीन नोंद आवश्यक आहे!',
 select:'— निवडा —',themeLabel:'🎨 कार्ड थीम',thGreen:'हिरवी',thBlue:'निळी',thSaffron:'केशरी',thPurple:'जांभळी',badId:'शेतकरी ID ११ अंकी असावा.',male:'पुरुष',female:'महिला',other:'इतर',selDist:'जिल्हा निवडा',selTaluka:'तालुका निवडा',selVillage:'गाव निवडा',firstDist:'आधी जिल्हा निवडा',firstTaluka:'आधी तालुका निवडा',loading:'लोड होत आहे…',typeDist:'जिल्हा टाइप करा',typeTaluka:'तालुका टाइप करा',typeVillage:'गाव टाइप करा',
 settings:'⚙️ कार्ड सेटिंग्ज (अक्षर / लोगो आकार)',sFont:'🔤 कार्डवरील अक्षरे',sGov:'🏛️ शासकीय हेडिंग',sLandHead:'🌾 जमीन तपशील शीर्षक',sAgri:'🌱 AgriStack लोगो',sGovLogo:'🏛️ राजचिन्ह',reset:'रीसेट',
 landWarn:'⚠️ सर्व जमीन नोंदी कार्डवर मावत नाहीत. प्रिंटमध्ये काही नोंदी कापल्या जातील — अक्षरांचा आकार कमी करा किंवा नोंदी कमी करा.',badMobile:'मोबाईल नंबर १० अंकी (६–९ ने सुरू) असावा.',badAadhaar:'आधार नंबर १२ अंकी असावा.',badImage:'कृपया image फाईल निवडा.',imgFail:'फोटो उघडता आला नाही.',
 footer:'हे साधन फक्त माहिती-प्रत तयार करण्यासाठी आहे; हे अधिकृत शासकीय ओळखपत्र नाही. तुम्ही भरलेली सर्व माहिती व फोटो तुमच्या ब्राउझरमध्येच राहतो, सर्व्हरवर पाठवला जात नाही.',
 caste:'जात प्रवर्ग',castes:['अनुसूचित जाती (SC)','अनुसूचित जमाती (ST)','विमुक्त जाती (VJ)','भटक्या जमाती (NT)','इतर मागास वर्ग (OBC)','विशेष मागास प्रवर्ग (SBC)','खुला (सर्वसाधारण)']},
 en:{subtitle:'Digital Farmer Identity Card System',formHeading:'📝 Enter farmer and land details',formSub:'You can add multiple land records.',langLabel:'Card language',personal:'Personal Information',name:'Farmer Full Name',gender:'Gender',dob:'Date of Birth',caste:'Caste Category',mobile:'Mobile Number',aadhaar:'Aadhaar Number',farmerId:'Farmer ID',photo:'Farmer Photo',address:'Main Address',land:'Land Details',landSub:'Agricultural land records',addLand:'+ Add Land',district:'District',subdist:'Taluka',village:'Village',khasra:'Survey/Gat No.',area:'Area',
-qrNote:'The QR code contains the website, farmer name, Aadhaar number and Farmer ID.',update:'✓ Update Card',print:'🖨️ Print / PDF',printPdf:'🖨️ Download PDF / Print',preview:'📇 Digital Card Preview',badge:'Print on one page',front:'Government of India',back:'Ministry of Agriculture & Farmers Welfare',nameKey:'Name',genderKey:'Gender',dobKey:'DOB',casteKey:'Caste Category',mobileKey:'Mobile',aadhaarKey:'Aadhaar',farmerIdCaption:'Farmer ID',addressCaption:'Address',help:'Help: 1800-180-1551',
-printHint:'Tip: keep "Background graphics" ON while printing. The QR contains shetkarisevarth.info, name, Aadhaar number and Farmer ID.',needLand:'At least one land record is required!',
+qrNote:'The QR code contains the website, farmer name, Aadhaar number and Farmer ID.',update:'✓ Update Card',print:'🖨️ Print / PDF',printPdf:'🖨️ Download PDF / Print',preview:'📇 Digital Card Preview',badge:'Print on one page',front:'Government of India',back:'Ministry of Agriculture & Farmers Welfare',nameKey:'Name',genderKey:'Gender',dobKey:'DOB',casteKey:'Caste Category',mobileKey:'Mobile',aadhaarKey:'Aadhaar',farmerIdCaption:'Farmer ID',addressCaption:'Address',help:'Help: 1800-180-1551',notOfficial:'This is not an official ID card; it is only to help remember the Farmer ID.',
+printHint:'Tip: keep "Background graphics" ON while printing. The QR contains shetkarisevarth.in, name, Aadhaar number and Farmer ID.',needLand:'At least one land record is required!',
 select:'— Select —',themeLabel:'🎨 Card theme',thGreen:'Green',thBlue:'Blue',thSaffron:'Saffron',thPurple:'Purple',badId:'Farmer ID must be 11 digits.',male:'Male',female:'Female',other:'Other',selDist:'Select district',selTaluka:'Select taluka',selVillage:'Select village',firstDist:'Select district first',firstTaluka:'Select taluka first',loading:'Loading…',typeDist:'Type district',typeTaluka:'Type taluka',typeVillage:'Type village',
 settings:'⚙️ Card settings (font / logo size)',sFont:'🔤 Card text',sGov:'🏛️ Government heading',sLandHead:'🌾 Land heading',sAgri:'🌱 AgriStack logo',sGovLogo:'🏛️ Emblem',reset:'Reset',
 landWarn:'⚠️ Not all land records fit on the card. Some rows will be cut off in print — reduce the font size or the number of records.',badMobile:'Mobile number must be 10 digits (starting 6–9).',badAadhaar:'Aadhaar number must be 12 digits.',badImage:'Please choose an image file.',imgFail:'Could not open the photo.',
@@ -682,12 +686,12 @@ function updateLiveCard(){
 /* QR: वेबसाइट + नाव + आधार + Farmer ID */
 function updateQR(){
   const val=id=>$(id).value.trim();
-  const qrText='shetkarisevarth.info\nFarmer Name: '+(val('fName')||'-')+'\nAadhaar: '+(val('fAadhaar')||'-')+'\nFarmer ID: '+(val('fId').replace(/\s+/g,'')||'-');
+  const qrText='shetkarisevarth.in\nFarmer Name: '+(val('fName')||'-')+'\nAadhaar: '+(val('fAadhaar')||'-')+'\nFarmer ID: '+(val('fId').replace(/\s+/g,'')||'-');
   if(qrText===lastQr)return;
   const qr=$('qrcode');
   try{qr.innerHTML=QRGen.toSVG(qrText,'L',2);lastQr=qrText}
   catch(e){
-    try{qr.innerHTML=QRGen.toSVG('shetkarisevarth.info\nFarmer ID: '+(val('fId').replace(/\s+/g,'')||'-'),'L',2);lastQr=qrText}
+    try{qr.innerHTML=QRGen.toSVG('shetkarisevarth.in\nFarmer ID: '+(val('fId').replace(/\s+/g,'')||'-'),'L',2);lastQr=qrText}
     catch(e2){qr.textContent='QR'}
   }
 }
