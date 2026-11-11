@@ -7,8 +7,8 @@
 (function () {
   // true = फक्त शेतकरी सेवार्थ पोर्टलवरून चालेल. चाचणीसाठी तात्पुरते false करता येते.
   var ENABLE_GATE = true;
-  var ALLOWED_HOSTS = ["shetkarisevarth.info", "www.shetkarisevarth.info"];
-  var PORTAL_URL  = "http://shetkarisevarth.info/estimates.html";
+  var ALLOWED_HOSTS = ["shetkarisevarth.in", "www.shetkarisevarth.in"];
+  var PORTAL_URL  = "http://shetkarisevarth.in/estimates.html";
 
   function hostOf(u) { try { return new URL(u).hostname.toLowerCase().replace(/\.$/, ""); } catch (e) { return ""; } }
   function hostOk(h) { return ALLOWED_HOSTS.indexOf(h) !== -1; }
