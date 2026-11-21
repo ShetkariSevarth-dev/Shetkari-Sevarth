@@ -277,6 +277,14 @@ window.PORTAL_DATA = {
       "url": "farmer-id.html",
       "status": "ok",
       "isNew": false
+    },
+    {
+      "mr": "व्ही बी जी राम जी अंतर्गत चारा लागवड",
+      "en": "vb g ram g chara lagwad lagvad lagavad chaara ",
+      "emoji": "🌾",
+      "url": "vbchara,info",
+      "status": "ok",
+      "isNew": true
     }
   ],
   "manageAllSchemes": true
