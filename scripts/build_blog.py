@@ -19,6 +19,7 @@ CTA_URL  = "/"                                   # लेखाच्या श�
 CTA_TEXT = "📄 आपले अंदाजपत्रक तयार करा"
 CTA_NOTE = "आपल्या पिकानुसार अंदाजपत्रक मोफत तयार करा"
 DEFAULT_EMOJI = "🌾"
+WA_CHANNEL = "https://whatsapp.com/channel/0029VbE0FkvGufIxAZ0NQk2m"   # WhatsApp चॅनेलची link
 TEMPLATE = (OUT / "template.html").read_text(encoding="utf-8")
 
 MR = "०१२३४५६७८९"
@@ -118,6 +119,12 @@ def share(post):
             f'<button class="btn copy" type="button" onclick="navigator.clipboard&&navigator.clipboard.writeText(\'{url}\');this.textContent=\'✔ लिंक कॉपी झाली\'">🔗 लिंक कॉपी करा</button>'
             '</div>')
 
+def wa_card():
+    return ('<div class="wa-card"><span class="ic">💬</span><div class="txt">'
+            '<p class="t">रोज नवीन शेती माहिती व योजनांचे अपडेट्स मिळवा</p>'
+            '<p class="s">आमचे WhatsApp चॅनेल मोफत जॉइन करा</p></div>'
+            f'<a class="btn wa" href="{WA_CHANNEL}" target="_blank" rel="noopener">चॅनेल जॉइन करा</a></div>')
+
 def cta():
     return (f'<div class="cta"><p>{html.escape(CTA_NOTE)}</p>'
             f'<a href="{html.escape(CTA_URL, quote=True)}">{html.escape(CTA_TEXT)}</a></div>')
@@ -141,17 +148,17 @@ def main():
         url = f"{SITE}/blog/{post['slug']}.html"
         others = [x for x in posts if x["slug"] != post["slug"]][:3]
         related = ('<h2 class="sec-title">📚 इतर लेख</h2><div class="cards">' + "".join(card(x) for x in others) + "</div>") if others else ""
-        page_body = hero(post) + f"<article>{md_to_html(post['body'])}</article>" + share(post) + cta() + related
+        page_body = hero(post) + f"<article>{md_to_html(post['body'])}</article>" + share(post) + wa_card() + cta() + related
         og = f'<meta property="og:image" content="{html.escape(post["image"] if post["image"].startswith("http") else SITE + post["image"], quote=True)}">' if post["image"] else ""
         page = fill(TEMPLATE, title=html.escape(post["title"]), description=html.escape(post["description"], quote=True),
-                    url=url, og_image_tag=og, body=page_body)
+                    url=url, og_image_tag=og, body=page_body, wa_channel=WA_CHANNEL)
         (OUT / f"{post['slug']}.html").write_text(page, encoding="utf-8")
 
     cards = "".join(card(x) for x in posts) or "<p>लवकरच नवीन माहिती येत आहे.</p>"
     idx_body = ('<div class="listhead"><h1>📝 ब्लॉग</h1><p>शेतीविषयक लेख व माहिती</p></div>'
                 f'<div class="cards">{cards}</div>')
     idx = fill(TEMPLATE, title="ब्लॉग", description="शेतकरी सेवार्थ - योजना व शेतीविषयक माहिती",
-               url=f"{SITE}/blog/", og_image_tag="", body=idx_body)
+               url=f"{SITE}/blog/", og_image_tag="", body=idx_body + wa_card(), wa_channel=WA_CHANNEL)
     (OUT / "index.html").write_text(idx, encoding="utf-8")
     (OUT / "posts.json").write_text(json.dumps(
         [{"title": x["title"], "description": x["description"], "date": x["d"].isoformat(), "date_mr": x["date_mr"],
