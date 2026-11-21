@@ -24,6 +24,14 @@ window.PORTAL_DATA = {
   ],
   "schemes": [
     {
+      "mr": "व्ही बी जी राम जी अंतर्गत चारा लागवड",
+      "en": "vb g ram g chara lagwad lagvad lagavad chaara ",
+      "emoji": "🌾",
+      "url": "vbchara,info",
+      "status": "ok",
+      "isNew": true
+    },
+    {
       "mr": "फळबाग व इतर पिके लागवड - विकसित भारत- रोजगार आणि आजीविका मिशन (ग्रामीण)",
       "en": "Orchard Cultivation vb g ram g",
       "emoji": "🌳",
@@ -277,14 +285,6 @@ window.PORTAL_DATA = {
       "url": "farmer-id.html",
       "status": "ok",
       "isNew": false
-    },
-    {
-      "mr": "व्ही बी जी राम जी अंतर्गत चारा लागवड",
-      "en": "vb g ram g chara lagwad lagvad lagavad chaara ",
-      "emoji": "🌾",
-      "url": "vbchara,info",
-      "status": "ok",
-      "isNew": true
     }
   ],
   "manageAllSchemes": true
