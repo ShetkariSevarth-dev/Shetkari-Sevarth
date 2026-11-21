@@ -421,13 +421,16 @@ header .sv-header-title h1{margin:0!important;text-align:center!important}
         return;
       }
       grid.innerHTML = list.map(p => `
-        <a href="${escapeHTML(p.url)}" class="scheme-card bg-white border border-gray-200 rounded-2xl p-4 flex flex-col justify-between shadow-xs text-left">
-          <div>
+        <a href="${escapeHTML(p.url)}" class="scheme-card bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col justify-between shadow-xs text-left">
+          ${p.image
+            ? `<div style="height:130px;background:#d1fae5 url('${escapeHTML(String(p.image).replace(/'/g, '%27'))}') center/cover no-repeat"></div>`
+            : `<div style="height:130px;background:linear-gradient(135deg,#d1fae5,#a7f3d0);display:flex;align-items:center;justify-content:center;font-size:44px">${escapeHTML(p.emoji || '🌾')}</div>`}
+          <div class="p-4 pb-0">
             <span class="text-[11px] text-gray-500">${escapeHTML(p.date_mr || p.date)}</span>
             <h4 class="font-bold text-sm text-gray-900 mt-1">${escapeHTML(p.title)}</h4>
             <p class="text-xs text-gray-600 mt-1">${escapeHTML(p.description || '')}</p>
           </div>
-          <span class="mt-4 w-full bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-semibold py-2 rounded-xl text-xs transition inline-block text-center">
+          <span class="m-4 mt-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-semibold py-2 rounded-xl text-xs transition inline-block text-center">
             ${currentLang === 'mr' ? 'लेख वाचा →' : 'Read article →'}
           </span>
         </a>`).join('');
@@ -439,5 +442,11 @@ header .sv-header-title h1{margin:0!important;text-align:center!important}
       if (location.hash === '#blog') showTab('blog');
     });
   </script>
+<style>
+  .wa-float{position:fixed;right:14px;bottom:14px;z-index:50;display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;text-decoration:none;font-weight:800;font-size:14px;padding:11px 16px;border-radius:99px;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+  .wa-float:hover{background:#1ebe5b}
+  @media(max-width:640px){.wa-float span{display:none}.wa-float{padding:13px 15px;font-size:20px}}
+</style>
+<a class="wa-float" href="https://whatsapp.com/channel/0029VbE0FkvGufIxAZ0NQk2m" target="_blank" rel="noopener" aria-label="WhatsApp चॅनेल जॉइन करा">💬 <span>WhatsApp चॅनेल जॉइन करा</span></a>
 </body>
 </html>
