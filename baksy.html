@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="डॉ. बाबासाहेब आंबेडकर कृषी स्वावलंबन योजना – अनुसूचित जाती/नवबौद्ध शेतकऱ्यांसाठी 100% अनुदान, पात्रता, अर्ज प्रक्रिया आणि कागदपत्रे." name="description"/>
+<meta content="डॉ. बाबासाहेब आंबेडकर कृषी स्वावलंबन योजना – SC/नवबौद्ध शेतकऱ्यांसाठी विहीर, शेततळे, पंप, ठिबक सिंचन आणि इतर सिंचन सुविधांसाठी 100% पर्यंत अनुदान. संपूर्ण माहिती." name="description"/>
 <title>डॉ. बाबासाहेब आंबेडकर कृषी स्वावलंबन योजना | शेतकरी सेवार्थ</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -16,11 +16,18 @@
     .section-card{border-radius:12px;background:#f4fbf5;border:1px solid #d2efda;padding:16px;margin-bottom:14px;box-shadow:0 2px 8px rgba(22,101,52,.04)}
     .section-heading{font-size:1.1rem;font-weight:800;color:#07472a;margin-bottom:8px;padding-bottom:4px;border-bottom:2px solid #d2efda}
     p,li{line-height:1.65;font-size:14.5px;color:#2d3748;margin-bottom:8px}
-    ul{margin:0;padding-left:20px}
+    
+    /* 🟢 Custom Colored Bullet List CSS 🟢 */
+    ul.colored-bullet-list { padding-left: 0; list-style-type: none; margin:0; margin-top:6px;}
+    ul.colored-bullet-list li { position: relative; padding-left: 24px; margin-bottom: 8px; }
+    ul.colored-bullet-list li::before {
+        content: ""; position: absolute; left: 0; top: 8px;
+        width: 10px; height: 10px; background-color: #059669; border-radius: 50%;
+        box-shadow: 0 0 0 2px #ecfdf5;
+    }
+
     .back-link{display:inline-flex;align-items:center;gap:6px;background:#dcfce7;color:#14532d;border:1px solid #bbf7d0;border-radius:999px;padding:6px 14px;font-size:12px;font-weight:700;text-decoration:none;margin-bottom:12px;transition:.2s}
     .back-link:hover{background:#bbf7d0}
-    .action-link{display:inline-flex;justify-content:center;align-items:center;gap:8px;text-align:center;border-radius:999px;padding:10px 20px;font-weight:700;background:#047857;color:#fff;text-decoration:none;box-shadow:0 3px 10px rgba(22,101,52,.15)}
-    .action-link:hover{background:#065f46}
     
     /* Global Notice Bar & Scrolling Animation */
     .sv-global-notices{width:100%;max-width:1000px;margin:10px auto 0;box-sizing:border-box;display:flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid #b7ebc8;border-radius:12px;background:linear-gradient(100deg,#fff7d6,#f0fdf4 55%,#e2fbe9);color:#14532d;box-shadow:0 2px 8px rgba(22,101,52,.05)}
@@ -59,13 +66,19 @@
     .sv-footer-inner{max-width:900px;margin:0 auto;width:100%}
     .sv-footer-note{color:#ffffff !important;font-size:13px;margin:0 0 4px}
     .sv-footer-email{margin:2px 0}
-    .sv-footer-email a{
-      color: #a3e635 !important;
-      text-decoration: underline;
-      text-underline-offset: 3.5px;
-      font-weight: 700;
-    }
+    .sv-footer-email a{color: #a3e635 !important;text-decoration: underline;text-underline-offset: 3.5px;font-weight: 700;}
     .sv-footer-copy{color:#e2e8f0 !important; margin-top:4px; font-size:12px;}
+    
+    /* Title Single Line Fix for Mobile */
+    #headerTitle {
+        white-space: nowrap !important;
+    }
+    @media(max-width: 767px) {
+      #headerTitle { font-size: 1.25rem !important; }
+    }
+    @media(max-width: 380px) {
+      #headerTitle { font-size: 1.1rem !important; }
+    }
     
     @media(max-width:640px){
       .content-panel{padding:14px!important}
@@ -73,35 +86,20 @@
       .sv-site-header, .sv-site-footer { height: auto; min-height: 85px; padding: 12px; }
     }
 
-    /* Subsidy Table */
-    .subsidy-table{width:100%;border-collapse:collapse;font-size:13.5px;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(22,101,52,.06);background:white}
-    .subsidy-table thead{background:linear-gradient(135deg,#047857,#065f46);color:#fff}
-    .subsidy-table th,.subsidy-table td{padding:9px 12px;text-align:left;border-bottom:1px solid #e5eee7}
-    .subsidy-table tbody tr:hover{background:#ecfdf5}
-    .subsidy-table th{font-weight:700;font-size:13px}
-    .subsidy-table td:last-child{font-weight:700;color:#065f46;white-space:nowrap}
+    /* Info Table */
+    .info-table{width:100%;border-collapse:collapse;font-size:13.5px;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(22,101,52,.06);background:white;margin-top:10px}
+    .info-table thead{background:linear-gradient(135deg,#047857,#065f46);color:#fff}
+    .info-table th,.info-table td{padding:10px 12px;text-align:left;border-bottom:1px solid #e5eee7;vertical-align:top}
+    .info-table tbody tr:hover{background:#ecfdf5}
+    .info-table th{font-weight:700;font-size:13px}
+    .info-table td strong{color:#065f46}
+    .info-table td.num{font-weight:800;color:#065f46;white-space:nowrap}
 
     /* Notice / Info Box */
     .info-note{background:linear-gradient(100deg,#ecfdf5,#f0fdf4);border-left:4px solid #22c55e;padding:10px 14px;border-radius:10px;margin-top:12px;font-size:13.5px;color:#065f46}
+    .info-note.blue{border-left-color:#3b82f6;background:#eff6ff;color:#1e3a8a}
     .info-note.warn{border-left-color:#dc2626;background:#fef2f2;color:#991b1b}
-
-    /* Steps */
-    .steps{counter-reset:step;display:grid;gap:10px;margin-top:10px}
-    .step{position:relative;padding:12px 14px 12px 52px;background:white;border:1px solid #d2efda;border-radius:12px}
-    .step::before{counter-increment:step;content:counter(step);position:absolute;left:12px;top:12px;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#047857);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
-    .step strong{color:#07472a;display:block;margin-bottom:3px;font-size:14px}
-    .step p{margin:0;font-size:13px;color:#475569}
-
-    /* Docs list */
-    .docs-list{list-style:none;padding:0;display:grid;gap:6px;margin-top:8px}
-    .docs-list li{background:white;padding:8px 12px;border-radius:9px;border:1px solid #d2efda;font-size:13.5px;display:flex;align-items:center;gap:8px;margin:0}
-    .docs-list li::before{content:"✓";color:#fff;background:linear-gradient(135deg,#22c55e,#047857);width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;font-weight:800}
-
-    /* Stats */
-    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:10px}
-    .stat-box{background:linear-gradient(135deg,#065f46,#0f766e);color:#fff;padding:14px;border-radius:12px;text-align:center}
-    .stat-box .num{font-size:1.2rem;font-weight:800;color:#fbbf24}
-    .stat-box .lbl{font-size:11.5px;opacity:.92;margin-top:3px}
+    .info-note.amber{border-left-color:#f59e0b;background:#fffbeb;color:#92400e}
 
     /* FAQ */
     .faq{display:grid;gap:8px;margin-top:8px}
@@ -112,16 +110,45 @@
     .faq-q.active::after{transform:rotate(45deg)}
     .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 14px}
     .faq-a p{padding:0 0 12px;color:#475569;font-size:13px;margin:0}
-  </style>
+
+    /* Steps */
+    .steps{counter-reset:step;display:grid;gap:10px;margin-top:10px}
+    .step{position:relative;padding:12px 14px 12px 52px;background:white;border:1px solid #d2efda;border-radius:12px}
+    .step::before{counter-increment:step;content:counter(step);position:absolute;left:12px;top:12px;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#047857);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+    .step strong{color:#07472a;display:block;margin-bottom:3px;font-size:14px}
+    .step p{margin:0;font-size:13px;color:#475569}
+
+    /* Component Detail Cards */
+    .comp-card{background:white;border:1px solid #d2efda;border-radius:12px;padding:14px;margin-bottom:10px}
+    .comp-card h4{font-weight:800;color:#065f46;margin:0 0 6px;font-size:15px}
+    .comp-card p{font-size:13.5px;color:#475569;margin-bottom:6px}
+    
+    /* Link Cards */
+    .link-card{display:flex;justify-content:space-between;align-items:center;gap:10px;background:white;border:1px solid #d2efda;border-radius:12px;padding:12px 14px;margin-bottom:8px;flex-wrap:wrap}
+    .link-card strong{color:#065f46;font-size:14px;display:block}
+    .link-card span{color:#64748b;font-size:12px}
+    .link-card a{background:#065f46;color:white!important;padding:5px 12px;border-radius:999px;font-weight:700;font-size:12px;text-decoration:none;white-space:nowrap}
+    .link-card a:hover{background:#047857;text-decoration:none!important}
+
+    /* Action Button */
+    .action-btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;border-radius:999px;padding:10px 24px;font-weight:700;background:linear-gradient(to right,#2563eb,#4f46e5);color:#fff;text-decoration:none;box-shadow:0 4px 12px rgba(37,99,235,.3);transition:transform .2s}
+    .action-btn:hover{transform:translateY(-2px);text-decoration:none;color:#fff}
+    
+    /* Grid */
+    .grid{display:grid;gap:12px;margin-top:8px}
+    .grid-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+</style>
 </head>
 <body class="text-gray-800 min-h-screen flex flex-col justify-between">
 
 <!-- Header Section -->
 <header class="hero-gradient text-white shadow-md sv-site-header">
   <div class="max-w-6xl mx-auto px-4 w-full flex items-center justify-between gap-4">
-    <a class="text-white/90 hover:text-white text-xs sm:text-sm font-bold bg-white/10 px-3 py-1.5 rounded-full" href="farmer-learn.html">← मागील पृष्ठ</a>
-    <a class="flex items-center justify-center gap-2" href="index.html"><h1 class="text-lg sm:text-xl font-extrabold tracking-tight">🌱 शेतकरी सेवार्थ</h1></a>
-    <a class="bg-white/20 hover:bg-white/30 text-white font-bold px-3 py-1.5 rounded-full text-xs" href="index.html">🏠 मुख्य पृष्ठ</a>
+    <a class="text-white/90 hover:text-white text-xs sm:text-sm font-bold bg-white/10 px-3 py-1.5 rounded-full whitespace-nowrap" href="index.html">← मागील पृष्ठ</a>
+    <a class="flex items-center justify-center gap-2" href="index.html">
+        <h1 id="headerTitle" class="text-xl sm:text-3xl font-extrabold tracking-tight">🌱 शेतकरी सेवार्थ</h1>
+    </a>
+    <a class="bg-white/20 hover:bg-white/30 text-white font-bold px-3 py-1.5 rounded-full text-xs whitespace-nowrap" href="index.html">🏠 मुख्य पृष्ठ</a>
   </div>
 </header>
 
@@ -135,164 +162,448 @@
 
 <!-- Main Content Area -->
 <main class="max-w-4xl mx-auto px-4 py-4 w-full flex-grow">
-  <a class="back-link" href="farmer-learn.html">← शेतकरी सेवार्थ मुख्य पानावर जा</a>
+  <a class="back-link" href="index.html">← शेतकरी सेवार्थ मुख्य पानावर जा</a>
   
   <article class="content-panel space-y-4">
+    
     <!-- Title Section -->
-    <div class="text-center border-b border-emerald-100 pb-4">
-      <span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-100 border border-emerald-300 px-3.5 py-1 rounded-full mb-2">🏡 अनुसूचित जाती / नव-बौद्ध शेतकरी विशेष योजना</span>
-      <h2 class="text-lg md:text-2xl font-black text-emerald-950 leading-snug">डॉ. बाबासाहेब आंबेडकर कृषी स्वावलंबन योजना</h2>
-      <p class="text-sm text-gray-600 mt-2">अनुसूचित जाती आणि नव-बौद्ध शेतकऱ्यांना शाश्वत सिंचन सुविधा, विहीर, पंप, ठिबक/तुषार सिंचन आणि इतर साधनांसाठी 100% पर्यंत अनुदान.</p>
-      <div class="mt-4 flex flex-wrap gap-2 justify-center">
-        <a class="action-link text-sm" href="https://mahadbt.maharashtra.gov.in" target="_blank" rel="noopener noreferrer">🚀 महा-डीबीटी पोर्टलवर अर्ज करा</a>
+    <div class="text-center border-b border-emerald-100 pb-4 mb-4">
+      <span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-100 border border-emerald-300 px-3.5 py-1 rounded-full mb-2">🌾 महाराष्ट्र शासन • कृषी विभाग</span>
+      <h2 class="text-xl md:text-2xl font-black text-emerald-950 leading-snug">डॉ. बाबासाहेब आंबेडकर कृषी स्वावलंबन योजना</h2>
+      <p class="text-sm md:text-base font-bold text-emerald-800 mt-2">अनुसूचित जाती व नवबौद्ध शेतकऱ्यांना सिंचन सुविधा, कृषी पायाभूत सुविधा आणि शेती उत्पादनवाढीसाठी अर्थसहाय्य</p>
+      
+      <div class="mt-4 flex flex-wrap justify-center gap-2">
+        <button onclick="window.print()" class="bg-white border border-emerald-300 text-emerald-800 font-bold py-2 px-4 rounded-full text-xs shadow-sm hover:bg-emerald-50">🖨️ प्रिंट / PDF</button>
+        <a href="https://mahadbt.maharashtra.gov.in/Farmer/AgriLogin/AgriLogin" target="_blank" rel="noopener" class="action-btn text-xs">🚀 ऑनलाइन अर्ज करा ↗</a>
       </div>
     </div>
 
-    <!-- योजना ओळख -->
-    <section class="section-card bg-emerald-50/80">
-      <h3 class="section-heading text-emerald-950">📋 योजना ओळख</h3>
-      <p><strong>डॉ. बाबासाहेब आंबेडकर कृषी स्वावलंबन योजना</strong> ही महाराष्ट्र शासनाच्या <strong>कृषी विभागामार्फत</strong> राबविण्यात येणारी राज्य पुरस्कृत योजना आहे. या योजनेचा मुख्य उद्देश <strong>अनुसूचित जाती आणि नव-बौद्ध शेतकऱ्यांचे उत्पन्न वाढवणे, त्यांचे राहणीमान सुधारणे आणि त्यांना आर्थिकदृष्ट्या स्वावलंबी बनवणे</strong> हा आहे. जमिनीतील ओलावा टिकवून ठेवणे आणि <strong>शाश्वत सिंचन सुविधा</strong> उपलब्ध करून देण्यावर योजनेत भर दिला जातो.</p>
-      <div class="info-note">
-        <strong>लाभार्थी गट:</strong> अनुसूचित जाती (SC) आणि नव-बौद्ध शेतकरी • <strong>अंमलबजावणी:</strong> कृषी विभाग, महाराष्ट्र शासन
+    <!-- महत्त्वाची सूचना -->
+    <section class="section-card" style="border-left:5px solid #dc2626">
+      <h3 class="section-heading" style="color:#991b1b;border-bottom-color:#fecaca">⚠️ महत्त्वाची सूचना</h3>
+      <p>या पृष्ठावरील आर्थिक मर्यादा व नियम <strong>१ ऑक्टोबर २०२४</strong> च्या संदर्भित शासन निर्णयावर आधारित आहेत. प्रत्यक्ष अर्ज करण्यापूर्वी नवीनतम शासन निर्णय, MahaDBT व जिल्हास्तरीय सूचनांनुसार पडताळणी करावी. <strong>कमाल अनुदान मर्यादा म्हणजे प्रत्येक अर्जदाराला तेवढे अनुदान निश्चित मिळेल असे नाही.</strong></p>
+    </section>
+
+    <!-- १. योजनेचा परिचय -->
+    <section class="section-card">
+      <h3 class="section-heading">📌 १. योजनेचा परिचय</h3>
+      
+      <div class="grid grid-2" style="margin-top:10px">
+        <div class="comp-card" style="margin-bottom:0">
+          <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded-full mb-2">योजनेचे नाव</span>
+          <h4>डॉ. बाबासाहेब आंबेडकर कृषी स्वावलंबन योजना</h4>
+          <p>Dr. Babasaheb Ambedkar Krushi Swavalamban Yojana</p>
+        </div>
+        <div class="comp-card" style="margin-bottom:0">
+          <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded-full mb-2">लक्षित लाभार्थी</span>
+          <h4>अनुसूचित जाती व नवबौद्ध शेतकरी</h4>
+          <p>शासनाने निश्चित केलेल्या जमीनधारणा व इतर अटींच्या अधीन.</p>
+        </div>
+        <div class="comp-card" style="margin-bottom:0">
+          <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded-full mb-2">अर्ज पद्धती</span>
+          <h4>ऑनलाइन – MahaDBT</h4>
+          <p>लाभार्थी नोंदणी, अर्ज आणि अर्जस्थिती पोर्टलवर उपलब्ध.</p>
+        </div>
+        <div class="comp-card" style="margin-bottom:0">
+          <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded-full mb-2">सुधारित निकष</span>
+          <h4>१ ऑक्टोबर २०२४</h4>
+          <p>आर्थिक मर्यादा व नवीन घटकांचा समावेश.</p>
+        </div>
+      </div>
+      
+      <p style="margin-top:14px">अनुसूचित जाती उपयोजनेअंतर्गत पूर्वी राबविण्यात येणाऱ्या विशेष घटक योजनेचे सुधारित स्वरूप म्हणून ही योजना राबविण्यात येते. शेतकऱ्यांना सिंचनाची साधने, पाणी उपसा व वितरण व्यवस्था आणि पूरक कृषी सुविधा उपलब्ध करून देणे हा तिचा मुख्य हेतू आहे.</p>
+    </section>
+
+    <!-- २. योजनेची उद्दिष्टे -->
+    <section class="section-card">
+      <h3 class="section-heading">🎯 २. योजनेची उद्दिष्टे</h3>
+      <div class="grid grid-2">
+        <div class="comp-card"><h4>💧 सिंचन सुविधा</h4><p>शेतकऱ्यांना विहीर, शेततळे व पाणी उपसा सुविधा उपलब्ध करून देणे.</p></div>
+        <div class="comp-card"><h4>🌱 उत्पादनवाढ</h4><p>कोरडवाहू शेतीला सिंचनाची जोड देऊन उत्पादन व उत्पादकता वाढविणे.</p></div>
+        <div class="comp-card"><h4>♻️ पाणी बचत</h4><p>ठिबक व तुषार सिंचनासारख्या सूक्ष्म सिंचन तंत्रज्ञानाचा प्रसार करणे.</p></div>
+        <div class="comp-card"><h4>🚜 आधुनिक शेती</h4><p>शेती यंत्रसामग्रीचा वापर वाढवून शेतीची कामे अधिक कार्यक्षम करणे.</p></div>
+        <div class="comp-card"><h4>📈 आर्थिक स्वावलंबन</h4><p>शेतकरी कुटुंबांचे उत्पन्न व जीवनमान उंचावण्यास मदत करणे.</p></div>
+        <div class="comp-card"><h4>🥬 पोषण सुरक्षा</h4><p>परसबागेद्वारे घरगुती भाजीपाला उत्पादनास प्रोत्साहन देणे.</p></div>
       </div>
     </section>
 
-    <!-- योजनेची उद्दिष्टे -->
+    <!-- ३. अनुदानाचे घटक -->
     <section class="section-card">
-      <h3 class="section-heading">🎯 योजनेची उद्दिष्टे</h3>
-      <ul style="margin-top:6px">
-        <li>जमिनीतील ओलावा टिकवून ठेवणे आणि शेतकऱ्यांना <strong>शाश्वत सिंचन सुविधा</strong> उपलब्ध करून देणे.</li>
-        <li>अनुसूचित जाती/नव-बौद्ध शेतकऱ्यांचे <strong>कृषी उत्पन्न वाढवणे</strong>.</li>
-        <li>शेतकऱ्यांना <strong>आर्थिकदृष्ट्या स्वावलंबी</strong> बनवणे आणि त्यांचे राहणीमान सुधारणे.</li>
-        <li><strong>विहीर, पंप, ठिबक/तुषार सिंचन, शेततळे</strong> यांसारख्या पायाभूत सुविधा निर्माण करणे.</li>
-        <li>पात्र घटकांवर <strong>100% पर्यंत अनुदान</strong> देऊन आर्थिक भार कमी करणे.</li>
-      </ul>
-    </section>
-
-    <!-- अनुदानाचे घटक -->
-    <section class="section-card">
-      <h3 class="section-heading">💰 अनुदानाचे घटक आणि रक्कम</h3>
-      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:8px">
-        <table class="subsidy-table">
+      <h3 class="section-heading">💰 ३. योजनेअंतर्गत घटक व अनुदान मर्यादा</h3>
+      <p>१ ऑक्टोबर २०२४ च्या सुधारित आर्थिक निकषांतील नमूद कमाल मर्यादा:</p>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+        <table class="info-table">
           <thead>
-            <tr><th>अ.क्र.</th><th>घटक</th><th>अनुदान मर्यादा (₹)</th></tr>
+            <tr>
+              <th>अ.क्र.</th>
+              <th>घटक</th>
+              <th>कमाल अनुदान मर्यादा</th>
+              <th>महत्त्वाची नोंद</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>1</td><td><strong>नवीन विहीर</strong></td><td>₹2,50,000</td></tr>
-            <tr><td>2</td><td>जुनी विहीर दुरुस्ती</td><td>₹50,000</td></tr>
-            <tr><td>3</td><td>इनवेल बोअरिंग</td><td>₹20,000</td></tr>
-            <tr><td>4</td><td>पंप संच</td><td>₹20,000</td></tr>
-            <tr><td>5</td><td>वीज जोडणी आकार</td><td>₹10,000</td></tr>
-            <tr><td>6</td><td>शेततळ्याचे प्लास्टिक अस्तरीकरण</td><td>₹1,00,000</td></tr>
-            <tr><td>7</td><td>ठिबक सिंचन संच</td><td>₹50,000</td></tr>
-            <tr><td>8</td><td>तुषार सिंचन संच</td><td>₹25,000</td></tr>
-            <tr><td>9</td><td>पीव्हीसी पाईप</td><td>₹30,000</td></tr>
-            <tr><td>10</td><td>परसबाग</td><td>₹500</td></tr>
+            <tr><td>१</td><td>नवीन सिंचन विहीर</td><td class="num">₹४,००,०००</td><td>नवीन विहीर बांधकाम</td></tr>
+            <tr><td>२</td><td>जुनी विहीर दुरुस्ती</td><td class="num">₹१,००,०००</td><td>दुरुस्तीची तांत्रिक आवश्यकता तपासावी</td></tr>
+            <tr><td>३</td><td>शेततळ्याचे प्लास्टिक अस्तरीकरण</td><td class="num">₹२,००,०००</td><td>पात्र खर्च व निर्धारित मापदंडानुसार</td></tr>
+            <tr><td>४</td><td>इनवेल बोअरिंग</td><td class="num">₹४०,०००</td><td>विहिरीतील पाणी उपलब्धतेसाठी</td></tr>
+            <tr><td>५</td><td>वीज जोडणी आकार</td><td class="num">₹२०,०००</td><td>प्रत्यक्ष आकार व मर्यादेनुसार</td></tr>
+            <tr><td>६</td><td>विद्युत पंपसंच / डिझेल इंजिन</td><td class="num">₹४०,०००</td><td>पंपसंच क्षमता १० HP पर्यंत</td></tr>
+            <tr><td>७</td><td>सोलार पंप</td><td class="num">₹५०,०००</td><td>पर्यायी घटकांच्या अटी लागू</td></tr>
+            <tr><td>८</td><td>HDPE / PVC पाईप</td><td class="num">₹५०,०००</td><td>आकार व लांबीनुसार</td></tr>
+            <tr><td>९</td><td>तुषार सिंचन संच</td><td class="num">₹४७,०००</td><td>पात्र खर्चाच्या ९०% किंवा मर्यादा यापैकी कमी</td></tr>
+            <tr><td>१०</td><td>ठिबक सिंचन संच</td><td class="num">₹९७,०००</td><td>पात्र खर्चाच्या ९०% किंवा मर्यादा यापैकी कमी</td></tr>
+            <tr><td>११-अ</td><td>शेती यंत्रसामग्री</td><td class="num">₹५०,०००</td><td>मंजूर अवजारे व आर्थिक मापदंडानुसार</td></tr>
+            <tr><td>११-ब</td><td>परसबाग</td><td class="num">₹५,०००</td><td>घरगुती भाजीपाला उत्पादनासाठी</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="info-note" style="margin-top:12px">
-        <strong>नोंद:</strong> काही अधिकृत स्रोतांनुसार नवीन विहिरीसाठी <strong>₹4,00,000</strong> पर्यंत आणि जुन्या विहिरीच्या दुरुस्तीसाठी <strong>₹1,00,000</strong> पर्यंत अनुदान देखील नमूद आहे. अंतिम रक्कम अधिकृत पोर्टलवर खात्री करा.
+      <div class="info-note amber" style="margin-top:12px">
+        <strong>टीप:</strong> अनुदानाची प्रत्यक्ष रक्कम पात्र खर्च, घटकनिहाय टक्केवारी, तांत्रिक मापदंड, उपलब्ध निधी व मंजुरीवर अवलंबून असते. वरील मर्यादा एकत्र करून सरसकट मिळणारी रक्कम समजू नये.
       </div>
     </section>
 
-    <!-- पात्रता निकष -->
+    <!-- ३.१ घटकांची सविस्तर माहिती -->
     <section class="section-card">
-      <h3 class="section-heading">✅ पात्रता निकष</h3>
-      <ul style="margin-top:6px">
-        <li>लाभार्थी <strong>अनुसूचित जाती किंवा नव-बौद्ध</strong> शेतकरी असावा.</li>
-        <li>सक्षम प्राधिकाऱ्याचे <strong>वैध जात प्रमाणपत्र</strong> असावे.</li>
-        <li>शेतकऱ्याच्या नावे <strong>7/12 उतारा व 8-अ</strong> असावा.</li>
-        <li><strong>आधार कार्ड</strong> व आधार-संलग्न बँक खाते आवश्यक.</li>
-        <li>किमान <strong>0.40 हेक्टर</strong> ते कमाल <strong>6 हेक्टर</strong> पर्यंत कृषी जमीन (नवीन विहिरीसाठी किमान 0.40 हेक्टर वहिती क्षेत्र आवश्यक).</li>
-        <li>वार्षिक उत्पन्न मर्यादा: <strong>₹1,50,000</strong> पर्यंत (काही अहवालांनुसार शिथिल).</li>
-        <li><strong>दारिद्र्य रेषेखालील</strong> लाभार्थ्यांना प्राधान्य.</li>
+      <h3 class="section-heading">📖 ३.१ घटकांची सविस्तर माहिती</h3>
+      
+      <div class="comp-card">
+        <h4>🕳️ अ) नवीन सिंचन विहीर</h4>
+        <p>शेतात सिंचनासाठी पाण्याचा स्रोत निर्माण करण्यासाठी नवीन विहीर बांधकामास अर्थसहाय्य.</p>
+        <ul class="colored-bullet-list">
+          <li>कमाल मर्यादा ₹४ लाख.</li>
+          <li>१२ मीटर खोलीची जुनी अट रद्द असल्याचा शासन निर्णयातील उल्लेख.</li>
+          <li>पेयजल स्रोतापासून ५०० मीटर परिसरासंबंधी निर्बंध तपासावेत.</li>
+        </ul>
+      </div>
+      
+      <div class="comp-card">
+        <h4>🧱 ब) जुनी विहीर दुरुस्ती</h4>
+        <p>दुरुस्तीअभावी वापरात नसलेल्या किंवा सिंचनासाठी अयोग्य झालेल्या विहिरींची दुरुस्ती.</p>
+        <ul class="colored-bullet-list">
+          <li>कमाल मर्यादा ₹१ लाख.</li>
+          <li>प्रत्यक्ष तांत्रिक पाहणी आवश्यक.</li>
+          <li>नवीन विहिरीच्या लाभानंतर दुरुस्ती लाभासाठी २० वर्षांची अट नमूद.</li>
+        </ul>
+      </div>
+      
+      <div class="comp-card">
+        <h4>🌊 क) शेततळे प्लास्टिक अस्तरीकरण</h4>
+        <p>साठविलेल्या पाण्याची झिरपण कमी करून सिंचनासाठी पाणी अधिक काळ उपलब्ध ठेवणे.</p>
+        <ul class="colored-bullet-list">
+          <li>कमाल मर्यादा ₹२ लाख.</li>
+          <li>स्वखर्चाने किंवा इतर योजनेतून तयार शेततळ्याबाबतही निर्धारित अटी तपासाव्यात.</li>
+        </ul>
+      </div>
+      
+      <div class="comp-card">
+        <h4>🔩 ड) इनवेल बोअरिंग</h4>
+        <p>अस्तित्वातील विहिरीच्या तळाशी बोअरिंग करून पाण्याची उपलब्धता वाढविण्याचा प्रयत्न.</p>
+        <ul class="colored-bullet-list">
+          <li>कमाल मर्यादा ₹४० हजार.</li>
+          <li>तांत्रिकदृष्ट्या आवश्यक असल्याची खात्री करावी.</li>
+        </ul>
+      </div>
+      
+      <div class="comp-card">
+        <h4>⚡ इ) वीज जोडणी आकार</h4>
+        <p>सिंचन पंपासाठी आवश्यक वीज जोडणीच्या आकारास मदत.</p>
+        <ul class="colored-bullet-list">
+          <li>कमाल मर्यादा ₹२० हजार.</li>
+          <li>वीज वितरण कंपनीचे नियम लागू.</li>
+        </ul>
+      </div>
+      
+      <div class="comp-card">
+        <h4>🔌 फ) विद्युत पंपसंच / डिझेल इंजिन</h4>
+        <p>विहीर किंवा पात्र पाणीस्रोतामधून पाणी उपसण्यासाठी पंपसंच.</p>
+        <ul class="colored-bullet-list">
+          <li>कमाल मर्यादा ₹४० हजार.</li>
+          <li>पंपसंच क्षमता १० अश्वशक्तीपर्यंत.</li>
+        </ul>
+      </div>
+      
+      <div class="comp-card">
+        <h4>☀️ ग) सोलार पंप</h4>
+        <p>सौर ऊर्जेवर चालणाऱ्या पंपाद्वारे सिंचनासाठी पाणी उपसा.</p>
+        <ul class="colored-bullet-list">
+          <li>कमाल मर्यादा ₹५० हजार.</li>
+          <li>वीज जोडणी व विद्युत पंप घटकांऐवजी लागू असलेल्या तरतुदी तपासाव्यात.</li>
+        </ul>
+      </div>
+      
+      <div class="comp-card">
+        <h4>🚰 घ) HDPE / PVC पाईप</h4>
+        <p>पाणीस्रोतापासून शेतातील पिकांपर्यंत पाणी पोहोचविण्यासाठी पाईप.</p>
+        <ul class="colored-bullet-list">
+          <li>कमाल मर्यादा ₹५० हजार.</li>
+          <li>आकारमान, लांबी व पात्र खर्चाचे निकष लागू.</li>
+        </ul>
+      </div>
+      
+      <div class="comp-card">
+        <h4>💧 च) ठिबक व तुषार सिंचन</h4>
+        <p>पाण्याचा कार्यक्षम वापर करून पिकांना आवश्यकतेनुसार पाणी देण्याची पद्धत.</p>
+        <ul class="colored-bullet-list">
+          <li>ठिबक: ₹९७ हजारांपर्यंत.</li>
+          <li>तुषार: ₹४७ हजारांपर्यंत.</li>
+          <li>पात्र खर्चाच्या ९०% किंवा कमाल मर्यादा यापैकी कमी.</li>
+        </ul>
+      </div>
+      
+      <div class="comp-card">
+        <h4>🚜 छ) शेती यंत्रसामग्री</h4>
+        <p>शेतीची कामे सुलभ व कार्यक्षम करण्यासाठी पात्र बैलचलित किंवा ट्रॅक्टरचलित अवजारे.</p>
+        <ul class="colored-bullet-list">
+          <li>कमाल मर्यादा ₹५० हजार.</li>
+          <li>मंजूर यंत्रसामग्री व आर्थिक मापदंड लागू.</li>
+        </ul>
+      </div>
+      
+      <div class="comp-card">
+        <h4>🥬 ज) परसबाग</h4>
+        <p>घरगुती वापरासाठी भाजीपाला व पालेभाज्यांचे उत्पादन वाढविणे.</p>
+        <ul class="colored-bullet-list">
+          <li>कमाल मर्यादा ₹५ हजार.</li>
+          <li>निर्धारित साहित्य व निविष्ठांनुसार लाभ.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ४. पॅकेज स्वरूप -->
+    <section class="section-card">
+      <h3 class="section-heading">📦 ४. पॅकेज स्वरूपातील एकत्रित मर्यादा</h3>
+      <p>मुख्य घटक व पूरक घटकांची एकत्रित कमाल गणना:</p>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+        <table class="info-table">
+          <thead>
+            <tr>
+              <th>मुख्य घटक</th>
+              <th>ठिबक सिंचनासह (₹)</th>
+              <th>तुषार सिंचनासह (₹)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>नवीन विहीर</td><td class="num">६,९२,०००</td><td class="num">६,४२,०००</td></tr>
+            <tr><td>जुनी विहीर दुरुस्ती</td><td class="num">३,९२,०००</td><td class="num">३,४२,०००</td></tr>
+            <tr><td>शेततळे प्लास्टिक अस्तरीकरण</td><td class="num">४,५२,०००</td><td class="num">४,०२,०००</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="info-note amber" style="margin-top:12px">
+        <strong>महत्त्वाचे:</strong> या तक्त्यातील एकत्रित रक्कम ही घटकनिहाय कमाल मर्यादांची गणना आहे; प्रत्येक लाभार्थ्याला ही पूर्ण रक्कम मिळेलच असे नाही. आधीपासून उपलब्ध घटक, पात्र खर्च आणि शासनाच्या मंजुरीनुसार प्रत्यक्ष अनुदान ठरते.
+      </div>
+    </section>
+
+    <!-- ५. पात्रता निकष -->
+    <section class="section-card">
+      <h3 class="section-heading">✅ ५. लाभार्थी पात्रतेचे निकष</h3>
+      <ul class="colored-bullet-list">
+        <li><strong>सामाजिक प्रवर्ग:</strong> अर्जदार अनुसूचित जाती किंवा नवबौद्ध प्रवर्गातील शेतकरी असावा. सक्षम प्राधिकाऱ्याने दिलेले वैध जात प्रमाणपत्र आवश्यक.</li>
+        <li><strong>जमीनधारणा:</strong> सामान्यतः किमान ०.४० हेक्टर व कमाल ६.०० हेक्टर. दारिद्र्यरेषेखालील लाभार्थ्यांना कमाल ६ हेक्टर मर्यादा लागू नसल्याची तरतूद नमूद आहे.</li>
+        <li><strong>वार्षिक उत्पन्न:</strong> १ ऑक्टोबर २०२४ च्या सुधारित शासन निर्णयानुसार पूर्वीची ₹१.५० लाख वार्षिक उत्पन्न मर्यादा रद्द करण्यात आल्याचा उल्लेख आहे.</li>
+        <li><strong>सामूहिक जमीनधारणा:</strong> दोन किंवा अधिक पात्र लाभार्थी एकत्र येऊन एकूण किमान ०.४० हेक्टर जमीन असल्यास आवश्यक करारनामा व अटींच्या अधीन लाभाची तरतूद.</li>
+        <li><strong>बँक खाते:</strong> आधार संलग्न बँक खाते व DBT व्यवहारासाठी योग्य तपशील आवश्यक.</li>
+        <li><strong>पूर्वीचा लाभ:</strong> समान घटकाचा दुबार लाभ व पूर्ण लाभ घेतल्यानंतर लागू असलेला पाच वर्षांचा पुनर्लाभ प्रतिबंध तपासावा.</li>
       </ul>
-      <div class="info-note warn" style="margin-top:12px">
-        <strong>अपात्रता / मर्यादा:</strong> एकदा योजनेचा पूर्ण लाभ घेतल्यास पुढील <strong>5 वर्षांपर्यंत</strong> पुन्हा लाभ मिळणार नाही. इतर समान कृषी योजनांमधून लाभ घेतल्यास या योजनेचा लाभ मिळणार नाही.
+      <div class="info-note blue" style="margin-top:10px">
+        <strong>विशेष प्राधान्य:</strong> दारिद्र्यरेषेखालील पात्र लाभार्थ्यांना प्राधान्य. स्वर्गीय कर्मवीर दादासाहेब गायकवाड सबळीकरण व स्वाभिमान योजनेतून जमीन वाटप झालेल्या लाभार्थ्यांबाबत लागू प्राधान्य तरतूद तपासावी.
       </div>
     </section>
 
-    <!-- अर्ज प्रक्रिया -->
+    <!-- ६. तांत्रिक निकष -->
     <section class="section-card">
-      <h3 class="section-heading">📝 अर्ज प्रक्रिया (Step-by-Step)</h3>
+      <h3 class="section-heading">⚙️ ६. महत्त्वाचे तांत्रिक निकष</h3>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+        <table class="info-table">
+          <thead>
+            <tr>
+              <th>बाब</th>
+              <th>निकष / तरतूद</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>नवीन विहिरीची कमाल अनुदान मर्यादा</td><td>₹४,००,०००</td></tr>
+            <tr><td>विहिरीची १२ मीटर खोलीची अट</td><td>सुधारित निर्णयात रद्द केल्याचा उल्लेख</td></tr>
+            <tr><td>दोन सिंचन विहिरींमधील ५०० फूट अंतर</td><td>पूर्वीची अट रद्द केल्याचा उल्लेख</td></tr>
+            
+            <!-- 🆕 बदल केलेली ओळ येथे आहे 🆕 -->
+            <tr><td>पेयजल स्रोतापासून अंतर</td><td>५०० मीटर परिसरातील निर्बंध लागू; भूजल कायदा व स्थानिक परिस्थिती तपासावी (हे पूर्वी असे - १५० मीटर परिसरातील निर्बंध लागू; भूजल कायदा व स्थानिक परिस्थिती तपासावी, परंतु यावर्षीच्या दुष्काळामुळे ५०० मीटरचे अंतर वाढवले आहे)</td></tr>
+            
+            <tr><td>नवीन विहिरीनंतर विहीर दुरुस्ती लाभ</td><td>२० वर्षांनंतरची तरतूद नमूद</td></tr>
+            <tr><td>पंपसंच क्षमता</td><td>१० अश्वशक्तीपर्यंत</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12.5px;color:#64748b;margin-top:8px"><em>भूजल (पिण्याच्या पाण्यासाठी विनियमन) अधिनियम, १९९३ आणि शासन निर्णयातील अटींचा एकत्रित विचार करावा. प्रत्यक्ष स्थळ तपासणी व सक्षम तांत्रिक अधिकाऱ्यांचा अहवाल महत्त्वाचा आहे.</em></p>
+    </section>
+
+    <!-- ७. आवश्यक कागदपत्रे -->
+    <section class="section-card">
+      <h3 class="section-heading">📄 ७. आवश्यक कागदपत्रे</h3>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+        <table class="info-table">
+          <thead>
+            <tr>
+              <th>अ.क्र.</th>
+              <th>कागदपत्र</th>
+              <th>उपयोग</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>१</td><td>आधार कार्ड</td><td>ओळख पडताळणी</td></tr>
+            <tr><td>२</td><td>जात प्रमाणपत्र</td><td>प्रवर्ग पडताळणी</td></tr>
+            <tr><td>३</td><td>अद्ययावत ७/१२ उतारा</td><td>जमीनधारणा तपासणी</td></tr>
+            <tr><td>४</td><td>८-अ उतारा</td><td>खातेदार व जमीन तपशील</td></tr>
+            <tr><td>५</td><td>बँक पासबुक / खाते तपशील</td><td>DBT अनुदान हस्तांतरण</td></tr>
+            <tr><td>६</td><td>आधार संलग्न बँक खात्याचा तपशील</td><td>आधार आधारित भुगतान</td></tr>
+            <tr><td>७</td><td>मोबाईल क्रमांक</td><td>OTP व संदेश</td></tr>
+            <tr><td>८</td><td>सामूहिक जमीनधारणा करारनामा (लागू असल्यास)</td><td>संयुक्त पात्रता</td></tr>
+            <tr><td>९</td><td>घटकनिहाय तांत्रिक कागदपत्रे</td><td>तांत्रिक मंजुरी व तपासणी</td></tr>
+            <tr><td>१०</td><td>आवश्यक प्रतिज्ञापत्र / घोषणापत्र</td><td>योजनेच्या अटींचे पालन</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12.5px;color:#64748b;margin-top:8px"><em>सर्व कागदपत्रे प्रत्येक घटकासाठी अनिवार्य असतीलच असे नाही. अर्ज करताना पोर्टलवर आणि संबंधित कार्यालयाकडून दिलेली अद्ययावत यादी अंतिम मानावी.</em></p>
+    </section>
+
+    <!-- ८. अर्ज प्रक्रिया -->
+    <section class="section-card">
+      <h3 class="section-heading">📝 ८. ऑनलाइन अर्ज प्रक्रिया</h3>
+      <p>MahaDBT Farmer Portal वर अर्ज करण्याची सर्वसाधारण पद्धत:</p>
       <div class="steps">
-        <div class="step"><strong>पायरी 1: महा-डीबीटी पोर्टलला भेट द्या</strong><p><a href="https://mahadbt.maharashtra.gov.in" target="_blank" rel="noopener" style="color:#047857;font-weight:600">mahadbt.maharashtra.gov.in</a> उघडा → <strong>“Farmer Scheme”</strong> पर्याय निवडा.</p></div>
-        <div class="step"><strong>पायरी 2: नोंदणी / लॉगिन</strong><p>आधार क्रमांक वापरून नवीन खाते तयार करा किंवा विद्यमान खात्यात लॉगिन करा.</p></div>
-        <div class="step"><strong>पायरी 3: योजना शोधा</strong><p>योजनांच्या यादीत <strong>“डॉ. बाबासाहेब आंबेडकर कृषी स्वावलंबन योजना”</strong> शोधा आणि निवडा.</p></div>
-        <div class="step"><strong>पायरी 4: अर्ज भरा</strong><p>जमीन तपशील (7/12 सर्व्हे क्रमांक, क्षेत्र), बँक माहिती भरून <strong>कागदपत्रे अपलोड करा</strong>.</p></div>
-        <div class="step"><strong>पायरी 5: सादर व मंजुरी</strong><p>अर्ज सादर करा. <strong>“प्रथम अर्ज करणाऱ्यास प्रथम प्राधान्य”</strong> पद्धतीने छाननी; क्षेत्रीय कृषी अधिकाऱ्यांची पाहणी व शिफारसीनंतर मंजुरी.</p></div>
+        <div class="step"><strong>पायरी १</strong><p>MahaDBT Farmer Portal उघडा.</p></div>
+        <div class="step"><strong>पायरी २</strong><p>शेतकरी नोंदणी करा किंवा विद्यमान खात्यात लॉगिन करा.</p></div>
+        <div class="step"><strong>पायरी ३</strong><p>आधार व वैयक्तिक माहिती तपासा.</p></div>
+        <div class="step"><strong>पायरी ४</strong><p>शेतजमिनीचा तपशील भरा.</p></div>
+        <div class="step"><strong>पायरी ५</strong><p>संबंधित योजना निवडा.</p></div>
+        <div class="step"><strong>पायरी ६</strong><p>पात्र घटक निवडून आवश्यक कागदपत्रे अपलोड करा.</p></div>
+        <div class="step"><strong>पायरी ७</strong><p>अर्जातील माहिती तपासून अंतिम अर्ज सादर करा.</p></div>
+        <div class="step"><strong>पायरी ८</strong><p>अर्ज क्रमांक व पावती जतन करून अर्जस्थिती तपासा.</p></div>
       </div>
-      <div class="info-note" style="margin-top:12px">
-        <strong>महत्त्वाचे:</strong> महा-डीबीटी पोर्टलवर <strong>“प्रथम अर्ज करणाऱ्यास प्रथम प्राधान्य”</strong> पद्धत लागू आहे. अधिक माहितीसाठी तालुका कृषी अधिकाऱ्यांशी संपर्क साधा.
+      
+      <div class="text-center mt-4">
+        <a href="https://mahadbt.maharashtra.gov.in/Farmer/AgriLogin/AgriLogin" target="_blank" rel="noopener" class="action-btn">🚀 महा-डीबीटी पोर्टलवर अर्ज करा ↗</a>
+      </div>
+      
+      <div class="info-note warn" style="margin-top:12px">
+        <strong>महत्त्वाचे:</strong> अर्ज सादर करणे म्हणजे अनुदान मंजूर होणे नव्हे. पात्रता, लाभार्थी निवड, उपलब्ध निधी, तांत्रिक तपासणी आणि प्रशासकीय मंजुरीनंतरच लाभ देय होतो.
       </div>
     </section>
 
-    <!-- आवश्यक कागदपत्रे -->
+    <!-- ९. अंमलबजावणी -->
     <section class="section-card">
-      <h3 class="section-heading">📄 आवश्यक कागदपत्रे</h3>
-      <ul class="docs-list">
-        <li>सक्षम प्राधिकाऱ्याचे <strong>जात प्रमाणपत्र</strong> (SC/नव-बौद्ध)</li>
-        <li><strong>7/12 उतारा</strong> (शेतकऱ्याच्या नावे)</li>
-        <li><strong>8-अ उतारा</strong></li>
-        <li><strong>आधार कार्ड</strong></li>
-        <li>आधार-संलग्न <strong>बँक पासबुक</strong></li>
-        <li><strong>वार्षिक उत्पन्न प्रमाणपत्र</strong> (तहसीलदार कार्यालय)</li>
-        <li><strong>ग्रामसभा शिफारस</strong> (लागू असल्यास)</li>
-        <li><strong>BPL पुरावा</strong> (दारिद्र्य रेषेखालील लाभार्थ्यांसाठी)</li>
-        <li><strong>क्षेत्रीय कृषी अधिकाऱ्यांचा पाहणी अहवाल</strong> (लागू असल्यास)</li>
+      <h3 class="section-heading">🏛️ ९. अंमलबजावणी यंत्रणा व जबाबदाऱ्या</h3>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+        <table class="info-table">
+          <thead>
+            <tr>
+              <th>स्तर</th>
+              <th>यंत्रणा</th>
+              <th>प्रमुख कामकाज</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>राज्यस्तर</td><td>कृषी आयुक्तालय / शासन</td><td>धोरणात्मक मार्गदर्शन, शासन निर्णय व अंमलबजावणीविषयक सूचना</td></tr>
+            <tr><td>जिल्हास्तर</td><td>जिल्हा परिषद कृषी विभाग</td><td>जिल्हास्तरीय समन्वय, निधी व अंमलबजावणी</td></tr>
+            <tr><td>तालुकास्तर</td><td>पंचायत समिती कृषी विभाग</td><td>अर्ज पडताळणी, क्षेत्रीय तपासणी व मार्गदर्शन</td></tr>
+            <tr><td>क्षेत्रीय स्तर</td><td>संबंधित कृषी अधिकारी / कृषी सहाय्यक</td><td>लाभार्थी मार्गदर्शन, क्षेत्रीय पाहणी व कामाचा पाठपुरावा</td></tr>
+            <tr><td>तांत्रिक स्तर</td><td>संबंधित तांत्रिक अधिकारी</td><td>कामाच्या स्वरूपानुसार तांत्रिक तपासणी व अहवाल</td></tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <h4 style="font-weight:800;color:#065f46;margin:16px 0 6px;font-size:.95rem">तालुका व क्षेत्रीय स्तरावरील महत्त्वाच्या बाबी</h4>
+      <ul class="colored-bullet-list">
+        <li>लाभार्थ्यांना योजनेच्या अटी व अर्ज प्रक्रियेची माहिती देणे.</li>
+        <li>जमीनधारणा, जात प्रमाणपत्र व आवश्यक कागदपत्रांची पडताळणी करणे.</li>
+        <li>घटकानुसार क्षेत्रीय पाहणी व तांत्रिक अहवालासाठी समन्वय साधणे.</li>
+        <li>मंजूर कामाच्या प्रगतीचा व पूर्णत्वाचा पाठपुरावा करणे.</li>
+        <li>दुबार लाभ, चुकीची माहिती व अपात्र खर्च टाळण्यासाठी नोंदी तपासणे.</li>
+        <li>अनुदान वितरण व DBT संदर्भातील त्रुटींचा पाठपुरावा करणे.</li>
       </ul>
     </section>
 
-    <!-- महत्त्वाच्या लिंक्स -->
+    <!-- १०. निवड रद्द व पुनर्लाभ -->
     <section class="section-card">
-      <h3 class="section-heading">🔗 महत्त्वाच्या लिंक्स</h3>
-      <ul style="margin-top:6px">
-        <li><strong>महा-डीबीटी पोर्टल:</strong> <a href="https://mahadbt.maharashtra.gov.in" target="_blank" rel="noopener" style="color:#047857;font-weight:600">mahadbt.maharashtra.gov.in</a></li>
-        <li><strong>कृषी विभाग, महाराष्ट्र:</strong> <a href="https://krishi.maharashtra.gov.in" target="_blank" rel="noopener" style="color:#047857;font-weight:600">krishi.maharashtra.gov.in</a></li>
-        <li><strong>हेल्पलाईन क्रमांक:</strong> 022-61316429 (सकाळी 9 ते सायं. 7, सोमवार–शुक्रवार)</li>
-        <li><strong>स्थानिक संपर्क:</strong> तालुका कृषी अधिकारी / पंचायत समिती कृषी विभाग</li>
+      <h3 class="section-heading">🚫 १०. निवड रद्द होणे व पुनर्लाभ निर्बंध</h3>
+      <ul class="colored-bullet-list">
+        <li>निवड झालेल्या लाभार्थ्याचे निधन झाल्यास निवडीबाबत वारसदाराच्या विनंतीचा शासन निर्णयातील तरतुदीनुसार विचार करावा.</li>
+        <li>लाभार्थ्याने संपूर्ण शेतजमीन विकून भूमिहीन झाल्यास निवड रद्द करण्याची तरतूद लागू होऊ शकते.</li>
+        <li>लाभार्थ्याने अर्थसहाय्य घेण्यास नकार दिल्यास निवड रद्द होऊ शकते.</li>
+        <li>पूर्ण लाभ घेतलेल्या लाभार्थी किंवा कुटुंबासाठी पुढील पाच वर्षांच्या पुनर्लाभ प्रतिबंधाची तरतूद तपासावी.</li>
       </ul>
     </section>
 
-    <!-- आकडेवारी -->
+    <!-- ११. FAQ -->
     <section class="section-card">
-      <h3 class="section-heading">📊 योजनेची काही आकडेवारी</h3>
-      <div class="stats-grid">
-        <div class="stat-box"><div class="num">14,151</div><div class="lbl">लाभार्थी (2021-22 डिसें.)</div></div>
-        <div class="stat-box"><div class="num">₹46.50 कोटी</div><div class="lbl">खर्च (2021-22)</div></div>
-        <div class="stat-box"><div class="num">100%</div><div class="lbl">अनुदान (पात्र घटक)</div></div>
-        <div class="stat-box"><div class="num">6 हेक्टर</div><div class="lbl">कमाल जमीन मर्यादा</div></div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section-card">
-      <h3 class="section-heading">❓ सतत विचारले जाणारे प्रश्न (FAQ)</h3>
+      <h3 class="section-heading">❓ ११. वारंवार विचारले जाणारे प्रश्न (FAQ)</h3>
       <div class="faq">
-        <div class="faq-item"><button class="faq-q">योजनेचा लाभ कोणाला मिळतो?</button><div class="faq-a"><p>अनुसूचित जाती आणि नव-बौद्ध शेतकऱ्यांना, ज्यांच्याकडे वैध जात प्रमाणपत्र, 7/12, 8-अ, आधार व आधार-संलग्न बँक खाते आहे.</p></div></div>
-        <div class="faq-item"><button class="faq-q">नवीन विहिरीसाठी किती अनुदान मिळते?</button><div class="faq-a"><p>अधिकृत माहितीनुसार <strong>₹2,50,000</strong> पर्यंत; काही स्रोतांनुसार <strong>₹4,00,000</strong> पर्यंतही नमूद. अंतिम रक्कम अधिकृत पोर्टलवर तपासा.</p></div></div>
-        <div class="faq-item"><button class="faq-q">अर्ज कुठे करावा?</button><div class="faq-a"><p>महा-डीबीटी पोर्टल <a href="https://mahadbt.maharashtra.gov.in" target="_blank" rel="noopener" style="color:#047857;font-weight:600">mahadbt.maharashtra.gov.in</a> वर ऑनलाइन अर्ज करा.</p></div></div>
-        <div class="faq-item"><button class="faq-q">किमान किती जमीन आवश्यक आहे?</button><div class="faq-a"><p>नवीन विहिरीसाठी किमान <strong>0.40 हेक्टर</strong> वहिती क्षेत्र आवश्यक; एकूण जमीन कमाल <strong>6 हेक्टर</strong> पर्यंत.</p></div></div>
-        <div class="faq-item"><button class="faq-q">उत्पन्न मर्यादा किती आहे?</button><div class="faq-a"><p>सामान्यतः वार्षिक उत्पन्न <strong>₹1,50,000</strong> पर्यंत; काही अहवालांनुसार शिथिल केली आहे. अधिकृत पोर्टलवर खात्री करा.</p></div></div>
-        <div class="faq-item"><button class="faq-q">अनुदान कसे मिळते?</button><div class="faq-a"><p><strong>DBT (Direct Benefit Transfer)</strong> द्वारे थेट लाभार्थ्याच्या आधार-संलग्न बँक खात्यात जमा केले जाते.</p></div></div>
+        <div class="faq-item"><button class="faq-q">ही योजना कोणत्या प्रवर्गासाठी आहे?</button><div class="faq-a"><p>अनुसूचित जाती व नवबौद्ध प्रवर्गातील पात्र शेतकऱ्यांसाठी.</p></div></div>
+        
+        <div class="faq-item"><button class="faq-q">नवीन विहिरीसाठी किती अनुदान मिळते?</button><div class="faq-a"><p>संदर्भित सुधारित निकषांनुसार कमाल ₹४ लाखांपर्यंत; प्रत्यक्ष मंजुरी पात्र खर्च व अटींनुसार.</p></div></div>
+        
+        <div class="faq-item"><button class="faq-q">वार्षिक उत्पन्न ₹१.५० लाखांपेक्षा जास्त असल्यास लाभ मिळतो का?</button><div class="faq-a"><p>१ ऑक्टोबर २०२४ च्या शासन निर्णयानुसार पूर्वीची ₹१.५० लाख उत्पन्न मर्यादा रद्द केल्याचा उल्लेख आहे. अद्ययावत आदेश तपासावा.</p></div></div>
+        
+        <div class="faq-item"><button class="faq-q">किमान किती जमीन आवश्यक आहे?</button><div class="faq-a"><p>सामान्यतः किमान ०.४० हेक्टर. सामूहिक जमीनधारणेबाबत विशेष तरतूद लागू होऊ शकते.</p></div></div>
+        
+        <div class="faq-item"><button class="faq-q">कमाल जमीनधारणा किती?</button><div class="faq-a"><p>सामान्यतः ६ हेक्टर. दारिद्र्यरेषेखालील लाभार्थ्यांना कमाल मर्यादा लागू नसल्याची तरतूद नमूद आहे.</p></div></div>
+        
+        <div class="faq-item"><button class="faq-q">आधीपासून विहीर असल्यास इतर घटकांचा लाभ मिळू शकतो का?</button><div class="faq-a"><p>होय, संबंधित घटकाची पात्रता व शासन निर्णयातील अटी पूर्ण असल्यास पूरक घटकांचा विचार होऊ शकतो.</p></div></div>
+        
+        <div class="faq-item"><button class="faq-q">इतर योजनेतून शेततळे तयार केले असल्यास अस्तरीकरणाचा लाभ मिळतो का?</button><div class="faq-a"><p>संदर्भित शासन निर्णयात इतर योजनेतून किंवा स्वखर्चाने तयार केलेल्या शेततळ्यांसाठीही निर्धारित अटींनुसार लाभाची तरतूद नमूद आहे.</p></div></div>
+        
+        <div class="faq-item"><button class="faq-q">ठिबक सिंचनासाठी किती अनुदान आहे?</button><div class="faq-a"><p>कमाल ₹९७,००० किंवा पात्र खर्चाच्या ९० टक्के यापैकी कमी रक्कम, संदर्भित निकषांनुसार.</p></div></div>
+        
+        <div class="faq-item"><button class="faq-q">सोलार पंप व विद्युत पंप दोन्हींचा लाभ घेता येतो का?</button><div class="faq-a"><p>सोलार पंप हा संबंधित वीज जोडणी व विद्युत पंप घटकांच्या पर्यायाने अनुज्ञेय असल्याचे नमूद आहे. अंतिम अटी तपासाव्यात.</p></div></div>
+        
+        <div class="faq-item"><button class="faq-q">अर्ज केल्यानंतर अनुदान निश्चित मिळते का?</button><div class="faq-a"><p>नाही. पात्रता, निवड, उपलब्ध निधी, तांत्रिक तपासणी व प्रशासकीय मंजुरीनंतर लाभ दिला जातो.</p></div></div>
       </div>
     </section>
 
-    <!-- निष्कर्ष -->
-    <section class="section-card bg-emerald-50/80">
-      <h3 class="section-heading text-emerald-950">📌 निष्कर्ष</h3>
-      <p>डॉ. बाबासाहेब आंबेडकर कृषी स्वावलंबन योजना ही <strong>अनुसूचित जाती आणि नव-बौद्ध शेतकऱ्यांसाठी</strong> शाश्वत सिंचन आणि कृषी विकासाची महत्त्वाची राज्य सरकारची योजना आहे. यामध्ये <strong>नवीन विहीर, जुनी विहीर दुरुस्ती, पंप संच, ठिबक/तुषार सिंचन, शेततळे</strong> यांसारख्या घटकांवर <strong>100% पर्यंत अनुदान</strong> मिळते. पात्र शेतकऱ्यांनी <strong>महा-डीबीटी पोर्टल</strong>वर नोंदणी करून अर्ज करावा.</p>
-      <div class="info-note" style="margin-top:10px">
-        <strong>अधिक माहितीसाठी:</strong> तालुक्यातील <strong>कृषी अधिकारी</strong> किंवा <strong>पंचायत समिती कृषी विभाग</strong> येथे संपर्क साधा.
+    <!-- १२. शासन निर्णय व संदर्भ -->
+    <section class="section-card">
+      <h3 class="section-heading">🔗 १२. शासन निर्णय व अधिकृत संदर्भ</h3>
+      <p>मूळ कागदपत्रे उघडून अटींची खात्री करा:</p>
+      
+      <div style="margin-top:10px">
+        <div class="link-card">
+          <div><strong>१ ऑक्टोबर २०२४ – सुधारित शासन निर्णय</strong><span>आर्थिक निकष, पात्रता व घटकांतील सुधारणा</span></div>
+          <a href="https://gr.maharashtra.gov.in/Site/Upload/Government%20Resolutions/Marathi/202410011816541101.pdf" target="_blank" rel="noopener">PDF ↗</a>
+        </div>
+        <div class="link-card">
+          <div><strong>५ जानेवारी २०१७ – मूळ योजना</strong><span>योजनेच्या प्रारंभासंबंधी संदर्भ</span></div>
+          <a href="https://gr.maharashtra.gov.in" target="_blank" rel="noopener">GR पोर्टल ↗</a>
+        </div>
+        <div class="link-card">
+          <div><strong>२०१८ – मार्गदर्शक सूचना</strong><span>पूर्वीच्या अंमलबजावणी सूचनांचा संदर्भ</span></div>
+          <a href="https://mahadbt.maharashtra.gov.in/Farmer/PDF/Scheme-DrBabasahebAmbedkarKrushiSwavalambanYojana.pdf" target="_blank" rel="noopener">PDF ↗</a>
+        </div>
+        <div class="link-card">
+          <div><strong>MahaDBT Farmer Portal</strong><span>शेतकरी लॉगिन व ऑनलाइन अर्ज</span></div>
+          <a href="https://mahadbt.maharashtra.gov.in/Farmer/AgriLogin/AgriLogin" target="_blank" rel="noopener">पोर्टल ↗</a>
+        </div>
+        <div class="link-card">
+          <div><strong>महाराष्ट्र शासन GR पोर्टल</strong><span>नवीन शासन निर्णय शोधण्यासाठी</span></div>
+          <a href="https://gr.maharashtra.gov.in" target="_blank" rel="noopener">वेबसाइट ↗</a>
+        </div>
+        <div class="link-card">
+          <div><strong>महाराष्ट्र कृषी विभाग</strong><span>विभागीय सूचना व अधिकृत माहिती</span></div>
+          <a href="https://krishi.maharashtra.gov.in" target="_blank" rel="noopener">वेबसाइट ↗</a>
+        </div>
+      </div>
+      
+      <div class="info-note amber" style="margin-top:12px">
+        <strong>संदर्भ वापरण्याची सूचना:</strong> २०१८ च्या मार्गदर्शक सूचनांतील जुने आर्थिक निकष सध्याचे समजू नयेत. आर्थिक मर्यादा व सुधारित पात्रतेसाठी १ ऑक्टोबर २०२४ चा शासन निर्णय आणि त्यानंतरचे लागू आदेश तपासावेत.
       </div>
     </section>
 
-    <!-- Footer Note inside card -->
-    <div class="text-center border-t border-emerald-100 pt-3 text-xs text-gray-600 space-y-1">
-      <p class="font-bold text-emerald-900">माहिती स्रोत</p>
-      <p>कृषी विभाग, महाराष्ट्र शासन व महा-डीबीटी पोर्टल</p>
-    </div>
+    <!-- १३. अस्वीकरण -->
+    <section class="section-card">
+      <h3 class="section-heading">ℹ️ १३. माहितीविषयक अस्वीकरण</h3>
+      <p>या वेबपृष्ठाचा उद्देश योजनेची माहिती सोप्या भाषेत उपलब्ध करून देणे हा आहे. हे पृष्ठ शासनाचा अधिकृत आदेश किंवा अनुदान मंजुरीपत्र नाही. पात्रता, अनुदानाची रक्कम, घटक, कागदपत्रे, निवड पद्धती व निधीची उपलब्धता याबाबत संबंधित शासन निर्णय, सुधारित आदेश, MahaDBT पोर्टल आणि सक्षम कार्यालयाची सूचना अंतिम राहील.</p>
+      <p style="font-size:12.5px;color:#64748b;margin-top:6px"><em>माहिती संदर्भ: महाराष्ट्र शासनाचे शासन निर्णय व MahaDBT पोर्टल. शेवटची संपादन तारीख: १४ नोव्हेंबर २०२६.</em></p>
+    </section>
+
   </article>
 </main>
 
@@ -307,6 +618,7 @@
 
 <script src="portal-data.js?v=shared"></script>
 <script>
+  // नोटीस लोड करण्यासाठी
   (function(){
     function loadSharedNotices(){
       var track=document.getElementById('svGlobalNoticeTrack');

@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <style id="domainGuardStyle">html{visibility:hidden!important}</style>
 <script>
-/* Domain guard: हे पान फक्त shetkarisevarth.info आणि shetkarisevarth.in वरच उघडेल */
+/* Domain guard: हे पान फक्त shetkarisevarth.in वरच उघडेल */
 (function(){
-  var ALLOWED = ['shetkarisevarth.info', 'www.shetkarisevarth.info', 'shetkarisevarth.in', 'www.shetkarisevarth.in'];
+  var ALLOWED = ['shetkarisevarth.in', 'www.shetkarisevarth.in'];
   var ok = ALLOWED.indexOf(location.hostname.toLowerCase()) !== -1;
   // दुसऱ्या site च्या iframe मध्ये embed केले असेल तरी बंद
   try { if (window.top !== window.self) ok = ok && ALLOWED.indexOf(window.top.location.hostname.toLowerCase()) !== -1; }
@@ -21,8 +21,8 @@
         '<div style="font-family:Nirmala UI,Arial,sans-serif;text-align:center;padding:60px 20px;color:#14532d">' +
         '<h1 style="font-size:24px;font-weight:800;margin-bottom:12px">हे पान येथे उपलब्ध नाही</h1>' +
         '<p style="margin-bottom:18px">कृपया अधिकृत संकेतस्थळावर जा.</p>' +
-        '<a href="https://shetkarisevarth.info" style="display:inline-block;background:#047857;color:#fff;' +
-        'padding:12px 22px;border-radius:99px;font-weight:800;text-decoration:none">shetkarisevarth.info</a></div>';
+        '<a href="https://shetkarisevarth.in" style="display:inline-block;background:#047857;color:#fff;' +
+        'padding:12px 22px;border-radius:99px;font-weight:800;text-decoration:none">shetkarisevarth.in</a></div>';
       document.documentElement.style.setProperty('visibility', 'visible', 'important');
       document.body.className = '';
     });
@@ -211,7 +211,16 @@
             </div>
             <div class="sv-field">
               <label for="fruitName">7. चारा पिकाचे नाव</label>
-              <input id="fruitName" name="fruitName" type="text" placeholder="उदा. मका, बर्सीम, चारा ज्वारी" required>
+              <select id="fruitName" name="fruitName" required>
+                <option value="">निवडा</option>
+                <option value="Maize">मका</option>
+                <option value="GiantBajraMulticut">बाजरी मल्टीकट</option>
+                <option value="BajraNutrifast">बाजरी पिक nutrifast</option>
+                <option value="JowarMulticut">ज्वारी मल्टीकट</option>
+                <option value="JowarNutriGold">ज्वारी पिक nutrigold</option>
+                <option value="Napier">नेपियर गवत</option>
+                <option value="Lucerne">लसूण घास</option>
+              </select>
               <div class="err" data-for="fruitName"></div>
             </div>
             <div class="sv-field sm:col-span-2">
@@ -292,7 +301,7 @@
 
 <script>
   // Google Apps Script Web App URL
-  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwXIpR5spcqwjl8H9sIlyvjDUg_G6zNCG0xfr0aVFiHR4ymaYcURBwXY6AFIIKY5A54/exec";
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycby7Z2K5T_YYe5Cm8K6IMmAaP4PfI-f2qodfx3qJcrms_4vtII_ChTpAqhx_f9_qLH4B/exec";
 
   const form = document.getElementById("f");
   const statusBox = document.getElementById("status");
@@ -424,8 +433,10 @@
           'झाली नाही तर <a id="pdfLink" href="' + href + '" download="' + fname +
           '" style="text-decoration:underline;font-weight:800">येथे क्लिक करून PDF डाउनलोड करा</a>';
         document.getElementById("pdfLink").click();   // auto download
+      } else if (result && (result.pdfError || result.error)) {
+        show("bad", "माहिती जतन झाली, पण PDF तयार झाला नाही: " + (result.pdfError || result.error));
       } else {
-        show("ok", "✅ माहिती यशस्वीरित्या जतन झाली आहे!");
+        show("ok", "✅ माहिती यशस्वीरित्या जतन झाली आहे! (PDF मिळाला नाही - script ची नवी version Deploy केली आहे का ते तपासा)");
       }
     } catch (err) {
       closeOverlay();
