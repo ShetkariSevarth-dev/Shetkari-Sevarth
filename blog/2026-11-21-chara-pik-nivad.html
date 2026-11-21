@@ -26,14 +26,16 @@
   .back{display:inline-block;margin:0 0 12px;font-weight:700;text-decoration:none}
 
   /* hero */
-  .hero{position:relative;border-radius:22px;overflow:hidden;color:#fff;min-height:240px;display:flex;align-items:flex-end;
+  .hero{position:relative;border-radius:20px;overflow:hidden;color:#fff;min-height:170px;display:flex;align-items:flex-end;
     background:linear-gradient(135deg,#065f46 0%,#047857 55%,#0f766e 100%);background-size:cover;background-position:center;
-    box-shadow:0 18px 40px rgba(6,78,59,.25)}
-  .hero-in{padding:28px 26px;width:100%}
-  .hero .emoji{display:block;font-size:54px;line-height:1;margin-bottom:10px}
-  .hero h1{margin:0;font-size:32px;line-height:1.4;font-weight:800;text-shadow:0 2px 12px rgba(0,0,0,.35)}
-  .hero .meta{margin:10px 0 0;font-size:14px;opacity:.92}
-  .tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:99px;padding:2px 12px;font-size:13px;margin-bottom:10px}
+    box-shadow:0 14px 32px rgba(6,78,59,.22)}
+  .hero-in{padding:22px 24px;width:100%}
+  .hero .emoji{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;
+    background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);font-size:28px;line-height:1;margin-bottom:12px}
+  .hero h1{margin:0;font:700 26px/1.5 'Noto Sans Devanagari','Tiro Devanagari Marathi',sans-serif;max-width:720px;
+    text-shadow:0 1px 8px rgba(0,0,0,.25)}
+  .hero .meta{margin:10px 0 0;font:500 13px 'Noto Sans Devanagari',sans-serif;opacity:.9}
+  .tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:99px;padding:1px 12px;font:600 12px 'Noto Sans Devanagari',sans-serif;margin:0 0 8px}
 
   /* article */
   article{background:#fff;border:1px solid #d7e8dc;border-radius:20px;padding:26px 24px;margin-top:18px;box-shadow:0 12px 30px rgba(15,80,45,.08)}
@@ -73,7 +75,16 @@
   .sv-footer-email{margin:4px 0}
   .sv-footer-email a{color:#6ee7b7;text-decoration:underline;text-underline-offset:3px;font-weight:700;overflow-wrap:anywhere}
   .sv-footer-copy{color:#94a3b8;margin:8px 0 0}
-  @media(max-width:640px){header a{font-size:24px}.hero{min-height:200px}.hero h1{font-size:24px}article{padding:20px 16px}}
+  /* WhatsApp channel */
+  .wa-card{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:22px 0;padding:18px 20px;border-radius:18px;background:#f0fdf4;border:1px solid #86efac}
+  .wa-card .ic{font-size:34px}
+  .wa-card .txt{flex:1;min-width:190px}
+  .wa-card .t{margin:0;font:800 17px 'Noto Sans Devanagari',sans-serif;color:#14532d}
+  .wa-card .s{margin:2px 0 0;font-size:14px;color:#166534}
+  .wa-float{position:fixed;right:14px;bottom:14px;z-index:50;display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;
+    text-decoration:none;font:800 14px 'Noto Sans Devanagari',sans-serif;padding:11px 16px;border-radius:99px;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+  .wa-float:hover{background:#1ebe5b}
+  @media(max-width:640px){header a{font-size:24px}.hero{min-height:150px}.hero h1{font-size:21px}.hero-in{padding:18px 16px}article{padding:20px 16px}.wa-float span{display:none}.wa-float{padding:13px 15px;font-size:20px}}
 </style>
 </head>
 <body>
@@ -108,5 +119,6 @@
 <p>आपल्या पिकानुसार अंदाजपत्रक तयार करण्यासाठी <strong>शेतकरी सेवार्थ</strong> च्या मुख्य पानावरील योजनेची यादी पाहा.</p></article><div class="share"><a class="btn wa" href="https://wa.me/?text=%E0%A4%9A%E0%A4%BE%E0%A4%B0%E0%A4%BE%20%E0%A4%AA%E0%A4%BF%E0%A4%95%E0%A4%BE%E0%A4%82%E0%A4%9A%E0%A5%80%20%E0%A4%B2%E0%A4%BE%E0%A4%97%E0%A4%B5%E0%A4%A1%20-%20%E0%A4%86%E0%A4%AA%E0%A4%B2%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B8%E0%A4%BE%E0%A4%A0%E0%A5%80%20%E0%A4%95%E0%A5%8B%E0%A4%A3%E0%A4%A4%E0%A5%87%20%E0%A4%AA%E0%A5%80%E0%A4%95%20%E0%A4%AF%E0%A5%8B%E0%A4%97%E0%A5%8D%E0%A4%AF%3F%0Ahttps%3A//shetkarisevarth.in/blog/2026-11-21-chara-pik-nivad.html" target="_blank" rel="noopener">💬 WhatsApp वर शेअर करा</a><button class="btn copy" type="button" onclick="navigator.clipboard&&navigator.clipboard.writeText('https://shetkarisevarth.in/blog/2026-11-21-chara-pik-nivad.html');this.textContent='✔ लिंक कॉपी झाली'">🔗 लिंक कॉपी करा</button></div><div class="cta"><p>आपल्या पिकानुसार अंदाजपत्रक मोफत तयार करा</p><a href="/">📄 आपले अंदाजपत्रक तयार करा</a></div><h2 class="sec-title">📚 इतर लेख</h2><div class="cards"><a class="card" href="/blog/2026-11-21-andajpatrak-form-kasa-bharava.html"><div class="thumb">📄</div><div class="cbody"><span class="d">२१ नोव्हेंबर २०२६</span><h2>चारा पिकाचे अंदाजपत्रक ऑनलाइन कसे तयार करावे?</h2><p>शेतकरी सेवार्थ वरील फॉर्म पायरी पायरीने कसा भरावा आणि अंदाजपत्रकाचा PDF कसा मिळवावा याची सोपी माहिती.</p></div></a></div>
 </main>
 <footer class="sv-site-footer" role="contentinfo"><p class="sv-footer-note">सदर माहिती आपल्या उपयुक्त वाटल्यास किंवा सूचना असल्यास संपर्क साधू शकता.</p><p class="sv-footer-email">📧 ई-मेल: <a href="mailto:shetkarisevarthofficial@gmail.com">shetkarisevarthofficial@gmail.com</a></p><p class="sv-footer-copy">© २०२६ शेतकरी सेवार्थ | सर्व हक्क सुरक्षित</p></footer>
+<a class="wa-float" href="{{wa_channel}}" target="_blank" rel="noopener" aria-label="WhatsApp चॅनेल जॉइन करा">💬 <span>WhatsApp चॅनेल जॉइन करा</span></a>
 </body>
 </html>
