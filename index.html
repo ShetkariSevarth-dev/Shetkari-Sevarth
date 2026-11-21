@@ -132,6 +132,9 @@ header .sv-header-title h1{margin:0!important;text-align:center!important}
     font-size: 1.35rem !important;
   }
 }
+  .tab-btn{padding:8px 14px;font-weight:700;font-size:14px;color:#4b5563;border-bottom:3px solid transparent;margin-bottom:-1px;background:none;cursor:pointer;text-align:left}
+  .tab-btn:hover{color:#047857}
+  .tab-active{color:#047857;border-bottom-color:#047857}
 </style>
 </head>
 <body class="text-gray-800 min-h-screen flex flex-col justify-between">
@@ -183,16 +186,20 @@ header .sv-header-title h1{margin:0!important;text-align:center!important}
   <!-- Main Schemes List Section -->
   <main class="max-w-7xl mx-auto px-4 py-6 w-full flex-grow">
     <div class="mb-4 text-center md:text-left">
-      <h3 id="listHeading" class="text-base font-bold text-gray-800 border-b pb-2 inline-block md:block">
-        📂 कृषी योजना, मार्गदर्शक सूचना व प्रपत्रे (सर्व योजनांची सूची)
-      </h3>
-      <p id="listSubHeading" class="text-xs text-gray-500 mt-1">खालीलपैकी ज्या योजनेची माहिती हवी असेल त्यावर क्लिक करा:</p>
+      <div class="flex flex-wrap items-end justify-center md:justify-start gap-1 border-b border-gray-200" role="tablist">
+        <button id="tabSchemes" type="button" role="tab" onclick="showTab('schemes')" class="tab-btn tab-active"><span id="listHeading">📂 कृषी योजना, मार्गदर्शक सूचना व प्रपत्रे (सर्व योजनांची सूची)</span></button>
+        <button id="tabBlog" type="button" role="tab" onclick="showTab('blog')" class="tab-btn"><span id="blogTabText">📝 ब्लॉग</span></button>
+      </div>
+      <p id="listSubHeading" class="text-xs text-gray-500 mt-2">खालीलपैकी ज्या योजनेची माहिती हवी असेल त्यावर क्लिक करा:</p>
     </div>
 
     <!-- Scheme Cards Grid -->
     <div id="schemesGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       <!-- Dynamically injected via JavaScript -->
     </div>
+
+    <!-- Blog Grid (filled from blog/posts.json) -->
+    <div id="blogGrid" class="hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
   </main>
 
   <!-- Footer -->
@@ -334,6 +341,10 @@ header .sv-header-title h1{margin:0!important;text-align:center!important}
         clearBtn.classList.add('hidden');
       }
 
+      if (currentTab === 'blog') {
+        renderBlog(blogPosts.filter(p => fuzzyMatch((p.title || '') + ' ' + (p.description || ''), query)));
+        return;
+      }
       const filtered = schemesData.filter(item => fuzzyMatch(item.mr, query) || fuzzyMatch(item.en, query));
       renderSchemes(filtered);
     }
@@ -341,7 +352,7 @@ header .sv-header-title h1{margin:0!important;text-align:center!important}
     function clearSearch() {
       document.getElementById('searchInput').value = '';
       document.getElementById('clearBtn').classList.add('hidden');
-      renderSchemes(schemesData);
+      handleSearch();
     }
 
     function toggleLanguage() {
@@ -360,12 +371,72 @@ header .sv-header-title h1{margin:0!important;text-align:center!important}
         document.getElementById('searchInput').placeholder = 'योजना शोधा...';
       }
 
+      updateTabTexts();
       handleSearch();
+    }
+
+    // ---- Tabs: योजना / ब्लॉग ----
+    let currentTab = 'schemes', blogPosts = [], blogLoaded = false;
+
+    function updateTabTexts() {
+      const mr = currentLang === 'mr';
+      document.getElementById('blogTabText').innerText = mr ? '📝 ब्लॉग' : '📝 Blog';
+      const sub = document.getElementById('listSubHeading'), inp = document.getElementById('searchInput');
+      if (currentTab === 'blog') {
+        sub.innerText = mr ? 'शेतीविषयक लेख व माहिती - वाचण्यासाठी क्लिक करा:' : 'Farming articles and information - click to read:';
+        inp.placeholder = mr ? 'लेख शोधा...' : 'Search articles...';
+      } else {
+        sub.innerText = mr ? 'खालीलपैकी ज्या योजनेची माहिती हवी असेल त्यावर क्लिक करा:' : 'Click on the scheme you need information for:';
+        inp.placeholder = mr ? 'योजना शोधा...' : 'Search scheme...';
+      }
+    }
+
+    function showTab(tab) {
+      currentTab = tab;
+      const isBlog = tab === 'blog';
+      document.getElementById('schemesGrid').classList.toggle('hidden', isBlog);
+      document.getElementById('blogGrid').classList.toggle('hidden', !isBlog);
+      document.getElementById('tabSchemes').classList.toggle('tab-active', !isBlog);
+      document.getElementById('tabBlog').classList.toggle('tab-active', isBlog);
+      document.getElementById('searchInput').value = '';
+      document.getElementById('clearBtn').classList.add('hidden');
+      updateTabTexts();
+      if (isBlog) loadBlog(); else renderSchemes(schemesData);
+      history.replaceState(null, '', isBlog ? '#blog' : location.pathname + location.search);
+    }
+
+    async function loadBlog() {
+      if (!blogLoaded) {
+        try { const r = await fetch('blog/posts.json', { cache: 'no-cache' }); blogPosts = r.ok ? await r.json() : []; }
+        catch (e) { blogPosts = []; }
+        blogLoaded = true;
+      }
+      renderBlog(blogPosts);
+    }
+
+    function renderBlog(list) {
+      const grid = document.getElementById('blogGrid');
+      if (!list.length) {
+        grid.innerHTML = '<div class="col-span-full text-center py-8 text-gray-500 text-xs">अजून लेख उपलब्ध नाहीत.</div>';
+        return;
+      }
+      grid.innerHTML = list.map(p => `
+        <a href="${escapeHTML(p.url)}" class="scheme-card bg-white border border-gray-200 rounded-2xl p-4 flex flex-col justify-between shadow-xs text-left">
+          <div>
+            <span class="text-[11px] text-gray-500">${escapeHTML(p.date_mr || p.date)}</span>
+            <h4 class="font-bold text-sm text-gray-900 mt-1">${escapeHTML(p.title)}</h4>
+            <p class="text-xs text-gray-600 mt-1">${escapeHTML(p.description || '')}</p>
+          </div>
+          <span class="mt-4 w-full bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-semibold py-2 rounded-xl text-xs transition inline-block text-center">
+            ${currentLang === 'mr' ? 'लेख वाचा →' : 'Read article →'}
+          </span>
+        </a>`).join('');
     }
 
     window.addEventListener('DOMContentLoaded', () => {
       renderSchemes();
       renderAnnouncements();
+      if (location.hash === '#blog') showTab('blog');
     });
   </script>
 </body>
