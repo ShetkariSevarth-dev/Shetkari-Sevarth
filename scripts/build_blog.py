@@ -154,17 +154,17 @@ def main():
                     url=url, og_image_tag=og, body=page_body, wa_channel=WA_CHANNEL)
         (OUT / f"{post['slug']}.html").write_text(page, encoding="utf-8")
 
-    cards = "".join(card(x) for x in posts) or "<p>लवकरच नवीन माहिती येत आहे.</p>"
-    idx_body = ('<div class="listhead"><h1>📝 ब्लॉग</h1><p>शेतीविषयक लेख व माहिती</p></div>'
-                f'<div class="cards">{cards}</div>')
-    idx = fill(TEMPLATE, title="ब्लॉग", description="शेतकरी सेवार्थ - योजना व शेतीविषयक माहिती",
-               url=f"{SITE}/blog/", og_image_tag="", body=idx_body + wa_card(), wa_channel=WA_CHANNEL)
-    (OUT / "index.html").write_text(idx, encoding="utf-8")
+    # blog/index.html = सरळ मुख्य पोर्टलच्या "ब्लॉग" tab कडे नेतो (यादी दोन ठिकाणी ठेवावी लागत नाही)
+    (OUT / "index.html").write_text(
+        '<!DOCTYPE html><html lang="mr"><head><meta charset="UTF-8"><title>ब्लॉग | शेतकरी सेवार्थ</title>'
+        '<meta http-equiv="refresh" content="0; url=/#blog"><meta name="robots" content="noindex">'
+        '<link rel="canonical" href="' + SITE + '/"><script>location.replace("/#blog")</script></head>'
+        '<body><p><a href="/#blog">ब्लॉग पाहण्यासाठी येथे क्लिक करा</a></p></body></html>', encoding="utf-8")
     (OUT / "posts.json").write_text(json.dumps(
         [{"title": x["title"], "description": x["description"], "date": x["d"].isoformat(), "date_mr": x["date_mr"],
           "url": f"blog/{x['slug']}.html", "image": x["image"], "emoji": x["emoji"]} for x in posts],
         ensure_ascii=False, indent=1), encoding="utf-8")        # index.html चा "ब्लॉग" tab हे वाचतो
-    urls = [f"{SITE}/blog/"] + [f"{SITE}/blog/{x['slug']}.html" for x in posts]
+    urls = [f"{SITE}/blog/{x['slug']}.html" for x in posts]
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + \
          "".join(f"<url><loc>{u}</loc></url>\n" for u in urls) + "</urlset>\n"
     (OUT / "sitemap.xml").write_text(sm, encoding="utf-8")
