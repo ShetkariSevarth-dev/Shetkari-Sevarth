@@ -27,7 +27,7 @@ window.PORTAL_DATA = {
       "mr": "व्ही बी जी राम जी अंतर्गत चारा लागवड",
       "en": "vb g ram g chara lagwad lagvad lagavad chaara ",
       "emoji": "🌾",
-      "url": "vbchara.info.html",
+      "url": "vbchara-info.html",
       "status": "ok",
       "isNew": true
     },
