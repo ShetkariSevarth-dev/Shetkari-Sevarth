@@ -148,6 +148,14 @@
   }
   hr{border:0;border-top:1px solid var(--sv-border);margin:24px 0}
 
+  /* Tables (markdown | a | b |) */
+  .table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--sv-border);border-radius:14px;box-shadow:0 4px 12px rgba(15,80,45,.06);-webkit-overflow-scrolling:touch}
+  .table-wrap table{border-collapse:collapse;width:100%;min-width:560px;font:500 14.5px/1.6 'Noto Sans Devanagari','Tiro Devanagari Marathi',sans-serif}
+  .table-wrap th{background:linear-gradient(112deg,#064e36,#087443);color:#fff;font-weight:700;padding:10px 12px;white-space:nowrap}
+  .table-wrap td{padding:9px 12px;border-top:1px solid var(--sv-border);vertical-align:top}
+  .table-wrap tbody tr:nth-child(even){background:#f0fdf4}
+  .table-wrap tbody tr:hover{background:#e2fbe9}
+
   /* Share + CTA */
   .share{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
   .btn{
