@@ -19,6 +19,8 @@ CTA_URL  = "/"                                   # लेखाच्या श�
 CTA_TEXT = "📄 आपले अंदाजपत्रक तयार करा"
 CTA_NOTE = "आपल्या पिकानुसार अंदाजपत्रक मोफत तयार करा"
 DEFAULT_EMOJI = "🌾"
+DEFAULT_OG_IMAGE = "/share-default.png"      # लेखात चित्र नसेल तर WhatsApp/Google वर हे चित्र दिसते (repository च्या मुख्य जागी ठेवा)
+SITE_NAME = "शेतकरी सेवार्थ"
 WA_CHANNEL = "https://whatsapp.com/channel/0029VbE0FkvGufIxAZ0NQk2m"   # WhatsApp चॅनेलची link
 TEMPLATE = (OUT / "template.html").read_text(encoding="utf-8")
 
@@ -31,7 +33,14 @@ def mr_date(d):
 def inline(t):
     t = html.escape(t, quote=False)
     t = re.sub(r"!\[([^\]]*)\]\(([^)\s]+)\)", r'<img src="\2" alt="\1" loading="lazy">', t)
-    t = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", r'<a href="\2">\1</a>', t)
+    def _link(m):
+        txt, href = m.group(1), m.group(2)
+        if href.lower().split("?")[0].endswith(".pdf"):
+            return f'<a class="pdf-link" href="{href}" target="_blank" rel="noopener">📄 {txt}</a>'
+        if href.startswith("http") and not href.startswith(SITE):
+            return f'<a href="{href}" target="_blank" rel="noopener">{txt}</a>'
+        return f'<a href="{href}">{txt}</a>'
+    t = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", _link, t)
     t = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", t)
     t = re.sub(r"(?<!\*)\*(?!\s)(.+?)(?<!\s)\*(?!\*)", r"<em>\1</em>", t)
     return t
@@ -154,6 +163,33 @@ def wa_card():
             '<p class="s">आमचे WhatsApp चॅनेल मोफत जॉइन करा</p></div>'
             f'<a class="btn wa" href="{WA_CHANNEL}" target="_blank" rel="noopener">चॅनेल जॉइन करा</a></div>')
 
+def parse_date(v):
+    try: return datetime.strptime(v, "%Y-%m-%d").date()
+    except (ValueError, TypeError): return None
+
+def info_row(post):
+    parts = []
+    if post["updated"]:
+        parts.append(f'📌 शेवटचे अद्यतन: {mr_date(post["updated"])}')
+    if post["source"]:
+        src = html.escape(post["source"])
+        if post["source_url"]:
+            src = f'<a href="{html.escape(post["source_url"], quote=True)}" target="_blank" rel="noopener">{src}</a>'
+        parts.append(f'📎 स्रोत: {src}')
+    return f'<div class="info-row">{" &nbsp;·&nbsp; ".join(parts)}</div>' if parts else ""
+
+def abs_url(u):
+    return u if u.startswith("http") else SITE + (u if u.startswith("/") else "/" + u)
+
+def json_ld(post, url, image):
+    data = {"@context": "https://schema.org", "@type": "Article", "headline": post["title"],
+            "description": post["description"], "datePublished": post["d"].isoformat(),
+            "dateModified": (post["updated"] or post["d"]).isoformat(), "inLanguage": "mr",
+            "mainEntityOfPage": url, "image": [abs_url(image)],
+            "author": {"@type": "Organization", "name": SITE_NAME},
+            "publisher": {"@type": "Organization", "name": SITE_NAME, "url": SITE}}
+    return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False).replace("</", "<\\/") + "</script>"
+
 def cta(post):
     if post["cta_off"]: return ""
     url = post["cta_url"] or CTA_URL
@@ -175,6 +211,7 @@ def main():
                       "description": meta.get("description", ""), "image": meta.get("image", ""),
                       "alt": meta.get("image_alt", ""), "emoji": meta.get("emoji", DEFAULT_EMOJI),
                       "tag": meta.get("tag", ""), "mins": minutes(body), "body": body,
+                      "updated": parse_date(meta.get("updated", "")), "source": meta.get("source", ""), "source_url": meta.get("source_url", ""),
                       "cta_off": meta.get("cta", "").strip().lower() in ("no", "off", "false", "नाही"),
                       "cta_url": meta.get("cta_url", ""), "cta_text": meta.get("cta_text", ""), "cta_note": meta.get("cta_note", "")})
     posts.sort(key=lambda x: (x["d"], x["slug"]), reverse=True)
@@ -183,8 +220,9 @@ def main():
         url = f"{SITE}/blog/{post['slug']}.html"
         others = [x for x in posts if x["slug"] != post["slug"]][:3]
         related = ('<h2 class="sec-title">📚 इतर लेख</h2><div class="cards">' + "".join(card(x) for x in others) + "</div>") if others else ""
-        page_body = hero(post) + f"<article>{md_to_html(post['body'])}</article>" + share(post) + wa_card() + cta(post) + related
-        og = f'<meta property="og:image" content="{html.escape(post["image"] if post["image"].startswith("http") else SITE + post["image"], quote=True)}">' if post["image"] else ""
+        page_body = hero(post) + info_row(post) + f"<article>{md_to_html(post['body'])}</article>" + share(post) + wa_card() + cta(post) + related
+        image = post["image"] or DEFAULT_OG_IMAGE
+        og = f'<meta property="og:image" content="{html.escape(abs_url(image), quote=True)}">\n<meta name="twitter:card" content="summary_large_image">\n' + json_ld(post, url, image)
         page = fill(TEMPLATE, title=html.escape(post["title"]), description=html.escape(post["description"], quote=True),
                     url=url, og_image_tag=og, body=page_body, wa_channel=WA_CHANNEL)
         (OUT / f"{post['slug']}.html").write_text(page, encoding="utf-8")
