@@ -36,6 +36,27 @@ def inline(t):
     t = re.sub(r"(?<!\*)\*(?!\s)(.+?)(?<!\s)\*(?!\*)", r"<em>\1</em>", t)
     return t
 
+SEP = re.compile(r"^\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)*\|?$")
+
+def split_row(line):
+    line = line.strip()
+    if line.startswith("|"): line = line[1:]
+    if line.endswith("|"): line = line[:-1]
+    return [c.strip() for c in line.split("|")]
+
+def table_html(rows):
+    head, aligns, body = split_row(rows[0]), [], rows[2:]
+    for c in split_row(rows[1]):
+        aligns.append("center" if c.startswith(":") and c.endswith(":") else "right" if c.endswith(":") else "left")
+    def cell(tag, txt, i):
+        al = aligns[i] if i < len(aligns) else "left"
+        return f'<{tag} style="text-align:{al}">{inline(txt)}</{tag}>'
+    out = ['<div class="table-wrap"><table><thead><tr>' + "".join(cell("th", c, i) for i, c in enumerate(head)) + "</tr></thead><tbody>"]
+    for r in body:
+        out.append("<tr>" + "".join(cell("td", c, i) for i, c in enumerate(split_row(r))) + "</tr>")
+    out.append("</tbody></table></div>")
+    return "".join(out)
+
 def md_to_html(md):
     out, para, items, kind = [], [], [], None
     def flush_p():
@@ -46,19 +67,27 @@ def md_to_html(md):
         if items:
             out.append(f"<{kind}>" + "".join(f"<li>{inline(i)}</li>" for i in items) + f"</{kind}>")
             items, kind = [], None
-    for line in md.splitlines():
-        s = line.strip()
-        m = re.match(r"^(#{1,3})\s+(.*)", s)
+    lines = md.splitlines(); i = 0
+    while i < len(lines):
+        s = lines[i].strip(); i += 1
         if not s: flush_p(); flush_l(); continue
+        # table: a "|" row followed by a |---|---| separator row
+        if s.startswith("|") and i < len(lines) and SEP.match(lines[i].strip()):
+            flush_p(); flush_l()
+            rows = [s, lines[i].strip()]; i += 1
+            while i < len(lines) and lines[i].strip().startswith("|"):
+                rows.append(lines[i].strip()); i += 1
+            out.append(table_html(rows)); continue
+        m = re.match(r"^(#{1,3})\s+(.*)", s)
         if m:
-            flush_p(); flush_l(); n = max(2, len(m.group(1)))   # # and ## -> h2, ### -> h3 (page title is h1)
+            flush_p(); flush_l(); n = max(2, len(m.group(1)))
             out.append(f"<h{n}>{inline(m.group(2))}</h{n}>"); continue
         if s in ("---", "***"): flush_p(); flush_l(); out.append("<hr>"); continue
-        b = re.match(r"^[-*]\s+(.*)", s); o = re.match(r"^\d+[.)]\s+(.*)", s)
-        if b or o:
-            flush_p(); k = "ul" if b else "ol"
+        bm = re.match(r"^[-*]\s+(.*)", s); om = re.match(r"^\d+[.)]\s+(.*)", s)
+        if bm or om:
+            flush_p(); k = "ul" if bm else "ol"
             if kind and kind != k: flush_l()
-            kind = k; items.append((b or o).group(1)); continue
+            kind = k; items.append((bm or om).group(1)); continue
         if s.startswith(">"):
             flush_p(); flush_l(); out.append("<blockquote>" + inline(s.lstrip("> ")) + "</blockquote>"); continue
         flush_l(); para.append(s)
@@ -125,9 +154,13 @@ def wa_card():
             '<p class="s">आमचे WhatsApp चॅनेल मोफत जॉइन करा</p></div>'
             f'<a class="btn wa" href="{WA_CHANNEL}" target="_blank" rel="noopener">चॅनेल जॉइन करा</a></div>')
 
-def cta():
-    return (f'<div class="cta"><p>{html.escape(CTA_NOTE)}</p>'
-            f'<a href="{html.escape(CTA_URL, quote=True)}">{html.escape(CTA_TEXT)}</a></div>')
+def cta(post):
+    if post["cta_off"]: return ""
+    url = post["cta_url"] or CTA_URL
+    text = post["cta_text"] or CTA_TEXT
+    note = post["cta_note"] or CTA_NOTE
+    return (f'<div class="cta"><p>{html.escape(note)}</p>'
+            f'<a href="{html.escape(url, quote=True)}">{html.escape(text)}</a></div>')
 
 def main():
     today = date.today()
@@ -141,14 +174,16 @@ def main():
         posts.append({"slug": p.stem, "d": d, "date_mr": mr_date(d), "title": meta.get("title") or p.stem,
                       "description": meta.get("description", ""), "image": meta.get("image", ""),
                       "alt": meta.get("image_alt", ""), "emoji": meta.get("emoji", DEFAULT_EMOJI),
-                      "tag": meta.get("tag", ""), "mins": minutes(body), "body": body})
+                      "tag": meta.get("tag", ""), "mins": minutes(body), "body": body,
+                      "cta_off": meta.get("cta", "").strip().lower() in ("no", "off", "false", "नाही"),
+                      "cta_url": meta.get("cta_url", ""), "cta_text": meta.get("cta_text", ""), "cta_note": meta.get("cta_note", "")})
     posts.sort(key=lambda x: (x["d"], x["slug"]), reverse=True)
 
     for post in posts:
         url = f"{SITE}/blog/{post['slug']}.html"
         others = [x for x in posts if x["slug"] != post["slug"]][:3]
         related = ('<h2 class="sec-title">📚 इतर लेख</h2><div class="cards">' + "".join(card(x) for x in others) + "</div>") if others else ""
-        page_body = hero(post) + f"<article>{md_to_html(post['body'])}</article>" + share(post) + wa_card() + cta() + related
+        page_body = hero(post) + f"<article>{md_to_html(post['body'])}</article>" + share(post) + wa_card() + cta(post) + related
         og = f'<meta property="og:image" content="{html.escape(post["image"] if post["image"].startswith("http") else SITE + post["image"], quote=True)}">' if post["image"] else ""
         page = fill(TEMPLATE, title=html.escape(post["title"]), description=html.escape(post["description"], quote=True),
                     url=url, og_image_tag=og, body=page_body, wa_channel=WA_CHANNEL)
